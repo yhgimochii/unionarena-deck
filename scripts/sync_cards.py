@@ -19,7 +19,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UA-Deck-Analyzer/6.0)"}
 # exact HTML/link nesting used by each IP.
 HEADER_RE = re.compile(
     r"(?P<set>[A-Z0-9]+)\s*/\s*"
-    r"(?P<num>[A-Z0-9]+-\d+-\d{3}(?:-[A-Z0-9]+)?)"
+    r"(?P<num>(?:[A-Z0-9]+-\d+-\d{3}(?:-[A-Z0-9]+)?|[A-Z0-9]+-\d+-AP\d{2}))"
     r"(?:\s*\((?P<rarity>[^)]+)\))?",
     re.I,
 )
@@ -49,6 +49,15 @@ FALLBACK_SETS = {
     "UA33BT", "UA34BT", "UA35BT", "UA36BT", "UA37BT", "UA38BT", "UA39BT", "UA40BT",
     "UA41BT", "UA42BT", "UA43BT", "UA44BT", "UA45BT", "UA46BT", "UA47BT", "UA48BT",
     "UA49BT", "UA50BT", "UA51BT", "UA52BT", "UA53BT", "UAPR",
+}
+
+
+# Explicit verification queries for the three known cross-IP test cards.
+# These are queried directly even if Rugia's Version filter or discovery changes.
+CRITICAL_SET_QUERIES = {
+    "UA43BT": "UA43BT/SMD-1-042",
+    "EX15BT": "EX15BT/BLC-4-004",
+    "UA53BT": "UA53BT/CSM-1-061",
 }
 
 
@@ -312,7 +321,30 @@ def main():
         except Exception as e:
             print(f"WARN set {set_code}: {e}")
 
+    # Critical direct set pass. This avoids relying on Version discovery/server-side
+    # filtering for the known SMD/BLEACH/CSM verification cards.
+    print("Direct critical-set verification pass:")
+    for set_code, expected_id in CRITICAL_SET_QUERIES.items():
+        try:
+            r = get(session, RUGIA, params={"Name": "HK", "Find1": set_code})
+            rows = parse_rugia(r.text)
+            print(f"  {set_code}: parsed {len(rows)} cards; expected {expected_id} -> "
+                  f"{'FOUND' if any(x.get('id') == expected_id for x in rows) else 'MISSING'}")
+            for row in rows:
+                discovered[row["id"]] = row
+        except Exception as e:
+            print(f"  ERROR {set_code}: {e}")
+
     print(f"Total Rugia cards discovered: {len(discovered)}")
+
+    # Fail immediately, before expensive official metadata requests, so the Action log
+    # tells us exactly which source/card failed instead of ending later at verification.
+    critical_missing = [cid for cid in CRITICAL_SET_QUERIES.values() if cid not in discovered]
+    if critical_missing:
+        print("CRITICAL CARDS MISSING FROM RUGIA PARSE:")
+        for cid in critical_missing:
+            print(f"  MISSING: {cid}")
+        raise SystemExit("SYNC FAILED: Rugia parser did not capture required cards: " + ", ".join(critical_missing))
 
     if not discovered:
         raise SystemExit("SYNC FAILED: Rugia returned zero cards. Refusing to overwrite cards.json.")
