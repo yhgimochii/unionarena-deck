@@ -1,5 +1,2315 @@
 [
   {
+    "id": "EX15BT/BLC-4-001",
+    "name": "巴茲",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-001",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500
+  },
+  {
+    "id": "EX15BT/BLC-4-002",
+    "name": "雨果",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-002",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500
+  },
+  {
+    "id": "EX15BT/BLC-4-003",
+    "name": "亞斯金．納克魯瓦爾",
+    "rarity": "R★",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-003",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-004",
+    "name": "石田 雨龍",
+    "rarity": "SR★★★",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-004",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-005",
+    "name": "傑拉德．瓦爾基里",
+    "rarity": "C",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-005",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-006",
+    "name": "巴茲比",
+    "rarity": "C",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-006",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-007",
+    "name": "巴茲比",
+    "rarity": "U",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-007",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-008",
+    "name": "巴茲比",
+    "rarity": "SR★",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-008",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-009",
+    "name": "邦比愛塔．芭絲塔拜因",
+    "rarity": "C",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-009",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-010",
+    "name": "佩尼達．帕卡賈",
+    "rarity": "C",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-010",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-011",
+    "name": "雨葛蘭．哈斯沃德",
+    "rarity": "U",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-011",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-012",
+    "name": "雨葛蘭．哈斯沃德",
+    "rarity": "SR★",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-012",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-013",
+    "name": "優哈巴哈",
+    "rarity": "C",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-013",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-014",
+    "name": "優哈巴哈",
+    "rarity": "U",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-014",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-015",
+    "name": "優哈巴哈",
+    "rarity": "R★",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-015",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-016",
+    "name": "利捷．巴羅",
+    "rarity": "U",
+    "effect": "特徵：\n星十字騎士團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-016",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Stern Ritters"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-017",
+    "name": "吉賽爾．茱艾爾",
+    "rarity": "R★",
+    "effect": "特徵：\n星十字騎士團\n／\n邦比小隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-017",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Stern Ritters / Bambies"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-018",
+    "name": "莉托托．蘭帕朵",
+    "rarity": "U",
+    "effect": "特徵：\n星十字騎士團\n／\n邦比小隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-018",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Stern Ritters / Bambies"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-019",
+    "name": "滅卻師完聖體",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-019",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-020",
+    "name": "我要成為最強的滅卻師",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-020",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-021",
+    "name": "Burning Full Fingers",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-021",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-022",
+    "name": "井上 織姬",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-022",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX15BT/BLC-4-023",
+    "name": "浦原 喜助",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-023",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 500
+  },
+  {
+    "id": "EX15BT/BLC-4-024",
+    "name": "浦原 喜助",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-024",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000
+  },
+  {
+    "id": "EX15BT/BLC-4-025",
+    "name": "黑崎 一護",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-025",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX15BT/BLC-4-026",
+    "name": "黑崎 一護",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-026",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
+  },
+  {
+    "id": "EX15BT/BLC-4-027",
+    "name": "黑崎 一護",
+    "rarity": "SR★★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-027",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色"
+  },
+  {
+    "id": "EX15BT/BLC-4-028",
+    "name": "荼渡 泰虎",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-028",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色"
+  },
+  {
+    "id": "EX15BT/BLC-4-029",
+    "name": "志波 岩鷲",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-029",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
+  },
+  {
+    "id": "EX15BT/BLC-4-030",
+    "name": "四楓院 夜一",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-030",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500
+  },
+  {
+    "id": "EX15BT/BLC-4-031",
+    "name": "四楓院 夜一",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-031",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
+  },
+  {
+    "id": "EX15BT/BLC-4-032",
+    "name": "四楓院 夜一",
+    "rarity": "R",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-032",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色"
+  },
+  {
+    "id": "EX15BT/BLC-4-033",
+    "name": "四楓院 夜一",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-033",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX15BT/BLC-4-034",
+    "name": "毒峰 莉露卡",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-034",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
+  },
+  {
+    "id": "EX15BT/BLC-4-035",
+    "name": "葛力姆喬．賈卡傑克",
+    "rarity": "C",
+    "effect": "特徵：\n破面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-035",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Arrancars"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-036",
+    "name": "葛力姆喬．賈卡傑克",
+    "rarity": "SR★★",
+    "effect": "特徵：\n破面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-036",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 6,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Arrancars"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-037",
+    "name": "妮莉艾露．杜．歐德修凡克",
+    "rarity": "C★",
+    "effect": "特徵：\n破面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-037",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Arrancars"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-038",
+    "name": "朽木 露琪亞",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-038",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-039",
+    "name": "朽木 露琪亞",
+    "rarity": "R",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-039",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-040",
+    "name": "涅 音夢",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-040",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-041",
+    "name": "涅 音夢",
+    "rarity": "SR★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-041",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 5000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-042",
+    "name": "涅 繭利",
+    "rarity": "R★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-042",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-043",
+    "name": "眠七號",
+    "rarity": "U",
+    "effect": "（涅 音夢）\n特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-043",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-044",
+    "name": "瞬閧．雷神戰形",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-044",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-045",
+    "name": "瞬神",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-045",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-046",
+    "name": "井上 織姬",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-046",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
+  },
+  {
+    "id": "EX15BT/BLC-4-047",
+    "name": "魂",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-047",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 500
+  },
+  {
+    "id": "EX15BT/BLC-4-048",
+    "name": "阿散井 戀次",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-048",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-049",
+    "name": "阿散井 戀次",
+    "rarity": "R",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-049",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-050",
+    "name": "阿散井 戀次",
+    "rarity": "SR★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-050",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-051",
+    "name": "朽木 白哉",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-051",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-052",
+    "name": "朽木 白哉",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-052",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-053",
+    "name": "朽木 白哉",
+    "rarity": "SR★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-053",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-054",
+    "name": "朽木 露琪亞",
+    "rarity": "R",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-054",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-055",
+    "name": "兵主部 一兵衛",
+    "rarity": "U",
+    "effect": "特徵：\n零番隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-055",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Squad Zero"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-056",
+    "name": "兵主部 一兵衛",
+    "rarity": "R",
+    "effect": "特徵：\n零番隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-056",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Squad Zero"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-057",
+    "name": "“真打”『白筆一文字』",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-057",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-058",
+    "name": "雙王蛇尾丸",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-058",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-059",
+    "name": "卍解",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-059",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-060",
+    "name": "藍染 惣右介",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-060",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX15BT/BLC-4-061",
+    "name": "猿柿 日世里",
+    "rarity": "C",
+    "effect": "特徵：\n假面軍勢",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-061",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Visoreds"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-062",
+    "name": "矢胴丸 莉莎",
+    "rarity": "C",
+    "effect": "特徵：\n假面軍勢",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-062",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Visoreds"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-063",
+    "name": "綾瀨川 弓親",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-063",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-064",
+    "name": "伊勢 七緒",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-064",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-065",
+    "name": "伊勢 七緒",
+    "rarity": "R★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-065",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-066",
+    "name": "卯之花 烈",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-066",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-067",
+    "name": "京樂 春水",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-067",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-068",
+    "name": "京樂 春水",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-068",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-069",
+    "name": "京樂 春水",
+    "rarity": "SR★★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-069",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-070",
+    "name": "更木 劍八",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-070",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-071",
+    "name": "碎蜂",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-071",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-072",
+    "name": "平子 真子",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-072",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-073",
+    "name": "斑目 一角",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-073",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-074",
+    "name": "山本 重國",
+    "rarity": "C",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-074",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-075",
+    "name": "浮竹 十四郎",
+    "rarity": "U",
+    "effect": "特徵：\n護廷十三隊\n／\n靈王的右手",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-075",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 500,
+    "traits": [
+      "Thirteen Court Guard Squads / The Soul King's Right Arm"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-076",
+    "name": "花天",
+    "rarity": "U",
+    "effect": "特徵：\n花天狂骨",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-076",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Katenkyokotsu"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-077",
+    "name": "狂骨",
+    "rarity": "U",
+    "effect": "特徵：\n花天狂骨",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-077",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Katenkyokotsu"
+    ]
+  },
+  {
+    "id": "EX15BT/BLC-4-078",
+    "name": "黑棺",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-078",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-079",
+    "name": "神劍．八鏡劍",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-079",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-080",
+    "name": "卍解",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-080",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX15BT/BLC-4-081",
+    "name": "花天狂骨枯松心中",
+    "rarity": "U",
+    "effect": "特徵：\n花天狂骨",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-081",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "traits": [
+      "Katenkyokotsu"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-001",
+    "name": "Ultimate小圓",
+    "rarity": "SR★★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-001",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX16BT/MMM-2-002",
+    "name": "丘比",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-002",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
+  },
+  {
+    "id": "EX16BT/MMM-2-003",
+    "name": "曉美 焰",
+    "rarity": "R",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-003",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-004",
+    "name": "鹿目 圓",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-004",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-005",
+    "name": "佐倉 杏子",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-005",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-006",
+    "name": "巴 麻美",
+    "rarity": "C★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-006",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-007",
+    "name": "巴 麻美",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-007",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-008",
+    "name": "美樹 沙耶香",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-008",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-009",
+    "name": "挑戰手作蛋糕中",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-009",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-010",
+    "name": "再見了，小焰",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-010",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-011",
+    "name": "Ultimate小圓",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-011",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX16BT/MMM-2-012",
+    "name": "惡魔焰",
+    "rarity": "SR★★★",
+    "effect": "（曉美 焰）",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-012",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000
+  },
+  {
+    "id": "EX16BT/MMM-2-013",
+    "name": "曉美 焰",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-013",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-014",
+    "name": "曉美 焰",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-014",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-015",
+    "name": "鹿目 圓",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-015",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-016",
+    "name": "百江 渚",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-016",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-017",
+    "name": "巴 麻美",
+    "rarity": "R",
+    "effect": "特徵：\n魔法少女\n／\n魔法少女神聖五重奏",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-017",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Magical Girl／Puella Magi Holy Quintet"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-018",
+    "name": "將回憶藏在心裡",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-018",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 2,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-019",
+    "name": "秋野 楓",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-019",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-020",
+    "name": "吳 紀里香",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-020",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-021",
+    "name": "環 憂",
+    "rarity": "C★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-021",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-022",
+    "name": "十咎 桃子",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-022",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-023",
+    "name": "美國 織莉子",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-023",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-024",
+    "name": "水波 玲奈",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-024",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-025",
+    "name": "環 彩羽",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-025",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-026",
+    "name": "環 彩羽",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-026",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-027",
+    "name": "環 彩羽",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-027",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-028",
+    "name": "環 彩羽",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-028",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-029",
+    "name": "七海 八千代",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-029",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-030",
+    "name": "七海 八千代",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-030",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-031",
+    "name": "七海 八千代",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-031",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-032",
+    "name": "七海 八千代",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-032",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-033",
+    "name": "二葉 紗奈",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-033",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-034",
+    "name": "二葉 紗奈",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-034",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-035",
+    "name": "二葉 紗奈",
+    "rarity": "R★★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-035",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-036",
+    "name": "深月 菲莉西亞",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-036",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-037",
+    "name": "深月 菲莉西亞",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-037",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-038",
+    "name": "深月 菲莉西亞",
+    "rarity": "R★★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-038",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-039",
+    "name": "由比 鶴乃",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-039",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-040",
+    "name": "由比 鶴乃",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-040",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-041",
+    "name": "由比 鶴乃",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女\n／\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-041",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl／Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-042",
+    "name": "阿莉娜．格雷",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-042",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-043",
+    "name": "阿莉娜．格雷",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-043",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-044",
+    "name": "阿莉娜．格雷",
+    "rarity": "R",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-044",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-045",
+    "name": "阿莉娜．格雷",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-045",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 6,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-046",
+    "name": "里見 燈花",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-046",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-047",
+    "name": "里見 燈花",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-047",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-048",
+    "name": "里見 燈花",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-048",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-049",
+    "name": "里見 燈花",
+    "rarity": "SR★",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-049",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-050",
+    "name": "柊 音夢",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-050",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-051",
+    "name": "柊 音夢",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女\n／\nMagius",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-051",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-052",
+    "name": "天音 月咲",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\nMagius之翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-052",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Wings of the Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-053",
+    "name": "天音 月夜",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女\n／\nMagius之翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-053",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl／Wings of the Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-054",
+    "name": "梓 冬美",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女\n／\nMagius之翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-054",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Magical Girl／Wings of the Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-055",
+    "name": "梓 冬美",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女\n／\nMagius之翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-055",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Wings of the Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-056",
+    "name": "神聖麻美",
+    "rarity": "SR★",
+    "effect": "特徵：\n魔法少女\n／\nMagius之翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-056",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 2,
+    "type": "角色",
+    "traits": [
+      "Magical Girl／Wings of the Magius"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-057",
+    "name": "三日月莊隊伍！",
+    "rarity": "C",
+    "effect": "特徵：\n三日月莊隊伍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-057",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Team Mikazuki Villa"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-058",
+    "name": "回去吧，我們的家",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-058",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-059",
+    "name": "沉默的魔女化身",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-059",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-060",
+    "name": "箱庭創造者",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-060",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-061",
+    "name": "Marigold Dadaism",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-061",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-062",
+    "name": "歡迎光臨八雲偵探事務所",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-062",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX16BT/MMM-2-063",
+    "name": "曉美 焰",
+    "rarity": "U★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-063",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-064",
+    "name": "鹿目 圓",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-064",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-065",
+    "name": "佐倉 杏子",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-065",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-066",
+    "name": "佐倉 杏子",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-066",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-067",
+    "name": "佐倉 杏子",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-067",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-068",
+    "name": "巴 麻美",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-068",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-069",
+    "name": "巴 麻美",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-069",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-070",
+    "name": "美樹 沙耶香",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-070",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-071",
+    "name": "美樹 沙耶香",
+    "rarity": "R★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-071",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-072",
+    "name": "美樹 沙耶香",
+    "rarity": "SR★★",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-072",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Magical Girl"
+    ]
+  },
+  {
+    "id": "EX16BT/MMM-2-073",
+    "name": "懷抱著各自的思念",
+    "rarity": "C",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-073",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "EX17BT/REZ-2-006",
+    "name": "拉姆",
+    "rarity": "SR★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-006",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-010",
+    "name": "雷姆",
+    "rarity": "SR★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-010",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-021",
+    "name": "菜月昴的陪伴者，雷姆",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-021",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-058",
+    "name": "愛蜜莉雅",
+    "rarity": "SR★★",
+    "effect": "特徵：\n王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-058",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-005",
+    "name": "千石 撫子",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-005",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-041",
+    "name": "忍野忍",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-041",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-042",
+    "name": "忍野忍",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-042",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-046",
+    "name": "斧乃木 余接",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-046",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-053",
+    "name": "八九寺 真宵",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-053",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-067",
+    "name": "戰場原 黑儀",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-067",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA01DC/BLC-4-082",
+    "name": "黑崎 一護",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-082",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
+  },
+  {
+    "id": "UA01DC/BLC-4-083",
+    "name": "朽木 露琪亞",
+    "rarity": "SR★★",
+    "effect": "特徵：\n護廷十三隊",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-083",
+    "source": "Rugia sync",
+    "energyColor": "Purple",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Thirteen Court Guard Squads"
+    ]
+  },
+  {
     "id": "UA53BT/CSM-1-047",
     "rarity": "R",
     "name": "鏈鋸人",
@@ -8,8 +2318,14 @@
     "ap": 1,
     "bp": 4000,
     "energyColor": "紅",
-    "traits": ["淀治"],
-    "keywords": ["突襲", "衝擊無效", "退場時"],
+    "traits": [
+      "淀治"
+    ],
+    "keywords": [
+      "突襲",
+      "衝擊無效",
+      "退場時"
+    ],
     "effect": "此卡也被視為〈淀治〉。\n〖突襲〗〈淀治〉置為活動，並可移動至前線。\n〖衝擊無效〗（與此角色戰鬥的角色卡在這場戰鬥中失去〖衝擊〗。）\n〖退場時〗從以下選擇１項。\n．抽２張卡。\n．若此角色下面擁有背面向上的卡，將此卡以激活狀態在自己前線登場。",
     "trigger": "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-047#UA53BT_CSM-1-047"
@@ -23,8 +2339,14 @@
     "ap": 1,
     "bp": 5000,
     "energyColor": "紅",
-    "traits": ["淀治"],
-    "keywords": ["突襲", "衝擊", "攻擊結束時"],
+    "traits": [
+      "淀治"
+    ],
+    "keywords": [
+      "突襲",
+      "衝擊",
+      "攻擊結束時"
+    ],
     "effect": "此卡也被視為〈淀治〉。\n〖突襲〗〈淀治〉置為活動，並可移動至前線。\n此角色攻擊結束時，此角色下面擁有背面向上的卡的情況下，此角色被激活，並且此角色在本回合中獲得〖衝擊１〗。然後將此角色下面１張背面向上的卡放置到場外。被此效果放置到場外的卡是〈波奇塔〉的情況下，將最多１張該卡以休息狀態在自己能源線登場。",
     "trigger": "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-048#UA53BT_CSM-1-048"
@@ -39,7 +2361,9 @@
     "bp": 1000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["主起動"],
+    "keywords": [
+      "主起動"
+    ],
     "effect": "〖主起動〗休息此角色。此角色在本回合中，生產能源＋１紅，並獲得「主階段結束時，將此角色退場。」。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-049#UA53BT_CSM-1-049"
@@ -54,7 +2378,9 @@
     "bp": 2000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["登場時"],
+    "keywords": [
+      "登場時"
+    ],
     "effect": "〖登場時〗抽１張卡，然後將自己１張手牌放置到場外。",
     "trigger": "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-050#UA53BT_CSM-1-050"
@@ -69,7 +2395,9 @@
     "bp": 3000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["登場時"],
+    "keywords": [
+      "登場時"
+    ],
     "effect": "〖登場時〗從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。然後選擇自己場上最多１張不是突襲狀態，並且下面沒有背面向上的卡的〈淀治〉，從自己場外選擇最多１張〈波奇塔〉或〈相對地……請讓我看見淀治的夢想〉以背面向上放置到該角色下面。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-051#UA53BT_CSM-1-051"
@@ -84,7 +2412,9 @@
     "bp": 1000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["登場時"],
+    "keywords": [
+      "登場時"
+    ],
     "effect": "〖登場時〗從自己牌庫上面查看２張卡，將最多１張卡放置到場外，將餘下的卡以任意順序放置到牌庫上面。",
     "trigger": "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-057#UA53BT_CSM-1-057"
@@ -99,7 +2429,9 @@
     "bp": 4000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["退場時"],
+    "keywords": [
+      "退場時"
+    ],
     "effect": "〖退場時〗抽１張卡。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-058#UA53BT_CSM-1-058"
@@ -114,7 +2446,9 @@
     "bp": 3000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["主起動"],
+    "keywords": [
+      "主起動"
+    ],
     "effect": "〖主起動〗將１張手牌放置到場外。此角色在本回合中，生產能源＋１紅。",
     "trigger": "〖抽牌〗抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-059#UA53BT_CSM-1-059"
@@ -129,7 +2463,9 @@
     "bp": 2500,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["登場時"],
+    "keywords": [
+      "登場時"
+    ],
     "effect": "〖登場時〗自己場上擁有〈淀治〉的情況下，抽１張卡。",
     "trigger": "〖抽牌〗抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-060#UA53BT_CSM-1-060"
@@ -143,8 +2479,14 @@
     "ap": 1,
     "bp": 4000,
     "energyColor": "紅",
-    "traits": ["帕瓦"],
-    "keywords": ["突襲", "每回合1次", "登場時"],
+    "traits": [
+      "帕瓦"
+    ],
+    "keywords": [
+      "突襲",
+      "每回合1次",
+      "登場時"
+    ],
     "effect": "〖突襲〗〈帕瓦〉置為活動，並可移動至前線。\n〖每回合１次〗BP500或以上的此角色退場的情況下，可改為將自己前線１張BP4000或以上的其他角色退場。\n此角色進行攻擊並戰鬥勝利時，抽１張卡。\n〖登場時〗自己場上擁有〈淀治〉的情況下，此角色在本回合中，BP＋1000並獲得「可能的話，對手必需要阻擋此角色的攻擊。」。",
     "trigger": "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-061#UA53BT_CSM-1-061"
@@ -159,7 +2501,10 @@
     "bp": 500,
     "energyColor": "紅",
     "traits": [],
-    "keywords": ["登場時", "主起動"],
+    "keywords": [
+      "登場時",
+      "主起動"
+    ],
     "effect": "此卡不能在前線登場，並且不能移動到前線。\n〖登場時〗從自己牌庫上面查看１張卡，然後放置到牌庫上面或場外。\n〖主起動〗休息，將此卡退場。可從自己場外選擇１張能源需求１或以下的紅色〈淀治〉，以激活狀態在自己能源線登場。如這樣做，將被此效果退場的此卡，以背面向上放置到該〈淀治〉下面。",
     "trigger": "〖COLOR〗選擇對手前線１張BP2500或以下的角色退場。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-067#UA53BT_CSM-1-067"
@@ -208,5 +2553,2729 @@
     "effect": "選擇對手前線１張『BP3000或以下』的角色退場。自己場上擁有〈淀治〉的情況下，改為『BP5000或以下』。",
     "trigger": "〖特別〗選擇對手前線１張角色退場。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-080#UA53BT_CSM-1-080"
+  },
+  {
+    "id": "UA55BT/IMC-1-001",
+    "name": "千川 千尋",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-001",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
+  },
+  {
+    "id": "UA55BT/IMC-1-002",
+    "name": "大槻 唯",
+    "rarity": "U",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-002",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-003",
+    "name": "大槻 唯",
+    "rarity": "R",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-003",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-004",
+    "name": "緒方 智繪里",
+    "rarity": "C",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-004",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3500,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-005",
+    "name": "緒方 智繪里",
+    "rarity": "U",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-005",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-006",
+    "name": "緒方 智繪里",
+    "rarity": "R★",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-006",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-007",
+    "name": "川島 瑞樹",
+    "rarity": "C",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-007",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-008",
+    "name": "川島 瑞樹",
+    "rarity": "U",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-008",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-009",
+    "name": "川島 瑞樹",
+    "rarity": "R★",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-009",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-010",
+    "name": "城崎 莉嘉",
+    "rarity": "C",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-010",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-011",
+    "name": "城崎 莉嘉",
+    "rarity": "U",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-011",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-012",
+    "name": "城崎 莉嘉",
+    "rarity": "SR★★",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-012",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-013",
+    "name": "北條 加蓮",
+    "rarity": "C",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-013",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-014",
+    "name": "北條 加蓮",
+    "rarity": "U★",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-014",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-015",
+    "name": "北條 加蓮",
+    "rarity": "U",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-015",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-016",
+    "name": "北條 加蓮",
+    "rarity": "SR★★",
+    "effect": "特徵：\nBEYOND THE STARLIGHT",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-016",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-017",
+    "name": "高森 藍子",
+    "rarity": "C",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-017",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-018",
+    "name": "高森 藍子",
+    "rarity": "U★",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-018",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-019",
+    "name": "高森 藍子",
+    "rarity": "R",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-019",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-020",
+    "name": "高森 藍子",
+    "rarity": "SR★★",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-020",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-021",
+    "name": "日野 茜",
+    "rarity": "C",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-021",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-022",
+    "name": "日野 茜",
+    "rarity": "U",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-022",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-023",
+    "name": "日野 茜",
+    "rarity": "R★",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-023",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-024",
+    "name": "日野 茜",
+    "rarity": "SR★★",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-024",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-025",
+    "name": "本田 未央",
+    "rarity": "C",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-025",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-026",
+    "name": "本田 未央",
+    "rarity": "C",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-026",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-027",
+    "name": "本田 未央",
+    "rarity": "U",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-027",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-028",
+    "name": "本田 未央",
+    "rarity": "SR★★★",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-028",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Positive Passion"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-029",
+    "name": "BEYOND THE STARLIGHT",
+    "rarity": "U",
+    "effect": "特徵：",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-029",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "BEYOND THE STARLIGHT"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-030",
+    "name": "熱情FanFunFare",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-030",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-031",
+    "name": "千川 千尋的支持",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-031",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-032",
+    "name": "心跳砰砰的旋律",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-032",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-033",
+    "name": "三星☆☆★",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-033",
+    "source": "Rugia sync",
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-034",
+    "name": "千川 千尋",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-034",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
+  },
+  {
+    "id": "UA55BT/IMC-1-035",
+    "name": "木村 夏樹",
+    "rarity": "C",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-035",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-036",
+    "name": "木村 夏樹",
+    "rarity": "U",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-036",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-037",
+    "name": "木村 夏樹",
+    "rarity": "R★",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-037",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-038",
+    "name": "小日向 美穗",
+    "rarity": "U",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-038",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 500,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-039",
+    "name": "小日向 美穗",
+    "rarity": "R",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-039",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-040",
+    "name": "澀谷 凛",
+    "rarity": "C",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-040",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-041",
+    "name": "澀谷 凛",
+    "rarity": "C",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-041",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-042",
+    "name": "澀谷 凛",
+    "rarity": "U",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-042",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-043",
+    "name": "澀谷 凛",
+    "rarity": "SR★★★",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-043",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-044",
+    "name": "早坂 美玲",
+    "rarity": "C",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-044",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-045",
+    "name": "早坂 美玲",
+    "rarity": "U",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-045",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-046",
+    "name": "早坂 美玲",
+    "rarity": "R★",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-046",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-047",
+    "name": "一之瀨 志希",
+    "rarity": "C",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-047",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-048",
+    "name": "一之瀨 志希",
+    "rarity": "U",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-048",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-049",
+    "name": "一之瀨 志希",
+    "rarity": "R★",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-049",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-050",
+    "name": "城崎 美嘉",
+    "rarity": "C",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-050",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-051",
+    "name": "城崎 美嘉",
+    "rarity": "SR★★",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-051",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-052",
+    "name": "速水 奏",
+    "rarity": "C★",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-052",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-053",
+    "name": "速水 奏",
+    "rarity": "U",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-053",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-054",
+    "name": "速水 奏",
+    "rarity": "SR★★",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-054",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-055",
+    "name": "宮本 芙蕾德莉卡",
+    "rarity": "C",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-055",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-056",
+    "name": "宮本 芙蕾德莉卡",
+    "rarity": "U",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-056",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-057",
+    "name": "宮本 芙蕾德莉卡",
+    "rarity": "R★",
+    "effect": "特徵：\nLiPPS",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-057",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "LiPPS"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-058",
+    "name": "鹽見 周子",
+    "rarity": "C",
+    "effect": "特徵：\nLiPPS\n／\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-058",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "LiPPS / Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-059",
+    "name": "鹽見 周子",
+    "rarity": "U",
+    "effect": "特徵：\nLiPPS\n／\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-059",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "LiPPS / Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-060",
+    "name": "鹽見 周子",
+    "rarity": "R★",
+    "effect": "特徵：\nLiPPS\n／\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-060",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "LiPPS / Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-061",
+    "name": "鹽見 周子",
+    "rarity": "SR★★",
+    "effect": "特徵：\nLiPPS\n／\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-061",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "LiPPS / Girls in the Frontier"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-062",
+    "name": "Girls in the Frontier",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-062",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-063",
+    "name": "千川 千尋的支持",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-063",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-064",
+    "name": "Tulip",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-064",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-065",
+    "name": "Never say never",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-065",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-066",
+    "name": "Hotel Moonside",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-066",
+    "source": "Rugia sync",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA55BT/IMC-1-067",
+    "name": "千川 千尋",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-067",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
+  },
+  {
+    "id": "UA55BT/IMC-1-068",
+    "name": "神崎 蘭子",
+    "rarity": "SR★★",
+    "effect": "特徵：\n拜託了！灰姑娘",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-068",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Onegai! Cinderella"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-069",
+    "name": "小日向 美穗",
+    "rarity": "U★",
+    "effect": "特徵：\n拜託了！灰姑娘",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-069",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Onegai! Cinderella"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-070",
+    "name": "城崎 美嘉",
+    "rarity": "C★",
+    "effect": "特徵：\n拜託了！灰姑娘",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-070",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Onegai! Cinderella"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-071",
+    "name": "城崎 莉嘉",
+    "rarity": "C★",
+    "effect": "特徵：\n拜託了！灰姑娘",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-071",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Onegai! Cinderella"
+    ]
+  },
+  {
+    "id": "UA55BT/IMC-1-072",
+    "name": "多田 李衣菜",
+    "rarity": "R",
+    "effect": "特徵：\n拜託了！灰姑娘",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-072",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Onegai! Cinderella"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-001",
+    "name": "維拉魯",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-001",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-002",
+    "name": "維拉魯",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-002",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-003",
+    "name": "維拉魯",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-003",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-004",
+    "name": "維拉魯",
+    "rarity": "SR★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-004",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-005",
+    "name": "奇坦",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-005",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-006",
+    "name": "奇坦",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-006",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-007",
+    "name": "傑米",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-007",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-008",
+    "name": "小紅蓮螺巖",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-008",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-009",
+    "name": "施蒙",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-009",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-010",
+    "name": "施蒙",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-010",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-011",
+    "name": "施蒙",
+    "rarity": "R",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-011",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-012",
+    "name": "施蒙",
+    "rarity": "SR★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-012",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 6,
+    "ap": 2,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-013",
+    "name": "達莉",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-013",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-014",
+    "name": "妮亞",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-014",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-015",
+    "name": "妮亞",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-015",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-016",
+    "name": "妮亞",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-016",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-017",
+    "name": "妮亞",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-017",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-018",
+    "name": "布塔",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-018",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-019",
+    "name": "陽子",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-019",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-020",
+    "name": "陽子",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-020",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-021",
+    "name": "陽子",
+    "rarity": "SR★★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-021",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-022",
+    "name": "由美子老師",
+    "rarity": "C★",
+    "effect": "（陽子）\n特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-022",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-023",
+    "name": "李龍",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-023",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-024",
+    "name": "麗達",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-024",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-025",
+    "name": "羅傑儂",
+    "rarity": "U",
+    "effect": "（螺旋王）\n特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-025",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-026",
+    "name": "羅修",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-026",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-027",
+    "name": "方舟紅蓮螺巖",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-027",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 7,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-028",
+    "name": "紅蓮螺巖",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-028",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-029",
+    "name": "紅蓮螺巖",
+    "rarity": "R",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-029",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-030",
+    "name": "宇宙大王奇坦",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-030",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-031",
+    "name": "超銀河紅蓮螺巖",
+    "rarity": "R",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-031",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 10,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-032",
+    "name": "天元突破紅蓮螺巖",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-032",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 100,
+    "ap": 1,
+    "type": "角色",
+    "bp": 50000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-033",
+    "name": "方舟紅蓮",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-033",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-034",
+    "name": "超銀河大紅蓮",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-034",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 8,
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-035",
+    "name": "時空烈斷 Buster Spining Punch",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-035",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-036",
+    "name": "自己所選擇的一件事 就是你的宇宙真理",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-036",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-037",
+    "name": "妮亞 我不會忘記您",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-037",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-038",
+    "name": "你等我 妮亞",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-038",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-039",
+    "name": "螺巖衝擊",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-039",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 6,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-040",
+    "name": "你以為我們是誰啊!!",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-040",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 8,
+    "ap": 1,
+    "type": "事件",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-041",
+    "name": "那才是我們大紅蓮團!",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-041",
+    "source": "Rugia sync",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "事件",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-042",
+    "name": "卡米拿",
+    "rarity": "C★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-042",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-043",
+    "name": "卡米拿",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-043",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-044",
+    "name": "卡米拿",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-044",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-045",
+    "name": "卡米拿",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-045",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-046",
+    "name": "卡米拿",
+    "rarity": "SR★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-046",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-047",
+    "name": "奇坦",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-047",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-048",
+    "name": "奇坦",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-048",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-049",
+    "name": "傑米＆達莉",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-049",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-050",
+    "name": "奇揚＆奇儂＆奇雅露",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-050",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-051",
+    "name": "施蒙",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-051",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-052",
+    "name": "施蒙",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-052",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-053",
+    "name": "施蒙",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-053",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-054",
+    "name": "施蒙",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-054",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-055",
+    "name": "施蒙",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-055",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-056",
+    "name": "施蒙",
+    "rarity": "SR★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-056",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-057",
+    "name": "達雅卡",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-057",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-058",
+    "name": "妮亞",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-058",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-059",
+    "name": "妮亞",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-059",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-060",
+    "name": "妮亞",
+    "rarity": "U★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-060",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-061",
+    "name": "妮亞",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-061",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 2,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-062",
+    "name": "妮亞",
+    "rarity": "SR★★★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-062",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-063",
+    "name": "布塔",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-063",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-064",
+    "name": "陽子",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-064",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-065",
+    "name": "陽子",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-065",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-066",
+    "name": "陽子",
+    "rarity": "U★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-066",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-067",
+    "name": "陽子",
+    "rarity": "R★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-067",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 3500,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-068",
+    "name": "陽子",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-068",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-069",
+    "name": "李龍",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-069",
+    "source": "Rugia sync",
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-070",
+    "name": "羅修",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-070",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "traits": [
+      "Team Dai-Gurren"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-071",
+    "name": "大王奇坦DX",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-071",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-072",
+    "name": "紅蓮",
+    "rarity": "R",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-072",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-073",
+    "name": "紅蓮螺巖",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-073",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-074",
+    "name": "紅蓮螺巖",
+    "rarity": "SR★",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-074",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-075",
+    "name": "大紅蓮團顏面",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-075",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-076",
+    "name": "螺巖",
+    "rarity": "R",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-076",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-077",
+    "name": "大紅蓮",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團\n／\n顏面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-077",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "場域",
+    "traits": [
+      "Team Dai-Gurren / Gunmen"
+    ]
+  },
+  {
+    "id": "UA56BT/TTG-1-078",
+    "name": "相信那個相信你的我",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-078",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-079",
+    "name": "我就是我！鑽洞施蒙！！",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-079",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-080",
+    "name": "你以為我是誰啊!!",
+    "rarity": "C★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-080",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA56BT/TTG-1-081",
+    "name": "巨鑽爆擊",
+    "rarity": "U★",
+    "effect": "（Giga Drill Break）",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-081",
+    "source": "Rugia sync",
+    "energyColor": "Red",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
+  },
+  {
+    "id": "UA57BT/STG-1-004",
+    "name": "阿萬音 鈴羽",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-004",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-009",
+    "name": "岡部 倫太郎",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-009",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-010",
+    "name": "岡部 倫太郎",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-010",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-011",
+    "name": "岡部 倫太郎",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-011",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-016",
+    "name": "椎名 真由理",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-016",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-017",
+    "name": "椎名 真由理",
+    "rarity": "SR★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-017",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-018",
+    "name": "椎名 真由理",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-018",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-021",
+    "name": "橋田 至",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-021",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-025",
+    "name": "牧瀨 紅莉栖",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-025",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-026",
+    "name": "牧瀨 紅莉栖",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-026",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-027",
+    "name": "牧瀨 紅莉栖",
+    "rarity": "R★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-027",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-028",
+    "name": "牧瀨 紅莉栖",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-028",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-029",
+    "name": "牧瀨 紅莉栖",
+    "rarity": "SR★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-029",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-032",
+    "name": "El．Psy．Congroo",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-032",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-033",
+    "name": "掌管未來的女神作戰",
+    "rarity": "U",
+    "effect": "（Operation Skuld）",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-033",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-034",
+    "name": "這就是命運石之門的選擇",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-034",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-035",
+    "name": "欺騙最初的你 欺騙世界",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-035",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-036",
+    "name": "與星屑握手",
+    "rarity": "U★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-036",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-037",
+    "name": "跨越世界線變動率1%之壁",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-037",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-038",
+    "name": "真由氏的懷錶～停掉了……",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-038",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-039",
+    "name": "真由氏的巴掌",
+    "rarity": "C★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-039",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-046",
+    "name": "阿萬音 鈴羽",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-046",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-050",
+    "name": "漆原 琉華",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-050",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-056",
+    "name": "桐生 萌郁",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-056",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-066",
+    "name": "菲莉絲．喵喵",
+    "rarity": "SR★★",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-066",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-072",
+    "name": "電話微波爐（暫定）",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-072",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-073",
+    "name": "五月皇后+喵喵",
+    "rarity": "C",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-073",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA57BT/STG-1-077",
+    "name": "D Mail",
+    "rarity": "U",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-077",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-007",
+    "name": "亞連．沃克",
+    "rarity": "U",
+    "effect": "特徵：\n黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-007",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-009",
+    "name": "亞連．沃克",
+    "rarity": "SR",
+    "effect": "特徵：\n黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-009",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-010",
+    "name": "神田 優",
+    "rarity": "C",
+    "effect": "特徵：\n黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-010",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-015",
+    "name": "神田 優",
+    "rarity": "SR",
+    "effect": "特徵：\n黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-015",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-025",
+    "name": "拉比",
+    "rarity": "C",
+    "effect": "特徵：\n黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-025",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/BLC-4-027",
+    "name": "黑崎 一護",
+    "rarity": "UR",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-027",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/BLC-4-032",
+    "name": "四楓院 夜一",
+    "rarity": "R",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-032",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/BLC-4-035",
+    "name": "葛力姆喬．賈卡傑克",
+    "rarity": "C",
+    "effect": "特徵：\n破面",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-035",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/IMC-1-027",
+    "name": "本田 未央",
+    "rarity": "U",
+    "effect": "特徵：\nPositive Passion",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-027",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/IMC-1-041",
+    "name": "澀谷 凛",
+    "rarity": "C",
+    "effect": "特徵：\nGirls in the Frontier",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-041",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/MMM-2-003",
+    "name": "曉美 焰",
+    "rarity": "R",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-003",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/MMM-2-012",
+    "name": "惡魔焰",
+    "rarity": "UR",
+    "effect": "（曉美 焰）",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-012",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/MMM-2-015",
+    "name": "鹿目 圓",
+    "rarity": "U",
+    "effect": "特徵：\n魔法少女",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-015",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/REZ-2-011",
+    "name": "愛蜜莉雅",
+    "rarity": "UR",
+    "effect": "特徵：\n王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-011",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/TTG-1-015",
+    "name": "妮亞",
+    "rarity": "U",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-015",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/TTG-1-052",
+    "name": "施蒙",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-052",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/TTG-1-056",
+    "name": "施蒙",
+    "rarity": "UR",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-056",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/TTG-1-064",
+    "name": "陽子",
+    "rarity": "C",
+    "effect": "特徵：\n大紅蓮團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-064",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
   }
 ]
