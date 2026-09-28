@@ -1,44 +1,111 @@
 <!doctype html>
-<html lang="zh-Hant">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UA Playset Builder</title>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UA 牌組分析</title>
 <style>
 :root{color-scheme:light dark;--bg:light-dark(#f4f6f8,#101216);--panel:light-dark(#fff,#171a20);--panel2:light-dark(#f7f8fa,#1d2129);--text:light-dark(#171a1f,#f4f6f8);--muted:light-dark(#68707d,#9da5b3);--line:light-dark(#e2e6eb,#303641);--accent:light-dark(#5b4bdb,#9b8cff);--danger:#e76f51;--good:#35a46f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}.app{min-height:100vh;background:var(--bg)}
-header{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 22px;gap:20px;position:sticky;top:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);z-index:5}.brand{font-weight:850;letter-spacing:-.03em;font-size:20px}.brand span{color:var(--accent)}.tabs{display:flex;gap:4px}.tab{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:9px;font-weight:650;cursor:pointer}.tab.active,.tab:hover{background:var(--panel2);color:var(--text)}.search{margin-left:auto;max-width:360px;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--text);outline:none}
-.layout{display:grid;grid-template-columns:250px minmax(0,1fr) 360px;gap:16px;max-width:1500px;margin:0 auto;padding:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}.sidebar{padding:16px;height:calc(100vh - 100px);position:sticky;top:82px;overflow:auto}.side-title{font-size:12px;text-transform:uppercase;color:var(--muted);font-weight:800;letter-spacing:.08em;margin:4px 0 10px}.side-item{display:flex;justify-content:space-between;padding:9px 10px;border-radius:8px;cursor:pointer}.side-item:hover,.side-item.active{background:var(--panel2)}.count{color:var(--muted);font-size:12px}
-.main{min-width:0}.toolbar{padding:14px;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.select,.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:9px 11px;border-radius:9px}.btn{cursor:pointer;font-weight:700}.btn.primary{background:var(--accent);border-color:var(--accent);color:white}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}.card{padding:10px;cursor:pointer;transition:.15s transform,.15s border-color;border:1px solid var(--line);background:var(--panel);border-radius:12px}.card:hover{transform:translateY(-2px);border-color:var(--accent)}.art{aspect-ratio:63/88;border-radius:8px;background:linear-gradient(145deg,#332b55,#161822 55%,#5e2c4b);display:flex;align-items:flex-end;padding:10px;color:white;overflow:hidden;position:relative}.art:after{content:'UNION ARENA';position:absolute;top:10px;right:10px;font-size:8px;letter-spacing:.14em;opacity:.7}.art .character{font-size:24px;font-weight:900;line-height:1}.meta{display:flex;justify-content:space-between;gap:6px;margin-top:9px}.name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{font-size:12px;color:var(--muted);margin-top:3px}.tag{font-size:10px;border:1px solid var(--line);padding:3px 6px;border-radius:999px;color:var(--muted)}.qty{display:flex;align-items:center;justify-content:space-between;margin-top:9px}.qty button{width:26px;height:26px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:7px;cursor:pointer}.qty strong{font-size:13px}
-.detail{padding:16px;height:calc(100vh - 100px);position:sticky;top:82px;overflow:auto}.detail-top{display:flex;gap:14px}.detail .art{width:115px;flex:none}.detail h2{margin:0 0 4px;font-size:20px}.muted{color:var(--muted)}.chips{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0 14px}.section{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.ability{line-height:1.55;font-size:13px;white-space:pre-line}.credit{font-size:10px;color:var(--muted);line-height:1.4}.deckbox{background:var(--panel2);border-radius:10px;padding:11px;margin-top:10px}.deckrow{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}.deckrow:last-child{border-bottom:0}.deckrow .mini{width:32px;height:45px;border-radius:4px;background:#40365f;flex:none}.deckrow .grow{min-width:0;flex:1}.deckrow .grow b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.need{font-size:11px;color:var(--danger)}.owned{font-size:11px;color:var(--good)}.empty{padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.status{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--panel2);color:var(--muted)}
-.artlink{display:block;flex:none;text-decoration:none;color:inherit;border-radius:8px;transition:.15s transform,.15s box-shadow}.artlink:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accent)}.deckrow a.mini{display:block;overflow:hidden;background:#40365f center/cover no-repeat}.deckrow a.mini img{width:100%;height:100%;object-fit:cover;display:block}.linkhint{font-size:11px;color:var(--accent);margin-top:6px;display:inline-block}
-@media(max-width:1100px){.layout{grid-template-columns:210px minmax(0,1fr)}.detail{grid-column:1/-1;position:relative;top:auto;height:auto}.detail .art{width:95px}}@media(max-width:760px){header{padding:0 12px}.tabs{display:none}.search{max-width:210px}.layout{grid-template-columns:1fr;padding:10px}.sidebar{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.detail{height:auto}}
-</style></head>
-<body><div class="app">
-<header><div class="brand">UA <span>卡組</span></div><div class="tabs"><button class="tab active">卡片</button><button class="tab">我的卡庫</button><button class="tab">牌組</button></div><input id="search" class="search" placeholder="搜尋卡片名稱、卡號、效果文字…"/></header>
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif}
+header{height:60px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 22px;position:sticky;top:0;background:var(--bg);z-index:5}.brand{font-weight:850;font-size:20px;letter-spacing:-.03em}.brand span{color:var(--accent)}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr) 360px;gap:16px;max-width:1500px;margin:0 auto;padding:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.side,.detail{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow:auto;align-self:start}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}h3:not(:first-child){margin-top:20px}
+textarea,input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:9px 10px;font:inherit;font-size:13px}textarea{min-height:90px;resize:vertical}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-weight:700;cursor:pointer;font-size:13px}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.saved{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;cursor:pointer}.saved:hover,.saved.on{background:var(--panel2)}.saved small{color:var(--muted)}.x{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.head h2{margin:0;font-size:20px}.stat{font-size:12px;color:var(--muted)}
+.item{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:var(--panel)}.item:hover,.item.on{border-color:var(--accent)}
+.thumb{width:36px;height:50px;border-radius:5px;background:linear-gradient(145deg,#332b55,#161822);flex:none;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.grow{flex:1;min-width:0}.grow b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{font-size:12px;color:var(--muted)}.qty{font-weight:800;font-size:18px;min-width:32px;text-align:center;color:var(--accent)}
+.tag{font-size:10px;border:1px solid var(--line);padding:3px 6px;border-radius:999px;color:var(--muted)}.miss{color:var(--danger)}
+.empty{padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+.ability{line-height:1.6;font-size:14px;white-space:pre-line}.chips{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.big{width:130px;aspect-ratio:63/88;border-radius:8px;background:linear-gradient(145deg,#332b55,#161822 55%,#5e2c4b);overflow:hidden;margin-bottom:10px}.big img{width:100%;height:100%;object-fit:cover;display:block}
+a{color:var(--accent)}.note{font-size:12px;color:var(--muted);line-height:1.5}
+@media(max-width:1100px){.layout{grid-template-columns:280px minmax(0,1fr)}.detail{grid-column:1/-1;position:static;max-height:none}}
+@media(max-width:760px){.layout{grid-template-columns:1fr;padding:10px}.side{position:static;max-height:none}}
+</style></head><body>
+<header><div class="brand">UA <span>牌組分析</span></div></header>
 <div class="layout">
-<aside class="panel sidebar"><div class="side-title">我的卡庫</div><div class="side-item active">全部卡片 <span class="count" id="ownedCount">0</span></div><div class="side-item">尚缺卡片 <span class="count" id="needCount">0</span></div><div class="side-title" style="margin-top:22px">作品</div><div class="side-item">鏈鋸人 <span class="count">UA53BT</span></div><div class="side-item">BLEACH <span class="count">EX15BT</span></div><div class="side-item">SAKAMOTO DAYS <span class="count">各彈</span></div><div class="side-title" style="margin-top:22px">顏色</div><div class="side-item">紫色 <span class="count">●</span></div><div class="side-item">藍色 <span class="count">●</span></div><div class="side-item">黃色 <span class="count">●</span></div></aside>
-<main class="main"><div class="panel toolbar"><select id="set" class="select"><option value="all">全部卡包</option><option>UA53BT</option></select><select id="rarity" class="select"><option value="all">全部稀有度</option><option>SR</option><option>R</option><option>U</option><option>C</option></select><select id="color" class="select"><option value="all">全部顏色</option><option>Purple</option></select><button id="reset" class="btn">重設</button><span class="status" id="resultStatus"></span></div><div id="grid" class="grid"></div></main>
+<aside class="panel side">
+<h3>匯入 Rugia Creation 牌組</h3>
+<textarea id="src" placeholder="貼上 Rugia Creation 牌組連結（deckEdit?...&Deck=...）或只貼 Deck 內容"></textarea>
+<input id="dname" placeholder="牌組名稱（可留空）" style="margin-top:8px">
+<div class="row"><button class="btn primary" id="go">分析並儲存牌組</button></div>
+<div id="err" class="note miss"></div>
+<h3>我的牌組</h3><div id="saved"></div>
+<h3>卡片資料庫</h3>
+<details><summary class="note" style="cursor:pointer">匯入卡片資料（JSON）</summary>
+<textarea id="json" placeholder='[{"id":"UA53BT_1003","name":"…","rarity":"R","trait":"…","energy":2,"bp":3000,"text":"繁體中文效果"}]' style="margin-top:8px"></textarea>
+<div class="row"><button class="btn" id="imp">匯入</button></div></details>
+<p class="note" id="dbinfo"></p>
+</aside>
+<main><div id="deck"></div></main>
 <aside class="panel detail" id="detail"></aside>
-</div></div>
+</div>
 <script>
-const cards=[
-{id:'UA53BT/CSM-1-047',set:'UA53BT',rarity:'R',color:'Purple',name:'鏈鋸人',jp:'チェンソーマン',trait:'鏈鋸人',owned:2,max:4,bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-047.jpg',text:'此卡也被視為〈淀治〉。\n\n退場時 從以下選擇１項。\n．抽２張卡。\n．此角色下面擁有背面向上的卡的情況下，將此卡以激活狀態在自己前線登場。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
-{id:'UA53BT/CSM-1-048',set:'UA53BT',rarity:'SR',color:'Purple',name:'鏈鋸人',jp:'チェンソーマン',trait:'鏈鋸人',owned:4,max:4,bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-048.jpg',text:'此卡也被視為〈淀治〉。\n\n此角色進行攻擊並戰鬥勝利時，若此角色下面擁有背面向上的卡，將此角色激活，並將其下面１張背面向上的卡放置到場外。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
-{id:'UA53BT/CSM-1-013',set:'UA53BT',rarity:'U',color:'Purple',name:'帕瓦',jp:'パワー',trait:'鏈鋸人',owned:1,max:4,bp:2500,energy:2,image:'assets/cards/UA53BT-CSM-1-013.jpg',text:'攻擊時 自己場上擁有〈淀治〉的情況下，此角色在本回合中，BP+500。\n\n抽１張卡。'},
-{id:'UA53BT/CSM-1-024',set:'UA53BT',rarity:'SR',color:'Purple',name:'真紀真',jp:'マキマ',trait:'公安',owned:3,max:4,bp:3500,energy:4,image:'assets/cards/UA53BT-CSM-1-024.jpg',text:'在前線的情況 自己〈真紀真〉以外的紫色角色卡，在全部地方也被視為事件卡。\n\n登場時 本回合中，下次從手牌使用沒有Image及沒有Image效果的事件卡的AP消耗-1。從以下選擇１項。\n．抽１張卡。\n．選擇自己場上最多１張其他角色，本回合中，BP+2000。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
-{id:'UA53BT/CSM-1-010',set:'UA53BT',rarity:'R',color:'Purple',name:'天使惡魔',jp:'天使の悪魔',trait:'公安',owned:0,max:4,bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-010.jpg',text:'自己回合中 自己場上擁有〈真紀真〉的情況下，根據自己在本回合中使用過的事件卡的張數，此角色獲得以下全部效果。\n．１張或以上：BP+1000。\n．２張或以上：此角色不會被BP4000或以上的角色阻擋。\n\n抽１張卡。'},
-{id:'UA53BT/CSM-1-068',set:'UA53BT',rarity:'C',color:'Purple',name:'真紀真',jp:'マキマ',trait:'公安',owned:4,max:4,bp:1500,energy:1,image:'assets/cards/UA53BT-CSM-1-068.jpg',text:'退場時 可將自己手牌最多２張角色卡或１張事件卡放置到場外。如這樣做，將此卡加入手牌。\n\n抽牌 抽１張卡。'},
-{id:'UA53BT/CSM-1-071',set:'UA53BT',rarity:'C',color:'Purple',name:'未來惡魔',jp:'未来の悪魔',trait:'公安',owned:2,max:4,bp:1000,energy:1,image:'assets/cards/UA53BT-CSM-1-071.jpg',text:'主起動 休息 從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面。\n\n抽１張卡。'},
-{id:'UA53BT/CSM-1-079',set:'UA53BT',rarity:'U',color:'Purple',name:'有哦',jp:'有哦',trait:'事件',owned:0,max:4,bp:null,energy:2,image:'assets/cards/UA53BT-CSM-1-079.jpg',text:'選擇自己最多２張AP卡被激活。\n\n自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。'}
-];
-let selected=cards[0];
-// Link to the card's page on Rugia Creation (edit this one function if their URL format changes)
-function rugiaUrl(c){return 'https://rugiacreation.com/ua/search?Name='+encodeURIComponent(c.name)}
-function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function art(c,small=false){return `<div class="art" ${small?'style="aspect-ratio:63/88"':''}>${c.image?`<img src="${esc(c.image)}" alt="${esc(c.name)}" onerror="this.style.display='none'">`:''}<div class="character">${esc(c.name)}</div></div>`}
-function render(){const q=document.getElementById('search').value.toLowerCase(),set=document.getElementById('set').value,rarity=document.getElementById('rarity').value,color=document.getElementById('color').value;const list=cards.filter(c=>(set==='all'||c.set===set)&&(rarity==='all'||c.rarity===rarity)&&(color==='all'||c.color===color)&&(`${c.name} ${c.jp} ${c.id} ${c.text} ${c.trait}`.toLowerCase().includes(q)));document.getElementById('resultStatus').textContent=`共 ${list.length} 張`;document.getElementById('grid').innerHTML=list.map(c=>`<div class="card" data-id="${c.id}">${art(c)}<div class="meta"><div><div class="name">${esc(c.name)}</div><div class="sub">${c.id} · ${c.trait}</div></div><span class="tag">${c.rarity}</span></div><div class="qty"><span class="sub">持有 ${c.owned}/${c.max}</span><div><button onclick="event.stopPropagation();change('${c.id}',-1)">−</button> <strong>${c.owned}</strong> <button onclick="event.stopPropagation();change('${c.id}',1)">+</button></div></div></div>`).join('')||'<div class="empty">沒有符合篩選條件的卡片。</div>';document.querySelectorAll('.card').forEach(el=>el.onclick=()=>{selected=cards.find(c=>c.id===el.dataset.id);detail()});const owned=cards.reduce((n,c)=>n+c.owned,0),need=cards.reduce((n,c)=>n+Math.max(0,c.max-c.owned),0);document.getElementById('ownedCount').textContent=owned;document.getElementById('needCount').textContent=need}
-function detail(){const c=selected;document.getElementById('detail').innerHTML=`<div class="detail-top"><a class="artlink" href="${rugiaUrl(c)}" target="_blank" rel="noopener noreferrer" title="在 Rugia Creation 查看繁體中文效果">${art(c)}</a><div><h2>${esc(c.name)}</h2><div class="muted">${c.id}</div><div class="chips"><span class="tag">${c.set}</span><span class="tag">${c.rarity}</span><span class="tag">${c.color==='Purple'?'紫色':c.color}</span>${c.bp?`<span class="tag">${c.energy} 能量 · ${c.bp} BP</span>`:''}</div><button class="btn primary" onclick="change('${c.id}',1)">加入我的卡庫</button><br><a class="linkhint" href="${rugiaUrl(c)}" target="_blank" rel="noopener noreferrer">在 Rugia Creation 查看 ↗</a></div></div><div class="section"><div class="side-title">卡片效果</div><div class="ability">${esc(c.text)}</div></div><div class="section"><div class="side-title">我的卡庫</div><div class="deckbox"><div class="deckrow"><a class="mini" href="${rugiaUrl(c)}" target="_blank" rel="noopener noreferrer" title="在 Rugia Creation 查看卡片說明">${c.image?`<img src="${esc(c.image)}" alt="${esc(c.name)}" onerror="this.style.display='none'">`:''}</a><div class="grow"><b>${esc(c.name)}</b><span class="owned">持有 ${c.owned}/${c.max} 張</span></div><button class="btn" onclick="change('${c.id}',-1)">−</button><b>${c.owned}</b><button class="btn" onclick="change('${c.id}',1)">+</button></div></div></div><div class="section"><div class="side-title">牌組預覽</div><div class="muted" style="font-size:12px">加入牌組的卡片會在這裡保留，方便你一邊組牌，一邊閱讀繁體中文卡片效果。</div></div><div class="section credit">卡片資料與繁體中文效果欄位可依 Rugia Creation 的公開資料整理；卡圖請放入 assets/cards/ 對應檔案。正式公開時請注意 BANDAI 卡圖著作權及 Rugia Creation 的標示要求。</div>`}
-function change(id,d){const c=cards.find(x=>x.id===id);c.owned=Math.max(0,Math.min(c.max,c.owned+d));selected=c;render();detail()}
-document.getElementById('search').oninput=render;document.getElementById('set').onchange=render;document.getElementById('rarity').onchange=render;document.getElementById('color').onchange=render;document.getElementById('reset').onclick=()=>{document.getElementById('search').value='';document.getElementById('set').value='all';document.getElementById('rarity').value='all';document.getElementById('color').value='all';render()};render();detail();
+const BASE=[
+{id:'UA53BT/CSM-1-047',rarity:'R',name:'鏈鋸人',jp:'チェンソーマン',trait:'鏈鋸人',bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-047.jpg',text:'此卡也被視為〈淀治〉。\n\n退場時 從以下選擇１項。\n．抽２張卡。\n．此角色下面擁有背面向上的卡的情況下，將此卡以激活狀態在自己前線登場。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
+{id:'UA53BT/CSM-1-048',rarity:'SR',name:'鏈鋸人',jp:'チェンソーマン',trait:'鏈鋸人',bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-048.jpg',text:'此卡也被視為〈淀治〉。\n\n此角色進行攻擊並戰鬥勝利時，若此角色下面擁有背面向上的卡，將此角色激活，並將其下面１張背面向上的卡放置到場外。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
+{id:'UA53BT/CSM-1-013',rarity:'U',name:'帕瓦',jp:'パワー',trait:'鏈鋸人',bp:2500,energy:2,image:'assets/cards/UA53BT-CSM-1-013.jpg',text:'攻擊時 自己場上擁有〈淀治〉的情況下，此角色在本回合中，BP+500。\n\n抽１張卡。'},
+{id:'UA53BT/CSM-1-024',rarity:'SR',name:'真紀真',jp:'マキマ',trait:'公安',bp:3500,energy:4,image:'assets/cards/UA53BT-CSM-1-024.jpg',text:'在前線的情況 自己〈真紀真〉以外的紫色角色卡，在全部地方也被視為事件卡。\n\n登場時 本回合中，下次從手牌使用沒有Image及沒有Image效果的事件卡的AP消耗-1。從以下選擇１項。\n．抽１張卡。\n．選擇自己場上最多１張其他角色，本回合中，BP+2000。\n\n將此卡加入手牌，或在滿足能源需求的情況下進行突襲。'},
+{id:'UA53BT/CSM-1-010',rarity:'R',name:'天使惡魔',jp:'天使の悪魔',trait:'公安',bp:4000,energy:4,image:'assets/cards/UA53BT-CSM-1-010.jpg',text:'自己回合中 自己場上擁有〈真紀真〉的情況下，根據自己在本回合中使用過的事件卡的張數，此角色獲得以下全部效果。\n．１張或以上：BP+1000。\n．２張或以上：此角色不會被BP4000或以上的角色阻擋。\n\n抽１張卡。'},
+{id:'UA53BT/CSM-1-068',rarity:'C',name:'真紀真',jp:'マキマ',trait:'公安',bp:1500,energy:1,image:'assets/cards/UA53BT-CSM-1-068.jpg',text:'退場時 可將自己手牌最多２張角色卡或１張事件卡放置到場外。如這樣做，將此卡加入手牌。\n\n抽牌 抽１張卡。'},
+{id:'UA53BT/CSM-1-071',rarity:'C',name:'未來惡魔',jp:'未来の悪魔',trait:'公安',bp:1000,energy:1,image:'assets/cards/UA53BT-CSM-1-071.jpg',text:'主起動 休息 從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面。\n\n抽１張卡。'},
+{id:'UA53BT/CSM-1-079',rarity:'U',name:'有哦',jp:'有哦',trait:'事件',bp:null,energy:2,image:'assets/cards/UA53BT-CSM-1-079.jpg',text:'選擇自己最多２張AP卡被激活。\n\n自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。'}];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+// Rugia deck code key: "UA53BT_1047" <-> database id "UA53BT/CSM-1-047"
+const keyOf=id=>{const m=id.match(/^(.+?)\/[A-Za-z0-9]+-(\d+)-(\d+)$/);return m?m[1]+'_'+m[2]+m[3]:id};
+let custom=load('ua_cards',{});          // user-imported / edited card data, by key
+let decks=load('ua_decks',[]);
+let cur=decks.length?decks[0].id:null, sel=null;
+const DB={};BASE.forEach(c=>DB[keyOf(c.id)]=c);
+const info=k=>({...(DB[k]||{}),...(custom[k]||{})});
+const known=k=>!!(DB[k]||custom[k]);
+function parse(raw){
+  raw=raw.trim();let deck=raw,name='',ver='';
+  try{const u=new URL(raw);deck=u.searchParams.get('Deck')||'';name=u.searchParams.get('Name')||'';ver=u.searchParams.get('Version')||''}catch(e){}
+  const out=[];
+  for(const t of deck.split('|').map(s=>s.trim()).filter(Boolean)){
+    const m=t.match(/^(\d+)([A-Za-z0-9]+)_(\d+)(?:_(\d+))?$/);
+    if(!m)throw new Error('無法辨識的項目：'+t);
+    out.push({qty:+m[1],key:m[2]+'_'+m[3],alt:m[4]||''});
+  }
+  if(!out.length)throw new Error('找不到 Deck 參數，請確認連結完整。');
+  return{cards:out,name,ver,url:/^https?:/.test(raw)?raw:''};
+}
+$('go').onclick=()=>{
+  $('err').textContent='';
+  try{const p=parse($('src').value);
+    const d={id:'d'+Date.now(),name:$('dname').value.trim()||p.name||'新牌組',ver:p.ver,url:p.url,cards:p.cards};
+    decks.unshift(d);save('ua_decks',decks);cur=d.id;sel=null;$('src').value='';$('dname').value='';render();
+  }catch(e){$('err').textContent=e.message}
+};
+$('imp').onclick=()=>{try{const a=JSON.parse($('json').value);(Array.isArray(a)?a:[a]).forEach(c=>{const k=keyOf(c.id);custom[k]={...custom[k],...c}});save('ua_cards',custom);$('json').value='';$('err').textContent='';render()}catch(e){$('err').textContent='JSON 格式錯誤：'+e.message}};
+function render(){
+  $('saved').innerHTML=decks.map(d=>`<div class="saved ${d.id===cur?'on':''}" data-id="${d.id}"><div>${esc(d.name)}<br><small>${d.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${d.cards.length} 種</small></div><button class="x" data-del="${d.id}" title="刪除">×</button></div>`).join('')||'<div class="note">尚未儲存任何牌組。</div>';
+  document.querySelectorAll('.saved').forEach(el=>el.onclick=e=>{if(e.target.dataset.del){decks=decks.filter(d=>d.id!==e.target.dataset.del);save('ua_decks',decks);if(cur===e.target.dataset.del)cur=decks[0]?.id||null;sel=null}else{cur=el.dataset.id;sel=null}render()});
+  $('dbinfo').textContent=`資料庫共 ${Object.keys({...DB,...custom}).length} 張卡有繁體中文效果資料。`;
+  const d=decks.find(x=>x.id===cur);
+  if(!d){$('deck').innerHTML='<div class="empty">貼上 Rugia Creation 牌組連結，即可分析並儲存牌組。</div>';detail();return}
+  const total=d.cards.reduce((n,c)=>n+c.qty,0),miss=d.cards.filter(c=>!known(c.key)).length;
+  $('deck').innerHTML=`<div class="head"><div><h2>${esc(d.name)}</h2><div class="stat">${d.ver?esc(d.ver)+' · ':''}共 ${total} 張 / ${d.cards.length} 種${miss?` · <span class="miss">${miss} 種尚無效果資料</span>`:''}</div></div>${d.url?`<a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">在 Rugia Creation 開啟 ↗</a>`:''}</div>`+
+  d.cards.map((c,i)=>{const n=info(c.key);return `<div class="item ${sel===i?'on':''}" data-i="${i}"><div class="thumb">${n.image?`<img src="${esc(n.image)}" alt="" onerror="this.remove()">`:''}</div><div class="grow"><b>${esc(n.name||'（未收錄）')}${c.alt?' <span class="tag">異圖 '+esc(c.alt)+'</span>':''}</b><div class="sub">${esc(c.key)}${n.trait?' · '+esc(n.trait):''}</div></div>${n.rarity?`<span class="tag">${esc(n.rarity)}</span>`:''}<div class="qty">×${c.qty}</div></div>`}).join('');
+  document.querySelectorAll('.item').forEach(el=>el.onclick=()=>{sel=+el.dataset.i;render()});
+  detail();
+}
+function detail(){
+  const d=decks.find(x=>x.id===cur),c=d&&sel!=null?d.cards[sel]:null,el=$('detail');
+  if(!c){el.innerHTML='<h3>卡片說明</h3><div class="note">點選牌組中的卡片，即可在這裡閱讀繁體中文效果。</div>';return}
+  const n=info(c.key),url='https://rugiacreation.com/ua/search?Name='+encodeURIComponent(n.name||c.key);
+  el.innerHTML=`<h3>卡片說明</h3>${n.image?`<div class="big"><img src="${esc(n.image)}" alt="" onerror="this.parentNode.remove()"></div>`:''}
+  <h2 style="margin:0 0 4px;font-size:20px">${esc(n.name||'（未收錄）')}</h2><div class="sub">${esc(c.key)}${n.jp?' · '+esc(n.jp):''}</div>
+  <div class="chips"><span class="tag">×${c.qty}</span>${n.rarity?`<span class="tag">${esc(n.rarity)}</span>`:''}${n.trait?`<span class="tag">${esc(n.trait)}</span>`:''}${n.energy!=null?`<span class="tag">${n.energy} 能量${n.bp?' · '+n.bp+' BP':''}</span>`:''}</div>
+  ${known(c.key)&&n.text?`<div class="ability">${esc(n.text)}</div>`:`<div class="note miss">資料庫還沒有這張卡的效果文字。你可以在下方手動貼上，之後會自動記住。</div>`}
+  <h3>${known(c.key)?'編輯卡片資料':'補充卡片資料'}</h3>
+  <input id="e_name" placeholder="卡名" value="${esc(n.name||'')}"><input id="e_rar" placeholder="稀有度（如 SR）" value="${esc(n.rarity||'')}" style="margin-top:6px"><textarea id="e_text" placeholder="繁體中文效果文字" style="margin-top:6px">${esc(n.text||'')}</textarea>
+  <div class="row"><button class="btn primary" id="e_save">儲存</button><a class="btn" href="${url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none">在 Rugia Creation 查看 ↗</a></div>`;
+  $('e_save').onclick=()=>{custom[c.key]={...custom[c.key],id:c.key,name:$('e_name').value.trim(),rarity:$('e_rar').value.trim(),text:$('e_text').value};save('ua_cards',custom);render()};
+}
+render();
 </script></body></html>
