@@ -28,7 +28,7 @@ a{color:var(--accent)}
 @media(max-width:1200px){.layout{grid-template-columns:280px minmax(0,1fr)}.detail{grid-column:1/-1;position:static;max-height:none}}
 @media(max-width:760px){.layout{grid-template-columns:1fr;padding:10px}.side{position:static;max-height:none}}
 </style></head><body>
-<header><div class="brand">UA <span>牌組分析</span></div></header>
+<header><div class="brand">UA <span>牌組分析</span></div><div class="stat" id="topStatus">Rugia 自動卡片資料</div></header>
 <div class="layout">
 <aside class="panel side">
 <h3>匯入 Rugia Creation 牌組</h3>
@@ -37,10 +37,11 @@ a{color:var(--accent)}
 <div class="row"><button class="btn primary" id="go">分析並儲存牌組</button></div>
 <div id="err" class="note miss"></div>
 <h3>我的牌組</h3><div id="saved"></div>
-<h3>卡片資料庫</h3>
-<details><summary class="note" style="cursor:pointer">匯入卡片資料（JSON）</summary>
-<textarea id="json" placeholder='[{"id":"UA53BT_1003","name":"…","rarity":"R","trait":"…","energy":2,"bp":3000,"text":"繁體中文效果"}]' style="margin-top:8px"></textarea>
-<div class="row"><button class="btn" id="imp">匯入</button></div></details>
+<h3>Rugia 自動抓取</h3>
+<input id="proxy" placeholder="Cloudflare Worker URL（例如 https://ua-rugia-proxy.xxx.workers.dev）" style="margin-top:8px">
+<div class="row"><button class="btn" id="saveProxy">儲存 Proxy</button></div>
+<p class="note">提交牌組後會自動逐張抓取 Rugia 的繁體中文卡名、稀有度與效果。GitHub Pages 建議使用 Cloudflare Worker 作為跨網域 Proxy。</p>
+<p class="note" id="status"></p>
 <p class="note" id="dbinfo"></p>
 </aside>
 <main><div id="deck"></div></main>
@@ -94,14 +95,106 @@ function parse(raw){
   if(!out.length)throw new Error('找不到 Deck 參數，請確認連結完整。');
   return{cards:out,name,ver,rname:name,url:/^https?:/.test(raw)?raw:''};
 }
-$('go').onclick=()=>{
+
+const DEFAULT_PROXY=localStorage.getItem('ua_proxy')||'';
+$('proxy').value=DEFAULT_PROXY;
+$('saveProxy').onclick=()=>{localStorage.setItem('ua_proxy',$('proxy').value.trim());$('status').textContent='Proxy URL 已儲存。';};
+
+function rugiaCardUrl(d,c){
+  const code=cardCode(d,c);
+  if(!code)return null;
+  const m=code.match(/^([^_]+)_([A-Za-z0-9]+-\\d+-\\d+)$/);
+  if(!m)return null;
+  return `https://rugiacreation.com/ua/search?Name=${encodeURIComponent(d.rname||'HK')}&Find1=${encodeURIComponent(m[2])}`;
+}
+
+async function fetchRugiaPage(url){
+  const proxy=localStorage.getItem('ua_proxy')||'';
+  const targets=[];
+  if(proxy) targets.push(proxy.replace(/\\/$/,'')+'/?url='+encodeURIComponent(url));
+  targets.push(url);
+
+  let last='';
+  for(const target of targets){
+    try{
+      const r=await fetch(target,{headers:{'Accept':'text/html,text/plain,*/*'}});
+      if(!r.ok) throw new Error(`HTTP ${r.status}`);
+      const text=await r.text();
+      if(text.length>500) return text;
+      last='回傳內容太短';
+    }catch(e){last=e.message}
+  }
+  throw new Error(last||'無法取得 Rugia 頁面');
+}
+
+function cleanRugiaText(s){
+  return s
+    .replace(/\\r/g,'')
+    .replace(/^Image$/gm,'')
+    .replace(/Image(?=\\s)/g,'')
+    .replace(/\\n{3,}/g,'\\n\\n')
+    .trim();
+}
+
+function parseRugiaCard(raw,expectedCode){
+  const doc=new DOMParser().parseFromString(raw,'text/html');
+  let text=doc.body?.innerText||raw;
+  text=text.replace(/\\u00a0/g,' ');
+  const normalized=cleanRugiaText(text);
+
+  const escaped=expectedCode.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\$&');
+  const headerRe=new RegExp(escaped+'\\s*\\(([^)]+)\\)','i');
+  const match=normalized.match(headerRe);
+  if(!match) throw new Error('Rugia 頁面找不到 '+expectedCode);
+
+  const start=match.index;
+  const after=normalized.slice(start+match[0].length);
+  const next=after.search(/\\n[A-Z0-9]+\\/[A-Z0-9-]+\\s*\\([^)]+\\)/i);
+  const block=(next>=0?after.slice(0,next):after).trim();
+  const lines=block.split(/\\n+/).map(x=>x.trim()).filter(Boolean);
+  const name=lines.shift()||'';
+  const effect=lines.filter(x=>!/^入手方法[:：]/.test(x)).join('\\n\\n').trim();
+
+  return {name,rarity:match[1],text:effect};
+}
+
+async function autoFetchDeck(d){
+  const cards=[...d.cards];
+  let done=0, failed=0;
+  $('status').textContent=`正在從 Rugia 取得 0/${cards.length} 張卡…`;
+  for(const c of cards){
+    try{
+      const code=cardCode(d,c);
+      if(!code){failed++;continue}
+      const url=rugiaCardUrl(d,c);
+      const raw=await fetchRugiaPage(url);
+      const r=parseRugiaCard(raw,code.replace('_','/'));
+      custom[c.key]={...custom[c.key],id:c.key,name:r.name,rarity:r.rarity,text:r.text,rugia:url};
+      save('ua_cards',custom);
+    }catch(e){
+      failed++;
+      console.warn('Rugia fetch failed',c.key,e);
+    }
+    done++;
+    $('status').textContent=`正在從 Rugia 取得 ${done}/${cards.length} 張卡…`;
+    render();
+  }
+  $('status').textContent=failed
+    ? `完成：${done-failed} 張成功，${failed} 張需要手動開啟 Rugia。`
+    : `完成：${done} 張卡已自動匯入繁體中文資料。`;
+}
+
+$('go').onclick=async()=>{
   $('err').textContent='';
-  try{const p=parse($('src').value);
+  try{
+    const p=parse($('src').value);
     const d={id:'d'+Date.now(),name:$('dname').value.trim()||p.name||'新牌組',ver:p.ver,rname:p.rname,url:p.url,cards:p.cards};
-    decks.unshift(d);save('ua_decks',decks);cur=d.id;sel=null;$('src').value='';$('dname').value='';render();
+    decks.unshift(d);save('ua_decks',decks);cur=d.id;sel=null;$('src').value='';$('dname').value='';
+    render();
+    await autoFetchDeck(d);
+    render();
   }catch(e){$('err').textContent=e.message}
 };
-$('imp').onclick=()=>{try{const a=JSON.parse($('json').value);(Array.isArray(a)?a:[a]).forEach(c=>{const k=keyOf(c.id);custom[k]={...custom[k],...c}});save('ua_cards',custom);$('json').value='';$('err').textContent='';render()}catch(e){$('err').textContent='JSON 格式錯誤：'+e.message}};
 function render(){
   $('saved').innerHTML=decks.map(d=>`<div class="saved ${d.id===cur?'on':''}" data-id="${d.id}"><div>${esc(d.name)}<br><small>${d.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${d.cards.length} 種</small></div><button class="x" data-del="${d.id}" title="刪除">×</button></div>`).join('')||'<div class="note">尚未儲存任何牌組。</div>';
   document.querySelectorAll('.saved').forEach(el=>el.onclick=e=>{if(e.target.dataset.del){decks=decks.filter(d=>d.id!==e.target.dataset.del);save('ua_decks',decks);if(cur===e.target.dataset.del)cur=decks[0]?.id||null;sel=null}else{cur=el.dataset.id;sel=null}render()});
@@ -143,6 +236,14 @@ function detail(){
   <div class="row"><button class="btn primary" id="e_save">儲存</button><a class="btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none">開啟 Rugia 卡片頁 ↗</a></div>`;
   $('e_parse').onclick=()=>{const r=parsePaste($('e_paste').value);if(!r)return;custom[c.key]={...custom[c.key],id:c.key,...r};save('ua_cards',custom);render()};
   $('e_save').onclick=()=>{custom[c.key]={...custom[c.key],id:c.key,name:$('e_name').value.trim(),rarity:$('e_rar').value.trim(),text:$('e_text').value};save('ua_cards',custom);render()};
+  $('e_fetch').onclick=async()=>{
+    try{
+      $('status').textContent='正在更新 '+c.key+'…';
+      const code=cardCode(d,c),raw=await fetchRugiaPage(rugiaCardUrl(d,c)),r=parseRugiaCard(raw,code.replace('_','/'));
+      custom[c.key]={...custom[c.key],id:c.key,name:r.name,rarity:r.rarity,text:r.text,rugia:rugiaCardUrl(d,c)};
+      save('ua_cards',custom);render();$('status').textContent=c.key+' 已更新。';
+    }catch(e){$('status').textContent='更新失敗：'+e.message}
+  };
 }
 render();
 </script></body></html>
