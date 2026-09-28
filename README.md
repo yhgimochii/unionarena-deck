@@ -1,13 +1,15 @@
-# UA Deck Analyzer
+# Union Arena Deck Analyzer
 
-GitHub Pages + Firebase version. The card sync uses Rugia Creation for Traditional Chinese card text and the official UNION ARENA card list for structured fields.
+GitHub Pages + Firebase deck storage. Card metadata is synchronized from Rugia Creation and structured fields are enriched from the official UNION ARENA card database.
 
-## Setup
-1. Keep `firebase-config.js` configured.
-2. Upload the files at the repository root.
-3. Upload `.github/workflows/sync-cards.yml` and `scripts/sync_cards.py` too.
-4. GitHub Settings → Actions → General → Workflow permissions → Read and write permissions.
-5. GitHub → Actions → **Sync Union Arena card database** → **Run workflow**.
-6. After it completes, refresh GitHub Pages.
+## Card database sync
 
-The sync reads Rugia's public all-card listing, extracts card IDs/effects, then enriches cards from the official card detail pages. Existing hand-verified fields are preserved when the sync has no value.
+The GitHub Action `Sync Union Arena card database` discovers Rugia's IP/version filter options and queries each version separately. This is important because the generic Rugia search page does not necessarily expose every IP at once.
+
+It also verifies `UA43BT/SMD-1-042` after the sync. If SAKAMOTO DAYS is missing, the workflow fails instead of silently committing an incomplete database.
+
+Run it manually from **GitHub → Actions → Sync Union Arena card database → Run workflow**. It also runs weekly.
+
+## Firebase
+
+Keep `firebase-config.js` configured for your Firebase web app. Firestore rules are in `firestore.rules`.
