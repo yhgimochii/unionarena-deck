@@ -1,17 +1,21 @@
-# UA Deck Analyzer — Firebase login
+# UA Deck Analyzer — Universal IP version
 
-This version adds email/password login and cloud-saved private decks using Firebase Authentication + Cloud Firestore.
+This version accepts Rugia `deckEdit` URLs from different Union Arena IPs instead of hard-coding Chainsaw Man.
 
-Setup:
-1. Create a Firebase project.
-2. Add a Web app and copy its config.
-3. Copy `firebase-config.example.js` to `firebase-config.js` and paste the config.
-4. Firebase Console → Authentication → Sign-in method → enable Email/Password.
-5. Firebase Console → Firestore Database → create database.
-6. Set Firestore rules from `firestore.rules`.
-7. Authentication → Settings → Authorized domains → add `yhgimochii.github.io`.
-8. Upload all files to GitHub Pages.
+## Firebase
+Keep your existing `firebase-config.js`, Firebase Authentication, Firestore and rules setup.
 
-Each user's decks live under `users/{uid}/decks`, and the rules only permit that signed-in user to read/write that path.
+## GitHub Pages
+Upload the contents of this folder to the repository root.
 
-The Firebase web config is okay to include in the browser; do not expose service-account private keys.
+## Automatic multi-IP database sync
+A GitHub Actions workflow at `.github/workflows/sync-cards.yml` periodically updates `cards.json` from Rugia's public Union Arena card pages. You can also run it manually from **GitHub → Actions → Sync Union Arena card database → Run workflow**.
+
+The app itself can already parse arbitrary Rugia deckEdit URLs. Cards not yet present in the local database are still imported and show direct links to Rugia and the official Union Arena card list.
+
+### Actions permission
+If the workflow cannot push its updated `cards.json`, open:
+**Repository → Settings → Actions → General → Workflow permissions → Read and write permissions**.
+
+## Data attribution
+Rugia Creation states that its Traditional Chinese card translations are produced by Rugia and requests attribution when its translations are used. Card images are owned by BANDAI CO., LTD. Keep the Rugia attribution/link in the site.
