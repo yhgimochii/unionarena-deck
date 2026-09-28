@@ -13,7 +13,16 @@ function parse(raw){raw=raw.trim();if(!raw)throw Error("請先貼上 Rugia deckE
 function cardId(c){const m=c.num.match(/^(\d)(\d{3})$/);return `${c.set}/${deck.version||""}${deck.version?"-":""}${m?m[1]+"-"+m[2]:c.num}`}
 function rugia(c){const code=cardId(c).replace("/","_");return `https://rugiacreation.com/ua/search?Name=HK&Card=${encodeURIComponent(code)}#${encodeURIComponent(code)}`}
 function render(){if(!deck)return;$("deck").classList.remove("hidden");$("title").textContent=deck.name||"新牌組";$("meta").textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;$("cards").innerHTML=deck.cards.map((c,i)=>{const d=DB[cardId(c)];return `<div class="card ${selected===i?"on":""}" data-i="${i}"><div class="cardbody"><div class="nm">${esc(d?.name||"尚未收錄")}</div><div class="id">${esc(cardId(c))}</div></div>${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}<div class="qty">×${c.qty}</div></div>`}).join("");document.querySelectorAll(".card").forEach(el=>el.onclick=()=>{selected=+el.dataset.i;render();detail()})}
-function detail(){if(selected===null){$("detail").innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}const c=deck.cards[selected],d=DB[cardId(c)];$("detail").innerHTML=d?`<div class="id">${esc(d.id)} (${esc(d.rarity)})</div><h2>${esc(d.name)}</h2><span class="rar">×${c.qty}</span><div class="effect"><b>效果摘要</b><br>${esc(d.summary)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`:`<div class="empty">找不到資料。<br><a class="link" href="${esc(rugia(c))}" target="_blank">前往 Rugia ↗</a></div>`}
+function detail(){
+  if(selected===null){$("detail").innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
+  const c=deck.cards[selected],d=DB[cardId(c)];
+  if(!d){$("detail").innerHTML=`<div class="empty">找不到資料。<br><a class="link" href="${esc(rugia(c))}" target="_blank">前往 Rugia ↗</a></div>`;return}
+  const bp=d.bp==null?'—':d.bp;
+  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag">${esc(x)}</span>`).join('');
+  const effect=esc(d.effect||'').replace(/\n/g,'<br>');
+  const trigger=d.trigger?`<div class="trigger"><b>觸發器</b><div>${esc(d.trigger)}</div></div>`:'';
+  $("detail").innerHTML=`<div class="id">${esc(d.id)} (${esc(d.rarity)})</div><h2>${esc(d.name)}</h2><div class="qtybig">×${c.qty}</div><div class="stats"><div><small>能源需求</small><strong>${esc(d.energyColor||'紅')}${esc(d.energy)}</strong></div><div><small>AP消耗</small><strong>${esc(d.ap)}</strong></div><div><small>BP</small><strong>${esc(bp)}</strong></div><div><small>卡類</small><strong>${esc(d.type)}</strong></div></div>${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect}</div></div>${trigger}<a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`
+}
 function showAuth(){$("modal").classList.remove("hidden")}function hideAuth(){$("modal").classList.add("hidden");$("authMsg").textContent=""}
 function authError(e){return({"auth/invalid-email":"Email 格式不正確。","auth/email-already-in-use":"這個 Email 已經註冊。","auth/weak-password":"密碼太短。","auth/invalid-credential":"Email 或密碼不正確。"}[e.code]||e.message)}
 $("loginBtn").onclick=showAuth;$("closeModal").onclick=hideAuth;
