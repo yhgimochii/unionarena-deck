@@ -8,14 +8,8 @@
     "ap": 1,
     "bp": 4000,
     "energyColor": "紅",
-    "traits": [
-      "淀治"
-    ],
-    "keywords": [
-      "突襲",
-      "衝擊無效",
-      "退場時"
-    ],
+    "traits": ["淀治"],
+    "keywords": ["突襲", "衝擊無效", "退場時"],
     "effect": "此卡也被視為〈淀治〉。\n〖突襲〗〈淀治〉置為活動，並可移動至前線。\n〖衝擊無效〗（與此角色戰鬥的角色卡在這場戰鬥中失去〖衝擊〗。）\n〖退場時〗從以下選擇１項。\n．抽２張卡。\n．若此角色下面擁有背面向上的卡，將此卡以激活狀態在自己前線登場。",
     "trigger": "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-047#UA53BT_CSM-1-047"
@@ -29,14 +23,8 @@
     "ap": 1,
     "bp": 5000,
     "energyColor": "紅",
-    "traits": [
-      "淀治"
-    ],
-    "keywords": [
-      "突襲",
-      "衝擊",
-      "攻擊結束時"
-    ],
+    "traits": ["淀治"],
+    "keywords": ["突襲", "衝擊", "攻擊結束時"],
     "effect": "此卡也被視為〈淀治〉。\n〖突襲〗〈淀治〉置為活動，並可移動至前線。\n此角色攻擊結束時，此角色下面擁有背面向上的卡的情況下，此角色被激活，並且此角色在本回合中獲得〖衝擊１〗。然後將此角色下面１張背面向上的卡放置到場外。被此效果放置到場外的卡是〈波奇塔〉的情況下，將最多１張該卡以休息狀態在自己能源線登場。",
     "trigger": "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-048#UA53BT_CSM-1-048"
@@ -51,9 +39,7 @@
     "bp": 1000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "主起動"
-    ],
+    "keywords": ["主起動"],
     "effect": "〖主起動〗休息此角色。此角色在本回合中，生產能源＋１紅，並獲得「主階段結束時，將此角色退場。」。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-049#UA53BT_CSM-1-049"
@@ -68,9 +54,7 @@
     "bp": 2000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "登場時"
-    ],
+    "keywords": ["登場時"],
     "effect": "〖登場時〗抽１張卡，然後將自己１張手牌放置到場外。",
     "trigger": "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-050#UA53BT_CSM-1-050"
@@ -85,9 +69,7 @@
     "bp": 3000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "登場時"
-    ],
+    "keywords": ["登場時"],
     "effect": "〖登場時〗從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。然後選擇自己場上最多１張不是突襲狀態，並且下面沒有背面向上的卡的〈淀治〉，從自己場外選擇最多１張〈波奇塔〉或〈相對地……請讓我看見淀治的夢想〉以背面向上放置到該角色下面。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-051#UA53BT_CSM-1-051"
@@ -102,9 +84,7 @@
     "bp": 1000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "登場時"
-    ],
+    "keywords": ["登場時"],
     "effect": "〖登場時〗從自己牌庫上面查看２張卡，將最多１張卡放置到場外，將餘下的卡以任意順序放置到牌庫上面。",
     "trigger": "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-057#UA53BT_CSM-1-057"
@@ -119,9 +99,7 @@
     "bp": 4000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "退場時"
-    ],
+    "keywords": ["退場時"],
     "effect": "〖退場時〗抽１張卡。",
     "trigger": "",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-058#UA53BT_CSM-1-058"
@@ -136,9 +114,7 @@
     "bp": 3000,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "主起動"
-    ],
+    "keywords": ["主起動"],
     "effect": "〖主起動〗將１張手牌放置到場外。此角色在本回合中，生產能源＋１紅。",
     "trigger": "〖抽牌〗抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-059#UA53BT_CSM-1-059"
@@ -153,9 +129,7 @@
     "bp": 2500,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "登場時"
-    ],
+    "keywords": ["登場時"],
     "effect": "〖登場時〗自己場上擁有〈淀治〉的情況下，抽１張卡。",
     "trigger": "〖抽牌〗抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-060#UA53BT_CSM-1-060"
@@ -169,14 +143,8 @@
     "ap": 1,
     "bp": 4000,
     "energyColor": "紅",
-    "traits": [
-      "帕瓦"
-    ],
-    "keywords": [
-      "突襲",
-      "每回合1次",
-      "登場時"
-    ],
+    "traits": ["帕瓦"],
+    "keywords": ["突襲", "每回合1次", "登場時"],
     "effect": "〖突襲〗〈帕瓦〉置為活動，並可移動至前線。\n〖每回合１次〗BP500或以上的此角色退場的情況下，可改為將自己前線１張BP4000或以上的其他角色退場。\n此角色進行攻擊並戰鬥勝利時，抽１張卡。\n〖登場時〗自己場上擁有〈淀治〉的情況下，此角色在本回合中，BP＋1000並獲得「可能的話，對手必需要阻擋此角色的攻擊。」。",
     "trigger": "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-061#UA53BT_CSM-1-061"
@@ -191,10 +159,7 @@
     "bp": 500,
     "energyColor": "紅",
     "traits": [],
-    "keywords": [
-      "登場時",
-      "主起動"
-    ],
+    "keywords": ["登場時", "主起動"],
     "effect": "此卡不能在前線登場，並且不能移動到前線。\n〖登場時〗從自己牌庫上面查看１張卡，然後放置到牌庫上面或場外。\n〖主起動〗休息，將此卡退場。可從自己場外選擇１張能源需求１或以下的紅色〈淀治〉，以激活狀態在自己能源線登場。如這樣做，將被此效果退場的此卡，以背面向上放置到該〈淀治〉下面。",
     "trigger": "〖COLOR〗選擇對手前線１張BP2500或以下的角色退場。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Card=UA53BT_CSM-1-067#UA53BT_CSM-1-067"
