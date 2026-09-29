@@ -422,3 +422,26 @@
     text-align:center;
   }
 }
+
+/* Mobile card-detail modal: centered 90% popup with tap-outside-to-close backdrop */
+@media (max-width:700px){
+  .mobile-detail-modal{
+    background:rgba(0,0,0,.58);
+  }
+  .mobile-detail-backdrop{
+    background:transparent;
+  }
+  .mobile-detail-sheet{
+    position:absolute;
+    left:5%;
+    right:5%;
+    top:5%;
+    bottom:5%;
+    width:auto;
+    max-height:none;
+    overflow:auto;
+    border-radius:18px;
+    padding:16px;
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+  }
+}
