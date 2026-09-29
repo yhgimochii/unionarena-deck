@@ -13,3 +13,7 @@ Run it manually from **GitHub → Actions → Sync Union Arena card database →
 ## Firebase
 
 Keep `firebase-config.js` configured for your Firebase web app. Firestore rules are in `firestore.rules`.
+
+
+## Card thumbnails
+The frontend now shows lazy-loaded official UNION ARENA card images using the official card-image path derived from each card ID. No image files are stored in `cards.json`.

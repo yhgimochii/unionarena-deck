@@ -1,0 +1,68 @@
+name: Sync Union Arena card database
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 0"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+
+      - name: Sync all Rugia IPs and sets
+        run: python scripts/sync_cards.py
+
+      - name: Verify database
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("cards.json")
+          data = json.loads(p.read_text(encoding="utf-8"))
+          by_id = {x["id"]: x for x in data}
+          checks = [
+              "UA43BT/SMD-1-042",
+              "EX15BT/BLC-4-004",
+              "UA53BT/CSM-1-061",
+          ]
+          print(f"cards.json contains {len(data)} cards")
+          for cid in checks:
+              if cid not in by_id:
+                  raise SystemExit(f"Verification failed: {cid} is missing")
+              print(f"{cid} FOUND -> {by_id[cid].get('name','')}")
+          if len(data) < 100:
+              raise SystemExit(f"Verification failed: only {len(data)} cards were generated")
+          PY
+
+      - name: Upload synced database artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: union-arena-cards-json
+          path: cards.json
+          if-no-files-found: error
+
+      - name: Commit database changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards.json
+          if git diff --cached --quiet; then
+            echo "No card database changes."
+          else
+            git commit -m "Update Union Arena card database"
+            git push
+          fi
