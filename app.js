@@ -104,10 +104,34 @@ function highlightEffect(text, traitKeywords=[]){
   return out.replace(/\n/g,"<br>");
 }
 
+function iconSvg(type){
+  const paths={
+    edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/>',
+    save:'<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/>',
+    share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/>',
+    trash:'<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 15H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/>'
+  };
+  return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[type]||''}</svg>`;
+}
+
+function openEditDeck(){
+  if(!currentUser){showAuth();return}
+  if(!deck?.firestoreId){
+    $('msg').textContent='請先儲存牌組後再編輯。';
+    $('msg').style.color='#b34b35';
+    return;
+  }
+  $('editDeckName').value=deck.name||'';
+  $('editDeckColor').value=deckColorClass(deck.color||'red');
+  updateEditColorPreview();
+  $('editDeckModal').classList.remove('hidden');
+}
+
 function render(){
   if(!deck)return;
   $('deck').classList.remove('hidden');
-  $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span>${esc(deck.name||'新牌組')}`;
+  $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span><span class="deck-title-name">${esc(deck.name||'新牌組')}</span><button id="editDeck" class="icon-btn deck-edit-icon" type="button" title="編輯牌組" aria-label="編輯牌組">${iconSvg('edit')}</button>`;
+  $('editDeck').onclick=()=>openEditDeck();
   $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
 
   $('cards').innerHTML=deck.cards.map((c,i)=>{
@@ -315,19 +339,11 @@ async function loadSaved(){
     box.appendChild(slot);
   }
 }
+$('saveDeck').innerHTML=iconSvg('save');
+$('shareDeck').innerHTML=iconSvg('share');
+$('clear').innerHTML=iconSvg('trash');
+
 $('saveDeck').onclick=async()=>{if(!currentUser){showAuth();return}if(!deck)return;try{const color=deckColorClass(deck.color||$('deckColor')?.value);deck.color=color;const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),{name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,source:deck.source||'',createdAt:serverTimestamp()});deck.firestoreId=ref.id;$('msg').textContent='牌組已儲存到你的帳號。';$('msg').style.color='#25805b';await loadSaved()}catch(e){$('msg').textContent='儲存失敗：'+e.message}};
-$('editDeck').onclick=()=>{
-  if(!currentUser){showAuth();return}
-  if(!deck?.firestoreId){
-    $('msg').textContent='請先儲存牌組後再編輯。';
-    $('msg').style.color='#b34b35';
-    return;
-  }
-  $('editDeckName').value=deck.name||'';
-  $('editDeckColor').value=deckColorClass(deck.color||'red');
-  updateEditColorPreview();
-  $('editDeckModal').classList.remove('hidden');
-};
 
 function closeEditDeckModal(){
   $('editDeckModal').classList.add('hidden');
