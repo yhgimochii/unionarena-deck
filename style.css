@@ -448,19 +448,21 @@
 
 
 /* Hero header + collapsible Rugia link submit */
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:12px 0 8px;margin-bottom:8px}
-.hero-logo{display:block;width:min(560px,82vw);height:auto;max-height:280px;object-fit:contain;margin:0 auto 4px}
-.hero h1{font-size:34px;line-height:1.15;margin:6px 0 18px;font-weight:900}
+.hero{display:flex;align-items:center;justify-content:flex-start;gap:28px;text-align:left;padding:12px 0 8px;margin-bottom:8px}
+.hero-logo{display:block;width:190px;height:auto;max-height:105px;object-fit:contain;margin:0;flex:0 0 auto}
+.hero-content{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero h1{font-size:34px;line-height:1.15;margin:0 0 14px;font-weight:900}
 .submit-link-btn{min-width:150px;padding:12px 24px;font-size:15px}
 .import{margin-top:14px}
 .import-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
 .import-head .small{margin:0}
 @media(max-width:700px){
   main{padding:24px 16px}
-  .hero{padding-top:2px}
-  .hero-logo{width:min(500px,94vw);max-height:210px;margin-bottom:0}
-  .hero h1{font-size:29px;margin:2px 0 16px}
-  .submit-link-btn{width:auto}
+  .hero{gap:16px;padding-top:2px;align-items:center}
+  .hero-logo{width:120px;max-height:70px;margin:0}
+  .hero-content{flex:1}
+  .hero h1{font-size:25px;margin:0 0 12px}
+  .submit-link-btn{width:auto;min-width:120px;padding:10px 18px}
 }
 
 /* Deck action icons */
@@ -495,7 +497,7 @@
 .my-decks-backdrop.hidden{display:none!important}
 
 @media(max-width:700px){
-  #account.account{position:fixed;left:0;right:0;bottom:0;z-index:40;margin:0;border-radius:16px 16px 0 0;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 30px rgba(0,0,0,.16);display:flex;flex-direction:column;align-items:stretch;gap:0;max-height:76vh;overflow:hidden;transform:translateY(calc(100% - 58px));transition:transform .24s ease}
+  #account.account{position:fixed;left:0;right:0;bottom:0;z-index:40;margin:0;border-radius:16px 16px 0 0;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 30px rgba(0,0,0,.16);display:flex;flex-direction:column;align-items:stretch;gap:0;max-height:76vh;overflow:hidden;transform:translateY(calc(100% - 82px));transition:transform .24s ease}
   #account.account.hidden{display:none!important}
   #account.account.my-decks-open{transform:translateY(0)}
   #account.account.my-decks-open .my-decks-chevron{transform:rotate(180deg)}
