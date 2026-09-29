@@ -31,17 +31,27 @@ function highlightEffect(text, traitKeywords=[]){
     ...EFFECT_KEYWORDS.map(text=>({text,className:"effect"})),
     ...traits.map(text=>({text,className:"trait"}))
   ].sort((a,b)=>b.text.length-a.text.length);
+
   if(!entries.length)return out.replace(/\n/g,"<br>");
 
   const pattern=entries.map(x=>escapeRegex(x.text)).join("|");
-  const re=new RegExp(`(?:[【〖\[]\s*)?(${pattern})(\s*[（(]?[+＋]?\d+[０-９\d]*[）)]?)?(?:\s*[】〗\]])?`,"giu");
+
+  // String.raw keeps the backslashes intact when building the RegExp.
+  // This supports 【】, 〖〗 and [] wrappers and removes them from the chip.
+  const re=new RegExp(
+    String.raw`(?:【|〖|\[)?\s*(${pattern})(\s*[（(]?[+＋]?[0-9０-９]+[）)]?)?\s*(?:】|〗|\])?`,
+    "giu"
+  );
+
   out=out.replace(re,(match,keyword,suffix)=>{
     const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
     const cls=entry?.className||keywordClass(keyword);
     return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
   });
+
   return out.replace(/\n/g,"<br>");
 }
+
 function render(){
   if(!deck)return;
   $('deck').classList.remove('hidden');
