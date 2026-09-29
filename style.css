@@ -125,3 +125,21 @@
     display:none !important;
   }
 }
+
+.deck-import-row{align-items:center}
+.deck-color-picker{display:flex;align-items:center;gap:8px}
+.deck-color-picker select{min-width:105px}
+.color-dot,.deck-color-dot{display:inline-block;flex:0 0 auto;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+.deck-color-picker .color-dot{width:14px;height:14px}
+.color-dot.red,.deck-color-dot.red{background:#e53935}
+.color-dot.blue,.deck-color-dot.blue{background:#2979ff}
+.color-dot.yellow,.deck-color-dot.yellow{background:#f6c400}
+.color-dot.green,.deck-color-dot.green{background:#2e9d50}
+.color-dot.purple,.deck-color-dot.purple{background:#8b5cf6}
+.slot-name{display:flex;align-items:center;gap:7px}
+@media(max-width:700px),(pointer:coarse){
+  .deck-import-row{flex-wrap:wrap}
+  .deck-import-row #name{flex:1 1 100%}
+  .deck-color-picker{flex:1 1 auto}
+  .deck-color-picker select{width:100%}
+}
