@@ -305,3 +305,120 @@
 .trigger{
   color:#171a1f;
 }
+
+/* Mobile card gallery: two cards per row with large thumbnails */
+@media (max-width:700px){
+  #cards{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  #cards .card{
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-areas:
+      "image image"
+      "body body"
+      "rar qty";
+    align-items:start;
+    gap:0 6px;
+    padding:8px;
+    border-radius:12px;
+    min-width:0;
+  }
+
+  #cards .card > .thumb,
+  #cards .card > .img-fallback{
+    grid-area:image;
+    width:100%;
+    height:auto;
+    aspect-ratio:5 / 7;
+    object-fit:contain;
+    border-radius:8px;
+    margin:0;
+  }
+
+  #cards .card > .img-fallback{
+    min-height:0;
+    height:auto;
+  }
+
+  #cards .cardbody{
+    grid-area:body;
+    width:100%;
+    min-width:0;
+    padding:8px 2px 3px;
+  }
+
+  #cards .nm{
+    font-size:13px;
+    line-height:1.3;
+    white-space:normal;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  }
+
+  #cards .id{
+    margin-top:2px;
+    font-size:9px;
+    line-height:1.25;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  #cards .rar{
+    grid-area:rar;
+    justify-self:start;
+    align-self:center;
+    font-size:9px;
+    padding:2px 5px;
+    margin:2px 0 0 2px;
+  }
+
+  #cards .qty{
+    grid-area:qty;
+    justify-self:end;
+    align-self:center;
+    font-size:14px;
+    line-height:1.2;
+    margin:2px 2px 0 0;
+  }
+}
+
+
+/* Share link copied toast */
+.share-toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translate(-50%,12px);
+  z-index:100;
+  padding:10px 16px;
+  border-radius:999px;
+  background:#171a1f;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+  white-space:nowrap;
+}
+.share-toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+@media(max-width:550px){
+  .share-toast{
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    max-width:calc(100vw - 32px);
+    white-space:normal;
+    text-align:center;
+  }
+}

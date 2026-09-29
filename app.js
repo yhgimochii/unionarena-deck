@@ -364,7 +364,64 @@ $('confirmEditDeck').onclick=async()=>{
   }finally{
     $('confirmEditDeck').disabled=false;
   }
-};$('shareDeck').onclick=async()=>{if(!deck)return;const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:deck.cards}))));const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);try{await navigator.clipboard.writeText(url);$('msg').textContent='分享連結已複製。';$('msg').style.color='#25805b'}catch{$('msg').textContent=url}};
+};function showShareToast(message='分享連結已複製！'){
+  let toast=$('shareToast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='shareToast';
+    toast.className='share-toast';
+    toast.setAttribute('role','status');
+    toast.setAttribute('aria-live','polite');
+    document.body.appendChild(toast);
+  }
+  toast.textContent=message;
+  toast.classList.remove('show');
+  void toast.offsetWidth;
+  toast.classList.add('show');
+  clearTimeout(window.__shareToastTimer);
+  window.__shareToastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+}
+
+async function copyShareLink(text){
+  if(navigator.clipboard && window.isSecureContext){
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const ta=document.createElement('textarea');
+  ta.value=text;
+  ta.setAttribute('readonly','');
+  ta.style.position='fixed';
+  ta.style.opacity='0';
+  document.body.appendChild(ta);
+  ta.select();
+  ta.setSelectionRange(0,ta.value.length);
+  let ok=false;
+  try{ok=document.execCommand('copy')}catch{}
+  ta.remove();
+  return ok;
+}
+
+$('shareDeck').onclick=async()=>{
+  if(!deck)return;
+  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:deck.cards}))));
+  const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);
+  try{
+    const copied=await copyShareLink(url);
+    if(copied){
+      showShareToast('分享連結已複製！');
+      $('msg').textContent='分享連結已複製。';
+      $('msg').style.color='#25805b';
+    }else{
+      showShareToast('無法自動複製，請手動複製連結。');
+      $('msg').textContent=url;
+      $('msg').style.color='#68707d';
+    }
+  }catch{
+    showShareToast('無法自動複製，請手動複製連結。');
+    $('msg').textContent=url;
+    $('msg').style.color='#68707d';
+  }
+};
 $('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
 $('clear').onclick=()=>{$('deck').classList.add('hidden');deck=null;selected=null};
 onAuthStateChanged(auth,async user=>{currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden')}});
