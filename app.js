@@ -64,6 +64,17 @@ function keywordClass(k){
   const value=String(k||"").toLowerCase();
   return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===value)||/^(?:impact|damage|衝擊|傷害)/i.test(value)?"combat":"effect";
 }
+function highlightTrigger(text){
+  const raw=String(text||'').trim();
+  if(!raw)return '';
+  const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|最終|特別|彩色)(?:】|〗|\])\s*/);
+  if(!m)return highlightEffect(raw,[]);
+  const label=m[1];
+  const type=label==='最終'?'final':label==='特別'?'special':label==='彩色'?'color':'common';
+  const rest=raw.slice(m[0].length);
+  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+}
+
 function highlightEffect(text, traitKeywords=[]){
   let out=esc(text||"");
   const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
@@ -166,21 +177,48 @@ function translateTrigger(text){
   if(exact[t])return exact[t];
 
   // Translate COLOR triggers while preserving the numeric conditions.
-  if(/^\[COLOR\]/i.test(t)){
-    let body=t.replace(/^\[COLOR\]\s*/i,"");
-    body=body
-      .replace(/Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and (?:remove it from the field|sideline it)\.?/i,
-        "選擇對手前線１張BP$1或以下的角色退場。")
-      .replace(/Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and sideline it\.?/i,
-        "選擇對手前線１張BP$1或以下的角色退場。")
-      .replace(/Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return (?:it to the hand|it to their hand)\.?/i,
-        "選擇對手前線１張BP$1或以下的角色返回手牌。")
-      .replace(/Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?/i,
-        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。")
-      .replace(/Choose 1 Character card on your opponent's Front Line and switch it to Rest Mode\. Then, it can't be switched back to Active Mode one time\.?/i,
-        "選擇對手前線１張角色休息。該角色下一次不能被激活。")
-      .replace(/Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 (?:from your hand on your field in Active Mode|from your Outside Area on your Front Line in Active Mode|from your hand set to active onto your field|from your sideline set to active onto your front line)\.?/i,
-        (m,color)=>`從${color.toLowerCase()==="green"?"手牌":"場外"}選擇１張${color==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己${color.toLowerCase()==="green"?"場上":"前線"}登場。`);
+  // Rugia contains several English variants of the same COLOR trigger, so
+  // normalize all of them into Traditional Chinese before highlighting.
+  if(/^(?:\[|〖|【)\s*COLOR\s*(?:\]|〗|】)/i.test(t)){
+    let body=t.replace(/^(?:\[|〖|【)\s*COLOR\s*(?:\]|〗|】)\s*/i,"");
+
+    const colorRules=[
+      [/^Choose (?:1|one) Character card on your opponent's Front Line and switch it to Rest Mode\. Then, it can't be switched back to Active Mode one time\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次不能被激活。"],
+      [/^Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return it to their hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and return it to their hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return it to the hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and return it to the hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and (?:remove it from the field|sideline it)\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色退場。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and sideline it\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色退場。"],
+      [/^Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。"],
+      [/^Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 from your hand(?: set to active)? onto your field(?: in Active Mode)?\.?$/i,
+        (m,color)=>`從手牌選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己場上登場。`],
+      [/^Play (?:1|one) (green|purple) character card with 2 or less required energy and 1 AP cost from your hand set to active onto your field\.?$/i,
+        (m,color)=>`從手牌選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己場上登場。`],
+      [/^Play (?:1|one) (green|purple) character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line\.?$/i,
+        (m,color)=>`從場外選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己前線登場。`],
+      [/^Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 from your Outside Area on your Front Line in Active Mode\.?$/i,
+        (m,color)=>`從場外選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己前線登場。`]
+    ];
+
+    for(const [re,replacement] of colorRules){
+      const match=body.match(re);
+      if(match){
+        body=typeof replacement==='function'?replacement(...match):body.replace(re,replacement);
+        break;
+      }
+    }
+
     return `〖彩色〗${body}`;
   }
 
@@ -241,7 +279,7 @@ function detail(){
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
  const effect=highlightEffect(d.effect||'',d.traits||[]);
- const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightEffect(triggerText,d.traits||[])}</div></div>`:'';
+ const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2><div class="qtybig">×${c.qty}</div><div class="stats"><div><small>能源需求</small><strong>${esc(energy)}</strong></div><div><small>AP消耗</small><strong>${esc(ap)}</strong></div><div><small>BP</small><strong>${esc(bp)}</strong></div><div><small>卡類</small><strong>${esc(d.type||'—')}</strong></div></div>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`
   syncMobileDetail();
