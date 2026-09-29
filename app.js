@@ -314,6 +314,27 @@ $('loginBtn').onclick=showAuth;$('closeModal').onclick=hideAuth;
 $('signup').onclick=async()=>{try{await createUserWithEmailAndPassword(auth,$('email').value.trim(),$('password').value);hideAuth()}catch(e){$('authMsg').textContent=authError(e)}};
 $('signin').onclick=async()=>{try{await signInWithEmailAndPassword(auth,$('email').value.trim(),$('password').value);hideAuth()}catch(e){$('authMsg').textContent=authError(e)}};
 $('logoutBtn').onclick=()=>signOut(auth);
+function closeMyDecks(){
+  const account=$('account'),backdrop=$('myDecksBackdrop'),toggle=$('myDecksToggle');
+  if(!account)return;
+  account.classList.remove('my-decks-open');
+  if(backdrop)backdrop.classList.add('hidden');
+  if(toggle)toggle.setAttribute('aria-expanded','false');
+}
+function openMyDecks(){
+  const account=$('account'),backdrop=$('myDecksBackdrop'),toggle=$('myDecksToggle');
+  if(!account)return;
+  account.classList.add('my-decks-open');
+  if(backdrop)backdrop.classList.remove('hidden');
+  if(toggle)toggle.setAttribute('aria-expanded','true');
+}
+function toggleMyDecks(){
+  const account=$('account');
+  if(account?.classList.contains('my-decks-open')) closeMyDecks(); else openMyDecks();
+}
+$('myDecksToggle')?.addEventListener('click',toggleMyDecks);
+$('myDecksBackdrop')?.addEventListener('click',closeMyDecks);
+
 async function loadSaved(){
   if(!currentUser)return;
   const q=query(collection(db,'users',currentUser.uid,'decks'),orderBy('createdAt','desc'));
@@ -326,7 +347,7 @@ async function loadSaved(){
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
     if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
     slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-count">${(d.cards||[]).reduce((n,c)=>n+c.qty,0)} 張</div><button class="slot-delete" type="button" title="刪除牌組" aria-label="刪除牌組">×</button>`;
-    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,firestoreId:d.id};selected=null;render();detail();loadSaved()};
+    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
     slot.querySelector('.slot-delete').onclick=async e=>{
       e.preventDefault();e.stopPropagation();
       if(!window.confirm(`確定要刪除「${d.name||'未命名牌組'}」嗎？\n\n刪除後將會從你的帳號牌組中永久移除。`))return;
