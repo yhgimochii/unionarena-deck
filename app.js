@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
@@ -57,7 +57,7 @@ function highlightEffect(text, traitKeywords=[]){
 function render(){
   if(!deck)return;
   $('deck').classList.remove('hidden');
-  $('title').textContent=deck.name||"新牌組";
+  $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span>${esc(deck.name||'新牌組')}`;
   $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
 
   $('cards').innerHTML=deck.cards.map((c,i)=>{
@@ -239,7 +239,55 @@ async function loadSaved(){
   }
 }
 $('saveDeck').onclick=async()=>{if(!currentUser){showAuth();return}if(!deck)return;try{const color=deckColorClass(deck.color||$('deckColor')?.value);deck.color=color;const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),{name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,source:deck.source||'',createdAt:serverTimestamp()});deck.firestoreId=ref.id;$('msg').textContent='牌組已儲存到你的帳號。';$('msg').style.color='#25805b';await loadSaved()}catch(e){$('msg').textContent='儲存失敗：'+e.message}};
-$('shareDeck').onclick=async()=>{if(!deck)return;const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:deck.cards}))));const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);try{await navigator.clipboard.writeText(url);$('msg').textContent='分享連結已複製。';$('msg').style.color='#25805b'}catch{$('msg').textContent=url}};
+$('editDeck').onclick=()=>{
+  if(!currentUser){showAuth();return}
+  if(!deck?.firestoreId){
+    $('msg').textContent='請先儲存牌組後再編輯。';
+    $('msg').style.color='#b34b35';
+    return;
+  }
+  $('editDeckName').value=deck.name||'';
+  $('editDeckColor').value=deckColorClass(deck.color||'red');
+  updateEditColorPreview();
+  $('editDeckModal').classList.remove('hidden');
+};
+
+function closeEditDeckModal(){
+  $('editDeckModal').classList.add('hidden');
+}
+function updateEditColorPreview(){
+  const c=deckColorClass($('editDeckColor').value);
+  $('editDeckColorPreview').className=`color-dot ${c}`;
+}
+$('editDeckColor').addEventListener('change',updateEditColorPreview);
+$('closeEditDeck').onclick=closeEditDeckModal;
+$('cancelEditDeck').onclick=closeEditDeckModal;
+$('editDeckModal').addEventListener('click',e=>{
+  if(e.target===e.currentTarget)closeEditDeckModal();
+});
+$('confirmEditDeck').onclick=async()=>{
+  const name=$('editDeckName').value.trim();
+  const color=deckColorClass($('editDeckColor').value);
+  if(!name){
+    $('editDeckEditMsg').textContent='牌組名稱不能為空白。';
+    return;
+  }
+  try{
+    $('confirmEditDeck').disabled=true;
+    await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{name,color});
+    deck.name=name;
+    deck.color=color;
+    closeEditDeckModal();
+    render();
+    await loadSaved();
+    $('msg').textContent='牌組名稱與顏色已更新。';
+    $('msg').style.color='#25805b';
+  }catch(e){
+    $('editDeckEditMsg').textContent='編輯失敗：'+e.message;
+  }finally{
+    $('confirmEditDeck').disabled=false;
+  }
+};$('shareDeck').onclick=async()=>{if(!deck)return;const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:deck.cards}))));const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);try{await navigator.clipboard.writeText(url);$('msg').textContent='分享連結已複製。';$('msg').style.color='#25805b'}catch{$('msg').textContent=url}};
 $('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
 $('clear').onclick=()=>{$('deck').classList.add('hidden');deck=null;selected=null};
 onAuthStateChanged(auth,async user=>{currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden')}});

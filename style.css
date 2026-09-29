@@ -143,3 +143,110 @@
   .deck-color-picker{flex:1 1 auto}
   .deck-color-picker select{width:100%}
 }
+
+.deck-title-dot{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  min-width:12px;
+  border-radius:50%;
+  margin-right:9px;
+  vertical-align:middle;
+  border:1px solid rgba(0,0,0,.12);
+}
+.deck-title-dot.red,.deck-color-dot.red{background:#ef4444}
+.deck-title-dot.blue,.deck-color-dot.blue{background:#3b82f6}
+.deck-title-dot.yellow,.deck-color-dot.yellow{background:#facc15}
+.deck-title-dot.green,.deck-color-dot.green{background:#22c55e}
+.deck-title-dot.purple,.deck-color-dot.purple{background:#8b5cf6}
+#title{display:flex;align-items:center;gap:0}
+#editDeck{margin-left:0}
+
+/* Deck editor modal */
+.edit-deck-modal{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  box-sizing:border-box;
+  background:rgba(15,23,42,.42);
+}
+.edit-deck-modal.hidden{display:none}
+.edit-deck-box{
+  width:min(440px,100%);
+  background:#fff;
+  border-radius:16px;
+  padding:22px;
+  box-sizing:border-box;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+.edit-deck-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+  font-size:18px;
+}
+.edit-deck-x{
+  border:0;
+  background:transparent;
+  font-size:25px;
+  line-height:1;
+  color:#9ca3af;
+  cursor:pointer;
+}
+.edit-deck-label{
+  display:block;
+  margin:12px 0 7px;
+  font-size:13px;
+  font-weight:700;
+}
+.edit-deck-input{
+  width:100%;
+  box-sizing:border-box;
+  padding:11px 12px;
+  border:1px solid #d9dce3;
+  border-radius:10px;
+  background:#fff;
+  font:inherit;
+}
+.edit-deck-color-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.edit-deck-color-row .edit-deck-input{flex:1}
+.edit-deck-color-row .color-dot{
+  width:16px;
+  height:16px;
+  min-width:16px;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.12);
+}
+.edit-deck-msg{
+  min-height:20px;
+  margin-top:8px;
+  color:#b34b35;
+  font-size:13px;
+}
+.edit-deck-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:10px;
+}
+@media(max-width:700px){
+  .edit-deck-modal{
+    align-items:flex-end;
+    padding:0;
+  }
+  .edit-deck-box{
+    width:100%;
+    border-radius:18px 18px 0 0;
+    padding:20px;
+    padding-bottom:calc(20px + env(safe-area-inset-bottom));
+  }
+}
