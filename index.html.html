@@ -10,8 +10,19 @@ header{height:60px;border-bottom:1px solid var(--line);display:flex;align-items:
 h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}h3:not(:first-child){margin-top:20px}
 textarea,input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:9px 10px;font:inherit;font-size:13px}textarea{min-height:90px;resize:vertical}
 .btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:8px 12px;border-radius:9px;font-weight:700;cursor:pointer;font-size:13px}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.saved{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;cursor:pointer}.saved:hover,.saved.on{background:var(--panel2)}.saved small{color:var(--muted)}.x{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px}
-.head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.head h2{margin:0;font-size:20px}.stat{font-size:12px;color:var(--muted)}
+.saved{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:8px}
+.saved-slot{position:relative;min-height:72px;padding:10px 8px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:.15s}
+.saved-slot:hover{border-color:var(--accent);transform:translateY(-1px)}
+.saved-slot.on{border:2px solid var(--accent);background:var(--panel)}
+.saved-slot.empty{border-style:dashed;color:var(--muted);cursor:default;transform:none}
+.saved-slot .slot-no{font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.06em;margin-bottom:5px}
+.saved-slot .slot-name{font-weight:800;font-size:11px;line-height:1.2;word-break:break-word}
+.saved-slot .slot-count{font-size:10px;color:var(--muted);margin-top:4px}
+.saved-slot .x{position:absolute;right:4px;top:3px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:2px 5px;border-radius:5px}
+.saved-slot .x:hover{background:var(--danger);color:#fff}
+.deck-slot-help{font-size:11px;color:var(--muted);line-height:1.4;margin-bottom:6px}
+@media(max-width:760px){.saved{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.head h2{margin:0;font-size:20px}.deck-breadcrumb{display:flex;align-items:center;gap:9px}.deck-breadcrumb>span:first-child{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.deck-arrow{font-size:22px;color:var(--accent);line-height:1}.stat{font-size:12px;color:var(--muted)}
 .item{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:var(--panel)}.item:hover,.item.on{border-color:var(--accent)}
 .thumb{width:36px;height:50px;border-radius:5px;background:linear-gradient(145deg,#332b55,#161822);flex:none;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .grow{flex:1;min-width:0}.grow b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{font-size:12px;color:var(--muted)}.qty{font-weight:800;font-size:18px;min-width:32px;text-align:center;color:var(--accent)}
@@ -43,7 +54,9 @@ a{color:var(--accent)}
 <input id="dname" placeholder="牌組名稱（可留空）" style="margin-top:8px">
 <div class="row"><button class="btn primary" id="go">分析並儲存牌組</button></div>
 <div id="err" class="note miss"></div>
-<h3>我的牌組</h3><div id="saved"></div>
+<h3>我的牌組</h3>
+<div class="deck-slot-help">選擇牌組欄位查看牌組；點擊右上角 × 可刪除。</div>
+<div id="saved"></div>
 <h3>卡片資料庫</h3>
 <details><summary class="note" style="cursor:pointer">匯入卡片資料（JSON）</summary>
 <textarea id="json" placeholder='[{"id":"UA53BT_1003","name":"…","rarity":"R","trait":"…","energy":2,"bp":3000,"text":"繁體中文效果"}]' style="margin-top:8px"></textarea>
@@ -110,13 +123,42 @@ $('go').onclick=()=>{
 };
 $('imp').onclick=()=>{try{const a=JSON.parse($('json').value);(Array.isArray(a)?a:[a]).forEach(c=>{const k=keyOf(c.id);custom[k]={...custom[k],...c}});save('ua_cards',custom);$('json').value='';$('err').textContent='';render()}catch(e){$('err').textContent='JSON 格式錯誤：'+e.message}};
 function render(){
-  $('saved').innerHTML=decks.map(d=>`<div class="saved ${d.id===cur?'on':''}" data-id="${d.id}"><div>${esc(d.name)}<br><small>${d.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${d.cards.length} 種</small></div><button class="x" data-del="${d.id}" title="刪除">×</button></div>`).join('')||'<div class="note">尚未儲存任何牌組。</div>';
-  document.querySelectorAll('.saved').forEach(el=>el.onclick=e=>{if(e.target.dataset.del){decks=decks.filter(d=>d.id!==e.target.dataset.del);save('ua_decks',decks);if(cur===e.target.dataset.del)cur=decks[0]?.id||null;sel=null}else{cur=el.dataset.id;sel=null}render()});
+  const SLOT_COUNT = 10;
+  $('saved').innerHTML=Array.from({length:SLOT_COUNT},(_,slot)=>{
+    const d=decks[slot];
+    if(!d) return `<div class="saved-slot empty"><div class="slot-no">牌組 ${slot+1}</div><div class="slot-name">空白</div></div>`;
+    return `<div class="saved-slot ${d.id===cur?'on':''}" data-id="${esc(d.id)}">
+      <div class="slot-no">牌組 ${slot+1}</div>
+      <div class="slot-name">${esc(d.name)}</div>
+      <div class="slot-count">${d.cards.reduce((n,c)=>n+c.qty,0)} 張</div>
+      <button class="x" data-del="${esc(d.id)}" title="刪除牌組" aria-label="刪除牌組">×</button>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.saved-slot[data-id]').forEach(el=>el.onclick=e=>{
+    const del=e.target.closest('[data-del]');
+    if(del){
+      e.preventDefault();
+      e.stopPropagation();
+      const id=del.dataset.del;
+      const deck=decks.find(d=>d.id===id);
+      if(!deck)return;
+      const ok=window.confirm(`確定要刪除「${deck.name}」嗎？\n\n這個牌組會從牌組欄位中永久移除。`);
+      if(!ok)return;
+      decks=decks.filter(d=>d.id!==id);
+      save('ua_decks',decks);
+      if(cur===id){cur=decks[0]?.id||null;sel=null}
+      render();
+      return;
+    }
+    cur=el.dataset.id;
+    sel=null;
+    render();
+  });
   $('dbinfo').textContent=`資料庫共 ${Object.keys({...DB,...custom}).length} 張卡有繁體中文效果資料。`;
   const d=decks.find(x=>x.id===cur);
   if(!d){$('deck').innerHTML='<div class="empty">貼上 Rugia Creation 牌組連結，即可分析並儲存牌組。</div>';detail();return}
   const total=d.cards.reduce((n,c)=>n+c.qty,0),miss=d.cards.filter(c=>!known(c.key)).length;
-  $('deck').innerHTML=`<div class="head"><div><h2>${esc(d.name)}</h2><div class="stat">${d.ver?esc(d.ver)+' · ':''}共 ${total} 張 / ${d.cards.length} 種${miss?` · <span class="miss">${miss} 種尚無效果資料</span>`:''}</div></div>${d.url?`<a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">在 Rugia Creation 開啟 ↗</a>`:''}</div>`+
+  $('deck').innerHTML=`<div class="head"><div><div class="deck-breadcrumb"><span>My Deck</span><span class="deck-arrow">›</span><h2>${esc(d.name)}</h2></div><div class="stat">${d.ver?esc(d.ver)+' · ':''}共 ${total} 張 / ${d.cards.length} 種${miss?` · <span class="miss">${miss} 種尚無效果資料</span>`:''}</div></div>${d.url?`<a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">在 Rugia Creation 開啟 ↗</a>`:''}</div>`+
   d.cards.map((c,i)=>{const n=info(c.key);return `<div class="item ${sel===i?'on':''}" data-i="${i}"><div class="thumb">${n.image?`<img src="${esc(n.image)}" alt="" onerror="this.remove()">`:''}</div><div class="grow"><b>${esc(n.name||'（未收錄）')}${c.alt?' <span class="tag">異圖 '+esc(c.alt)+'</span>':''}</b><div class="sub">${esc(c.key)}${n.trait?' · '+esc(n.trait):''}</div></div>${n.rarity?`<span class="tag">${esc(n.rarity)}</span>`:''}<div class="qty">×${c.qty}</div></div>`}).join('');
   document.querySelectorAll('.item').forEach(el=>el.onclick=()=>{sel=+el.dataset.i;render()});
   detail();
