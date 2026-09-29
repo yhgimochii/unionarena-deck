@@ -1,2 +1,2 @@
-Replace app.js and style.css in your GitHub repository.
-This fixes the thumbnail fallback handler so failed official image URLs actually try the alternate paths instead of leaving broken-image icons.
+Updated card detail: removed the quantity (×N) and the stats row (Energy / AP / BP / Card Type).
+Keeps the latest mobile gallery, share toast, trigger chips, and color-trigger translation changes.
