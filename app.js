@@ -24,8 +24,19 @@ function highlightEffect(text){
   let out=esc(text||"");
   const combat=COMBAT_KEYWORDS.map(escapeRegex).sort((a,b)=>b.length-a.length).join("|");
   const effect=EFFECT_KEYWORDS.map(escapeRegex).sort((a,b)=>b.length-a.length).join("|");
-  if(combat)out=out.replace(new RegExp(`(${combat})(\\s*[（(]?[+]?\\d+[）)]?)?`,"gi"),'<span class="keyword-chip combat">$1$2</span>');
-  if(effect)out=out.replace(new RegExp(`(${effect})`,"g"),'<span class="keyword-chip effect">$1</span>');
+  const all=`(${combat}|${effect})`;
+
+  if(all){
+    // Highlight both keyword types in one pass. If the keyword is wrapped in
+    // 【 】 or [ ], the brackets are consumed and therefore not displayed.
+    out=out.replace(
+      new RegExp(`(?:[\\\\[【]\\\\s*)?${all}(\\\\s*[（(]?[+]?\\\\d+[）)]?)?(?:\\\\s*[\\\\]】])?`,"gi"),
+      (match, keyword, suffix)=>{
+        const cls=keywordClass(keyword);
+        return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
+      }
+    );
+  }
   return out.replace(/\n/g,"<br>");
 }
 function render(){if(!deck)return;$('deck').classList.remove('hidden');$('title').textContent=deck.name||"新牌組";$('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;$('cards').innerHTML=deck.cards.map((c,i)=>{const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];const id=cardId(c),name=d?.name||`未收錄：${id}`;return `<div class="card ${selected===i?"on":""}" data-i="${i}">${imageTag(id,name)}<div class="cardbody"><div class="nm">${esc(name)}</div><div class="id">${esc(id)}</div></div>${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}<div class="qty">×${c.qty}</div></div>`}).join('');document.querySelectorAll('.card').forEach(el=>el.onclick=()=>{selected=+el.dataset.i;render();detail()})}
