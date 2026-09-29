@@ -42,7 +42,36 @@ function highlightEffect(text, traitKeywords=[]){
   });
   return out.replace(/\n/g,"<br>");
 }
-function render(){if(!deck)return;$('deck').classList.remove('hidden');$('title').textContent=deck.name||"新牌組";$('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;$('cards').innerHTML=deck.cards.map((c,i)=>{const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];const id=cardId(c),name=d?.name||`未收錄：${id}`;return `<div class="card ${selected===i?"on":""}" data-i="${i}">${imageTag(id,name)}<div class="cardbody"><div class="nm">${esc(name)}</div><div class="id">${esc(id)}</div></div>${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}<div class="qty">×${c.qty}</div></div>`}).join('');document.querySelectorAll('.card').forEach(el=>el.onclick=()=>{selected=+el.dataset.i;render();detail()})}
+function render(){
+  if(!deck)return;
+  $('deck').classList.remove('hidden');
+  $('title').textContent=deck.name||"新牌組";
+  $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
+  $('cards').innerHTML=deck.cards.map((c,i)=>{
+    const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
+    const id=cardId(c),name=d?.name||`未收錄：${id}`;
+    return `<div class="card ${selected===i?"on":""}" data-i="${i}" role="button" tabindex="0">${imageTag(id,name)}<div class="cardbody"><div class="nm">${esc(name)}</div><div class="id">${esc(id)}</div></div>${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}<div class="qty">×${c.qty}</div></div>`;
+  }).join('');
+
+}
+$('cards').addEventListener('click',e=>{
+  const card=e.target.closest('.card');
+  if(!card || !$('cards').contains(card))return;
+  selected=Number(card.dataset.i);
+  render();
+  detail();
+});
+$('cards').addEventListener('keydown',e=>{
+  const card=e.target.closest('.card');
+  if(!card || !$('cards').contains(card))return;
+  if(e.key==='Enter'||e.key===' '){
+    e.preventDefault();
+    selected=Number(card.dataset.i);
+    render();
+    detail();
+  }
+});
+
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
