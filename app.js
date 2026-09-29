@@ -16,27 +16,30 @@ function rugia(c){const code=cardId(c).replace("/","_");return `https://rugiacre
 function officialSearch(c){const id=cardId(c);return `https://www.unionarena-tcg.com/en/cardlist/?search=true&keyword=${encodeURIComponent(id)}`}
 function cardImage(id){const file=String(id||"").replace("/","_");return `https://www.unionarena-tcg.com/tc/images/cardlist/card/${encodeURIComponent(file)}.png?v5=`}
 function imageTag(id,name,cls="thumb"){return `<img class="${cls}" src="${esc(cardImage(id))}" alt="${esc(name||id)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">`}
-const COMBAT_KEYWORDS=["突襲","衝擊","雙重攻擊","雙重阻擋","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact","無效化衝擊"];
-const EFFECT_KEYWORDS=["登場時","退場時","攻擊時","阻擋時","被攻擊時","攻擊結束時","主階段結束時","起動・主要","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
-function escapeRegex(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
-function keywordClass(k){return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===String(k).toLowerCase())||/^(?:Impact|Damage|衝擊|傷害)/i.test(String(k))?"combat":"effect"}
-function highlightEffect(text){
+const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
+const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
+function escapeRegex(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+function keywordClass(k){
+  const value=String(k||"").toLowerCase();
+  return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===value)||/^(?:impact|damage|衝擊|傷害)/i.test(value)?"combat":"effect";
+}
+function highlightEffect(text, traitKeywords=[]){
   let out=esc(text||"");
-  const combat=COMBAT_KEYWORDS.map(escapeRegex).sort((a,b)=>b.length-a.length).join("|");
-  const effect=EFFECT_KEYWORDS.map(escapeRegex).sort((a,b)=>b.length-a.length).join("|");
-  const all=`(${combat}|${effect})`;
+  const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
+  const entries=[
+    ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
+    ...EFFECT_KEYWORDS.map(text=>({text,className:"effect"})),
+    ...traits.map(text=>({text,className:"trait"}))
+  ].sort((a,b)=>b.text.length-a.text.length);
+  if(!entries.length)return out.replace(/\n/g,"<br>");
 
-  if(all){
-    // Highlight both keyword types in one pass. If the keyword is wrapped in
-    // 【 】 or [ ], the brackets are consumed and therefore not displayed.
-    out=out.replace(
-      new RegExp(`(?:[\\\\[【]\\\\s*)?${all}(\\\\s*[（(]?[+]?\\\\d+[）)]?)?(?:\\\\s*[\\\\]】])?`,"gi"),
-      (match, keyword, suffix)=>{
-        const cls=keywordClass(keyword);
-        return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
-      }
-    );
-  }
+  const pattern=entries.map(x=>escapeRegex(x.text)).join("|");
+  const re=new RegExp(`(?:[【〖\[]\s*)?(${pattern})(\s*[（(]?[+＋]?\d+[０-９\d]*[）)]?)?(?:\s*[】〗\]])?`,"giu");
+  out=out.replace(re,(match,keyword,suffix)=>{
+    const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
+    const cls=entry?.className||keywordClass(keyword);
+    return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
+  });
   return out.replace(/\n/g,"<br>");
 }
 function render(){if(!deck)return;$('deck').classList.remove('hidden');$('title').textContent=deck.name||"新牌組";$('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;$('cards').innerHTML=deck.cards.map((c,i)=>{const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];const id=cardId(c),name=d?.name||`未收錄：${id}`;return `<div class="card ${selected===i?"on":""}" data-i="${i}">${imageTag(id,name)}<div class="cardbody"><div class="nm">${esc(name)}</div><div class="id">${esc(id)}</div></div>${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}<div class="qty">×${c.qty}</div></div>`}).join('');document.querySelectorAll('.card').forEach(el=>el.onclick=()=>{selected=+el.dataset.i;render();detail()})}
@@ -47,8 +50,8 @@ function detail(){
  const bp=d.bp==null?'—':d.bp, energy=d.energy==null?'—':`${d.energyColor||''}${d.energy}`.trim(),ap=d.ap==null?'—':d.ap;
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
- const effect=highlightEffect(d.effect||'');
- const trigger=d.trigger?`<div class="trigger"><b>觸發器</b><div>${highlightEffect(d.trigger)}</div></div>`:'';
+ const effect=highlightEffect(d.effect||'',d.traits||[]);
+ const trigger=d.trigger?`<div class="trigger"><b>觸發器</b><div>${highlightEffect(d.trigger,d.traits||[])}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2><div class="qtybig">×${c.qty}</div><div class="stats"><div><small>能源需求</small><strong>${esc(energy)}</strong></div><div><small>AP消耗</small><strong>${esc(ap)}</strong></div><div><small>BP</small><strong>${esc(bp)}</strong></div><div><small>卡類</small><strong>${esc(d.type||'—')}</strong></div></div>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`
 }

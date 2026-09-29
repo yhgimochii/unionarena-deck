@@ -64,5 +64,6 @@ jobs:
             echo "No card database changes."
           else
             git commit -m "Update Union Arena card database"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi

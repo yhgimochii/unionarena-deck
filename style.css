@@ -4,3 +4,13 @@
 .thumb{width:52px;height:74px;object-fit:cover;border-radius:6px;border:1px solid #e1e3e8;background:#f3f4f6;flex:none}.detailimg{display:block;width:min(100%,320px);max-height:460px;object-fit:contain;margin:0 auto 16px;border-radius:10px;border:1px solid #e1e3e8;background:#f3f4f6}.cardbody{overflow:hidden}.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 @media(max-width:1000px){.saved{grid-template-columns:repeat(4,minmax(100px,1fr))}}@media(max-width:700px){.account{align-items:flex-start}.saved{grid-template-columns:repeat(3,minmax(90px,1fr));width:100%}}
+
+
+/* UI polish: effect/combat keyword chips */
+.keyword-chip{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;border-radius:999px;padding:4px 10px;min-height:28px;box-sizing:border-box;font-weight:800;line-height:1.15;white-space:nowrap;margin:1px 2px}
+.keyword-chip.effect,.tag.effect{background:#e9f3ff;color:#1769aa;border:1px solid #b9dcff}
+.keyword-chip.combat,.tag.combat{background:#fff2c7;color:#8a5a00;border:1px solid #f0cf70}
+.keyword-chip.trait,.tag.trait{background:#eeeafd;color:#4e42bd;border:1px dashed #bdb5f5}
+.tags .tag{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;box-sizing:border-box;border-radius:999px;font-size:12px;font-weight:800;line-height:1.15}
+.effect .keyword-chip{font-size:13px}
+.trigger .keyword-chip{font-size:12px}
