@@ -14,3 +14,75 @@
 .tags .tag{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;box-sizing:border-box;border-radius:999px;font-size:12px;font-weight:800;line-height:1.15}
 .effect .keyword-chip{font-size:13px}
 .trigger .keyword-chip{font-size:12px}
+
+
+/* Mobile card-description popup */
+.mobile-detail-btn{
+  display:none;
+}
+.mobile-detail-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+}
+.mobile-detail-modal.hidden{
+  display:none;
+}
+.mobile-detail-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+.mobile-detail-sheet{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  max-height:85vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:18px 18px 0 0;
+  box-shadow:0 -8px 30px rgba(0,0,0,.2);
+  padding:16px;
+  box-sizing:border-box;
+}
+.mobile-detail-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.mobile-detail-close{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:#f1f1f5;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.mobile-detail-content{
+  overflow-wrap:anywhere;
+}
+@media (max-width:700px){
+  .mobile-detail-btn{
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:12px 16px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    background:#fff;
+    font-weight:700;
+    cursor:pointer;
+  }
+  /* Keep the desktop detail column out of the normal phone layout. */
+  #detail{
+    display:none !important;
+  }
+  body.mobile-detail-open{
+    overflow:hidden;
+  }
+}
