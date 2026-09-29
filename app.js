@@ -16,8 +16,47 @@ function cardId(c){const m=c.num.match(/^(\d)(\d{3})$/);return `${c.set}/${deck?
 function cardIdNoDeck(c){const m=c.num.match(/^(\d)(\d{3})$/);return `${c.set}/${m?m[1]+"-"+m[2]:c.num}`}
 function rugia(c){const code=cardId(c).replace("/","_");return `https://rugiacreation.com/ua/search?Name=HK&Card=${encodeURIComponent(code)}#${encodeURIComponent(code)}`}
 function officialSearch(c){const id=cardId(c);return `https://www.unionarena-tcg.com/en/cardlist/?search=true&keyword=${encodeURIComponent(id)}`}
-function cardImage(id){const file=String(id||"").replace("/","_");return `https://www.unionarena-tcg.com/tc/images/cardlist/card/${encodeURIComponent(file)}.png?v5=`}
-function imageTag(id,name,cls="thumb"){return `<img class="${cls}" src="${esc(cardImage(id))}" alt="${esc(name||id)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">`}
+function cardImageUrls(id){
+ const raw=String(id||"").trim();
+ if(!raw)return [];
+ const parts=raw.split("/");
+ const set=parts[0]||raw;
+ const code=parts.slice(1).join("/");
+ const variants=[
+   `${set}_${code}`,
+   raw.replaceAll("/","_"),
+   `${set}-${code}`,
+   raw
+ ];
+ const locales=["tc","en","jp"];
+ const urls=[];
+ for(const locale of locales){
+   for(const file of variants){
+     urls.push(`https://www.unionarena-tcg.com/${locale}/images/cardlist/card/${encodeURIComponent(file)}.png`);
+   }
+ }
+ // Keep the original Asia/Traditional-Chinese path first because it is the source used by the site.
+ return [...new Set(urls)];
+}
+function cardImage(id){return cardImageUrls(id)[0]||""}
+function uaImageFallback(img){
+ let list=[];
+ try{list=JSON.parse(img.dataset.fallbacks||"[]")}catch(e){}
+ const next=list.shift();
+ img.dataset.fallbacks=JSON.stringify(list);
+ if(next){img.src=next;return}
+ const label=img.alt||"卡片圖片";
+ const holder=document.createElement("div");
+ holder.className=(img.className||"")+" img-fallback";
+ holder.textContent=label;
+ holder.title="卡片圖片暫時無法載入";
+ img.replaceWith(holder);
+}
+function imageTag(id,name,cls="thumb"){
+ const urls=cardImageUrls(id);
+ const first=urls.shift()||"";
+ return `<img class="${cls}" src="${esc(first)}" alt="${esc(name||id)}" loading="lazy" referrerpolicy="no-referrer" data-fallbacks='${esc(JSON.stringify(urls))}' onerror="uaImageFallback(this)">`;
+}
 const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
 const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
 function escapeRegex(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
