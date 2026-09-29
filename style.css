@@ -105,3 +105,23 @@
     padding-bottom:calc(16px + env(safe-area-inset-bottom));
   }
 }
+
+@media screen and (max-width: 700px), screen and (pointer: coarse){
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  #detail{
+    display:none !important;
+  }
+  .mobile-detail-btn{
+    display:block !important;
+  }
+  .mobile-detail-modal{
+    display:block;
+  }
+  .mobile-detail-modal.hidden{
+    display:none !important;
+  }
+}
