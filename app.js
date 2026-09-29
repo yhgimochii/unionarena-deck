@@ -93,15 +93,88 @@ window.selectCardFromUI=(index)=>{
   detail();
 };
 
+
+function translateTrigger(text){
+  let t=String(text||"").trim();
+  if(!t)return "";
+
+  const exact={
+    "[Draw] Draw 1 card.":"〖抽牌〗抽１張卡。",
+    "[Draw] Draw a card.":"〖抽牌〗抽１張卡。",
+    "[Get] Add this card to your hand.":"〖加入手牌〗將此卡加入手牌。",
+    "[Active] Choose 1 Character card on your field, switch it to Active Mode, and it gets +3000 BP for the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "[FINAL] If you have 0 life, place the top card of your deck into your life area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[FINAL] If your life is at 0, place the top card of your deck in your Life Area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[Final] If you have 0 life, place the top card of your deck into your life area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[Raid] Add this card to your hand, or if the Required Energy is met, Raid it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "[SPECIAL] Choose 1 Character card on your opponent's Front Line and remove it from the field.":"〖特別〗選擇對手前線１張角色退場。",
+    "[SPECIAL] Choose one character on your opponent's front line and sideline it.":"〖特別〗選擇對手前線１張角色退場。",
+    "[Special] Choose one character on your opponent's front line and sideline it.":"〖特別〗選擇對手前線１張角色退場。",
+    "〖抽牌〗抽１張卡。":"〖抽牌〗抽１張卡。",
+    "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "〖特別〗選擇對手前線１張角色退場。":"〖特別〗選擇對手前線１張角色退場。",
+    "〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
+  };
+  if(exact[t])return exact[t];
+
+  // Translate COLOR triggers while preserving the numeric conditions.
+  if(/^\[COLOR\]/i.test(t)){
+    let body=t.replace(/^\[COLOR\]\s*/i,"");
+    body=body
+      .replace(/Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and (?:remove it from the field|sideline it)\.?/i,
+        "選擇對手前線１張BP$1或以下的角色退場。")
+      .replace(/Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and sideline it\.?/i,
+        "選擇對手前線１張BP$1或以下的角色退場。")
+      .replace(/Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return (?:it to the hand|it to their hand)\.?/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。")
+      .replace(/Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?/i,
+        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。")
+      .replace(/Choose 1 Character card on your opponent's Front Line and switch it to Rest Mode\. Then, it can't be switched back to Active Mode one time\.?/i,
+        "選擇對手前線１張角色休息。該角色下一次不能被激活。")
+      .replace(/Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 (?:from your hand on your field in Active Mode|from your Outside Area on your Front Line in Active Mode|from your hand set to active onto your field|from your sideline set to active onto your front line)\.?/i,
+        (m,color)=>`從${color.toLowerCase()==="green"?"手牌":"場外"}選擇１張${color==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己${color.toLowerCase()==="green"?"場上":"前線"}登場。`);
+    return `〖彩色〗${body}`;
+  }
+
+  // Defensive fallback for any remaining English trigger.
+  if(/^[\[]/.test(t)){
+    return t
+      .replace(/^\[Draw\]/i,"〖抽牌〗")
+      .replace(/^\[Active\]/i,"〖激活〗")
+      .replace(/^\[Get\]/i,"〖加入手牌〗")
+      .replace(/^\[Raid\]/i,"〖突襲〗")
+      .replace(/^\[Special\]/i,"〖特別〗")
+      .replace(/^\[SPECIAL\]/i,"〖特別〗")
+      .replace(/^\[Final\]/i,"〖最終〗")
+      .replace(/^\[FINAL\]/i,"〖最終〗");
+  }
+  return t;
+}
+
+function formatEnergy(value){
+  const n=Number(value);
+  return Number.isFinite(n) ? String(n) : "0";
+}
+
+function formatBP(value){
+  if(value===null || value===undefined || value==="")return "—";
+  const n=Number(value);
+  return Number.isFinite(n) ? `${n}+` : String(value);
+}
+
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
  if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
- const bp=d.bp==null?'—':d.bp, energy=d.energy==null?'—':`${d.energyColor||''}${d.energy}`.trim(),ap=d.ap==null?'—':d.ap;
+ const bp=formatBP(d.bp), energy=formatEnergy(d.energy), ap=d.ap==null?'—':d.ap;
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
  const effect=highlightEffect(d.effect||'',d.traits||[]);
- const trigger=d.trigger?`<div class="trigger"><b>觸發器</b><div>${highlightEffect(d.trigger,d.traits||[])}</div></div>`:'';
+ const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightEffect(triggerText,d.traits||[])}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2><div class="qtybig">×${c.qty}</div><div class="stats"><div><small>能源需求</small><strong>${esc(energy)}</strong></div><div><small>AP消耗</small><strong>${esc(ap)}</strong></div><div><small>BP</small><strong>${esc(bp)}</strong></div><div><small>卡類</small><strong>${esc(d.type||'—')}</strong></div></div>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`
 }

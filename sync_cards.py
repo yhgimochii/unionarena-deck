@@ -242,7 +242,7 @@ def parse_official(cid, html):
     if m:
         out["type"] = {"Character": "角色", "Site": "場域", "Event": "事件", "Action Point": "AP"}.get(m.group(1), m.group(1))
 
-    m = re.search(r"\nBP\s*\n\s*(\d+)\s*\n", text, re.I)
+    m = re.search(r"\nBP\s*\n\s*(\d+)\s*\+?\s*\n", text, re.I)
     if m:
         out["bp"] = int(m.group(1))
 
