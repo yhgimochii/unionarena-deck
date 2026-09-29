@@ -75,6 +75,9 @@ function render(){
       selected=Number(card.dataset.i);
       $('cards').querySelectorAll('.card').forEach(x=>x.classList.toggle('on',x===card));
       detail();
+      if(window.matchMedia('(max-width: 700px)').matches){
+        openMobileDetail();
+      }
     };
     card.onclick=selectCard;
     card.onkeydown=e=>{
@@ -173,6 +176,7 @@ function syncMobileDetail(){
   dst.innerHTML=src.innerHTML;
 }
 function openMobileDetail(){
+  if(selected===null || !deck)return;
   syncMobileDetail();
   const modal=$('mobileDetailModal');
   if(!modal)return;

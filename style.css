@@ -86,3 +86,22 @@
     overflow:hidden;
   }
 }
+
+@media(max-width:700px){
+  .grid{
+    display:block;
+  }
+  #cards{
+    width:100%;
+  }
+  .mobile-detail-btn{
+    position:sticky;
+    bottom:12px;
+    z-index:5;
+    box-shadow:0 4px 16px rgba(0,0,0,.12);
+  }
+  .mobile-detail-sheet{
+    max-height:88vh;
+    padding-bottom:calc(16px + env(safe-area-inset-bottom));
+  }
+}
