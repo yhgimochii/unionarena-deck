@@ -422,6 +422,16 @@ $('shareDeck').onclick=async()=>{
     $('msg').style.color='#68707d';
   }
 };
+function setImportPanel(open){
+  const panel=$('importPanel'),btn=$('toggleImport');
+  if(!panel||!btn)return;
+  panel.classList.toggle('hidden',!open);
+  panel.setAttribute('aria-hidden',String(!open));
+  btn.setAttribute('aria-expanded',String(open));
+}
+$('toggleImport').onclick=()=>setImportPanel(true);
+$('collapseImport').onclick=()=>setImportPanel(false);
+
 $('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
 $('clear').onclick=()=>{$('deck').classList.add('hidden');deck=null;selected=null};
 onAuthStateChanged(auth,async user=>{currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden')}});

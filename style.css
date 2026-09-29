@@ -445,3 +445,20 @@
     box-shadow:0 10px 40px rgba(0,0,0,.35);
   }
 }
+
+
+/* Hero header + collapsible Rugia link submit */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:12px 0 8px;margin-bottom:8px}
+.hero-logo{display:block;width:min(560px,82vw);height:auto;max-height:280px;object-fit:contain;margin:0 auto 4px}
+.hero h1{font-size:34px;line-height:1.15;margin:6px 0 18px;font-weight:900}
+.submit-link-btn{min-width:150px;padding:12px 24px;font-size:15px}
+.import{margin-top:14px}
+.import-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.import-head .small{margin:0}
+@media(max-width:700px){
+  main{padding:24px 16px}
+  .hero{padding-top:2px}
+  .hero-logo{width:min(500px,94vw);max-height:210px;margin-bottom:0}
+  .hero h1{font-size:29px;margin:2px 0 16px}
+  .submit-link-btn{width:auto}
+}
