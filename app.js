@@ -388,7 +388,7 @@ function stripTriggerFromEffect(effectText, triggerText, rawTriggerText){
     // Also handle cases where the trigger text is attached directly after punctuation.
     effect=effect.replace(new RegExp(escaped,"giu")," ");
   }
-  return effect.replace(/[ \t]+/g," ').replace(/\n{3,}/g,"\n\n").trim();
+  return effect.replace(/[ \t]+/g," ").replace(/\n{3,}/g,"\n\n").trim();
 }
 
 function detail(){
