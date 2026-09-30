@@ -82,9 +82,8 @@ function highlightTrigger(text){
   if(!m)return highlightEffect(raw,[]);
   const label=m[1];
   const type=label==='最終'?'final':label==='特別'?'special':label==='彩色'?'color':'common';
-  const displayLabel=label==='最終'?'FINAL':label==='特別'?'SPECIAL':label;
   const rest=raw.slice(m[0].length);
-  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(displayLabel)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
 function highlightEffect(text, traitKeywords=[]){
@@ -366,31 +365,6 @@ function closeMobileDetail(){
   document.body.classList.remove('mobile-detail-open');
 }
 
-function normalizeForCompare(text){
-  return String(text||"").replace(/\s+/g," ").trim();
-}
-
-function stripTriggerFromEffect(effectText, triggerText, rawTriggerText){
-  let effect=String(effectText||"");
-  const candidates=[];
-  for(const t of [triggerText, rawTriggerText]){
-    if(!t)continue;
-    const raw=String(t).trim();
-    const body=raw.replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|最終|特別|彩色|Draw|Get|Active|Raid|Final|Special|COLOR)\s*(?:】|〗|\])\s*/i,"").trim();
-    if(body)candidates.push(body);
-  }
-  // Remove the exact trigger body when the scraper has duplicated it inside Effect.
-  for(const body of candidates){
-    if(!body)continue;
-    const escaped=escapeRegex(body);
-    const re=new RegExp(`(?:^|[\\s。！？；;])${escaped}(?=$|[\\s。！？；;])`,"giu");
-    effect=effect.replace(re," ");
-    // Also handle cases where the trigger text is attached directly after punctuation.
-    effect=effect.replace(new RegExp(escaped,"giu")," ");
-  }
-  return effect.replace(/[ \t]+/g," ").replace(/\n{3,}/g,"\n\n").trim();
-}
-
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
@@ -398,10 +372,8 @@ function detail(){
  const bp=formatBP(d.bp), energy=formatEnergy(d.energy), ap=d.ap==null?'—':d.ap;
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
- const triggerText=translateTrigger(d.trigger||'');
- const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText,d.trigger||'');
- const effect=highlightEffect(cleanedEffect,d.traits||[]);
- const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
+ const effect=highlightEffect(d.effect||'',d.traits||[]);
+ const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
@@ -446,17 +418,8 @@ async function loadSaved(){
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
     if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
     const thumbId=deckThumbnailId(d), thumbName=(DB[thumbId]?.name)||d.name||"牌組縮圖";
-    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><button class="slot-delete" type="button" title="刪除牌組" aria-label="刪除牌組">×</button>`;
+    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div>`;
     slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
-    slot.querySelector('.slot-delete').onclick=async e=>{
-      e.preventDefault();e.stopPropagation();
-      if(!window.confirm(`確定要刪除「${d.name||'未命名牌組'}」嗎？\n\n刪除後將會從你的帳號牌組中永久移除。`))return;
-      try{
-        await deleteDoc(doc(db,'users',currentUser.uid,'decks',d.id));
-        if(deck?.firestoreId===d.id){deck=null;selected=null;$('deck').classList.add('hidden');$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>'}
-        $('msg').textContent='牌組已刪除。';$('msg').style.color='#25805b';await loadSaved();
-      }catch(err){$('msg').textContent='刪除失敗：'+err.message;$('msg').style.color='#b34b35'}
-    };
     box.appendChild(slot);
   }
 }
@@ -590,7 +553,25 @@ $('toggleImport').onclick=()=>setImportPanel(true);
 $('collapseImport').onclick=()=>setImportPanel(false);
 
 $('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;deck.thumbnailId=deck.cards[0]?cardId(deck.cards[0]):'';selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
-$('clear').onclick=()=>{$('deck').classList.add('hidden');deck=null;selected=null};
+$('clear').onclick=async()=>{
+  if(!deck)return;
+  if(!deck.firestoreId){
+    $('deck').classList.add('hidden');
+    deck=null;selected=null;
+    return;
+  }
+  if(!window.confirm(`確定要刪除「${deck.name||'未命名牌組'}」嗎？\n\n刪除後將會從你的帳號牌組中永久移除。`))return;
+  try{
+    await deleteDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId));
+    deck=null;selected=null;
+    $('deck').classList.add('hidden');
+    $('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';
+    $('msg').textContent='牌組已刪除。';$('msg').style.color='#25805b';
+    await loadSaved();
+  }catch(err){
+    $('msg').textContent='刪除失敗：'+err.message;$('msg').style.color='#b34b35';
+  }
+};
 onAuthStateChanged(auth,async user=>{currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved();if(window.matchMedia('(max-width: 700px)').matches)openMyDecks()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden');closeMyDecks()}});
 function loadShared(){const e=new URLSearchParams(location.search).get('deck');if(!e)return;try{deck={...JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(e))))) };render();detail()}catch{}}
 try{const n=await initCards();$('dbStatus').textContent=`本地卡片資料：${n} 張；支援任意 Rugia IP 牌組匯入。先執行 GitHub Actions 同步即可載入完整卡表。`;$('dbStatus').classList.remove('error');loadShared()}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}
