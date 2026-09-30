@@ -78,10 +78,12 @@ function keywordClass(k){
 function highlightTrigger(text){
   const raw=String(text||'').trim();
   if(!raw)return '';
-  const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|最終|特別|彩色)(?:】|〗|\])\s*/);
+  const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色)(?:】|〗|\])\s*/i);
   if(!m)return highlightEffect(raw,[]);
-  const label=m[1];
-  const type=label==='最終'?'final':label==='特別'?'special':label==='彩色'?'color':'common';
+  let label=m[1];
+  if(/^(?:最終|final)$/i.test(label))label='FINAL';
+  if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
+  const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':'common';
   const rest=raw.slice(m[0].length);
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
@@ -253,22 +255,31 @@ function translateTrigger(text){
     "[Get] Add this card to your hand.":"〖加入手牌〗將此卡加入手牌。",
     "[Active] Choose 1 Character card on your field, switch it to Active Mode, and it gets +3000 BP for the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
     "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
-    "[FINAL] If you have 0 life, place the top card of your deck into your life area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
-    "[FINAL] If your life is at 0, place the top card of your deck in your Life Area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
-    "[Final] If you have 0 life, place the top card of your deck into your life area.":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[FINAL] If you have 0 life, place the top card of your deck into your life area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[FINAL] If your life is at 0, place the top card of your deck in your Life Area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[Final] If you have 0 life, place the top card of your deck into your life area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
     "[Raid] Add this card to your hand, or if the Required Energy is met, Raid it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
-    "[SPECIAL] Choose 1 Character card on your opponent's Front Line and remove it from the field.":"〖特別〗選擇對手前線１張角色退場。",
-    "[SPECIAL] Choose one character on your opponent's front line and sideline it.":"〖特別〗選擇對手前線１張角色退場。",
-    "[Special] Choose one character on your opponent's front line and sideline it.":"〖特別〗選擇對手前線１張角色退場。",
+    "[SPECIAL] Choose 1 Character card on your opponent's Front Line and remove it from the field.":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "[SPECIAL] Choose one character on your opponent's front line and sideline it.":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "[Special] Choose one character on your opponent's front line and sideline it.":"〖SPECIAL〗選擇對手前線１張角色退場。",
     "〖抽牌〗抽１張卡。":"〖抽牌〗抽１張卡。",
     "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
-    "〖特別〗選擇對手前線１張角色退場。":"〖特別〗選擇對手前線１張角色退場。",
-    "〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
-    "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
-    "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
+    "〖特別〗選擇對手前線１張角色退場。":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
   };
   if(exact[t])return exact[t];
+
+  // Normalize SPECIAL / FINAL labels regardless of whether Rugia stored them
+  // in English or Traditional Chinese. Their descriptions remain Traditional Chinese.
+  t=t
+    .replace(/^(?:\[|〖|【)\s*(?:SPECIAL|Special|特別)\s*(?:\]|〗|】)\s*/i,"〖SPECIAL〗")
+    .replace(/^(?:\[|〖|【)\s*(?:FINAL|Final|最終)\s*(?:\]|〗|】)\s*/i,"〖FINAL〗");
+
+  if(/^(?:〖SPECIAL〗|〖FINAL〗)/.test(t))return t;
 
   // Translate COLOR triggers while preserving the numeric conditions.
   // Rugia contains several English variants of the same COLOR trigger, so
@@ -323,12 +334,76 @@ function translateTrigger(text){
       .replace(/^\[Active\]/i,"〖激活〗")
       .replace(/^\[Get\]/i,"〖加入手牌〗")
       .replace(/^\[Raid\]/i,"〖突襲〗")
-      .replace(/^\[Special\]/i,"〖特別〗")
-      .replace(/^\[SPECIAL\]/i,"〖特別〗")
-      .replace(/^\[Final\]/i,"〖最終〗")
-      .replace(/^\[FINAL\]/i,"〖最終〗");
+      .replace(/^\[Special\]/i,"〖SPECIAL〗")
+      .replace(/^\[SPECIAL\]/i,"〖SPECIAL〗")
+      .replace(/^\[Final\]/i,"〖FINAL〗")
+      .replace(/^\[FINAL\]/i,"〖FINAL〗");
   }
   return t;
+}
+
+function normalizeForCompare(text){
+  return String(text||"")
+    .replace(/[【】〖〗\[\]]/g,"")
+    .replace(/[\s　]+/g," ")
+    .replace(/[。．]+$/g,"")
+    .trim()
+    .toLowerCase();
+}
+
+function stripTriggerFromEffect(effect,trigger){
+  let source=String(effect||"").trim();
+  if(!source || !trigger)return source;
+
+  const triggerText=String(trigger||"").trim();
+  if(!triggerText)return source;
+
+  // Compare both the complete trigger and its body without the trigger label.
+  const normalizedTrigger=normalizeForCompare(triggerText);
+  const triggerBody=triggerText
+    .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|特別|最終|彩色|COLOR)\s*(?:】|〗|\])\s*/i,"")
+    .trim();
+  const normalizedBody=normalizeForCompare(triggerBody);
+  if(!normalizedTrigger && !normalizedBody)return source;
+
+  const lines=source.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  const kept=[];
+  let removed=false;
+
+  for(const line of lines){
+    const n=normalizeForCompare(line);
+    // Only remove standalone lines that exactly match the trigger. This avoids
+    // deleting legitimate effect text that merely contains similar wording.
+    if(n===normalizedTrigger || (normalizedBody && n===normalizedBody)){
+      removed=true;
+      continue;
+    }
+    kept.push(line);
+  }
+
+  if(removed)return kept.join("\n").trim();
+
+  // Handle scrapers that append/prepend the trigger without a newline.
+  const candidates=[triggerText,triggerBody].filter(Boolean).sort((a,b)=>b.length-a.length);
+  let result=source;
+  for(const candidate of candidates){
+    const cn=normalizeForCompare(candidate);
+    if(!cn)continue;
+    const current=normalizeForCompare(result);
+    if(current===cn)return "";
+
+    const leading=new RegExp("^\\s*"+escapeRegex(candidate)+"(?:\\s*\\n?|\\s+)","i");
+    const trailing=new RegExp("(?:\\s*\\n?|\\s+)"+escapeRegex(candidate)+"\\s*$","i");
+    if(leading.test(result)){
+      result=result.replace(leading,"").trim();
+      continue;
+    }
+    if(trailing.test(result)){
+      result=result.replace(trailing,"").trim();
+      continue;
+    }
+  }
+  return result;
 }
 
 function formatEnergy(value){
@@ -372,8 +447,10 @@ function detail(){
  const bp=formatBP(d.bp), energy=formatEnergy(d.energy), ap=d.ap==null?'—':d.ap;
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
- const effect=highlightEffect(d.effect||'',d.traits||[]);
- const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
+ const triggerText=translateTrigger(d.trigger||'');
+ const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText||d.trigger||'');
+ const effect=highlightEffect(cleanedEffect,d.traits||[]);
+ const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
