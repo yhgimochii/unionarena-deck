@@ -599,3 +599,38 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 
 /* Keep the supplied black/white logo visible on the dark header */
 .hero-logo{filter:invert(1);border-radius:4px}
+
+/* Mobile card detail close button: purple circular control with centered X */
+@media (max-width:700px){
+  .mobile-detail-close{
+    width:38px;
+    height:38px;
+    min-width:38px;
+    min-height:38px;
+    padding:0;
+    margin:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    border:1px solid #7568ef;
+    border-radius:50%;
+    background:#6255d9;
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    line-height:1;
+    text-align:center;
+    flex:0 0 38px;
+  }
+  .mobile-detail-close:hover{
+    background:#7568ef;
+  }
+  .mobile-detail-close:active{
+    transform:scale(.96);
+  }
+}
+/* Use the supplied black/white Union Arena logo directly on the dark header. */
+.hero-logo{
+  filter:none;
+}
