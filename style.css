@@ -538,3 +538,64 @@
   #cards.reorder-mode .card{grid-template-areas:"image image" "body body" "rar qty" "controls controls"}
   .slot-thumb{width:34px;height:48px}
 }
+
+
+/* Dark mode — permanent site theme with existing purple accent */
+:root{color-scheme:dark}
+body{background:#0d1016;color:#f4f5f7}
+header{background:#12161e;border-color:#2a303b;color:#f4f5f7}
+header span,section small{color:#8b7cff}
+.userbar{color:#9da5b3}
+button{background:#6255d9;color:#fff}
+button.light{background:#1a1f29;color:#f4f5f7;border-color:#343b48}
+main{color:#f4f5f7}
+.intro p,.deckhead p,.muted,.id,.slot-number,.slot-count,.source,.dbstatus,#reorderHint{color:#9da5b3}
+.import,.account,.detail,.card,.modalbox{background:#171b24;border-color:#303744;color:#f4f5f7}
+textarea,input{background:#10141b;color:#f4f5f7;border-color:#343b48}
+textarea::placeholder,input::placeholder{color:#727b8b}
+.deck-slot{background:#151a22;border-color:#303744;color:#f4f5f7}
+.deck-slot:hover{border-color:#6255d9}
+.deck-slot.on{background:#1d1a31;border-color:#7468ee}
+.deck-slot.empty{color:#6f7785;border-color:#343b48}
+.deck-slot.empty:hover{border-color:#343b48}
+.slot-delete{color:#9da5b3!important}
+.slot-delete:hover{background:#b34b35!important;color:#fff!important}
+.keyword-chip.effect,.tag.effect{background:#182b3d;color:#76b9ff;border-color:#315d86}
+.keyword-chip.combat,.tag.combat{background:#3a2d12;color:#ffd76b;border-color:#735b20}
+.keyword-chip.trait,.tag.trait{background:#292443;color:#c0b7ff;border-color:#6358a2}
+.tag{background:#292443;color:#c0b7ff}
+.rarity,.rar{border-color:#3a424f}
+.stats>div{background:#1c212b;border-color:#303744}
+.stats small{color:#9da5b3}
+.stats strong{color:#f4f5f7}
+.qtybig{border-color:#3a424f;color:#c6ccd6}
+.trigger{background:#211e35;border-left-color:#7568ef;color:#f0efff}
+.link{color:#8b7cff}
+.modal{background:rgba(0,0,0,.76)}
+.close{color:#c7ccd5}
+.thumb,.detailimg,.slot-thumb{background:#11151c;border-color:#343b48}
+.card:hover,.card.on{border-color:#7568ef}
+.reorder-controls button{background:#1d222c;color:#e8eaf0;border-color:#3a424f}
+.deck-thumb-badge{background:#6255d9;color:#fff}
+.thumbnail-btn{background:#171b24;color:#9b90ff;border-color:#5148a4}
+.thumbnail-btn.active{background:#6255d9;color:#fff}
+.share-toast{background:#f4f5f7;color:#151820;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+
+/* Dark mobile card-detail modal */
+@media(max-width:700px){
+  .mobile-detail-modal{background:rgba(0,0,0,.72)}
+  .mobile-detail-sheet{background:#171b24;border:1px solid #343b48;color:#f4f5f7;box-shadow:0 16px 50px rgba(0,0,0,.6)}
+  .mobile-detail-sheet .close{background:#202632;color:#e9ebef;border-radius:8px}
+}
+
+/* Dark My Decks bottom drawer */
+@media(max-width:700px){
+  #account.account{background:#171b24;border-color:#303744;box-shadow:0 -10px 40px rgba(0,0,0,.55)}
+  .my-decks-toggle{color:#f4f5f7!important}
+  .my-decks-toggle small{color:#8b7cff}
+  .my-decks-chevron{color:#aab1bd}
+  .my-decks-backdrop{background:rgba(0,0,0,.68)}
+}
+
+/* Keep the supplied black/white logo visible on the dark header */
+.hero-logo{filter:invert(1);border-radius:4px}
