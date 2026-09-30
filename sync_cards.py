@@ -159,6 +159,17 @@ def image_replacement_text(img):
     return "Image"
 
 
+def extract_combat_keywords_from_official(soup):
+    """Extract Impact/Damage values from the official English card effect."""
+    text = soup.get_text(" ", strip=True)
+    m = re.search(r"\bEffect\b(.*?)(?:\bTrigger\b|$)", text, re.I)
+    effect = m.group(1) if m else text
+    found = []
+    for kind, value in re.findall(r"\[(Impact|Damage)\s*\(\s*(\d+)\s*\)\]", effect, re.I):
+        found.append({"type": kind.capitalize(), "value": int(value)})
+    return found
+
+
 def normalised_text(soup):
     # Preserve image-only keyword icons before converting the DOM to plain text.
     # This is essential because soup.get_text() otherwise drops <img> elements.
@@ -324,6 +335,10 @@ def parse_official(cid, html):
         trig = clean(m.group(1))
         if trig and trig not in {"-", "None"}:
             out["trigger"] = trig
+
+    combat = extract_combat_keywords_from_official(soup)
+    if combat:
+        out["combatKeywords"] = combat
     return out
 
 
@@ -429,7 +444,9 @@ def main():
     todo = []
     for cid in discovered:
         d = cards[cid]
-        if any(k not in d for k in ("energy", "ap", "type")) or (d.get("type") == "角色" and "bp" not in d):
+        needs_meta = any(k not in d for k in ("energy", "ap", "type")) or (d.get("type") == "角色" and "bp" not in d)
+        needs_combat = ("combatKeywords" not in d and bool(re.search(r"Image", str(d.get("effect", "")), re.I)) and bool(re.search(r"(?:衝擊|傷害|進行攻擊並戰鬥勝利時|直接傷害|獲得Image)", str(d.get("effect", "")))))
+        if needs_meta or needs_combat:
             todo.append(cid)
     print(f"Official metadata to fetch: {len(todo)} cards")
     for i, cid in enumerate(todo, 1):
