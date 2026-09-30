@@ -367,7 +367,7 @@ function closeMobileDetail(){
 }
 
 function normalizeForCompare(text){
-  return String(text||"").replace(/\s+/g," ').trim();
+  return String(text||"").replace(/\s+/g," ").trim();
 }
 
 function stripTriggerFromEffect(effectText, triggerText, rawTriggerText){
