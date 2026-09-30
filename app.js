@@ -16,8 +16,8 @@ function cardIdForVersion(c,version=""){const m=c.num.match(/^(\d)(\d{3})$/);ret
 function cardId(c){return cardIdForVersion(c,deck?.version||"")}
 function cardIdNoDeck(c){const m=c.num.match(/^(\d)(\d{3})$/);return `${c.set}/${m?m[1]+"-"+m[2]:c.num}`}
 function deckThumbnailId(d){
+  // The first card in the current deck order is always the thumbnail.
   if(!d?.cards?.length)return "";
-  if(d.thumbnailId)return d.thumbnailId;
   const c=d.cards[0];
   return cardIdForVersion(c,d.version||"");
 }
@@ -211,22 +211,27 @@ function bindReorderHandlers(){
   });
   renderReorderState();
 }
-function moveCard(from,to){
+async function moveCard(from,to){
   if(!deck||!reorderMode||to<0||to>=deck.cards.length||from===to)return;
   const [item]=deck.cards.splice(from,1);deck.cards.splice(to,0,item);
   if(selected===from)selected=to;
   else if(selected!==null && from<selected && selected<=to)selected--;
   else if(selected!==null && to<=selected && selected<from)selected++;
-  render();detail();
-}
 
-function setDeckThumbnail(index){
-  if(!deck?.cards?.[index])return;
-  const id=cardId(deck.cards[index]);
-  deck.thumbnailId=id;
+  // The first card in the new order becomes the deck thumbnail automatically.
+  deck.thumbnailId=deckThumbnailId(deck);
   render();detail();
+
+  // Persist the new order + thumbnail immediately for already-saved decks.
   if(deck.firestoreId && currentUser){
-    updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{thumbnailId:id}).then(async()=>{showShareToast('牌組縮圖已更新！');await loadSaved()}).catch(e=>{console.error(e)});
+    try{
+      await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards,thumbnailId:deck.thumbnailId});
+      await loadSaved();
+    }catch(e){
+      console.error(e);
+      $('msg').textContent='排序已變更，但儲存失敗，請按儲存圖示再試。';
+      $('msg').style.color='#b34b35';
+    }
   }
 }
 
@@ -370,9 +375,8 @@ function detail(){
  const effect=highlightEffect(d.effect||'',d.traits||[]);
  const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
- const isThumb=deck?.thumbnailId===id;
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><button id="setDeckThumbnail" class="thumbnail-btn ${isThumb?"active":""}" type="button">${isThumb?"✓ 目前為牌組縮圖":"設為牌組縮圖"}</button><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
- $('setDeckThumbnail')?.addEventListener('click',()=>setDeckThumbnail(selected));
+ 
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
   syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
@@ -415,7 +419,7 @@ async function loadSaved(){
     if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
     const thumbId=deckThumbnailId(d), thumbName=(DB[thumbId]?.name)||d.name||"牌組縮圖";
     slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-count">${(d.cards||[]).reduce((n,c)=>n+c.qty,0)} 張</div><button class="slot-delete" type="button" title="刪除牌組" aria-label="刪除牌組">×</button>`;
-    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:d.thumbnailId||deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
+    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
     slot.querySelector('.slot-delete').onclick=async e=>{
       e.preventDefault();e.stopPropagation();
       if(!window.confirm(`確定要刪除「${d.name||'未命名牌組'}」嗎？\n\n刪除後將會從你的帳號牌組中永久移除。`))return;
@@ -439,7 +443,8 @@ $('saveDeck').onclick=async()=>{
   try{
     const color=deckColorClass(deck.color||$('deckColor')?.value);
     deck.color=color;
-    if(!deck.thumbnailId)deck.thumbnailId=deckThumbnailId(deck);
+    // Always derive the thumbnail from the first card in the current order.
+    deck.thumbnailId=deckThumbnailId(deck);
     const payload={name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,thumbnailId:deck.thumbnailId||'',source:deck.source||'',createdAt:serverTimestamp()};
     if(deck.firestoreId){
       await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{name:payload.name,version:payload.version,color:payload.color,cards:payload.cards,thumbnailId:payload.thumbnailId,source:payload.source});
