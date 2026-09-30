@@ -82,8 +82,9 @@ function highlightTrigger(text){
   if(!m)return highlightEffect(raw,[]);
   const label=m[1];
   const type=label==='最終'?'final':label==='特別'?'special':label==='彩色'?'color':'common';
+  const displayLabel=label==='最終'?'FINAL':label==='特別'?'SPECIAL':label;
   const rest=raw.slice(m[0].length);
-  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(displayLabel)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
 function highlightEffect(text, traitKeywords=[]){
@@ -365,6 +366,31 @@ function closeMobileDetail(){
   document.body.classList.remove('mobile-detail-open');
 }
 
+function normalizeForCompare(text){
+  return String(text||"").replace(/\s+/g," ').trim();
+}
+
+function stripTriggerFromEffect(effectText, triggerText, rawTriggerText){
+  let effect=String(effectText||"");
+  const candidates=[];
+  for(const t of [triggerText, rawTriggerText]){
+    if(!t)continue;
+    const raw=String(t).trim();
+    const body=raw.replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|最終|特別|彩色|Draw|Get|Active|Raid|Final|Special|COLOR)\s*(?:】|〗|\])\s*/i,"").trim();
+    if(body)candidates.push(body);
+  }
+  // Remove the exact trigger body when the scraper has duplicated it inside Effect.
+  for(const body of candidates){
+    if(!body)continue;
+    const escaped=escapeRegex(body);
+    const re=new RegExp(`(?:^|[\\s。！？；;])${escaped}(?=$|[\\s。！？；;])`,"giu");
+    effect=effect.replace(re," ");
+    // Also handle cases where the trigger text is attached directly after punctuation.
+    effect=effect.replace(new RegExp(escaped,"giu")," ");
+  }
+  return effect.replace(/[ \t]+/g," ').replace(/\n{3,}/g,"\n\n").trim();
+}
+
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
@@ -372,8 +398,10 @@ function detail(){
  const bp=formatBP(d.bp), energy=formatEnergy(d.energy), ap=d.ap==null?'—':d.ap;
  const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
- const effect=highlightEffect(d.effect||'',d.traits||[]);
- const triggerText=translateTrigger(d.trigger||''); const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
+ const triggerText=translateTrigger(d.trigger||'');
+ const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText,d.trigger||'');
+ const effect=highlightEffect(cleanedEffect,d.traits||[]);
+ const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2>${esc(d.name||'')}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
