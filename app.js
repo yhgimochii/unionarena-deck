@@ -416,9 +416,9 @@ async function loadSaved(){
   for(let i=0;i<SLOT_COUNT;i++){
     const d=docs[i],slot=document.createElement('div');
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
-    if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
+    if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
     const thumbId=deckThumbnailId(d), thumbName=(DB[thumbId]?.name)||d.name||"牌組縮圖";
-    slot.innerHTML=`<div class="slot-number">牌組 ${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-count">${(d.cards||[]).reduce((n,c)=>n+c.qty,0)} 張</div><button class="slot-delete" type="button" title="刪除牌組" aria-label="刪除牌組">×</button>`;
+    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><button class="slot-delete" type="button" title="刪除牌組" aria-label="刪除牌組">×</button>`;
     slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
     slot.querySelector('.slot-delete').onclick=async e=>{
       e.preventDefault();e.stopPropagation();

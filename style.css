@@ -634,3 +634,20 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 .hero-logo{
   filter:none;
 }
+
+
+/* Deck header card */
+.deckhead{background:#171b24;border:1px solid #303744;border-radius:14px;padding:16px 18px;margin-bottom:12px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.deckhead>div:first-child{min-width:0}
+.deck-actions{flex-shrink:0}
+@media(max-width:700px){
+  .deckhead{padding:14px 12px;margin:0 0 10px;gap:12px;align-items:center}
+  .deckhead h2{margin:3px 0 0;font-size:22px}
+  .deckhead p{margin:5px 0 0;font-size:13px}
+  .deck-actions{width:100%;gap:8px}
+  .deck-actions .icon-action{flex:1;min-height:42px}
+  .deckhead{flex-direction:column;align-items:stretch}
+}
+.slot-count{display:none!important}
+#account.account .deck-slot .slot-count{display:none!important}
+.slot-number{font-size:10px;color:#9da5b3;font-weight:800;letter-spacing:.05em;margin-bottom:5px}
