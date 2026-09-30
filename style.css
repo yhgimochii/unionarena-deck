@@ -663,3 +663,10 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   .deck-actions{width:100%;gap:8px;margin-top:10px;}
   .deck-actions .icon-action{flex:1 1 0;min-height:42px;}
 }
+
+
+/* RAID marker beside card names */
+.raid-badge{display:inline-flex;align-items:center;justify-content:center;margin-left:7px;padding:3px 8px;border-radius:5px;background:#d61f26;color:#fff;border:1px solid #ef5a60;font-size:10px;font-weight:900;letter-spacing:.04em;line-height:1;vertical-align:middle;white-space:nowrap;}
+.detail-title{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin:5px 0;}
+.nm{display:flex;align-items:center;gap:5px;min-width:0;}
+.nm .raid-badge{flex:0 0 auto;margin-left:2px;font-size:8px;padding:3px 6px;}
