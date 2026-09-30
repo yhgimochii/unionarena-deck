@@ -144,28 +144,44 @@ def name_and_effect(text, headers, index):
     end = headers[index + 1][0] if index + 1 < len(headers) else len(text)
     block = clean(text[start:end])
 
-    # Card name is immediately after the rarity/header. Strip common UI fragments first.
+    # Rugia's search text places the card name immediately before the effect.
+    # Some cards start their effect with phrases that are not part of the name,
+    # e.g. "波奇塔 此卡不能在前線登場...".  The old parser only knew a small
+    # set of markers, so those descriptions were accidentally appended to names.
+    # Keep multi-word names intact and cut only when a known effect-start phrase
+    # occurs after whitespace.
     block = re.sub(r"^(?:Image\s*)+", "", block, flags=re.I)
     block = re.sub(r"^(?:[A-Z0-9]+/[A-Z0-9-]+\s*)+", "", block)
 
-    # The first short text chunk is normally the card name. Rugia effects can be long,
-    # so use the first known control/effect marker as the boundary when available.
-    markers = [
-        "特徵：", "特徵:", "登場時", "主起動", "自己回合中", "攻擊時", "退場時",
-        "阻擋時", "此角色", "自己", "對手", "COLOR", "FINAL", "SPECIAL",
+    effect_markers = [
+        "攻擊結束時", "主起動", "登場時", "攻擊時", "退場時", "阻擋時",
+        "自己回合中", "對手回合中", "本回合中", "回合中",
+        "此角色", "此卡", "此場域", "此事件", "此效果",
+        "選擇", "從以下", "從自己", "從對手", "抽取", "抽１", "抽２", "抽３",
+        "將此", "將自己", "將對手", "可以", "不能", "不可", "若", "如果",
+        "自己場上", "自己前線", "自己能源線", "自己手牌", "自己牌庫", "自己場外",
+        "對手場上", "對手前線", "對手能源線", "對手手牌", "對手牌庫", "對手場外",
+        "放置", "加入手牌", "公開", "查看", "移動", "休息", "激活",
+        "使用", "支付", "獲得", "失去", "增加", "減少", "根據",
+        "在自己", "在對手", "每次", "每當", "本回合", "此回合",
+        "能源需求", "AP消耗", "BP", "COLOR", "FINAL", "SPECIAL",
     ]
-    cut = len(block)
-    for marker in markers:
-        p = block.find(marker)
-        if p > 0:
-            cut = min(cut, p)
-    name = clean(block[:cut]).strip(" ：:")
-    if not name or len(name) > 80:
-        # Fallback: take the first whitespace-delimited phrase.
-        name = clean(block.split(" ", 1)[0]) if block else ""
-    effect = clean(block[len(name):].strip()) if name else block
-    return name, effect
 
+    cut = len(block)
+    for marker in effect_markers:
+        # Require whitespace before the marker so words inside a card name are
+        # not split accidentally.
+        for m in re.finditer(r"\s+" + re.escape(marker), block):
+            cut = min(cut, m.start())
+            break
+
+    name = clean(block[:cut]).strip(" ：:")
+    if not name:
+        # Last-resort fallback: keep the whole block rather than inventing a name.
+        name = clean(block)
+
+    effect = clean(block[cut:].strip()) if cut < len(block) else ""
+    return name, effect
 
 def parse_rugia(html):
     soup = BeautifulSoup(html, "html.parser")
