@@ -62,7 +62,16 @@ CRITICAL_SET_QUERIES = {
 
 
 def clean(s):
-    return re.sub(r"\s+", " ", s or "").strip()
+    # BeautifulSoup represents multi-valued HTML attributes such as class
+    # as AttributeValueList/list objects. Convert those to plain text before
+    # passing them to regex/string operations.
+    if s is None:
+        return ""
+    if isinstance(s, (list, tuple, set)):
+        s = " ".join(str(x) for x in s)
+    else:
+        s = str(s)
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def normalize_version(v):
