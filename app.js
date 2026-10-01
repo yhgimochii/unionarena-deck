@@ -88,18 +88,50 @@ function highlightTrigger(text){
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
+function rugiaIconReplacement(url){
+  const u=String(url||'').toLowerCase();
+  const file=(u.split('/').pop()||'').split('?')[0];
+  const labels={
+    'ico_raid.png':['RAID','raid'],
+    'ico_get.png':['加入手牌','common'],
+    'ico_draw.png':['抽牌','common'],
+    'ico_activate.png':['激活','common'],
+    'ico_final.png':['FINAL','final'],
+    'ico_special.png':['SPECIAL','special'],
+    'ico_color.png':['彩色','color'],
+    'ico_special_trigger.png':['SPECIAL','special'],
+    'ico_final_trigger.png':['FINAL','final'],
+    'ico_color_trigger.png':['彩色','color'],
+    'ico_get_trigger.png':['加入手牌','common'],
+    'ico_draw_trigger.png':['抽牌','common'],
+    'ico_activate_trigger.png':['激活','common'],
+    'ico_raid_trigger.png':['RAID','raid'],
+  };
+  if(labels[file]){
+    const [label,type]=labels[file];
+    const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
+    return `<span class="keyword-chip trigger-chip ${cls}">${esc(label)}</span>`;
+  }
+  return '';
+}
+
 function restoreRugiaImageTokensHtml(value){
   let out=String(value||'');
-  const tokenRe=/\[\[UAIMG:(https?:\/\/[^\]<>"']+)\]\]/gi;
-  out=out.replace(tokenRe,(m,url)=>
-    `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
-  );
+  const tokenRe=/\[\[UAIMG:(https?:\/\/[^\]<>"]+)\]\]/gi;
+  out=out.replace(tokenRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    if(semantic)return semantic;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
   // Defensive fallback for stale cards.json entries where the raw Rugia URL
-  // was stored without the [[UAIMG:...]] wrapper.
+  // was stored without the [[UAIMG:...]] wrapper. Known trigger icons are
+  // rendered as text chips so a missing Rugia icon can never become a broken image.
   const rawUrlRe=/(?<!["'=])(https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?)/gi;
-  out=out.replace(rawUrlRe,(m,url)=>
-    `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
-  );
+  out=out.replace(rawUrlRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    if(semantic)return semantic;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
   return out;
 }
 
