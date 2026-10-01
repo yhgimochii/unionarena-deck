@@ -190,8 +190,7 @@ function render(){
     return `<div class="card ${selected===i?"on":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
       ${imageTag(id,name)}
       ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
-      <div class="cardbody"><div class="nm">${esc(name)}${isRaidCard(d)?raidBadge():""}</div><div class="id">${esc(id)}</div></div>
-      ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
+      <div class="cardbody"><div class="id card-code-only">${esc(id)}</div></div>
       <div class="qty">×${c.qty}</div>
       <div class="reorder-controls" aria-hidden="true"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div>
     </div>`;
@@ -490,7 +489,7 @@ function detail(){
  const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2 class="detail-title">${esc(d.name||'')}${isRaidCard(d)?raidBadge():""}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><div class="card-name-description">${esc(d.name||'')}${isRaidCard(d)?` ${raidBadge()}`:''}</div>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
   syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
