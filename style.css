@@ -685,22 +685,29 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   .ua-keyword-icon{height:1.35em;max-width:7em;vertical-align:-0.3em}
 }
 
-/* Card UI simplification: popup name is regular description text; deck gallery shows code + quantity only */
-.card-name-description{
-  margin:8px 0 10px;
+/* Card detail flow layout */
+.card-features{
+  margin:8px 0 12px;
   font-size:14px;
-  font-weight:500;
-  line-height:1.65;
+  line-height:1.55;
   color:inherit;
 }
-.card-name-description .raid-badge{
-  margin-left:6px;
+.card-features b{
+  font-weight:900;
 }
-.card-code-only{
-  font-size:11px;
-  color:#68707d;
+.card-effect-flow{
+  margin-top:8px;
+  font-size:14px;
+  line-height:1.8;
 }
-@media(max-width:700px){
-  .card-name-description{font-size:13px;line-height:1.6}
+.card-effect-flow .inline-card-name{
+  font-weight:900;
+  font-size:inherit;
 }
-.dark .card-code-only{color:#9da5b3}
+.card-effect-flow .raid-badge{
+  margin-left:0;
+  margin-right:6px;
+}
+.inline-effect{
+  font-weight:400;
+}
