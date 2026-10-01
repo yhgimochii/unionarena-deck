@@ -24094,7 +24094,7 @@
     "id": "UA01BT/CGH-1-082",
     "name": "娜娜莉．蘭佩洛基 特徵： 阿什弗德學園",
     "rarity": "U",
-    "effect": "此角色是激活狀態的情況下，此角色的生產能源+ 。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢",
+    "effect": "此角色是激活狀態的情況下，此角色的生產能源+ 。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=CGH-1-082",
     "source": "Rugia sync",
     "variants": [
@@ -80024,7 +80024,7 @@
     "id": "UA34BT/CGD-1-070",
     "name": "弗爾伯特 特徵： 新不列顛尼亞帝國 ／ 溫伯格 ／ KMF 〈諾蘭德．馮．呂訥堡〉 (此角色的攻擊給予的直接傷害為２點傷害)",
     "rarity": "R",
-    "effect": "登場時 從自己場外選擇最多１張 〈洛基〉 ，以休息狀態在自己場上登場。 將此卡加入手牌。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢",
+    "effect": "登場時 從自己場外選擇最多１張 〈洛基〉 ，以休息狀態在自己場上登場。 將此卡加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=CGD-1-070",
     "source": "Rugia sync",
     "variants": [
@@ -97173,7 +97173,7 @@
     "id": "UA44BT/EVA-1-004",
     "name": "綾波 麗 (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)",
     "rarity": "R",
-    "effect": "登場時 選擇自己場上最多１張角色，本回合中，BP+1000。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢",
+    "effect": "登場時 選擇自己場上最多１張角色，本回合中，BP+1000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-004",
     "source": "Rugia sync",
     "variants": [
@@ -97763,7 +97763,7 @@
     "id": "UA44BT/EVA-1-040",
     "name": "赤木 律子 特徵： WILLE",
     "rarity": "U",
-    "effect": "登場時 將自己場上１張能源需求１或以下的其他角色返回手牌。沒有返回的情況下，將此卡返回手牌，將此角色返回手牌。 ◤◢◤◢ 限制卡 - 限２ ◤◢◤◢",
+    "effect": "登場時 將自己場上１張能源需求１或以下的其他角色返回手牌。沒有返回的情況下，將此卡返回手牌，將此角色返回手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-040",
     "source": "Rugia sync",
     "variants": [
@@ -97958,7 +97958,7 @@
     "id": "UA44BT/EVA-1-050",
     "name": "式波．明日香．蘭格雷 特徵： WILLE",
     "rarity": "U",
-    "effect": "主起動 在前線的情況 將自己手牌１張 ［特徵：WILLE］ 放置到場外。如這樣做，選擇對手前線最多１張角色，本回合中，BP-1000。 抽１張卡。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢",
+    "effect": "主起動 在前線的情況 將自己手牌１張 ［特徵：WILLE］ 放置到場外。如這樣做，選擇對手前線最多１張角色，本回合中，BP-1000。 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-050",
     "source": "Rugia sync",
     "variants": [
@@ -98175,7 +98175,7 @@
     "id": "UA44BT/EVA-1-062",
     "name": "歡迎回來，碇真嗣君。我一直在等你",
     "rarity": "C",
-    "effect": "從自己場外選擇１張 紫色 〈碇 真嗣〉 ，以休息狀態在自己場上登場。 選擇自己場上１張角色被激活，並且本回合中，BP+3000。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢",
+    "effect": "從自己場外選擇１張 紫色 〈碇 真嗣〉 ，以休息狀態在自己場上登場。 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-062",
     "source": "Rugia sync",
     "variants": [
@@ -99036,7 +99036,7 @@
     "id": "UA44ST/EVA-1-104",
     "name": "EVA初號機 〈碇 真嗣〉 (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)",
     "rarity": "SR",
-    "effect": "攻擊時 將自己能源線任意張數激活狀態的卡休息。根據被此效果休息的卡的能源需求總數，此角色在本回合中，獲得以下全部效果。 ．４或以上：BP+3000。 ．８或以上： (此角色的攻擊給予的直接傷害為２點傷害) 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。 ◤◢◤◢ 限制卡 - 限２ ◤◢◤◢",
+    "effect": "攻擊時 將自己能源線任意張數激活狀態的卡休息。根據被此效果休息的卡的能源需求總數，此角色在本回合中，獲得以下全部效果。 ．４或以上：BP+3000。 ．８或以上： (此角色的攻擊給予的直接傷害為２點傷害) 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-104",
     "source": "Rugia sync",
     "variants": [
@@ -114904,7 +114904,7 @@
     "type": "角色",
     "bp": 1500,
     "trigger": "[Get] Add this card to your hand.",
-    "effect": "將此卡加入手牌。 ◤◢◤◢ 限制卡 - 限１ ◤◢◤◢"
+    "effect": "將此卡加入手牌。"
   },
   {
     "id": "UA54BT/MST-1-051",
