@@ -481,59 +481,59 @@ function closeMobileDetail(){
 function cardDisplayParts(d){
   const raw=String(d?.name||"").trim();
   let name=raw;
-  let feature=(d?.traits||[]).filter(Boolean).join(" / ");
+  let feature="";
 
-  // Rugia sometimes appends "特徵：..." and a parenthetical combat explanation
-  // to the card name. Keep only the actual card name for the inline bold name.
   const m=raw.match(/^([\s\S]*?)\s+特徵\s*[:：]\s*([\s\S]*)$/);
   if(m){
     name=m[1].trim();
-    let rawFeature=m[2].trim();
+    feature=m[2].trim();
 
-    // The parenthetical at the end is descriptive combat text, not the card's
-    // actual name/trait line. Remove it from the feature display.
-    rawFeature=rawFeature.replace(
+    // The parser can leave the combat explanation that Rugia puts after
+    // the feature text inside the card name. It belongs to the effect context,
+    // not the displayed feature line.
+    feature=feature.replace(
       /\s*[（(]\s*(?:進行攻擊|此角色的攻擊|對手玩家受到|直接傷害)[\s\S]*?[）)]\s*$/u,
       ""
     ).trim();
 
-    if(rawFeature)feature=rawFeature;
+    // The image token in this particular field is the combat keyword image,
+    // not part of the card's trait/name.
+    feature=feature.replace(/\s*Image\s*/gi," ");
+    feature=feature.replace(/\[\[UAIMG:[^\]]+\]\]/gi,"");
+    feature=feature.replace(/\s{2,}/g," ").trim();
   }
 
   return {name:name||raw,feature};
 }
 
-function renderInlineImageText(text){
-  const restored=restoreCombatImageKeywords(String(text||""));
-  let out=esc(restored.text||"");
-  out=out.replace(/__UA_IMAGE_(\d+)__/g,(m,i)=>{
-    const url=restored.imageUrls[Number(i)];
-    if(!url)return m;
-    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-  });
-  return out.replace(/\n/g,"<br>");
+function displayFeature(text){
+  return esc(String(text||""))
+    .replace(/\n/g,"<br>");
 }
 
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
- if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
+ if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing\"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
 
  const parts=cardDisplayParts(d);
  const triggerText=translateTrigger(d.trigger||'');
  const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText||d.trigger||'');
  const effect=highlightEffect(cleanedEffect,d.traits||[]);
  const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
- const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${renderInlineImageText(parts.feature)}</div>`:'';
+ const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
  const raid=isRaidCard(d)?raidBadge():'';
  const source=d.source||'Rugia / 本地資料庫';
 
- // Keep the main card effect as one flowing paragraph:
- // RAID tag → bold card name → effect text.
+ // Compact flow requested:
+ // 1. card code
+ // 2. feature
+ // 3. RAID + card name + effect as one flowing paragraph
+ // 4. trigger description unchanged
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}</div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
  syncMobileDetail();
 }
-function showAuth()function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
+function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
 function authError(e){return({'auth/invalid-email':'Email 格式不正確。','auth/email-already-in-use':'這個 Email 已經註冊。','auth/weak-password':'密碼太短。','auth/invalid-credential':'Email 或密碼不正確。'}[e.code]||e.message)}
 $('loginBtn').onclick=showAuth;$('closeModal').onclick=hideAuth;
 $('signup').onclick=async()=>{try{await createUserWithEmailAndPassword(auth,$('email').value.trim(),$('password').value);hideAuth()}catch(e){$('authMsg').textContent=authError(e)}};

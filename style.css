@@ -685,12 +685,12 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   .ua-keyword-icon{height:1.35em;max-width:7em;vertical-align:-0.3em}
 }
 
-/* Card detail flow layout */
+
+/* Compact card detail layout */
 .card-features{
   margin:8px 0 12px;
   font-size:14px;
   line-height:1.55;
-  color:inherit;
 }
 .card-features b{
   font-weight:900;
@@ -699,14 +699,17 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   margin-top:8px;
   font-size:14px;
   line-height:1.8;
+  overflow-wrap:anywhere;
+  word-break:normal;
 }
 .card-effect-flow .inline-card-name{
-  font-weight:900;
   font-size:inherit;
+  font-weight:900;
 }
 .card-effect-flow .raid-badge{
-  margin-left:0;
-  margin-right:6px;
+  display:inline-block;
+  vertical-align:baseline;
+  margin:0 6px 0 0;
 }
 .inline-effect{
   font-weight:400;
