@@ -282,6 +282,20 @@ def _token_to_html(text):
 def _strip_image_tokens_for_plain(text):
     return IMAGE_TOKEN_RE.sub("", str(text or ""))
 
+
+def _strip_image_assets_from_name(text):
+    """Card titles never need Rugia keyword/trigger image assets in the name field."""
+    s = str(text or "")
+    s = IMAGE_TOKEN_RE.sub("", s)
+    s = re.sub(
+        r"https?://rugiacreation\.com/ua/images/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?",
+        "",
+        s,
+        flags=re.I,
+    )
+    s = re.sub(r"\s{2,}", " ", s)
+    return s.strip(" ：:\n")
+
 def _remove_known_rugia_trigger_suffix(text):
     """Remove the duplicated Raid sentence that Rugia includes after effects.
 
@@ -351,6 +365,11 @@ def name_and_effect(text, headers, index):
     name = _clean_preserve_breaks(block[:cut]).strip(" ：:\n")
     if not name:
         name = _clean_preserve_breaks(block)
+
+    # Keyword icons that Rugia places beside the card trait/title are not part
+    # of the textual card name. Keep those assets in effectHtml only when they
+    # belong to the effect, and never leak [[UAIMG:...]] tokens into name/nameHtml.
+    name = _strip_image_assets_from_name(name)
 
     effect = _clean_preserve_breaks(block[cut:].strip()) if cut < len(block) else ""
     return name, effect

@@ -88,6 +88,29 @@ function highlightTrigger(text){
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
+function restoreRugiaImageTokensHtml(value){
+  let out=String(value||'');
+  const tokenRe=/\[\[UAIMG:(https?:\/\/[^\]<>"']+)\]\]/gi;
+  out=out.replace(tokenRe,(m,url)=>
+    `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+  );
+  // Defensive fallback for stale cards.json entries where the raw Rugia URL
+  // was stored without the [[UAIMG:...]] wrapper.
+  const rawUrlRe=/(?<!["'=])(https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?)/gi;
+  out=out.replace(rawUrlRe,(m,url)=>
+    `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+  );
+  return out;
+}
+
+function stripRugiaImageTokensText(value){
+  return String(value||'')
+    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
+    .replace(/https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?/gi,'')
+    .replace(/\s{2,}/g,' ')
+    .trim();
+}
+
 function restoreCombatImageKeywords(text){
   let out=String(text||'');
   const imageUrls=[];
@@ -499,11 +522,11 @@ function cardDisplayParts(d){
     // The image token in this particular field is the combat keyword image,
     // not part of the card's trait/name.
     feature=feature.replace(/\s*Image\s*/gi," ");
-    feature=feature.replace(/\[\[UAIMG:[^\]]+\]\]/gi,"");
-    feature=feature.replace(/\s{2,}/g," ").trim();
+    feature=stripRugiaImageTokensText(feature);
   }
 
-  return {name:name||raw,feature};
+  name=stripRugiaImageTokensText(name);
+  return {name:name||stripRugiaImageTokensText(raw),feature};
 }
 
 function displayFeature(text){
@@ -525,7 +548,7 @@ function stripKnownRaidFromRichHtml(html){
 function renderStoredEffect(d,triggerText=''){
   const rich=stripKnownRaidFromRichHtml(String(d?.effectHtml||''));
   if(rich){
-    return rich;
+    return restoreRugiaImageTokensHtml(rich);
   }
   const cleaned=stripTriggerFromEffect(String(d?.effect||''),triggerText||d?.trigger||'');
   return highlightEffect(cleaned,d?.traits||[]);
@@ -539,7 +562,6 @@ function detail(){
  const parts=cardDisplayParts(d);
  const triggerText=translateTrigger(d.trigger||'');
  const effect=renderStoredEffect(d,triggerText||d.trigger||'');
- const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
  const raid=isRaidCard(d)?raidBadge():'';
  const source=d.source||'Rugia / 本地資料庫';
@@ -549,7 +571,7 @@ function detail(){
  // 2. feature
  // 3. RAID + card name + effect as one flowing paragraph
  // 4. trigger description unchanged
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}</div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}</div><div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
