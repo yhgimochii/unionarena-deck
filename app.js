@@ -69,7 +69,15 @@ function imageTag(id,name,cls="thumb"){
  return `<img class="${cls}" src="${esc(first)}" alt="${esc(name||id)}" loading="lazy" referrerpolicy="no-referrer" data-fallbacks='${esc(JSON.stringify(urls))}' onerror="window.uaImageFallback(this)">`;
 }
 const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
-const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
+const EFFECT_KEYWORDS=[
+  "登場時","退場時","攻擊時","阻擋時","被攻擊時","攻擊結束時","主階段結束時",
+  "主起動","起動・主要","起動・主要時","激活時","休息時",
+  "自己回合中","對手回合中","自己的回合中","對手的回合中",
+  "每回合1次","每回合１次","回合1次","回合１次",
+  "當此卡登場時","當此卡退場時","當此卡攻擊時","當此卡阻擋時","當此卡被攻擊時",
+  "When Played","When Sidelined","When Attacking","When Blocking","When Attacked",
+  "On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn"
+];
 function escapeRegex(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
 function keywordClass(k){
   const value=String(k||"").toLowerCase();
@@ -88,84 +96,39 @@ function highlightTrigger(text){
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
-function rugiaIconReplacement(url){
-  const u=String(url||'').toLowerCase();
-  const file=(u.split('/').pop()||'').split('?')[0];
-  const labels={
-    'ico_raid.png':['RAID','raid'],
-    'ico_get.png':['加入手牌','common'],
-    'ico_draw.png':['抽牌','common'],
-    'ico_activate.png':['激活','common'],
-    'ico_final.png':['FINAL','final'],
-    'ico_special.png':['SPECIAL','special'],
-    'ico_color.png':['彩色','color'],
-    'ico_special_trigger.png':['SPECIAL','special'],
-    'ico_final_trigger.png':['FINAL','final'],
-    'ico_color_trigger.png':['彩色','color'],
-    'ico_get_trigger.png':['加入手牌','common'],
-    'ico_draw_trigger.png':['抽牌','common'],
-    'ico_activate_trigger.png':['激活','common'],
-    'ico_raid_trigger.png':['RAID','raid'],
-  };
-  if(labels[file]){
-    const [label,type]=labels[file];
-    const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
-    return `<span class="keyword-chip trigger-chip ${cls}">${esc(label)}</span>`;
-  }
-  return '';
-}
+function restoreCombatImageKeywords(text, cardData=null){
+  let out=String(text||"");
+  const circled={"0":"⓪","1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"};
+  const sym=n=>String(n||"").replace(/[０-９]/g,d=>String.fromCharCode(d.charCodeAt(0)-0xfee0)).split("").map(d=>circled[d]||d).join("");
+  const found=[];
+  // Rugia keeps the explanatory text for some image keywords. Recover these first.
+  out=out.replace(/Image(?=\s*[（(]\s*進行攻擊並戰鬥勝利時，對手玩家受到\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>{found.push("Impact");return `衝擊${sym(n)}`;});
+  out=out.replace(/Image(?=\s*[（(]\s*此角色的攻擊給予的直接傷害為\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>{found.push("Damage");return `傷害${sym(n)}`;});
 
-function restoreRugiaImageTokensHtml(value){
-  let out=String(value||'');
-  const tokenRe=/\[\[UAIMG:(https?:\/\/[^\]<>"]+)\]\]/gi;
-  out=out.replace(tokenRe,(m,url)=>{
-    const semantic=rugiaIconReplacement(url);
-    if(semantic)return semantic;
-    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-  });
-  // Defensive fallback for stale cards.json entries where the raw Rugia URL
-  // was stored without the [[UAIMG:...]] wrapper. Known trigger icons are
-  // rendered as text chips so a missing Rugia icon can never become a broken image.
-  const rawUrlRe=/(?<!["'=])(https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?)/gi;
-  out=out.replace(rawUrlRe,(m,url)=>{
-    const semantic=rugiaIconReplacement(url);
-    if(semantic)return semantic;
-    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-  });
+  // Some Rugia entries omit the explanatory parenthetical entirely, e.g.
+  // "BP+1000並獲得Image". The sync script stores the official Impact/Damage
+  // sequence so these remaining combat image tokens can also be restored.
+  const combat=Array.isArray(cardData?.combatKeywords)?cardData.combatKeywords:[];
+  if(combat.length){
+    const used={Impact:found.filter(x=>x==='Impact').length,Damage:found.filter(x=>x==='Damage').length};
+    out=out.replace(/(獲得|取得|得到|並獲得|另外再獲得)\s*Image/g,(m,prefix)=>{
+      let idx=-1;
+      for(let i=0;i<combat.length;i++){
+        const kw=combat[i];
+        const prior=combat.slice(0,i).filter(x=>x?.type===kw?.type).length;
+        if(kw && (used[kw.type]||0)<=prior){ idx=i; break; }
+      }
+      if(idx<0)return m;
+      const kw=combat[idx];
+      used[kw.type]=(used[kw.type]||0)+1;
+      const label=kw.type==='Impact'?`衝擊${sym(kw.value)}`:`傷害${sym(kw.value)}`;
+      return `${prefix}${label}`;
+    });
+  }
   return out;
 }
-
-function stripRugiaImageTokensText(value){
-  return String(value||'')
-    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
-    .replace(/https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?/gi,'')
-    .replace(/\s{2,}/g,' ')
-    .trim();
-}
-
-function restoreCombatImageKeywords(text){
-  let out=String(text||'');
-  const imageUrls=[];
-  const tokenRe=/\[\[UAIMG:(https?:\/\/rugiacreation\.com\/[^\]<>"']+)\]\]/gi;
-
-  // Keep the actual Rugia image instead of converting the keyword into text.
-  out=out.replace(tokenRe,(m,url)=>{
-    const i=imageUrls.push(url)-1;
-    return `__UA_IMAGE_${i}__`;
-  });
-
-  // Backwards-compatible fallback for cards synced by an older parser.
-  const circled={"0":"⓪","1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"};
-  const sym=n=>String(n||'').replace(/[０-９]/g,d=>String.fromCharCode(d.charCodeAt(0)-0xfee0)).split('').map(d=>circled[d]||d).join('');
-  out=out.replace(/Image(?=\s*[（(]\s*進行攻擊並戰鬥勝利時，對手玩家受到\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`衝擊${sym(n)}`);
-  out=out.replace(/Image(?=\s*[（(]\s*此角色的攻擊給予的直接傷害為\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`傷害${sym(n)}`);
-
-  return {text:out,imageUrls};
-}
-
-function highlightEffect(text, traitKeywords=[]){
-  const restored=restoreCombatImageKeywords(text);
-  let out=esc(restored.text||"");
+function highlightEffect(text, traitKeywords=[], cardData=null){
+  let out=esc(restoreCombatImageKeywords(text,cardData)||"");
   const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
   const entries=[
     ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
@@ -190,11 +153,6 @@ function highlightEffect(text, traitKeywords=[]){
     return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
   });
 
-  out=out.replace(/__UA_IMAGE_(\d+)__/g,(m,i)=>{
-    const url=restored.imageUrls[Number(i)];
-    if(!url)return m;
-    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-  });
   return out.replace(/\n/g,"<br>");
 }
 
@@ -245,7 +203,7 @@ function render(){
     return `<div class="card ${selected===i?"on":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
       ${imageTag(id,name)}
       ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
-      <div class="cardbody"><div class="id">${esc(id)}</div></div>
+      <div class="cardbody"><div class="nm">${esc(name)}${isRaidCard(d)?raidBadge():""}</div><div class="id">${esc(id)}</div></div>
       ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
       <div class="qty">×${c.qty}</div>
       <div class="reorder-controls" aria-hidden="true"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div>
@@ -532,79 +490,21 @@ function closeMobileDetail(){
   document.body.classList.remove('mobile-detail-open');
 }
 
-
-function cardDisplayParts(d){
-  const raw=String(d?.name||"").trim();
-  let name=raw;
-  let feature="";
-
-  const m=raw.match(/^([\s\S]*?)\s+特徵\s*[:：]\s*([\s\S]*)$/);
-  if(m){
-    name=m[1].trim();
-    feature=m[2].trim();
-
-    // The parser can leave the combat explanation that Rugia puts after
-    // the feature text inside the card name. It belongs to the effect context,
-    // not the displayed feature line.
-    feature=feature.replace(
-      /\s*[（(]\s*(?:進行攻擊|此角色的攻擊|對手玩家受到|直接傷害)[\s\S]*?[）)]\s*$/u,
-      ""
-    ).trim();
-
-    // The image token in this particular field is the combat keyword image,
-    // not part of the card's trait/name.
-    feature=feature.replace(/\s*Image\s*/gi," ");
-    feature=stripRugiaImageTokensText(feature);
-  }
-
-  name=stripRugiaImageTokensText(name);
-  return {name:name||stripRugiaImageTokensText(raw),feature};
-}
-
-function displayFeature(text){
-  return esc(String(text||""))
-    .replace(/\n/g,"<br>");
-}
-
-
-function stripKnownRaidFromRichHtml(html){
-  let s=String(html||'');
-  // The parser normally removes this before saving effectHtml. This second guard
-  // keeps older/stale cards.json entries from displaying the Raid trigger twice.
-  const raid='將此卡加入手牌，或在滿足能源需求的情況下進行突襲。';
-  const escaped=escapeRegex(raid);
-  s=s.replace(new RegExp('(?:<br>\s*)?(?:突襲\s*)?'+escaped+'\s*$','u'),'');
-  return s.trim();
-}
-
-function renderStoredEffect(d,triggerText=''){
-  const rich=stripKnownRaidFromRichHtml(String(d?.effectHtml||''));
-  if(rich){
-    return restoreRugiaImageTokensHtml(rich);
-  }
-  const cleaned=stripTriggerFromEffect(String(d?.effect||''),triggerText||d?.trigger||'');
-  return highlightEffect(cleaned,d?.traits||[]);
-}
-
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
- if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing\"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
-
- const parts=cardDisplayParts(d);
+ if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
+ const bp=formatBP(d.bp), energy=formatEnergy(d.energy), ap=d.ap==null?'—':d.ap;
+ const keywords=(d.keywords||[]).filter(Boolean).map(x=>`<span class="tag ${keywordClass(x)}">${esc(x)}</span>`).join('');
+ const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
  const triggerText=translateTrigger(d.trigger||'');
- const effect=renderStoredEffect(d,triggerText||d.trigger||'');
- const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
- const raid=isRaidCard(d)?raidBadge():'';
+ const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText||d.trigger||'');
+ const effect=highlightEffect(cleanedEffect,d.traits||[],d);
+ const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
-
- // Compact flow requested:
- // 1. card code
- // 2. feature
- // 3. RAID + card name + effect as one flowing paragraph
- // 4. trigger description unchanged
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}</div><div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
- syncMobileDetail();
+ 
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2 class="detail-title">${esc(d.name||'')}${isRaidCard(d)?raidBadge():""}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
 function authError(e){return({'auth/invalid-email':'Email 格式不正確。','auth/email-already-in-use':'這個 Email 已經註冊。','auth/weak-password':'密碼太短。','auth/invalid-credential':'Email 或密碼不正確。'}[e.code]||e.message)}
