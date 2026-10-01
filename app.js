@@ -190,7 +190,7 @@ function render(){
     return `<div class="card ${selected===i?"on":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
       ${imageTag(id,name)}
       ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
-      <div class="cardbody"><div class="nm">${esc(name)}${isRaidCard(d)?raidBadge():""}</div><div class="id">${esc(id)}</div></div>
+      <div class="cardbody"><div class="id">${esc(id)}</div></div>
       ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
       <div class="qty">×${c.qty}</div>
       <div class="reorder-controls" aria-hidden="true"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div>
