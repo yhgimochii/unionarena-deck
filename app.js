@@ -83,17 +83,29 @@ function keywordClass(k){
   const value=String(k||"").toLowerCase();
   return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===value)||/^(?:impact|damage|衝擊|傷害)/i.test(value)?"combat":"effect";
 }
-function highlightTrigger(text){
-  const raw=String(text||'').trim();
+function highlightTrigger(text, cardData=null){
+  let raw=String(text||'').trim();
   if(!raw)return '';
+  // Some older synced records can contain the raw image placeholder inside the trigger.
+  // Recover Impact/Damage before parsing the trigger label so the trigger never disappears.
+  raw=restoreCombatImageKeywords(raw,cardData);
   const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色)(?:】|〗|\])\s*/i);
-  if(!m)return highlightEffect(raw,[]);
+  if(!m){
+    const fallback=raw.match(/^\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色)\b/i);
+    if(!fallback)return highlightEffect(raw,[],cardData);
+    let label=fallback[0].trim();
+    if(/^(?:最終|final)$/i.test(label))label='FINAL';
+    if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
+    const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':'common';
+    const rest=raw.slice(fallback.index).trim();
+    return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[],cardData)}`:''}`;
+  }
   let label=m[1];
   if(/^(?:最終|final)$/i.test(label))label='FINAL';
   if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
   const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':'common';
   const rest=raw.slice(m[0].length);
-  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[],cardData)}`:''}`;
 }
 
 function restoreCombatImageKeywords(text, cardData=null){
@@ -500,7 +512,7 @@ function detail(){
  const triggerText=translateTrigger(d.trigger||'');
  const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText||d.trigger||'');
  const effect=highlightEffect(cleanedEffect,d.traits||[],d);
- const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
+ const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText,d)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div><h2 class="detail-title">${esc(d.name||'')}${isRaidCard(d)?raidBadge():""}</h2>${traits?`<div class="tags">${traits}</div>`:''}${keywords?`<div class="tags">${keywords}</div>`:''}<div class="effect"><b>效果</b><div>${effect||'—'}</div></div>${trigger}<div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;

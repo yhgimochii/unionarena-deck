@@ -671,57 +671,57 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 .nm{display:flex;align-items:center;gap:5px;min-width:0;}
 .nm .raid-badge{flex:0 0 auto;margin-left:2px;font-size:8px;padding:3px 6px;}
 
-/* Rugia-style Impact / Damage keyword images */
-.ua-keyword-icon{
-  display:inline-block;
-  height:1.45em;
-  width:auto;
-  max-width:7.5em;
-  vertical-align:-0.34em;
-  margin:0 3px;
-  object-fit:contain;
+/* Dark mode — deck name/color edit modal */
+.edit-deck-modal{
+  background:rgba(0,0,0,.72);
 }
-@media(max-width:700px){
-  .ua-keyword-icon{height:1.35em;max-width:7em;vertical-align:-0.3em}
+.edit-deck-box{
+  background:#171b24;
+  color:#f4f5f7;
+  border:1px solid #303744;
+  box-shadow:0 20px 60px rgba(0,0,0,.65);
 }
-
-
-/* Compact card detail layout */
-.card-features{
-  margin:8px 0 12px;
-  font-size:14px;
-  line-height:1.55;
+.edit-deck-head{
+  color:#f4f5f7;
 }
-.card-features b{
-  font-weight:900;
+.edit-deck-x{
+  color:#aab1bd;
 }
-.card-effect-flow{
-  margin-top:8px;
-  font-size:14px;
-  line-height:1.8;
-  overflow-wrap:anywhere;
-  word-break:normal;
+.edit-deck-x:hover{
+  color:#fff;
+  background:#202632;
+  border-radius:8px;
 }
-.card-effect-flow .inline-card-name{
-  font-size:inherit;
-  font-weight:900;
+.edit-deck-label{
+  color:#d8dce4;
 }
-.card-effect-flow .raid-badge{
-  display:inline-block;
-  vertical-align:baseline;
-  margin:0 6px 0 0;
+.edit-deck-input{
+  background:#10141b;
+  color:#f4f5f7;
+  border-color:#343b48;
 }
-.inline-effect{
-  font-weight:400;
+.edit-deck-input::placeholder{
+  color:#727b8b;
 }
-
-/* Rich Rugia effect markup */
-.card-effect-flow .ua-keyword-icon{
-  display:inline-block;
-  height:1.45em;
-  width:auto;
-  max-width:8em;
-  vertical-align:-0.34em;
-  margin:0 2px;
-  object-fit:contain;
+.edit-deck-input:focus{
+  outline:none;
+  border-color:#7568ef;
+  box-shadow:0 0 0 2px rgba(117,104,239,.18);
+}
+.edit-deck-msg{
+  color:#ff8f82;
+}
+.edit-deck-actions .light,
+.edit-deck-actions button.light{
+  background:#1a1f29;
+  color:#f4f5f7;
+  border-color:#343b48;
+}
+.edit-deck-actions .light:hover,
+.edit-deck-actions button.light:hover{
+  background:#202632;
+  border-color:#454e5d;
+}
+.edit-deck-color-row .color-dot{
+  border-color:#4a5362;
 }
