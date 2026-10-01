@@ -114,50 +114,101 @@ def discover_versions(soup):
     return sorted(versions)
 
 
-IMAGE_TOKEN_RE = re.compile(r"\[\[UAIMG:(https?://rugiacreation\.com/ua/[^]\s<>\"']+)\]\]", re.I)
+IMAGE_TOKEN_RE = re.compile(r"\[\[UAIMG:(https?://[^]\s<>\"']+)\]\]", re.I)
+CSS_URL_RE = re.compile(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", re.I)
+
+KEYWORD_FALLBACK_BASE = "https://rugiacreation.com/ua/images/"
+
+
+def _normalise_asset_url(raw):
+    if not raw:
+        return ""
+    raw = str(raw).strip().strip('"\'')
+    if not raw or raw.startswith("data:") or raw.startswith("javascript:"):
+        return ""
+    if raw.startswith("//"):
+        raw = "https:" + raw
+    url = urljoin("https://rugiacreation.com/ua/", raw)
+    if re.match(r"^https?://", url, re.I):
+        return url
+    return ""
+
+
+def _keyword_fallback(raw):
+    """Recover known UA keyword assets when Rugia exposes only semantic metadata."""
+    raw = clean(raw or "")
+    patterns = [
+        (r"(?:keyword[_-]?)?impact[_-]?(\d+)", "keyword_impact{n}.png"),
+        (r"(?:keyword[_-]?)?damage[_-]?(\d+)", "keyword_damage{n}.png"),
+        (r"(?:インパクト|衝擊|衝撃|impact)[^0-9０-９]*([1-9０-９])", "keyword_impact{n}.png"),
+        (r"(?:ダメージ|傷害|damage)[^0-9０-９]*([1-9０-９])", "keyword_damage{n}.png"),
+    ]
+    for pattern, filename in patterns:
+        m = re.search(pattern, raw, re.I)
+        if m:
+            n = m.group(1).translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+            return urljoin(KEYWORD_FALLBACK_BASE, filename.format(n=n))
+    return ""
+
 
 def _image_url(img):
-    """Return Rugia's real image URL from normal or lazy-load attributes."""
+    """Return the actual image URL from normal, lazy, srcset, style, or data attrs."""
     candidates = [
-        img.get("src"),
-        img.get("data-src"),
-        img.get("data-original"),
-        img.get("data-lazy-src"),
-        img.get("data-url"),
-        img.get("data-image"),
-        img.get("data-original-src"),
+        img.get("src"), img.get("data-src"), img.get("data-original"),
+        img.get("data-lazy-src"), img.get("data-url"), img.get("data-image"),
+        img.get("data-original-src"), img.get("data-bg"), img.get("data-background"),
     ]
-
     srcset = img.get("srcset") or img.get("data-srcset")
     if srcset:
-        # Use the last/most detailed candidate in a srcset.
         parts = [p.strip().split()[0] for p in srcset.split(",") if p.strip()]
         candidates.extend(reversed(parts))
+    style = img.get("style", "")
+    candidates.extend(CSS_URL_RE.findall(style))
 
+    # Prefer explicit image URLs over semantic fallbacks.
     for raw in candidates:
-        if not raw:
-            continue
-        raw = str(raw).strip()
-        if raw.startswith("//"):
-            raw = "https:" + raw
-        url = urljoin("https://rugiacreation.com/ua/", raw)
-        if re.match(r"^https?://rugiacreation\.com/ua/", url, re.I):
+        url = _normalise_asset_url(raw)
+        if url:
             return url
-    return ""
+
+    raw_meta = " ".join(clean(img.get(k, "")) for k in (
+        "alt", "title", "aria-label", "data-alt", "data-name", "data-keyword", "class", "id"
+    ) if img.get(k))
+    return _keyword_fallback(raw_meta)
+
 
 def _img_token(img):
     url = _image_url(img)
     if url:
         return f"[[UAIMG:{url}]]"
 
-    # Do not leak generic browser/image alt text such as "Image" into card text.
     alt = clean(img.get("alt", ""))
     if alt and alt.lower() not in {"image", "img", "icon"}:
         return alt
     return ""
 
+
+def _tag_background_token(tag):
+    """Extract CSS background/data image assets from non-img keyword elements."""
+    attrs = [
+        tag.get("style", ""), tag.get("data-bg", ""), tag.get("data-background", ""),
+        tag.get("data-image", ""), tag.get("data-src", ""),
+    ]
+    raw = " ".join(str(x) for x in attrs if x)
+    urls = CSS_URL_RE.findall(raw)
+    for raw_url in urls:
+        url = _normalise_asset_url(raw_url)
+        if url:
+            return f"[[UAIMG:{url}]]"
+    meta = " ".join(clean(tag.get(k, "")) for k in (
+        "alt", "title", "aria-label", "data-alt", "data-name", "data-keyword", "class", "id"
+    ) if tag.get(k))
+    fallback = _keyword_fallback(meta)
+    return f"[[UAIMG:{fallback}]]" if fallback else ""
+
+
 def _preserve_rugia_markup(soup):
-    """Replace Rugia <img>/<br> with lossless text tokens before text extraction."""
+    """Preserve Rugia text, line breaks, <img> assets, and CSS background assets."""
     clone = BeautifulSoup(str(soup), "html.parser")
 
     for br in clone.find_all("br"):
@@ -166,9 +217,23 @@ def _preserve_rugia_markup(soup):
     for img in clone.find_all("img"):
         img.replace_with(" " + _img_token(img) + " ")
 
-    # Preserve paragraph/list boundaries too. This is deliberately conservative:
-    # it keeps the original text while preventing separate sections from being
-    # smashed together by get_text().
+    # Some keyword icons are spans/divs with CSS background-image instead of <img>.
+    # Only inject a token when an actual image URL or known keyword metadata exists.
+    for tag in clone.find_all(["span", "div", "i", "a"]):
+        token = _tag_background_token(tag)
+        if not token:
+            continue
+        # Avoid duplicating an asset that is already represented by a nested <img>.
+        if tag.find("img"):
+            continue
+        # If this is an icon-only element, replace it. If it contains text, prepend
+        # the asset token so we preserve both the icon and the text.
+        visible = clean(tag.get_text(" ", strip=True))
+        if not visible or visible.lower() in {"image", "img", "icon"}:
+            tag.replace_with(" " + token + " ")
+        else:
+            tag.insert_before(" " + token + " ")
+
     for tag in clone.find_all(["p", "div", "li"]):
         if tag.name == "li":
             tag.insert_before("\n")
@@ -176,20 +241,21 @@ def _preserve_rugia_markup(soup):
 
     return clone
 
+
 def _clean_preserve_breaks(text):
     text = str(text or "").replace("\r\n", "\n").replace("\r", "\n")
-    # Normalize horizontal whitespace without destroying line breaks.
     text = re.sub(r"[ \t\f\v]+", " ", text)
     text = re.sub(r" *\n *", "\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
+
 def normalised_text(soup):
     clone = _preserve_rugia_markup(soup)
     return _clean_preserve_breaks(clone.get_text("", strip=False))
 
+
 def _token_to_html(text):
-    """Convert preserved UAIMG tokens into safe, minimal HTML."""
     import html as _html
     out = []
     pos = 0
@@ -217,6 +283,9 @@ def _remove_known_rugia_trigger_suffix(text):
     s = _clean_preserve_breaks(text)
     raid = "將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
     s = re.sub(r"\s*" + re.escape(raid) + r"\s*$", "", s)
+    # Rugia sometimes inserts the same trigger on a separate line with an
+    # image token/label before it. Remove only the exact known Raid body.
+    s = re.sub(r"(?:\n|\s)*突襲(?:\n|\s)*" + re.escape(raid) + r"\s*$", "", s)
     return s.strip()
 
 
