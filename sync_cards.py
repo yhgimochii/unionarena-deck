@@ -2,7 +2,7 @@ import json
 import re
 import time
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -115,11 +115,12 @@ def discover_versions(soup):
 
 
 def image_replacement_text(img):
-    """Recover text represented by Rugia image-only keyword icons.
+    """Preserve Rugia's Impact/Damage keyword images as renderable image tokens.
 
-    Rugia renders several UA keywords as <img> elements. Depending on the page
-    version, the useful label may be in alt/title/aria-label or encoded in the
-    image filename. Return a Traditional-Chinese text token when recognizable.
+    Rugia represents these UA keywords with real <img> elements. The old parser
+    converted them to plain text (or dropped them entirely), so the website lost
+    the symbol. We keep the original image URL inside a safe internal token; the
+    browser later turns that token back into an <img>.
     """
     attrs = [
         img.get("alt", ""),
@@ -129,45 +130,29 @@ def image_replacement_text(img):
         img.get("src", ""),
     ]
     raw = " ".join(clean(x) for x in attrs if x).strip()
-    if not raw:
-        return "Image"
+    src = clean(img.get("src", ""))
+    if src:
+        src = urljoin(RUGIA, src)
 
-    # Japanese/English labels commonly used by Bandai/Rugia.
-    m = re.search(r"(?:インパクト|impact)[^0-9０-９]*(\d+|[０-９])", raw, re.I)
-    if m:
-        n = m.group(1)
-        n = ''.join(str(ord(ch)-0xFF10) if '０' <= ch <= '９' else ch for ch in n)
-        circled = {"1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"}
-        return "衝擊" + circled.get(n, n)
+    # Rugia's actual assets are named keyword_impact1.png, keyword_impact2.png,
+    # keyword_damage1.png, keyword_damage2.png, etc. Preserve those exact images.
+    m = re.search(r"keyword[_-]impact[_-]?(\d+)", raw, re.I)
+    if m and src:
+        return f"[[UAIMG:{src}]]"
+    m = re.search(r"keyword[_-]damage[_-]?(\d+)", raw, re.I)
+    if m and src:
+        return f"[[UAIMG:{src}]]"
 
-    m = re.search(r"(?:ダメージ|damage)[^0-9０-９]*(\d+|[０-９])", raw, re.I)
-    if m:
-        n = m.group(1)
-        n = ''.join(str(ord(ch)-0xFF10) if '０' <= ch <= '９' else ch for ch in n)
-        circled = {"1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"}
-        return "傷害" + circled.get(n, n)
-
-    # Traditional/Chinese labels if Rugia supplies them directly.
-    m = re.search(r"(?:衝擊|傷害)\s*[（(]\s*([0-9０-９]+)\s*[）)]", raw)
-    if m:
-        label = "衝擊" if "衝擊" in raw else "傷害"
-        n = m.group(1)
-        n = ''.join(str(ord(ch)-0xFF10) if '０' <= ch <= '９' else ch for ch in n)
-        circled = {"1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"}
-        return label + circled.get(n, n)
+    # Some Rugia revisions expose the keyword name in alt/title rather than the
+    # filename. Only preserve it as an image when the source URL is available.
+    m = re.search(r"(?:インパクト|impact)\s*([1-9])", raw, re.I)
+    if m and src:
+        return f"[[UAIMG:{src}]]"
+    m = re.search(r"(?:ダメージ|damage)\s*([1-9])", raw, re.I)
+    if m and src:
+        return f"[[UAIMG:{src}]]"
 
     return "Image"
-
-
-def extract_combat_keywords_from_official(soup):
-    """Extract Impact/Damage values from the official English card effect."""
-    text = soup.get_text(" ", strip=True)
-    m = re.search(r"\bEffect\b(.*?)(?:\bTrigger\b|$)", text, re.I)
-    effect = m.group(1) if m else text
-    found = []
-    for kind, value in re.findall(r"\[(Impact|Damage)\s*\(\s*(\d+)\s*\)\]", effect, re.I):
-        found.append({"type": kind.capitalize(), "value": int(value)})
-    return found
 
 
 def normalised_text(soup):
@@ -273,7 +258,11 @@ def parse_rugia(html):
             # Prefer the non-star/base rarity for the main display label.
             if not rows[cid].get("rarity") or ("★" in rows[cid]["rarity"] and "★" not in rarity):
                 rows[cid]["rarity"] = rarity
-    return list(rows.values())
+    parsed_rows = list(rows.values())
+    icon_count = sum(row.get("effect", "").count("[[UAIMG:") for row in parsed_rows)
+    if icon_count:
+        print(f"    Preserved {icon_count} Rugia Impact/Damage image token(s)")
+    return parsed_rows
 
 
 def discover_sets_from_page(soup):
@@ -335,10 +324,6 @@ def parse_official(cid, html):
         trig = clean(m.group(1))
         if trig and trig not in {"-", "None"}:
             out["trigger"] = trig
-
-    combat = extract_combat_keywords_from_official(soup)
-    if combat:
-        out["combatKeywords"] = combat
     return out
 
 
@@ -444,9 +429,7 @@ def main():
     todo = []
     for cid in discovered:
         d = cards[cid]
-        needs_meta = any(k not in d for k in ("energy", "ap", "type")) or (d.get("type") == "角色" and "bp" not in d)
-        needs_combat = ("combatKeywords" not in d and bool(re.search(r"Image", str(d.get("effect", "")), re.I)) and bool(re.search(r"(?:衝擊|傷害|進行攻擊並戰鬥勝利時|直接傷害|獲得Image)", str(d.get("effect", "")))))
-        if needs_meta or needs_combat:
+        if any(k not in d for k in ("energy", "ap", "type")) or (d.get("type") == "角色" and "bp" not in d):
             todo.append(cid)
     print(f"Official metadata to fetch: {len(todo)} cards")
     for i, cid in enumerate(todo, 1):

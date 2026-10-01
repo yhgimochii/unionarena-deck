@@ -88,39 +88,29 @@ function highlightTrigger(text){
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
 }
 
-function restoreCombatImageKeywords(text, cardData=null){
-  let out=String(text||"");
-  const circled={"0":"⓪","1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"};
-  const sym=n=>String(n||"").replace(/[０-９]/g,d=>String.fromCharCode(d.charCodeAt(0)-0xfee0)).split("").map(d=>circled[d]||d).join("");
-  const found=[];
-  // Rugia keeps the explanatory text for some image keywords. Recover these first.
-  out=out.replace(/Image(?=\s*[（(]\s*進行攻擊並戰鬥勝利時，對手玩家受到\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>{found.push("Impact");return `衝擊${sym(n)}`;});
-  out=out.replace(/Image(?=\s*[（(]\s*此角色的攻擊給予的直接傷害為\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>{found.push("Damage");return `傷害${sym(n)}`;});
+function restoreCombatImageKeywords(text){
+  let out=String(text||'');
+  const imageUrls=[];
+  const tokenRe=/\[\[UAIMG:(https?:\/\/rugiacreation\.com\/[^\]<>"']+)\]\]/gi;
 
-  // Some Rugia entries omit the explanatory parenthetical entirely, e.g.
-  // "BP+1000並獲得Image". The sync script stores the official Impact/Damage
-  // sequence so these remaining combat image tokens can also be restored.
-  const combat=Array.isArray(cardData?.combatKeywords)?cardData.combatKeywords:[];
-  if(combat.length){
-    const used={Impact:found.filter(x=>x==='Impact').length,Damage:found.filter(x=>x==='Damage').length};
-    out=out.replace(/(獲得|取得|得到|並獲得|另外再獲得)\s*Image/g,(m,prefix)=>{
-      let idx=-1;
-      for(let i=0;i<combat.length;i++){
-        const kw=combat[i];
-        const prior=combat.slice(0,i).filter(x=>x?.type===kw?.type).length;
-        if(kw && (used[kw.type]||0)<=prior){ idx=i; break; }
-      }
-      if(idx<0)return m;
-      const kw=combat[idx];
-      used[kw.type]=(used[kw.type]||0)+1;
-      const label=kw.type==='Impact'?`衝擊${sym(kw.value)}`:`傷害${sym(kw.value)}`;
-      return `${prefix}${label}`;
-    });
-  }
-  return out;
+  // Keep the actual Rugia image instead of converting the keyword into text.
+  out=out.replace(tokenRe,(m,url)=>{
+    const i=imageUrls.push(url)-1;
+    return `__UA_IMAGE_${i}__`;
+  });
+
+  // Backwards-compatible fallback for cards synced by an older parser.
+  const circled={"0":"⓪","1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"};
+  const sym=n=>String(n||'').replace(/[０-９]/g,d=>String.fromCharCode(d.charCodeAt(0)-0xfee0)).split('').map(d=>circled[d]||d).join('');
+  out=out.replace(/Image(?=\s*[（(]\s*進行攻擊並戰鬥勝利時，對手玩家受到\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`衝擊${sym(n)}`);
+  out=out.replace(/Image(?=\s*[（(]\s*此角色的攻擊給予的直接傷害為\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`傷害${sym(n)}`);
+
+  return {text:out,imageUrls};
 }
-function highlightEffect(text, traitKeywords=[], cardData=null){
-  let out=esc(restoreCombatImageKeywords(text,cardData)||"");
+
+function highlightEffect(text, traitKeywords=[]){
+  const restored=restoreCombatImageKeywords(text);
+  let out=esc(restored.text||"");
   const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
   const entries=[
     ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
@@ -145,6 +135,11 @@ function highlightEffect(text, traitKeywords=[], cardData=null){
     return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
   });
 
+  out=out.replace(/__UA_IMAGE_(\d+)__/g,(m,i)=>{
+    const url=restored.imageUrls[Number(i)];
+    if(!url)return m;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
   return out.replace(/\n/g,"<br>");
 }
 
@@ -491,7 +486,7 @@ function detail(){
  const traits=(d.traits||[]).filter(Boolean).map(x=>`<span class="tag trait">${esc(x)}</span>`).join('');
  const triggerText=translateTrigger(d.trigger||'');
  const cleanedEffect=stripTriggerFromEffect(d.effect||'',triggerText||d.trigger||'');
- const effect=highlightEffect(cleanedEffect,d.traits||[],d);
+ const effect=highlightEffect(cleanedEffect,d.traits||[]);
  const trigger=triggerText?`<div class="trigger"><b>觸發器</b><div>${highlightTrigger(triggerText)}</div></div>`:'';
  const source=d.source||'Rugia / 本地資料庫';
  
