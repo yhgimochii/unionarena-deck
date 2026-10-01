@@ -714,3 +714,14 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 .inline-effect{
   font-weight:400;
 }
+
+/* Rich Rugia effect markup */
+.card-effect-flow .ua-keyword-icon{
+  display:inline-block;
+  height:1.45em;
+  width:auto;
+  max-width:8em;
+  vertical-align:-0.34em;
+  margin:0 2px;
+  object-fit:contain;
+}

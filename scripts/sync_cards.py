@@ -114,57 +114,111 @@ def discover_versions(soup):
     return sorted(versions)
 
 
-def image_replacement_text(img):
-    """Preserve Rugia's Impact/Damage keyword images as renderable image tokens.
+IMAGE_TOKEN_RE = re.compile(r"\[\[UAIMG:(https?://rugiacreation\.com/ua/[^]\s<>\"']+)\]\]", re.I)
 
-    Rugia represents these UA keywords with real <img> elements. The old parser
-    converted them to plain text (or dropped them entirely), so the website lost
-    the symbol. We keep the original image URL inside a safe internal token; the
-    browser later turns that token back into an <img>.
-    """
-    attrs = [
-        img.get("alt", ""),
-        img.get("title", ""),
-        img.get("aria-label", ""),
-        img.get("data-alt", ""),
-        img.get("src", ""),
+def _image_url(img):
+    """Return Rugia's real image URL from normal or lazy-load attributes."""
+    candidates = [
+        img.get("src"),
+        img.get("data-src"),
+        img.get("data-original"),
+        img.get("data-lazy-src"),
+        img.get("data-url"),
+        img.get("data-image"),
+        img.get("data-original-src"),
     ]
-    raw = " ".join(clean(x) for x in attrs if x).strip()
-    src = clean(img.get("src", ""))
-    if src:
-        src = urljoin(RUGIA, src)
 
-    # Rugia's actual assets are named keyword_impact1.png, keyword_impact2.png,
-    # keyword_damage1.png, keyword_damage2.png, etc. Preserve those exact images.
-    m = re.search(r"keyword[_-]impact[_-]?(\d+)", raw, re.I)
-    if m and src:
-        return f"[[UAIMG:{src}]]"
-    m = re.search(r"keyword[_-]damage[_-]?(\d+)", raw, re.I)
-    if m and src:
-        return f"[[UAIMG:{src}]]"
+    srcset = img.get("srcset") or img.get("data-srcset")
+    if srcset:
+        # Use the last/most detailed candidate in a srcset.
+        parts = [p.strip().split()[0] for p in srcset.split(",") if p.strip()]
+        candidates.extend(reversed(parts))
 
-    # Some Rugia revisions expose the keyword name in alt/title rather than the
-    # filename. Only preserve it as an image when the source URL is available.
-    m = re.search(r"(?:インパクト|impact)\s*([1-9])", raw, re.I)
-    if m and src:
-        return f"[[UAIMG:{src}]]"
-    m = re.search(r"(?:ダメージ|damage)\s*([1-9])", raw, re.I)
-    if m and src:
-        return f"[[UAIMG:{src}]]"
+    for raw in candidates:
+        if not raw:
+            continue
+        raw = str(raw).strip()
+        if raw.startswith("//"):
+            raw = "https:" + raw
+        url = urljoin("https://rugiacreation.com/ua/", raw)
+        if re.match(r"^https?://rugiacreation\.com/ua/", url, re.I):
+            return url
+    return ""
 
-    return "Image"
+def _img_token(img):
+    url = _image_url(img)
+    if url:
+        return f"[[UAIMG:{url}]]"
 
+    # Do not leak generic browser/image alt text such as "Image" into card text.
+    alt = clean(img.get("alt", ""))
+    if alt and alt.lower() not in {"image", "img", "icon"}:
+        return alt
+    return ""
+
+def _preserve_rugia_markup(soup):
+    """Replace Rugia <img>/<br> with lossless text tokens before text extraction."""
+    clone = BeautifulSoup(str(soup), "html.parser")
+
+    for br in clone.find_all("br"):
+        br.replace_with("\n")
+
+    for img in clone.find_all("img"):
+        img.replace_with(" " + _img_token(img) + " ")
+
+    # Preserve paragraph/list boundaries too. This is deliberately conservative:
+    # it keeps the original text while preventing separate sections from being
+    # smashed together by get_text().
+    for tag in clone.find_all(["p", "div", "li"]):
+        if tag.name == "li":
+            tag.insert_before("\n")
+        tag.append("\n")
+
+    return clone
+
+def _clean_preserve_breaks(text):
+    text = str(text or "").replace("\r\n", "\n").replace("\r", "\n")
+    # Normalize horizontal whitespace without destroying line breaks.
+    text = re.sub(r"[ \t\f\v]+", " ", text)
+    text = re.sub(r" *\n *", "\n", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
 
 def normalised_text(soup):
-    # Preserve image-only keyword icons before converting the DOM to plain text.
-    # This is essential because soup.get_text() otherwise drops <img> elements.
-    clone = BeautifulSoup(str(soup), "html.parser")
-    for img in clone.find_all("img"):
-        img.replace_with(" " + image_replacement_text(img) + " ")
+    clone = _preserve_rugia_markup(soup)
+    return _clean_preserve_breaks(clone.get_text("", strip=False))
 
-    # Keep separators as spaces. Rugia's set/card links can be separated by newlines,
-    # tabs, or literal whitespace depending on the IP page.
-    return clean(clone.get_text(" ", strip=True))
+def _token_to_html(text):
+    """Convert preserved UAIMG tokens into safe, minimal HTML."""
+    import html as _html
+    out = []
+    pos = 0
+    for m in IMAGE_TOKEN_RE.finditer(str(text or "")):
+        out.append(_html.escape(str(text or "")[pos:m.start()]).replace("\n", "<br>"))
+        url = _html.escape(m.group(1), quote=True)
+        out.append(
+            f'<img class="ua-keyword-icon" src="{url}" alt="" loading="lazy" '
+            f'referrerpolicy="no-referrer">'
+        )
+        pos = m.end()
+    out.append(_html.escape(str(text or "")[pos:]).replace("\n", "<br>"))
+    return "".join(out)
+
+def _strip_image_tokens_for_plain(text):
+    return IMAGE_TOKEN_RE.sub("", str(text or ""))
+
+def _remove_known_rugia_trigger_suffix(text):
+    """Remove the duplicated Raid sentence that Rugia includes after effects.
+
+    The separate `trigger` field is populated from the official card data, so the
+    Chinese Raid sentence should not also remain at the end of the main effect.
+    This is deliberately narrow to avoid deleting legitimate effect text.
+    """
+    s = _clean_preserve_breaks(text)
+    raid = "將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
+    s = re.sub(r"\s*" + re.escape(raid) + r"\s*$", "", s)
+    return s.strip()
+
 
 
 def extract_headers(soup):
@@ -189,15 +243,11 @@ def extract_headers(soup):
 def name_and_effect(text, headers, index):
     start = headers[index][1]
     end = headers[index + 1][0] if index + 1 < len(headers) else len(text)
-    block = clean(text[start:end])
+    block = _clean_preserve_breaks(text[start:end])
 
-    # Rugia's search text places the card name immediately before the effect.
-    # Some cards start their effect with phrases that are not part of the name,
-    # e.g. "波奇塔 此卡不能在前線登場...".  The old parser only knew a small
-    # set of markers, so those descriptions were accidentally appended to names.
-    # Keep multi-word names intact and cut only when a known effect-start phrase
-    # occurs after whitespace.
-    block = re.sub(r"^(?:Image\s*)+", "", block, flags=re.I)
+    # Rugia can put image tokens before/inside the title. Do not let a generic
+    # image placeholder become part of the visible card name.
+    block = re.sub(r"^(?:\[\[UAIMG:[^\]]+\]\]\s*)+", "", block, flags=re.I)
     block = re.sub(r"^(?:[A-Z0-9]+/[A-Z0-9-]+\s*)+", "", block)
 
     effect_markers = [
@@ -216,18 +266,15 @@ def name_and_effect(text, headers, index):
 
     cut = len(block)
     for marker in effect_markers:
-        # Require whitespace before the marker so words inside a card name are
-        # not split accidentally.
-        for m in re.finditer(r"\s+" + re.escape(marker), block):
-            cut = min(cut, m.start())
+        for m in re.finditer(r"(?:^|\s)" + re.escape(marker), block):
+            cut = min(cut, m.start() if block[m.start()] != "\n" else m.start() + 1)
             break
 
-    name = clean(block[:cut]).strip(" ：:")
+    name = _clean_preserve_breaks(block[:cut]).strip(" ：:\n")
     if not name:
-        # Last-resort fallback: keep the whole block rather than inventing a name.
-        name = clean(block)
+        name = _clean_preserve_breaks(block)
 
-    effect = clean(block[cut:].strip()) if cut < len(block) else ""
+    effect = _clean_preserve_breaks(block[cut:].strip()) if cut < len(block) else ""
     return name, effect
 
 def parse_rugia(html):
@@ -238,11 +285,14 @@ def parse_rugia(html):
         name, effect = name_and_effect(text, headers, i)
         # Find1 with the card number is accepted by Rugia and is stable for direct links.
         card_num = cid.split("/", 1)[1]
+        effect = _remove_known_rugia_trigger_suffix(effect)
         row = {
             "id": cid,
             "name": name,
             "rarity": rarity,
-            "effect": effect,
+            "effect": _strip_image_tokens_for_plain(effect).strip(),
+            "effectHtml": _token_to_html(effect),
+            "nameHtml": _token_to_html(name),
             "url": f"{RUGIA}?Name=HK&Find1={quote(card_num)}",
             "source": "Rugia sync",
         }
@@ -258,11 +308,12 @@ def parse_rugia(html):
             # Prefer the non-star/base rarity for the main display label.
             if not rows[cid].get("rarity") or ("★" in rows[cid]["rarity"] and "★" not in rarity):
                 rows[cid]["rarity"] = rarity
-    parsed_rows = list(rows.values())
-    icon_count = sum(row.get("effect", "").count("[[UAIMG:") for row in parsed_rows)
-    if icon_count:
-        print(f"    Preserved {icon_count} Rugia Impact/Damage image token(s)")
-    return parsed_rows
+    # Helpful verification: if Rugia supplied image assets, the saved row should
+    # contain the original image URL token rather than the literal word "Image".
+    image_rows = sum(1 for r in rows.values() if "[[UAIMG:" in r.get("effectHtml", "") or "[[UAIMG:" in r.get("nameHtml", ""))
+    if image_rows:
+        print(f"  preserved Rugia image markup in {image_rows} cards")
+    return list(rows.values())
 
 
 def discover_sets_from_page(soup):
