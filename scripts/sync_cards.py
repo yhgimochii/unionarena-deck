@@ -394,60 +394,101 @@ def _normalise_link_asset(raw):
     return ""
 
 
-def _description_image_for_card(soup, cid):
-    """Find Rugia's magnifier/detail image linked from a specific card entry.
+CARD_ID_RE = re.compile(r'\b((?:UA\d+(?:BT|ST|DC)|EX\d+BT|PC\d+BT|UAPR|PR\d+BT)/[A-Z0-9]+-\d+-\d+)\b', re.I)
 
-    Rugia renders the card description as a separate image opened by a magnifier
-    link. We intentionally prefer that direct image asset instead of reconstructing
-    the effect text.
+
+def _description_images_by_card(soup):
+    """Build Rugia description-image URLs in one pass over a page.
+
+    v10 searched the entire DOM again for every card. On large Rugia pages that
+    became effectively quadratic and caused GitHub's hosted runner to lose
+    communication after a very long run. This version scans each candidate link
+    once, finds its nearest card container, and maps the image to the card ID.
     """
-    target = str(cid or "").upper().replace("/", " ")
-    needles = [str(cid or "").upper(), str(cid or "").replace("/", "_").upper()]
-    hits = []
-    for node in soup.find_all(string=True):
-        txt = clean(node).upper()
-        if any(n and n in txt for n in needles):
-            hits.append(node)
+    mapped = {}
     candidates = []
-    for hit in hits[:12]:
-        for depth, parent in enumerate(hit.parents):
-            if depth > 8:
+
+    for a in soup.find_all("a", href=True):
+        attrs = " ".join(str(a.get(k, "")) for k in (
+            "title", "aria-label", "data-title", "class", "id", "data-fancybox", "data-rel"
+        ) if a.get(k))
+        for k in ("data-src", "data-original", "data-image", "data-url", "data-fancybox-href"):
+            if a.get(k):
+                attrs += " " + str(a.get(k))
+
+        hrefs = [a.get("href")]
+        for k in ("data-src", "data-original", "data-image", "data-url", "data-fancybox-href"):
+            if a.get(k):
+                hrefs.append(a.get(k))
+
+        assets = [_normalise_link_asset(x) for x in hrefs]
+        assets = [x for x in assets if x]
+        if not assets:
+            continue
+
+        meta = attrs.lower()
+        child_meta = " ".join(
+            clean(x.get(k, ""))
+            for x in a.find_all("img")
+            for k in ("alt", "title", "aria-label", "class", "id")
+            if x.get(k)
+        ).lower()
+        meta += " " + child_meta
+
+        # Find the nearest ancestor whose text contains one or more card IDs.
+        ids = []
+        for depth, parent in enumerate(a.parents):
+            if depth > 7:
                 break
-            for a in parent.find_all("a", href=True):
-                attrs = " ".join(str(a.get(k,"")) for k in ("title","aria-label","data-title","class","id") if a.get(k))
-                child_meta = " ".join(clean(x.get(k,"")) for x in a.find_all("img") for k in ("alt","title","aria-label","class","id") if x.get(k))
-                meta = (attrs + " " + child_meta).lower()
-                hrefs = [a.get("href")]
-                for k in ("data-src","data-original","data-image","data-url","data-fancybox-href"):
-                    if a.get(k):
-                        hrefs.append(a.get(k))
-                for raw in hrefs:
-                    asset = _normalise_link_asset(raw)
-                    if not asset:
-                        continue
-                    score = 100 - depth * 8
-                    if re.search(r"zoom|magnif|search|detail|info|放大|查看|預覽|詳情", meta, re.I):
-                        score += 80
-                    if re.search(r"(?:description|effect|text|word|desc|detail|info|keyword|card[_-]?text)", asset, re.I):
-                        score += 40
-                    if re.search(r"(?:card|main|thumbnail|thumb|cover)", asset, re.I):
-                        score -= 35
-                    candidates.append((score, asset))
-    if not candidates:
-        return ""
-    candidates.sort(key=lambda x: (-x[0], x[1]))
-    return candidates[0][1]
+            parent_text = clean(parent.get_text(" ", strip=True))
+            found = [m.group(1).upper() for m in CARD_ID_RE.finditer(parent_text)]
+            if found:
+                ids = list(dict.fromkeys(found))
+                break
+
+        if not ids:
+            # The anchor itself may carry the card ID in metadata.
+            local = meta.upper()
+            ids = list(dict.fromkeys(m.group(1).upper() for m in CARD_ID_RE.finditer(local)))
+        if not ids:
+            continue
+
+        score = 0
+        if re.search(r"zoom|magnif|search|detail|info|preview|放大|查看|預覽|詳情", meta, re.I):
+            score += 100
+        if re.search(r"description|effect|text|word|desc|detail|info|keyword|card[_-]?text", " ".join(assets), re.I):
+            score += 50
+        if re.search(r"(?:card|main|thumbnail|thumb|cover)", " ".join(assets), re.I):
+            score -= 50
+        if a.find("img"):
+            img_alt = " ".join(clean(x.get("alt", "")) for x in a.find_all("img") if x.get("alt"))
+            if re.search(r"zoom|magnif|search|detail|info|放大|查看|預覽|詳情", img_alt, re.I):
+                score += 50
+
+        candidates.append((score, ids, assets))
+
+    # Keep the strongest candidate for each card. This is intentionally based on
+    # the link metadata rather than guessing a filename, so future Rugia changes
+    # can continue to work without another hard-coded asset table.
+    for score, ids, assets in candidates:
+        for cid in ids:
+            for asset in assets:
+                if cid not in mapped or score > mapped[cid][0]:
+                    mapped[cid] = (score, asset)
+
+    return {cid: asset for cid, (score, asset) in mapped.items() if asset}
 
 def parse_rugia(html):
     soup = BeautifulSoup(html, "html.parser")
     text, headers = extract_headers(soup)
     rows = {}
+    description_images = _description_images_by_card(soup)
     for i, (start, end, cid, rarity) in enumerate(headers):
         name, effect = name_and_effect(text, headers, i)
         # Find1 with the card number is accepted by Rugia and is stable for direct links.
         card_num = cid.split("/", 1)[1]
         effect = _remove_known_rugia_trigger_suffix(effect)
-        description_image = _description_image_for_card(soup, cid)
+        description_image = description_images.get(cid, "")
         row = {
             "id": cid,
             "name": name,
