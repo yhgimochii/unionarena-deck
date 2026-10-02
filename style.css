@@ -725,3 +725,7 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   margin:0 2px;
   object-fit:contain;
 }
+
+/* Trigger keyword only: keep the trigger label, remove the duplicated trigger description. */
+.card-trigger-only{margin-top:8px;line-height:1.2;}
+.card-trigger-only .trigger-chip{vertical-align:middle;}

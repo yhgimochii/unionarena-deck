@@ -634,6 +634,24 @@ function renderStoredEffect(d,triggerText=''){
   return highlightEffect(cleaned,d?.traits||[]);
 }
 
+function triggerKeywordBadge(text){
+ const raw=String(text||'').trim();
+ if(!raw)return '';
+ const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])?/i);
+ if(!m)return '';
+ let label=m[1];
+ if(/^(?:最終|final)$/i.test(label))label='FINAL';
+ else if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
+ else if(/^(?:color|彩色)$/i.test(label))label='彩色';
+ else if(label==='突襲')label='突襲';
+ else if(label==='加入手牌')label='加入手牌';
+ else if(label==='抽牌')label='抽牌';
+ else if(label==='激活')label='激活';
+ const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':label==='突襲'?'raid':'common';
+ const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
+ return `<span class="keyword-chip trigger-chip ${cls}" aria-label="${esc(label)}">${esc(label)}</span>`;
+}
+
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
@@ -642,6 +660,7 @@ function detail(){
  const parts=cardDisplayParts(d);
  const triggerText=translateTrigger(d.trigger||'');
  const effect=renderStoredEffect(d,triggerText||d.trigger||'');
+ const triggerBadge=triggerKeywordBadge(d.trigger||'');
  const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
  const raid=isRaidCard(d)?raidBadge():'';
  const source=d.source||'Rugia / 本地資料庫';
@@ -651,7 +670,7 @@ function detail(){
  // 2. feature
  // 3. RAID + card name + effect as one flowing paragraph
  // 4. trigger description unchanged
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}</div><div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}${triggerBadge?`<div class="card-trigger-only">${triggerBadge}</div>`:''}</div><div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
