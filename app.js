@@ -596,7 +596,7 @@ function cleanRichEffect(rawHtml, triggerText=''){
   const candidates=[];
   const addCandidate=(v)=>{v=String(v||'').trim(); if(v && !candidates.includes(v)) candidates.push(v)};
   addCandidate(triggerText);
-  addCandidate(translateTrigger(d?.trigger||''));
+  addCandidate(translateTrigger(triggerText||''));
   addCandidate('將此卡加入手牌，或在滿足能源需求的情況下進行突襲。');
   addCandidate('將此卡加入手牌，或若滿足能源需求時可發動突襲。');
   addCandidate('將此卡加入手牌。');
