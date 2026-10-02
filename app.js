@@ -658,19 +658,17 @@ function detail(){
  if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing\"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
 
  const parts=cardDisplayParts(d);
- const triggerText=translateTrigger(d.trigger||'');
- const effect=renderStoredEffect(d,triggerText||d.trigger||'');
- const triggerBadge=triggerKeywordBadge(d.trigger||'');
  const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
  const raid=isRaidCard(d)?raidBadge():'';
  const source=d.source||'Rugia / 本地資料庫';
+ const descUrl=String(d.descriptionImage||'').trim();
+ const description=descUrl
+   ? `<div class="rugia-description-preview"><img src="${esc(descUrl)}" alt="Rugia 卡片說明" loading="lazy" referrerpolicy="no-referrer"></div>`
+   : `<div class="rugia-description-fallback">${renderStoredEffect(d,translateTrigger(d.trigger||'')||d.trigger||'')}</div>`;
 
- // Compact flow requested:
- // 1. card code
- // 2. feature
- // 3. RAID + card name + effect as one flowing paragraph
- // 4. trigger description unchanged
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong>${effect?` <span class="inline-effect">${effect}</span>`:''}${triggerBadge?`<div class="card-trigger-only">${triggerBadge}</div>`:''}</div><div class="source">資料來源：${esc(source)}</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ // Use Rugia's own description image as the popup content. This avoids
+ // reconstructing keyword/trigger icons from flattened HTML.
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong></div>${description}<div class="source">資料來源：Rugia sync</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}

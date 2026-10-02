@@ -374,6 +374,70 @@ def name_and_effect(text, headers, index):
     effect = _clean_preserve_breaks(block[cut:].strip()) if cut < len(block) else ""
     return name, effect
 
+
+def _normalise_link_asset(raw):
+    """Normalise a Rugia link that points directly to an image asset."""
+    if not raw:
+        return ""
+    raw = str(raw).strip()
+    if raw.startswith("//"):
+        raw = "https:" + raw
+    elif raw.startswith("/"):
+        raw = urljoin("https://rugiacreation.com", raw)
+    elif not re.match(r"https?://", raw, re.I):
+        raw = urljoin("https://rugiacreation.com/ua/", raw)
+    if not re.match(r"https://rugiacreation\.com/ua/", raw, re.I):
+        return ""
+    path = raw.split("?",1)[0].split("#",1)[0].lower()
+    if re.search(r"\.(?:png|jpe?g|webp|gif|avif)$", path):
+        return raw
+    return ""
+
+
+def _description_image_for_card(soup, cid):
+    """Find Rugia's magnifier/detail image linked from a specific card entry.
+
+    Rugia renders the card description as a separate image opened by a magnifier
+    link. We intentionally prefer that direct image asset instead of reconstructing
+    the effect text.
+    """
+    target = str(cid or "").upper().replace("/", " ")
+    needles = [str(cid or "").upper(), str(cid or "").replace("/", "_").upper()]
+    hits = []
+    for node in soup.find_all(string=True):
+        txt = clean(node).upper()
+        if any(n and n in txt for n in needles):
+            hits.append(node)
+    candidates = []
+    for hit in hits[:12]:
+        for depth, parent in enumerate(hit.parents):
+            if depth > 8:
+                break
+            for a in parent.find_all("a", href=True):
+                attrs = " ".join(str(a.get(k,"")) for k in ("title","aria-label","data-title","class","id") if a.get(k))
+                child_meta = " ".join(clean(x.get(k,"")) for x in a.find_all("img") for k in ("alt","title","aria-label","class","id") if x.get(k))
+                meta = (attrs + " " + child_meta).lower()
+                hrefs = [a.get("href")]
+                for k in ("data-src","data-original","data-image","data-url","data-fancybox-href"):
+                    if a.get(k):
+                        hrefs.append(a.get(k))
+                for raw in hrefs:
+                    asset = _normalise_link_asset(raw)
+                    if not asset:
+                        continue
+                    score = 100 - depth * 8
+                    if re.search(r"zoom|magnif|search|detail|info|放大|查看|預覽|詳情", meta, re.I):
+                        score += 80
+                    if re.search(r"(?:description|effect|text|word|desc|detail|info|keyword|card[_-]?text)", asset, re.I):
+                        score += 40
+                    if re.search(r"(?:card|main|thumbnail|thumb|cover)", asset, re.I):
+                        score -= 35
+                    candidates.append((score, asset))
+    if not candidates:
+        return ""
+    candidates.sort(key=lambda x: (-x[0], x[1]))
+    return candidates[0][1]
+
 def parse_rugia(html):
     soup = BeautifulSoup(html, "html.parser")
     text, headers = extract_headers(soup)
@@ -383,6 +447,7 @@ def parse_rugia(html):
         # Find1 with the card number is accepted by Rugia and is stable for direct links.
         card_num = cid.split("/", 1)[1]
         effect = _remove_known_rugia_trigger_suffix(effect)
+        description_image = _description_image_for_card(soup, cid)
         row = {
             "id": cid,
             "name": name,
@@ -390,6 +455,7 @@ def parse_rugia(html):
             "effect": _strip_image_tokens_for_plain(effect).strip(),
             "effectHtml": _token_to_html(effect),
             "nameHtml": _token_to_html(name),
+            "descriptionImage": description_image,
             "url": f"{RUGIA}?Name=HK&Find1={quote(card_num)}",
             "source": "Rugia sync",
         }
@@ -405,6 +471,8 @@ def parse_rugia(html):
             # Prefer the non-star/base rarity for the main display label.
             if not rows[cid].get("rarity") or ("★" in rows[cid]["rarity"] and "★" not in rarity):
                 rows[cid]["rarity"] = rarity
+            if description_image and not rows[cid].get("descriptionImage"):
+                rows[cid]["descriptionImage"] = description_image
     # Helpful verification: if Rugia supplied image assets, the saved row should
     # contain the original image URL token rather than the literal word "Image".
     image_rows = sum(1 for r in rows.values() if "[[UAIMG:" in r.get("effectHtml", "") or "[[UAIMG:" in r.get("nameHtml", ""))
