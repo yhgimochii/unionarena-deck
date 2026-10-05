@@ -750,3 +750,35 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 .rugia-description-fallback{
   margin-top:12px;
 }
+
+
+/* Dark mode — Deck Edit / Rename modal */
+.edit-deck-modal{
+  background:rgba(0,0,0,.76);
+  color:#f4f5f7;
+}
+.edit-deck-box{
+  background:#171b24;
+  border:1px solid #303744;
+  color:#f4f5f7;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+}
+.edit-deck-head{color:#f4f5f7;}
+.edit-deck-x{
+  background:transparent;
+  color:#aeb5c1;
+}
+.edit-deck-x:hover{color:#fff;}
+.edit-deck-label{color:#dfe3ea;}
+.edit-deck-input{
+  background:#10141b;
+  color:#f4f5f7;
+  border-color:#343b48;
+  outline:none;
+}
+.edit-deck-input:focus{
+  border-color:#7568ef;
+  box-shadow:0 0 0 2px rgba(117,104,239,.16);
+}
+.edit-deck-input::placeholder{color:#727b8b;}
+.edit-deck-msg{color:#ff8b7a;}
