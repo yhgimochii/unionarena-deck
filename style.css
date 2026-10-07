@@ -800,19 +800,20 @@ textarea::placeholder,input::placeholder{color:#727b8b}
   border-color:#ef5a60;
 }
 
-/* Rugia-style highlighted box for the raid ability text */
+/* Rugia-style box for the raid ability text — purple outline, no fill */
 .raid-ability-box{
   margin-top:12px;
   padding:14px 16px;
   border-radius:10px;
-  background:linear-gradient(135deg,#c62b2b 0%,#8f1d1d 100%);
-  color:#fff;
+  border:1.5px solid #8a7cf0;
+  background:transparent;
+  color:inherit;
   line-height:1.8;
 }
-.raid-ability-box .keyword-chip.effect{background:#1a3a52;color:#bfe0ff;border-color:#2e5a7a}
-.raid-ability-box .keyword-chip.combat{background:#4a3200;color:#ffe08a;border-color:#6b4a10}
-.raid-ability-box .trigger-chip{background:#fff;color:#8f1d1d}
-.raid-ability-box .inline-card-name{color:#fff}
+.raid-ability-box .keyword-chip.effect{background:#e9f3ff;color:#1769aa;border-color:#b9dcff}
+.raid-ability-box .keyword-chip.combat{background:#fff2c7;color:#8a5a00;border-color:#f0cf70}
+.raid-ability-box .trigger-chip{background:#8a7cf0;color:#fff}
+.raid-ability-box .inline-card-name{color:inherit}
 
 /* Wire up the existing unused .trigger box as the reminder panel */
 .trigger .trigger-chip{margin-right:8px}
