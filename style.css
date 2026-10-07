@@ -11,6 +11,7 @@
 .keyword-chip.effect,.tag.effect{background:#e9f3ff;color:#1769aa;border:1px solid #b9dcff}
 .keyword-chip.combat,.tag.combat{background:#fff2c7;color:#8a5a00;border:1px solid #f0cf70}
 .keyword-chip.trait,.tag.trait{background:#eeeafd;color:#4e42bd;border:1px dashed #bdb5f5}
+.keyword-chip.turnlimit{background:transparent;color:#f4f5f7;border:1.5px solid #f4f5f7;border-radius:5px;padding:3px 8px;font-size:12px}
 .tags .tag{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;box-sizing:border-box;border-radius:999px;font-size:12px;font-weight:800;line-height:1.15}
 .effect .keyword-chip{font-size:13px}
 .trigger .keyword-chip{font-size:12px}

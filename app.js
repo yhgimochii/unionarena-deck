@@ -70,10 +70,60 @@ function imageTag(id,name,cls="thumb"){
 }
 const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
 const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
+// "Once per turn" markers get their own badge style (a small bordered box,
+// matching Rugia's "回合1次" marker) instead of the regular blue timing pill.
+const TURN_LIMIT_KEYWORDS=["每回合1次","回合1次"];
 function escapeRegex(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
 function keywordClass(k){
   const value=String(k||"").toLowerCase();
+  if(TURN_LIMIT_KEYWORDS.some(x=>x.toLowerCase()===value))return"turnlimit";
   return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===value)||/^(?:impact|damage|衝擊|傷害)/i.test(value)?"combat":"effect";
+}
+function buildKeywordEntries(traitKeywords=[]){
+  const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
+  return [
+    ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
+    ...EFFECT_KEYWORDS.filter(t=>!TURN_LIMIT_KEYWORDS.includes(t)).map(text=>({text,className:"effect"})),
+    ...TURN_LIMIT_KEYWORDS.map(text=>({text,className:"turnlimit"})),
+    ...traits.map(text=>({text,className:"trait"}))
+  ].sort((a,b)=>b.text.length-a.text.length);
+}
+function buildKeywordRegex(entries){
+  const pattern=entries.map(x=>escapeRegex(x.text)).join("|");
+  // String.raw keeps the backslashes intact when building the RegExp.
+  // This supports 【】, 〖〗 and [] wrappers and removes them from the chip.
+  return new RegExp(
+    String.raw`(?:【|〖|\[)?\s*(${pattern})(\s*[（(]?[+＋]?[0-9０-９]+[）)]?)?\s*(?:】|〗|\])?`,
+    "giu"
+  );
+}
+// Wrap known timing/effect/combat keywords (登場時, 退場時, 主起動, 回合1次,
+// etc.) inside already-built HTML, without touching existing tags or text
+// already inside a keyword-chip span. This is what lets the rich/Rugia-HTML
+// render path get the same chip treatment as the plain-text fallback path
+// (highlightEffect), since that path can't run esc()-based matching on text
+// that already contains real HTML.
+function highlightRichEffectKeywords(html,traitKeywords=[]){
+  const entries=buildKeywordEntries(traitKeywords);
+  if(!entries.length)return html;
+  const re=buildKeywordRegex(entries);
+  const segments=String(html||'').split(/(<[^>]+>)/g);
+  let insideChip=0;
+  for(let i=0;i<segments.length;i++){
+    const seg=segments[i];
+    if(/^<[^>]+>$/.test(seg)){
+      if(/^<span\b[^>]*class=["'][^"']*\bkeyword-chip\b[^"']*["'][^>]*>/i.test(seg))insideChip++;
+      else if(/^<\/span>/i.test(seg)&&insideChip>0)insideChip--;
+      continue;
+    }
+    if(insideChip>0)continue;
+    segments[i]=seg.replace(re,(match,keyword,suffix)=>{
+      const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
+      const cls=entry?.className||keywordClass(keyword);
+      return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
+    });
+  }
+  return segments.join('');
 }
 function highlightTrigger(text){
   const raw=String(text||'').trim();
@@ -166,23 +216,11 @@ function restoreCombatImageKeywords(text){
 function highlightEffect(text, traitKeywords=[]){
   const restored=restoreCombatImageKeywords(text);
   let out=esc(restored.text||"");
-  const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
-  const entries=[
-    ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
-    ...EFFECT_KEYWORDS.map(text=>({text,className:"effect"})),
-    ...traits.map(text=>({text,className:"trait"}))
-  ].sort((a,b)=>b.text.length-a.text.length);
+  const entries=buildKeywordEntries(traitKeywords);
 
   if(!entries.length)return out.replace(/\n/g,"<br>");
 
-  const pattern=entries.map(x=>escapeRegex(x.text)).join("|");
-
-  // String.raw keeps the backslashes intact when building the RegExp.
-  // This supports 【】, 〖〗 and [] wrappers and removes them from the chip.
-  const re=new RegExp(
-    String.raw`(?:【|〖|\[)?\s*(${pattern})(\s*[（(]?[+＋]?[0-9０-９]+[）)]?)?\s*(?:】|〗|\])?`,
-    "giu"
-  );
+  const re=buildKeywordRegex(entries);
 
   out=out.replace(re,(match,keyword,suffix)=>{
     const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
@@ -669,7 +707,10 @@ function renderStoredEffect(d,triggerText=''){
   const rawRich=String(d?.effectHtml||'');
   if(rawRich){
     const rich=cleanRichEffect(rawRich,triggerText||d?.trigger||'');
-    if(rich)return restoreRugiaImageTokensHtml(rich);
+    if(rich){
+      const restored=restoreRugiaImageTokensHtml(rich);
+      return highlightRichEffectKeywords(restored,d?.traits||[]);
+    }
   }
   const cleaned=stripTriggerFromEffect(String(d?.effect||''),triggerText||d?.trigger||'')
     .replace(/\bImage\b/gi,'')
