@@ -436,7 +436,11 @@ function translateTrigger(text){
 
 function normalizeForCompare(text){
   return String(text||"")
+    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,"")
+    .replace(/<img\b[^>]*>/gi,"")
+    .replace(/<[^>]+>/g,"")
     .replace(/[【】〖〗\[\]]/g,"")
+    .replace(/[＋﹢]/g,"+")
     .replace(/[\s　]+/g," ")
     .replace(/[。．]+$/g,"")
     .trim()
@@ -615,6 +619,46 @@ function cleanRichEffect(rawHtml, triggerText=''){
 
   // Remove any leftover trigger label characters that were stored as plain text.
   s=s.replace(/(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/gi,'');
+
+  // Normalized line-level dedupe: the exact-string removal above can miss a
+  // duplicate when the scraped trigger text differs slightly from the copy
+  // embedded in the main effect (full-width "＋" vs "+", a leading icon
+  // token, stray whitespace). This catches those cases by comparing each
+  // line with icons/tags stripped and the plus sign normalized, the same
+  // way stripTriggerFromEffect already does for the plain-text path.
+  {
+    const translated=translateTrigger(triggerText||'')||triggerText||'';
+    const triggerBodyForCompare=translated
+      .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/i,'');
+    const normTrigger=normalizeForCompare(translated);
+    const normBody=normalizeForCompare(triggerBodyForCompare);
+    if(normTrigger || normBody){
+      s=s.split(/<br\s*\/?>/i).filter(line=>{
+        const n=normalizeForCompare(line);
+        if(!n)return true;
+        return n!==normTrigger && n!==normBody;
+      }).join('<br>');
+    }
+  }
+
+  // Drop any line left over that is only a bare icon/image token with no
+  // surrounding text. Once a duplicate trigger line is removed above, its
+  // leading icon (e.g. the small red "card placed" glyph) can be left
+  // stranded on its own line, rendering as an orphaned icon beneath the
+  // paragraph. An icon with no text around it carries no information once
+  // isolated from its original inline position, so it's safe to drop.
+  s=s.split(/<br\s*\/?>/i).filter(line=>{
+    const hasIcon=/\[\[UAIMG:[^\]]+\]\]|<img\b[^>]*>/i.test(line);
+    if(!hasIcon)return true;
+    const textOnly=line
+      .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
+      .replace(/<img\b[^>]*>/gi,'')
+      .replace(/&nbsp;/gi,'')
+      .replace(/<[^>]+>/g,'')
+      .trim();
+    return textOnly.length>0;
+  }).join('<br>');
+
   s=s.replace(/(?:<br\s*\/?>(?:\s|&nbsp;)*){2,}/gi,'<br>');
   s=s.replace(/^[\s<]*<br\s*\/?>(?:\s|&nbsp;)*/i,'');
   s=s.replace(/(?:\s|&nbsp;|<br\s*\/?>)+$/i,'');
