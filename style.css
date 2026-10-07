@@ -752,60 +752,42 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 }
 
 
-/* Dark mode — Deck Edit / Rename modal */
-.edit-deck-modal{
-  background:rgba(0,0,0,.76);
-  color:#f4f5f7;
-}
-.edit-deck-box{
-  background:#171b24;
-  border:1px solid #303744;
-  color:#f4f5f7;
-  box-shadow:0 20px 60px rgba(0,0,0,.55);
-}
-.edit-deck-head{color:#f4f5f7;}
-.edit-deck-x{
-  background:transparent;
-  color:#aeb5c1;
-}
-.edit-deck-x:hover{color:#fff;}
-.edit-deck-label{color:#dfe3ea;}
-.edit-deck-input{
-  background:#10141b;
-  color:#f4f5f7;
-  border-color:#343b48;
-  outline:none;
-}
-.edit-deck-input:focus{
-  border-color:#7568ef;
-  box-shadow:0 0 0 2px rgba(117,104,239,.16);
-}
-.edit-deck-input::placeholder{color:#727b8b;}
-.edit-deck-msg{color:#ff8b7a;}
-
-/* Desktop deck header: keep the title area wide instead of collapsing to character-width. */
-.deckhead-main > div:first-child{
-  flex:1 1 auto;
-  width:auto;
-  min-width:0;
-}
-#title{
+/* Desktop deck header fix: keep the title row full-width and put actions underneath.
+   The previous 100% action-row width inside a desktop flex row squeezed the title
+   container to almost zero width, causing one-character-per-line deck names. */
+.deckhead{
   display:flex;
-  align-items:center;
-  flex-wrap:wrap;
+  flex-direction:column;
+  align-items:stretch;
+  width:100%;
+  gap:0;
+}
+.deckhead>div:first-child{
   width:100%;
   min-width:0;
-  gap:7px;
+  flex:0 0 auto;
 }
-.deck-title-name{
-  display:block;
-  flex:0 1 auto;
+.deckhead h2{
+  width:100%;
   min-width:0;
   max-width:100%;
-  white-space:normal;
+}
+.deck-title-name{
+  display:inline-block;
+  min-width:0;
+  max-width:100%;
   overflow-wrap:anywhere;
   word-break:break-word;
 }
+.deck-actions{
+  width:100%;
+  flex:0 0 auto;
+  min-width:0;
+  margin-top:10px;
+}
 @media(max-width:700px){
-  .deckhead-main > div:first-child{width:auto;flex:1 1 auto;}
+  .deckhead{
+    flex-direction:column;
+    align-items:stretch;
+  }
 }
