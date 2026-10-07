@@ -69,7 +69,7 @@ function imageTag(id,name,cls="thumb"){
  return `<img class="${cls}" src="${esc(first)}" alt="${esc(name||id)}" loading="lazy" referrerpolicy="no-referrer" data-fallbacks='${esc(JSON.stringify(urls))}' onerror="window.uaImageFallback(this)">`;
 }
 const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
-const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
+const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","在前線的情況","在能源線的情況","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
 // "Once per turn" markers get their own badge style (a small bordered box,
 // matching Rugia's "回合1次" marker) instead of the regular blue timing pill.
 const TURN_LIMIT_KEYWORDS=["每回合1次","回合1次"];
