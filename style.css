@@ -791,3 +791,28 @@ textarea::placeholder,input::placeholder{color:#727b8b}
     align-items:stretch;
   }
 }
+
+/* === Rugia-style raid ability highlight patch === */
+/* Fix: trigger-raid chip was referenced in app.js but never styled */
+.trigger-raid{
+  background:#d61f26;
+  color:#fff;
+  border-color:#ef5a60;
+}
+
+/* Rugia-style highlighted box for the raid ability text */
+.raid-ability-box{
+  margin-top:12px;
+  padding:14px 16px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#c62b2b 0%,#8f1d1d 100%);
+  color:#fff;
+  line-height:1.8;
+}
+.raid-ability-box .keyword-chip.effect{background:#1a3a52;color:#bfe0ff;border-color:#2e5a7a}
+.raid-ability-box .keyword-chip.combat{background:#4a3200;color:#ffe08a;border-color:#6b4a10}
+.raid-ability-box .trigger-chip{background:#fff;color:#8f1d1d}
+.raid-ability-box .inline-card-name{color:#fff}
+
+/* Wire up the existing unused .trigger box as the reminder panel */
+.trigger .trigger-chip{margin-right:8px}

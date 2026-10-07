@@ -652,6 +652,18 @@ function triggerKeywordBadge(text){
  return `<span class="keyword-chip trigger-chip ${cls}" aria-label="${esc(label)}">${esc(label)}</span>`;
 }
 
+function triggerReminderBox(d){
+  const raw=String(d?.trigger||'').trim();
+  if(!raw)return '';
+  const translated=translateTrigger(raw)||raw;
+  const badge=triggerKeywordBadge(translated)||triggerKeywordBadge(raw);
+  const body=translated
+    .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/i,'')
+    .trim();
+  if(!badge && !body)return '';
+  return `<div class="trigger">${badge} ${esc(body)}</div>`;
+}
+
 function detail(){
  if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
  const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
@@ -662,13 +674,14 @@ function detail(){
  const raid=isRaidCard(d)?raidBadge():'';
  const source=d.source||'Rugia / 本地資料庫';
  const descUrl=String(d.descriptionImage||'').trim();
+ const raidClass=isRaidCard(d)?' raid-ability-box':'';
  const description=descUrl
    ? `<div class="rugia-description-preview"><img src="${esc(descUrl)}" alt="Rugia 卡片說明" loading="lazy" referrerpolicy="no-referrer"></div>`
-   : `<div class="rugia-description-fallback">${renderStoredEffect(d,translateTrigger(d.trigger||'')||d.trigger||'')}</div>`;
+   : `<div class="rugia-description-fallback${raidClass}">${renderStoredEffect(d,translateTrigger(d.trigger||'')||d.trigger||'')}</div>`;
 
  // Use Rugia's own description image as the popup content. This avoids
  // reconstructing keyword/trigger icons from flattened HTML.
- $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong></div>${description}<div class="source">資料來源：Rugia sync</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong></div>${description}${triggerReminderBox(d)}<div class="source">資料來源：Rugia sync</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
