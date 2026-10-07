@@ -141,26 +141,34 @@ function highlightTrigger(text){
 function rugiaIconReplacement(url){
   const u=String(url||'').toLowerCase();
   const file=(u.split('/').pop()||'').split('?')[0];
+  // These filenames are verified against the actual icon URLs Rugia serves
+  // (ico_trigger_<type>.png — trigger_ as a PREFIX, not a suffix). The old
+  // *_trigger.png suffix entries never matched any real icon, so inline
+  // trigger-type icons inside the main effect text (not just the bottom
+  // reminder box, which is matched separately via plain trigger text) were
+  // silently falling through to an unlabeled raw icon image instead of a
+  // text chip.
   const labels={
     'ico_raid.png':['RAID','raid'],
-    'ico_get.png':['加入手牌','common'],
-    'ico_draw.png':['抽牌','common'],
-    'ico_activate.png':['激活','common'],
-    'ico_final.png':['FINAL','final'],
-    'ico_special.png':['SPECIAL','special'],
-    'ico_color.png':['彩色','color'],
-    'ico_special_trigger.png':['SPECIAL','special'],
-    'ico_final_trigger.png':['FINAL','final'],
-    'ico_color_trigger.png':['彩色','color'],
-    'ico_get_trigger.png':['加入手牌','common'],
-    'ico_draw_trigger.png':['抽牌','common'],
-    'ico_activate_trigger.png':['激活','common'],
-    'ico_raid_trigger.png':['RAID','raid'],
+    'ico_trigger_raid.png':['RAID','raid'],
+    'ico_trigger_get.png':['加入手牌','common'],
+    'ico_trigger_draw.png':['抽牌','common'],
+    'ico_trigger_active.png':['激活','common'],
+    'ico_trigger_final.png':['FINAL','final'],
+    'ico_trigger_special.png':['SPECIAL','special'],
+    'ico_trigger_color.png':['彩色','color'],
   };
   if(labels[file]){
     const [label,type]=labels[file];
     const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
     return `<span class="keyword-chip trigger-chip ${cls}">${esc(label)}</span>`;
+  }
+  // The "once per turn" marker is icon-only on many cards — there is no
+  // literal 回合1次 text for highlightRichEffectKeywords to match in those
+  // cases — so it needs its own direct icon->chip mapping here, styled the
+  // same as the text-based turnlimit chip used elsewhere.
+  if(file==='ico_turn1.png'){
+    return '<span class="keyword-chip turnlimit">回合1次</span>';
   }
   return '';
 }
@@ -172,6 +180,17 @@ function restoreRugiaImageTokensHtml(value){
     const semantic=rugiaIconReplacement(url);
     if(semantic)return semantic;
     return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
+  // The sync script (_token_to_html) already converts [[UAIMG:...]] tokens
+  // into real <img> tags before writing cards.json, so effectHtml normally
+  // never reaches this function still carrying raw tokens — the tokenRe
+  // pass above is a no-op for most stored cards. Match the already-baked
+  // <img> tags directly so semantic icons (RAID, once-per-turn, etc.) still
+  // get the text-chip treatment without requiring a re-sync.
+  const imgTagRe=/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi;
+  out=out.replace(imgTagRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    return semantic||m;
   });
   // Defensive fallback for stale cards.json entries where the raw Rugia URL
   // was stored without the [[UAIMG:...]] wrapper. Known trigger icons are
