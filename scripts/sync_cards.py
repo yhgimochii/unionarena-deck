@@ -332,6 +332,20 @@ def extract_headers(soup):
     return text, found
 
 
+# "(進行攻擊並戰鬥勝利時，…)" style explanations that follow a combat keyword icon.
+# The optional leading [[UAIMG:...]] token is the keyword icon itself.
+KEYWORD_EXPLANATION_RE = re.compile(
+    r"(?:\[\[UAIMG:[^\]]+\]\]\s*)?[（(]\s*(?:"
+    r"進行攻擊並戰鬥勝利時，對手玩家受到[１-９1-9]點傷害"
+    r"|與此角色戰鬥的角色，在本次戰鬥中失去衝擊"
+    r"|在自己的移動階段可從前線移動到能源線"
+    r"|此角色在本回合初次進行阻擋時會被激活"
+    r"|此角色在本回合初次進行攻擊時會被激活"
+    r"|此角色的攻擊給予的直接傷害為[１-９1-9]點傷害"
+    r")\s*[)）]"
+)
+
+
 def name_and_effect(text, headers, index):
     start = headers[index][1]
     end = headers[index + 1][0] if index + 1 < len(headers) else len(text)
@@ -362,7 +376,18 @@ def name_and_effect(text, headers, index):
             cut = min(cut, m.start() if block[m.start()] != "\n" else m.start() + 1)
             break
 
-    name = _clean_preserve_breaks(block[:cut]).strip(" ：:\n")
+    name_part = block[:cut]
+
+    # Combat-keyword lines ("<icon> (進行攻擊並戰鬥勝利時，…)") appear before the
+    # first effect keyword, so the split above files them under the card NAME
+    # and the icon is then stripped from it. They are really the first line of
+    # the effect: lift them out of the name and put them back, icon included.
+    leaked_keywords = [
+        m.group(0).strip() for m in KEYWORD_EXPLANATION_RE.finditer(name_part)
+    ]
+    name_part = KEYWORD_EXPLANATION_RE.sub(" ", name_part)
+
+    name = _clean_preserve_breaks(name_part).strip(" ：:\n")
     if not name:
         name = _clean_preserve_breaks(block)
 
@@ -372,6 +397,8 @@ def name_and_effect(text, headers, index):
     name = _strip_image_assets_from_name(name)
 
     effect = _clean_preserve_breaks(block[cut:].strip()) if cut < len(block) else ""
+    if leaked_keywords:
+        effect = _clean_preserve_breaks("\n".join(leaked_keywords + ([effect] if effect else [])))
     return name, effect
 
 

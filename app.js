@@ -117,11 +117,13 @@ function highlightRichEffectKeywords(html,traitKeywords=[]){
       continue;
     }
     if(insideChip>0)continue;
-    segments[i]=seg.replace(re,(match,keyword,suffix)=>{
+    // Leave combat-keyword explanations such as "(…在本次戰鬥中失去衝擊)"
+    // as plain text, the way Rugia does, instead of chip-wrapping "衝擊".
+    segments[i]=mapOutsideExplanations(seg,part=>part.replace(re,(match,keyword,suffix)=>{
       const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
       const cls=entry?.className||keywordClass(keyword);
       return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
-    });
+    }));
   }
   return segments.join('');
 }
@@ -136,6 +138,70 @@ function highlightTrigger(text){
   const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':'common';
   const rest=raw.slice(m[0].length);
   return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+}
+
+// ---------------------------------------------------------------------------
+// Combat-keyword explanations (e.g. "衝擊❶ (進行攻擊並戰鬥勝利時，…)").
+// Rugia prints an icon followed by this explanation at the top of the effect.
+// The sync's name/effect splitter files them under the card NAME (the text
+// comes before the first effect keyword) and then deletes the icon, so the
+// line is missing from the description. We recover it here from `name`, and
+// map each explanation back to its icon.
+// ---------------------------------------------------------------------------
+const RUGIA_IMG_BASE='https://rugiacreation.com/ua/images/';
+const toHalfDigit=v=>String(v).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+const KEYWORD_EXPLANATIONS=[
+  {src:'進行攻擊並戰鬥勝利時，對手玩家受到([１-９1-9])點傷害',icon:m=>`keyword_impact${toHalfDigit(m[1])}.png`},
+  {src:'與此角色戰鬥的角色，在本次戰鬥中失去衝擊',icon:()=>'keyword_impact_nullify.png'},
+  {src:'在自己的移動階段可從前線移動到能源線',icon:()=>'keyword_step.png'},
+  {src:'此角色在本回合初次進行阻擋時會被激活',icon:()=>'keyword_2timesblock.png'},
+  {src:'此角色在本回合初次進行攻擊時會被激活',icon:()=>'keyword_2timesattack.png'},
+  {src:'此角色的攻擊給予的直接傷害為([１-９1-9])點傷害',icon:m=>`keyword_damage${toHalfDigit(m[1])}.png`},
+];
+const EXPLANATION_PAREN_RE=new RegExp('[（(]\\s*(?:'+KEYWORD_EXPLANATIONS.map(x=>x.src).join('|')+')\\s*[)）]','g');
+function stripKeywordExplanations(text){
+  return String(text||'').replace(EXPLANATION_PAREN_RE,' ').replace(/[ \t]{2,}/g,' ').replace(/[ \t]+\n/g,'\n').trim();
+}
+function mapOutsideExplanations(text,fn){
+  let out='',last=0;
+  for(const m of String(text||'').matchAll(EXPLANATION_PAREN_RE)){
+    out+=fn(text.slice(last,m.index))+m[0];
+    last=m.index+m[0].length;
+  }
+  return out+fn(String(text||'').slice(last));
+}
+function leakedKeywordHtml(d){
+  const name=String(d?.name||'');
+  const rich=String(d?.effectHtml||'');
+  const parts=[];
+  for(const m of name.matchAll(EXPLANATION_PAREN_RE)){
+    const text=m[0].replace(/^[（(]\s*/,'').replace(/\s*[)）]$/,'');
+    if(rich.includes(text))continue; // sync already kept it in the effect
+    const def=KEYWORD_EXPLANATIONS.find(x=>new RegExp(x.src).test(text));
+    if(!def)continue;
+    const icon=def.icon(text.match(new RegExp(def.src)));
+    parts.push(`<img class="ua-keyword-icon" src="${RUGIA_IMG_BASE}${icon}" alt="" loading="lazy" referrerpolicy="no-referrer"> (${esc(text)})`);
+  }
+  return parts.length?parts.join('<br>')+'<br>':'';
+}
+
+// ---------------------------------------------------------------------------
+// Trigger lines. Rugia prints the card's trigger as its own line that starts
+// with an ico_trigger_<type>.png icon. Only ~25% of cards have a `trigger`
+// field from the official-site lookup, so recover it from effectHtml instead.
+// ---------------------------------------------------------------------------
+const TRIGGER_TYPE_LABEL={raid:'突襲',get:'加入手牌',draw:'抽牌',active:'激活',final:'FINAL',special:'SPECIAL',color:'彩色'};
+function htmlToPlain(html){
+  return String(html||'').replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim();
+}
+function extractTriggerLines(html){
+  const triggers=[],keep=[];
+  for(const line of String(html||'').split(/<br\s*\/?>/i)){
+    const m=line.match(/^(?:\s|&nbsp;)*<img\b[^>]*\/ico_trigger_(raid|get|draw|active|final|special|color)\.png[^>]*>([\s\S]*)$/i);
+    if(m)triggers.push({type:m[1].toLowerCase(),html:m[2].trim(),text:htmlToPlain(m[2])});
+    else keep.push(line);
+  }
+  return {main:keep.join('<br>'),triggers};
 }
 
 function rugiaIconReplacement(url){
@@ -618,8 +684,9 @@ function cardDisplayParts(d){
     feature=stripRugiaImageTokensText(feature);
   }
 
-  name=stripRugiaImageTokensText(name);
-  return {name:name||stripRugiaImageTokensText(raw),feature};
+  name=stripKeywordExplanations(stripRugiaImageTokensText(name));
+  feature=stripKeywordExplanations(feature);
+  return {name:name||stripKeywordExplanations(stripRugiaImageTokensText(raw)),feature};
 }
 
 function displayFeature(text){
@@ -650,7 +717,12 @@ function cleanRichEffect(rawHtml, triggerText=''){
   // that are NOT trigger-related, such as the once-per-turn marker
   // (ico_turn1.png) and every energy-cost icon (ico_hexa_*, ico_circle_*,
   // ico_square_*, ico_rhombus_*), breaking their display across the site.
-  const TRIGGER_ICON_NAMES='ico_raid|ico_trigger_raid|ico_trigger_get|ico_trigger_draw|ico_trigger_active|ico_trigger_final|ico_trigger_special|ico_trigger_color';
+  // Trigger lines (icon + sentence) are shown in their own box by
+  // triggerReminderBox(), so remove them here by position instead of by
+  // guessing the sentence. Typed trigger icons that sit mid-sentence
+  // (e.g. "沒有 [SPECIAL]") are left alone so they render as chips.
+  s=extractTriggerLines(s).main;
+  const TRIGGER_ICON_NAMES='ico_raid';
   s=s.replace(new RegExp(`<img\\b[^>]*\\bsrc=["'][^"']*/(?:${TRIGGER_ICON_NAMES})\\.png[^"']*["'][^>]*>`,'gi'),'');
   s=s.replace(new RegExp(`\\[\\[UAIMG:(https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png[^\\]<>"']*)\\]\\]`,'gi'),'');
   s=s.replace(new RegExp(`https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png(?:\\?[^\\s<]*)?`,'gi'),'');
@@ -734,8 +806,9 @@ function cleanRichEffect(rawHtml, triggerText=''){
 }
 
 function renderStoredEffect(d,triggerText=''){
-  const rawRich=String(d?.effectHtml||'');
+  let rawRich=String(d?.effectHtml||'');
   if(rawRich){
+    rawRich=leakedKeywordHtml(d)+rawRich;
     const rich=cleanRichEffect(rawRich,triggerText||d?.trigger||'');
     if(rich){
       const restored=restoreRugiaImageTokensHtml(rich);
@@ -768,6 +841,17 @@ function triggerKeywordBadge(text){
 }
 
 function triggerReminderBox(d){
+  // Prefer Rugia's own trigger line from effectHtml — it exists for far more
+  // cards than the separate `trigger` field and matches Rugia's wording.
+  const lines=extractTriggerLines(d?.effectHtml||'').triggers.filter(t=>t.text);
+  if(lines.length){
+    return lines.map(t=>{
+      const badge=triggerKeywordBadge(`〖${TRIGGER_TYPE_LABEL[t.type]||''}〗`);
+      // Restore inline icons only; no keyword chips, so words like 突襲 inside
+      // the sentence stay plain text.
+      return `<div class="trigger">${badge} ${restoreRugiaImageTokensHtml(t.html)}</div>`;
+    }).join('');
+  }
   const raw=String(d?.trigger||'').trim();
   if(!raw)return '';
   const translated=translateTrigger(raw)||raw;
