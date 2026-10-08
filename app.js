@@ -641,11 +641,19 @@ function stripKnownRaidFromRichHtml(html){
 function cleanRichEffect(rawHtml, triggerText=''){
   let s=String(rawHtml||'');
 
-  // Remove Rugia trigger icon tokens/URLs from the main effect. Trigger
-  // information is shown nowhere else in this popup, so these should never
-  // leak into the effect as images or raw [[UAIMG:...]] text.
-  s=s.replace(/\[\[UAIMG:(https?:\/\/rugiacreation\.com\/ua\/images\/ico_[^\]<>"']+)\]\]/gi,'');
-  s=s.replace(/https?:\/\/rugiacreation\.com\/ua\/images\/ico_[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?/gi,'');
+  // Remove Rugia's trigger-reminder icon and the duplicate inline RAID
+  // marker from the main effect — the trigger sentence they introduce is
+  // deleted by the candidate-matching below, and RAID is already shown via
+  // the separate header badge, so leaving these in would be redundant.
+  // Scoped to these specific filenames ONLY — this used to be a blanket
+  // "any ico_*" strip, which also silently deleted meaningful inline icons
+  // that are NOT trigger-related, such as the once-per-turn marker
+  // (ico_turn1.png) and every energy-cost icon (ico_hexa_*, ico_circle_*,
+  // ico_square_*, ico_rhombus_*), breaking their display across the site.
+  const TRIGGER_ICON_NAMES='ico_raid|ico_trigger_raid|ico_trigger_get|ico_trigger_draw|ico_trigger_active|ico_trigger_final|ico_trigger_special|ico_trigger_color';
+  s=s.replace(new RegExp(`<img\\b[^>]*\\bsrc=["'][^"']*/(?:${TRIGGER_ICON_NAMES})\\.png[^"']*["'][^>]*>`,'gi'),'');
+  s=s.replace(new RegExp(`\\[\\[UAIMG:(https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png[^\\]<>"']*)\\]\\]`,'gi'),'');
+  s=s.replace(new RegExp(`https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png(?:\\?[^\\s<]*)?`,'gi'),'');
   s=s.replace(/<span\b[^>]*class=["'][^"']*\btrigger-chip\b[^"']*["'][^>]*>.*?<\/span>/gis,'');
 
   // Old parser versions sometimes emitted the literal word "Image" when an
@@ -661,8 +669,6 @@ function cleanRichEffect(rawHtml, triggerText=''){
   addCandidate('將此卡加入手牌，或在滿足能源需求的情況下進行突襲。');
   addCandidate('將此卡加入手牌，或若滿足能源需求時可發動突襲。');
   addCandidate('將此卡加入手牌。');
-  addCandidate('抽１張卡。');
-  addCandidate('選擇自己場上１張角色被激活，並且本回合中，BP＋3000。');
 
   for(const candidate of candidates){
     const body=candidate
@@ -670,6 +676,11 @@ function cleanRichEffect(rawHtml, triggerText=''){
       .trim();
     for(const text of [candidate,body]){
       if(!text)continue;
+      // Short phrases like "抽１張卡。" are also legitimate main-effect text
+      // (e.g. "登場時 抽１張卡。"), so only remove them globally when they are
+      // long enough to be unambiguous. Short trigger lines are still removed
+      // by the whole-line normalized dedupe below.
+      if(normalizeForCompare(text).length<12)continue;
       s=s.split(text).join('');
     }
   }
