@@ -845,3 +845,30 @@ textarea::placeholder,input::placeholder{color:#727b8b}
 
 /* Wire up the existing unused .trigger box as the reminder panel */
 .trigger .trigger-chip{margin-right:8px}
+
+
+/* Desktop: keep the card description panel in view while scrolling the deck.
+   The panel was stretching to the full height of the card list (grid items
+   stretch by default), so position:sticky had no room to travel and the
+   description scrolled away with the page. Align it to the top of the grid
+   instead, and cap it to the window height so a long description scrolls
+   inside the panel rather than off-screen. */
+@media (min-width:851px){
+  .grid{align-items:start}
+  #detail.detail{
+    position:sticky;
+    top:16px;
+    max-height:calc(100vh - 32px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+    scrollbar-color:#3a424f transparent;
+  }
+  /* Slightly smaller card art on short windows so more of the text fits
+     without scrolling inside the panel. */
+  #detail img.detailimg{
+    width:auto;
+    max-width:100%;
+    max-height:min(460px,42vh);
+  }
+}

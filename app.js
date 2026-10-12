@@ -881,6 +881,7 @@ function detail(){
  // Use Rugia's own description image as the popup content. This avoids
  // reconstructing keyword/trigger icons from flattened HTML.
  $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong></div>${description}${triggerReminderBox(d)}<div class="source">資料來源：Rugia sync</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').scrollTop=0; // new card -> start reading from the top of the panel
  syncMobileDetail();
 }
 function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
