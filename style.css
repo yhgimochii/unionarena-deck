@@ -872,3 +872,25 @@ textarea::placeholder,input::placeholder{color:#727b8b}
     max-height:min(460px,42vh);
   }
 }
+
+
+/* My Decks on desktop: with no deck limit the grid can get long, so cap its
+   height and scroll inside it instead of pushing the rest of the page down.
+   (Phones already scroll inside the bottom sheet.) */
+@media (min-width:701px){
+  .saved{
+    max-height:min(52vh,380px);
+    overflow-y:auto;
+    align-content:start;
+    padding:2px 6px 2px 2px;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+    scrollbar-color:#3a424f transparent;
+  }
+}
+
+/* A deck thumbnail must never shrink. Without this, once the My Decks list is
+   long enough to scroll, the browser squeezes each grid row down to its
+   minimum and the thumbnails collapse into flat bars. */
+.slot-thumb{flex:none}
+#account.account .saved{align-content:start;grid-auto-rows:max-content}

@@ -915,18 +915,22 @@ async function loadSaved(){
   if(!currentUser)return;
   const q=query(collection(db,'users',currentUser.uid,'decks'),orderBy('createdAt','desc'));
   const snap=await getDocs(q),box=$('savedDecks');
+  const prevScroll=box.scrollTop; // keep the reader's place in a long list across refreshes
   box.innerHTML='';
   const docs=[];snap.forEach(item=>docs.push({id:item.id,...item.data()}));
-  const SLOT_COUNT=10;
+  // No deck limit: draw every saved deck. Always show at least 10 slots so a
+  // small collection still looks the same (empty placeholders), but never cap.
+  const SLOT_COUNT=Math.max(10,docs.length);
   for(let i=0;i<SLOT_COUNT;i++){
     const d=docs[i],slot=document.createElement('div');
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
     if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
     const thumbId=deckThumbnailId(d), thumbName=(DB[thumbId]?.name)||d.name||"牌組縮圖";
     slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div>`;
-    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();loadSaved()};
+    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();box.querySelectorAll('.deck-slot').forEach(x=>x.classList.toggle('on',x===slot))};
     box.appendChild(slot);
   }
+  box.scrollTop=prevScroll;
 }
 $('saveDeck').innerHTML=iconSvg('save');
 $('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
