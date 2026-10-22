@@ -894,3 +894,36 @@ textarea::placeholder,input::placeholder{color:#727b8b}
    minimum and the thumbnails collapse into flat bars. */
 .slot-thumb{flex:none}
 #account.account .saved{align-content:start;grid-auto-rows:max-content}
+
+
+/* Edit deck modal — dark theme.
+   The sign-in modal (.modalbox) was already in the dark theme, but the
+   edit-deck-* classes kept their light defaults, leaving near-white text on a
+   white box and a white-on-white colour dropdown. Same palette as the rest of
+   the dark UI: panels #171b24, borders #303744, inputs #10141b. */
+.edit-deck-modal{background:rgba(0,0,0,.76)}
+.edit-deck-box{
+  background:#171b24;
+  border:1px solid #303744;
+  color:#f4f5f7;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+}
+.edit-deck-head strong{color:#f4f5f7}
+.edit-deck-x{color:#aab1bd}
+.edit-deck-x:hover{color:#f4f5f7;background:transparent}
+.edit-deck-label{color:#c7ccd5}
+.edit-deck-input{
+  background:#10141b;
+  color:#f4f5f7;
+  border:1px solid #343b48;
+}
+.edit-deck-input::placeholder{color:#727b8b}
+.edit-deck-input:focus{
+  outline:none;
+  border-color:#7468ee;
+  box-shadow:0 0 0 3px rgba(116,104,238,.28);
+}
+select.edit-deck-input{color-scheme:dark;cursor:pointer}
+select.edit-deck-input option{background:#171b24;color:#f4f5f7}
+.edit-deck-color-row .color-dot{border-color:rgba(255,255,255,.28)}
+.edit-deck-msg{color:#ff8f80}
