@@ -10188,7 +10188,7 @@
     "id": "EX08BT/SAO-2-066",
     "name": "詩乃\n特徵：ALO",
     "rarity": "U",
-    "effect": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張綠色［特徵：ALO］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。\n 抽１張卡。",
+    "effect": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張綠色的［特徵：ALO］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=SAO-2-066",
     "source": "Rugia sync",
     "variants": [
@@ -10198,7 +10198,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張綠色［特徵：ALO］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張綠色的［特徵：ALO］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "詩乃<br>特徵：ALO"
   },
   {
@@ -13002,7 +13002,7 @@
   },
   {
     "id": "EX10BT/AOT-2-066",
-    "name": "米卡莎．阿卡曼\n特徵：104期兵\n自己結束階段開始時，在本回合的攻擊階段中，自己場上有紅色［特徵：104期兵］返回手牌的情況下，可將手牌上的此卡，以休息狀態在自己前線登場。〈米卡莎．阿卡曼〉的此效果１回合只能發動１次。",
+    "name": "米卡莎．阿卡曼\n特徵：104期兵\n自己結束階段開始時，在本回合的攻擊階段中，自己場上有紅色的［特徵：104期兵］返回手牌的情況下，可將手牌上的此卡，以休息狀態在自己前線登場。〈米卡莎．阿卡曼〉的此效果１回合只能發動１次。",
     "rarity": "U",
     "effect": "特徵： 104期兵 自己結束階段開始時，在本回合的攻擊階段中，自己場上有 紅色 ［特徵：104期兵］ 返回手牌的情況下，可將手牌上的此卡，以休息狀態在自己前線登場。 〈米卡莎．阿卡曼〉 的此效果１回合只能發動１次。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=AOT-2-066",
@@ -13019,7 +13019,7 @@
     "traits": [
       "104th Cadet Corps"
     ],
-    "nameHtml": "米卡莎．阿卡曼<br>特徵：104期兵<br>自己結束階段開始時，在本回合的攻擊階段中，自己場上有紅色［特徵：104期兵］返回手牌的情況下，可將手牌上的此卡，以休息狀態在自己前線登場。〈米卡莎．阿卡曼〉的此效果１回合只能發動１次。"
+    "nameHtml": "米卡莎．阿卡曼<br>特徵：104期兵<br>自己結束階段開始時，在本回合的攻擊階段中，自己場上有紅色的［特徵：104期兵］返回手牌的情況下，可將手牌上的此卡，以休息狀態在自己前線登場。〈米卡莎．阿卡曼〉的此效果１回合只能發動１次。"
   },
   {
     "id": "EX10BT/AOT-2-067",
@@ -21010,7 +21010,7 @@
     "id": "EX15BT/BLC-4-042",
     "name": "涅 繭利\n特徵：護廷十三隊",
     "rarity": "R",
-    "effect": "登場時  從以下選擇１項。\n．從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。\n．可將自己２張手牌放置到場外。如這樣做，從自己場外選擇最多１張〈涅 繭利〉或〈涅 音夢〉加入手牌。\n．可將自己場上１張其他角色退場。如這樣做，從自己手牌選擇最多１張藍色〈涅骸部隊〉，以激活狀態在自己能源線登場。\n 抽１張卡。",
+    "effect": "登場時  從以下選擇１項。\n．從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。\n．可將自己２張手牌放置到場外。如這樣做，從自己場外選擇最多１張〈涅 繭利〉或〈涅 音夢〉加入手牌。\n．可將自己場上１張其他角色退場。如這樣做，從自己手牌選擇最多１張藍色的〈涅骸部隊〉，以激活狀態在自己能源線登場。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-042",
     "source": "Rugia sync",
     "variants": [
@@ -21026,7 +21026,7 @@
       "Thirteen Court Guard Squads"
     ],
     "trigger": "[Draw] Draw a card.",
-    "effectHtml": "登場時  從以下選擇１項。<br>．從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。<br>．可將自己２張手牌放置到場外。如這樣做，從自己場外選擇最多１張〈涅 繭利〉或〈涅 音夢〉加入手牌。<br>．可將自己場上１張其他角色退場。如這樣做，從自己手牌選擇最多１張藍色〈涅骸部隊〉，以激活狀態在自己能源線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從以下選擇１項。<br>．從自己牌庫上面查看２張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。<br>．可將自己２張手牌放置到場外。如這樣做，從自己場外選擇最多１張〈涅 繭利〉或〈涅 音夢〉加入手牌。<br>．可將自己場上１張其他角色退場。如這樣做，從自己手牌選擇最多１張藍色的〈涅骸部隊〉，以激活狀態在自己能源線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "涅 繭利<br>特徵：護廷十三隊"
   },
   {
@@ -21095,7 +21095,7 @@
     "id": "EX15BT/BLC-4-046",
     "name": "井上 織姬",
     "rarity": "C",
-    "effect": "登場時  選擇自己場上最多１張紫色〈黑崎 一護〉，本回合中，BP+1500。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "登場時  選擇自己場上最多１張紫色的〈黑崎 一護〉，本回合中，BP+1500。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=BLC-4-046",
     "source": "Rugia sync",
     "variants": [
@@ -21105,7 +21105,7 @@
     "type": "角色",
     "bp": 1000,
     "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
-    "effectHtml": "登場時  選擇自己場上最多１張紫色〈黑崎 一護〉，本回合中，BP+1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  選擇自己場上最多１張紫色的〈黑崎 一護〉，本回合中，BP+1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "井上 織姬"
   },
   {
@@ -22099,7 +22099,7 @@
     "id": "EX16BT/MMM-2-011",
     "name": "Ultimate小圓",
     "rarity": "R",
-    "effect": "此卡也被視為〈鹿目 圓〉。\n自己回合中，此角色從自己場上返回手牌時，可將自己手牌１張紫色〈Ultimate小圓〉放置到場外。如這樣做，從自己手牌或場外選擇最多１張能源需求１或以下的紫色角色卡，以休息狀態在自己場上登場，並且選擇自己場上最多１張〈鹿目 圓〉被激活，並且本回合中，BP+2500。\n 從自己場外選擇１張能源需求２或以下及AP消耗１的紫色角色卡，以激活狀態在自己前線登場。",
+    "effect": "此卡也被視為〈鹿目 圓〉。\n自己回合中，此角色從自己場上返回手牌時，可將自己手牌１張紫色的〈Ultimate小圓〉放置到場外。如這樣做，從自己手牌或場外選擇最多１張能源需求１或以下的紫色角色卡，以休息狀態在自己場上登場，並且選擇自己場上最多１張〈鹿目 圓〉被激活，並且本回合中，BP+2500。\n 從自己場外選擇１張能源需求２或以下及AP消耗１的紫色角色卡，以激活狀態在自己前線登場。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-2-011",
     "source": "Rugia sync",
     "variants": [
@@ -22112,7 +22112,7 @@
     "type": "角色",
     "bp": 4000,
     "trigger": "[COLOR] Play one purple character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line.",
-    "effectHtml": "此卡也被視為〈鹿目 圓〉。<br>自己回合中，此角色從自己場上返回手牌時，可將自己手牌１張紫色〈Ultimate小圓〉放置到場外。如這樣做，從自己手牌或場外選擇最多１張能源需求１或以下的紫色角色卡，以休息狀態在自己場上登場，並且選擇自己場上最多１張〈鹿目 圓〉被激活，並且本回合中，BP+2500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 從自己場外選擇１張能源需求２或以下及AP消耗１的紫色角色卡，以激活狀態在自己前線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "此卡也被視為〈鹿目 圓〉。<br>自己回合中，此角色從自己場上返回手牌時，可將自己手牌１張紫色的〈Ultimate小圓〉放置到場外。如這樣做，從自己手牌或場外選擇最多１張能源需求１或以下的紫色角色卡，以休息狀態在自己場上登場，並且選擇自己場上最多１張〈鹿目 圓〉被激活，並且本回合中，BP+2500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 從自己場外選擇１張能源需求２或以下及AP消耗１的紫色角色卡，以激活狀態在自己前線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "Ultimate小圓"
   },
   {
@@ -23533,15 +23533,64 @@
     ]
   },
   {
+    "id": "EX17BT/REZ-2-002",
+    "name": "法蘭黛莉卡．鮑曼",
+    "rarity": "U",
+    "effect": "登場時  在能源線的情況 自己在本回合中有使用過事件卡的情況下，此角色被激活。\n 主起動  休息 選擇自己場上１張其他角色，本回合中，BP+1000。",
+    "effectHtml": "登場時  在能源線的情況 自己在本回合中有使用過事件卡的情況下，此角色被激活。<br> 主起動  休息 選擇自己場上１張其他角色，本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "法蘭黛莉卡．鮑曼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-002",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-003",
+    "name": "佩特拉．雷蒂",
+    "rarity": "C",
+    "effect": "登場時  從以下選擇１項。\n．抽１張卡，然後將自己１張手牌放置到場外。\n．從自己場外選擇最多１張黃色的〈菜月昴〉加入自己的手牌。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  從以下選擇１項。<br>．抽１張卡，然後將自己１張手牌放置到場外。<br>．從自己場外選擇最多１張黃色的〈菜月昴〉加入自己的手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "佩特拉．雷蒂",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-003",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-004",
+    "name": "拉姆",
+    "rarity": "C",
+    "effect": "自己回合中  對手前線擁有BP比原BP低的角色的情況下，此角色的BP+1500。\n 抽１張卡。",
+    "effectHtml": "自己回合中  對手前線擁有BP比原BP低的角色的情況下，此角色的BP+1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "拉姆",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-004",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-005",
     "name": "拉姆",
-    "rarity": "R★",
+    "rarity": "R",
     "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n自己回合中  自己場上擁有〈雷姆〉或〈羅茲瓦爾．L．梅札斯〉的情況下，此角色的BP+1000。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>自己回合中  自己場上擁有〈雷姆〉或〈羅茲瓦爾．L．梅札斯〉的情況下，此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "拉姆",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-005",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★"
     ],
     "traits": [
@@ -23551,11 +23600,12 @@
   {
     "id": "EX17BT/REZ-2-006",
     "name": "拉姆",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "登場時  選擇對手前線最多１張BP1500或以上的角色，本回合中，BP-1000。\n 攻擊時  對手前線擁有BP比原BP低的角色的情況下，從以下選擇１項。\n．抽１張卡。\n．此角色在本回合中，BP+1000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-006",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★",
       "SR★★"
     ],
@@ -23584,13 +23634,14 @@
   {
     "id": "EX17BT/REZ-2-008",
     "name": "雷姆",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "登場時  『抽１張卡，然後將自己１張手牌放置到場外』。對手前線擁有BP比原BP低的角色的情況下，可改為『抽１張卡』。",
     "effectHtml": "登場時  『抽１張卡，然後將自己１張手牌放置到場外』。對手前線擁有BP比原BP低的角色的情況下，可改為『抽１張卡』。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "雷姆",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-008",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
     ],
     "traits": [
@@ -23600,13 +23651,14 @@
   {
     "id": "EX17BT/REZ-2-009",
     "name": "雷姆",
-    "rarity": "R★★",
+    "rarity": "R",
     "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或場外。\n 抽１張卡。",
     "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_yellow2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "雷姆",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-009",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★★"
     ],
     "traits": [
@@ -23616,11 +23668,12 @@
   {
     "id": "EX17BT/REZ-2-010",
     "name": "雷姆",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "登場時  自己場上全部角色都是〈雷姆〉的情況下，可將自己場上１張能源需求３或以下的角色返回手牌。如這樣做，本回合中，下次從手牌使用沒有  的〈雷姆〉的AP消耗-1。〈雷姆〉的此效果１回合只能發動１次。\n 將此卡加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-010",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★"
     ],
     "traits": [
@@ -23632,14 +23685,48 @@
   {
     "id": "EX17BT/REZ-2-011",
     "name": "愛蜜莉雅\n特徵：王選候補者",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "(在自己的移動階段可從前線移動到能源線)\n登場時  本回合中，下次從手牌使用能源需求『１』或以下的事件卡的AP消耗-1。自己場外每有２張事件卡，可用此效果使AP消耗-1的事件卡的能源需求範圍+1。〈愛蜜莉雅〉的此效果１回合只能使用１次。\n 抽１張卡。",
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_step.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (在自己的移動階段可從前線移動到能源線)<br>登場時  本回合中，下次從手牌使用能源需求『１』或以下的事件卡的AP消耗-1。自己場外每有２張事件卡，可用此效果使AP消耗-1的事件卡的能源需求範圍+1。〈愛蜜莉雅〉的此效果１回合只能使用１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "愛蜜莉雅<br>特徵：王選候補者",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-011",
     "source": "Rugia sync",
     "variants": [
-      "SR★"
+      "SR",
+      "SR★",
+      "SR★★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-012",
+    "name": "我的名字叫愛蜜莉雅。只是愛蜜莉雅唷",
+    "rarity": "C",
+    "effect": "此卡只有在自己場上擁有〈愛蜜莉雅〉的情況下才可以使用。\n自己場外擁有４張或以上事件卡的情況下，手牌上此卡的能源需求減少  。\n抽２張卡。從自己手牌選擇最多１張能源需求３或以下及AP消耗１的黃色〈菜月昴〉，以激活狀態在自己場上登場。選擇自己場上最多１張〈菜月昴〉，本回合中，BP+1000。\n 將此卡加入手牌。",
+    "effectHtml": "此卡只有在自己場上擁有〈愛蜜莉雅〉的情況下才可以使用。<br>自己場外擁有４張或以上事件卡的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_yellow.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br>抽２張卡。從自己手牌選擇最多１張能源需求３或以下及AP消耗１的黃色〈菜月昴〉，以激活狀態在自己場上登場。選擇自己場上最多１張〈菜月昴〉，本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "我的名字叫愛蜜莉雅。只是愛蜜莉雅唷",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-012",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-013",
+    "name": "威爾海姆．范．阿斯特雷亞",
+    "rarity": "R",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n主起動  只有在自己場上擁〈庫珥修．卡爾斯騰〉的情況下才可以發動。對手前線擁有BP4500或以上的角色，或此角色是BP5000或以上的情況下，此角色被激活。〈威爾海姆．范．阿斯特雷亞〉的此效果１回合只能發動１次。\n 抽１張卡。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>主起動  只有在自己場上擁〈庫珥修．卡爾斯騰〉的情況下才可以發動。對手前線擁有BP4500或以上的角色，或此角色是BP5000或以上的情況下，此角色被激活。〈威爾海姆．范．阿斯特雷亞〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "威爾海姆．范．阿斯特雷亞",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-013",
+    "source": "Rugia sync",
+    "variants": [
+      "R"
     ],
     "traits": [
       "▼"
@@ -23662,16 +23749,49 @@
     "nameHtml": "菜月昴"
   },
   {
+    "id": "EX17BT/REZ-2-015",
+    "name": "菲莉絲",
+    "rarity": "C",
+    "effect": "攻擊時  自己場上擁有〈庫珥修．卡爾斯騰〉，並且此角色是BP4000或以上的情況下，抽１張卡。\n 抽１張卡。",
+    "effectHtml": "攻擊時  自己場上擁有〈庫珥修．卡爾斯騰〉，並且此角色是BP4000或以上的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "菲莉絲",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-015",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-016",
     "name": "菲莉絲",
-    "rarity": "SR★★",
+    "rarity": "SR",
     "effect": "登場時  在能源線的情況 自己場上擁有〈庫珥修．卡爾斯騰〉的情況下，此角色被激活。\n 主起動  休息 從以下選擇１項。\n．選擇自己或對手場上１張其他角色，本回合中，BP+1000。\n．公開自己１張手牌，然後放置到自己牌庫下面。如這樣做，選選擇自己或對手場上最多１張其他角色，本回合中，BP+2000。被公開的卡是BP4000或以上的情況下，抽１張卡。\n 抽１張卡。",
     "effectHtml": "登場時  在能源線的情況 自己場上擁有〈庫珥修．卡爾斯騰〉的情況下，此角色被激活。<br> 主起動  休息 從以下選擇１項。<br>．選擇自己或對手場上１張其他角色，本回合中，BP+1000。<br>．公開自己１張手牌，然後放置到自己牌庫下面。如這樣做，選選擇自己或對手場上最多１張其他角色，本回合中，BP+2000。被公開的卡是BP4000或以上的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "菲莉絲",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-016",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-017",
+    "name": "雷姆",
+    "rarity": "U",
+    "effect": "登場時  從自己牌庫上面查看２張卡，將最多１張〈菜月昴〉或〈雷姆〉放置到場外，將餘下的卡以任意順序放置到牌庫上面。\n 抽１張卡。",
+    "effectHtml": "登場時  從自己牌庫上面查看２張卡，將最多１張〈菜月昴〉或〈雷姆〉放置到場外，將餘下的卡以任意順序放置到牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "雷姆",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-017",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
     ],
     "traits": [
       "▼"
@@ -23680,12 +23800,14 @@
   {
     "id": "EX17BT/REZ-2-018",
     "name": "雷姆",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "登場時  從以下選擇１項。不能選擇已經在本回合中被〈雷姆〉選擇過的效果。\n．從自己場外選擇最多１張能源需求０的藍色〈菜月昴〉，以休息狀態在自己場上登場。該角色在本回合中，給予「主階段結束時，將此角色退場。」。\n．選擇自己場上最多１張能源需求０的藍色〈菜月昴〉，本回合中，給予「  此角色進行攻擊並戰敗時，此角色被激活。」。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-018",
     "source": "Rugia sync",
     "variants": [
-      "SR★"
+      "SR",
+      "SR★",
+      "SR★★★"
     ],
     "traits": [
       "▼"
@@ -23694,15 +23816,32 @@
     "nameHtml": "雷姆"
   },
   {
+    "id": "EX17BT/REZ-2-019",
+    "name": "庫珥修．卡爾斯騰\n特徵：王選候補者",
+    "rarity": "U",
+    "effect": "主起動   只有在此角色是BP5000或以上的情況下才可以發動。此角色在自己下回合開始為止，獲得  及  。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在此角色是BP5000或以上的情況下才可以發動。此角色在自己下回合開始為止，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_2timesblock.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 及 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "庫珥修．卡爾斯騰<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-019",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-020",
     "name": "庫珥修．卡爾斯騰\n特徵：王選候補者",
-    "rarity": "R★★",
+    "rarity": "R",
     "effect": "此卡因自己的效果而從自己手牌公開並放置到牌庫下面時，選擇自己或對手場上最多１張角色，本回合中，BP+1000。\n此角色不能在前線登場，並且不能移動到前線。\n此角色被突襲時，抽１張卡。(以任意順序處理突襲角色的 登場時  效果及此效果)\n 將此卡加入手牌。",
     "effectHtml": "此卡因自己的效果而從自己手牌公開並放置到牌庫下面時，選擇自己或對手場上最多１張角色，本回合中，BP+1000。<br>此角色不能在前線登場，並且不能移動到前線。<br>此角色被突襲時，抽１張卡。(以任意順序處理突襲角色的 登場時  效果及此效果)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "庫珥修．卡爾斯騰<br>特徵：王選候補者",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-020",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★★"
     ],
     "traits": [
@@ -23712,11 +23851,12 @@
   {
     "id": "EX17BT/REZ-2-021",
     "name": "菜月昴的陪伴者，雷姆",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "此卡只有在自己場上擁有〈菜月昴〉及〈雷姆〉的情況下才可以使用。\n選擇對手前線１張BP5000或以下的角色退場。自己前線擁有突襲狀態的〈雷姆〉的情況下，選擇自己場上最多１張能源需求０的〈菜月昴〉，本回合中，BP+1500。\n 選擇對手前線１張角色退場。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-021",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
     ],
     "traits": [
@@ -23726,15 +23866,48 @@
     "nameHtml": "菜月昴的陪伴者，雷姆"
   },
   {
+    "id": "EX17BT/REZ-2-022",
+    "name": "菜月昴",
+    "rarity": "C",
+    "effect": "登場時  從自己牌庫上面查看２張卡，將最多１張〈菜月昴〉或〈碧翠絲〉或〈禁書庫〉放置到場外，將餘下的卡以任意順序放置到牌庫上面。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  從自己牌庫上面查看２張卡，將最多１張〈菜月昴〉或〈碧翠絲〉或〈禁書庫〉放置到場外，將餘下的卡以任意順序放置到牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "菜月昴",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-022",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-023",
+    "name": "福爾圖娜",
+    "rarity": "U",
+    "effect": "登場時  此角色被激活。此角色在本回合中，獲得「此角色不能攻擊。」。\n 退場時  可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張能源需求０的紫色〈愛蜜莉雅〉，以休息狀態在自己能源線登場。\n 抽１張卡。",
+    "effectHtml": "登場時  此角色被激活。此角色在本回合中，獲得「此角色不能攻擊。」。<br> 退場時  可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張能源需求０的紫色〈愛蜜莉雅〉，以休息狀態在自己能源線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "福爾圖娜",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-023",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-024",
     "name": "碧翠絲",
-    "rarity": "R★",
+    "rarity": "R",
     "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n 主起動  支付➊AP  將自己１張手牌放置到自己牌庫上面。如這樣做，此角色在本回合中，BP+2000，並且本回合的攻擊階段開始時，自己１張AP卡被激活。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_purple2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 主起動  支付➊AP <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將自己１張手牌放置到自己牌庫上面。如這樣做，此角色在本回合中，BP+2000，並且本回合的攻擊階段開始時，自己１張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "碧翠絲",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-024",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★"
     ],
     "traits": [
@@ -23744,11 +23917,12 @@
   {
     "id": "EX17BT/REZ-2-025",
     "name": "碧翠絲",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "登場時  自己在本回合中，獲得「對手用效果選擇自己場上的〈菜月昴〉的時候，若不追加將他自己１張手牌放置到場外，便不能選擇。」。從以下選擇１項。\n．自己場上擁有〈菜月昴〉的情況下，抽１張卡。\n．本回合的攻擊階段開始時，自己１張AP卡被激活。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-025",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★",
       "SR★★"
     ],
@@ -23757,6 +23931,55 @@
     ],
     "effectHtml": "登場時  自己在本回合中，獲得「對手用效果選擇自己場上的〈菜月昴〉的時候，若不追加將他自己１張手牌放置到場外，便不能選擇。」。從以下選擇１項。<br>．自己場上擁有〈菜月昴〉的情況下，抽１張卡。<br>．本回合的攻擊階段開始時，自己１張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "碧翠絲"
+  },
+  {
+    "id": "EX17BT/REZ-2-026",
+    "name": "琉茲．梅耶爾",
+    "rarity": "C",
+    "effect": "主起動  休息 此卡退場 只有在自己場上擁有〈艾姬多娜〉或〈碧翠絲〉的情況下才可以發動。從自己場外選擇最多１張沒有  及沒有  效果，並且能源需求３或以下的紫色事件卡加入手牌。\n 抽１張卡。",
+    "effectHtml": "主起動  休息 此卡退場 只有在自己場上擁有〈艾姬多娜〉或〈碧翠絲〉的情況下才可以發動。從自己場外選擇最多１張沒有 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 及沒有 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 效果，並且能源需求３或以下的紫色事件卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "琉茲．梅耶爾",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-026",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-027",
+    "name": "愛蜜莉雅\n特徵：王選候補者",
+    "rarity": "U",
+    "effect": "主起動  在前線的情況  只有在本回合中，此角色有因自己的效果而從激活狀態變為休息狀態的情況下才可以發動。此角色被激活。",
+    "effectHtml": "主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在本回合中，此角色有因自己的效果而從激活狀態變為休息狀態的情況下才可以發動。此角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-027",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-028",
+    "name": "愛蜜莉雅\n特徵：王選候補者",
+    "rarity": "R",
+    "effect": "登場時  自己場上擁有［特徵：魔女］的情況下，抽１張卡。\n 主起動  將１張手牌放置到場外  此角色在本回合中，生產能源+  。",
+    "effectHtml": "登場時  自己場上擁有［特徵：魔女］的情況下，抽１張卡。<br> 主起動  將１張手牌放置到場外 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色在本回合中，生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_purple.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-028",
+    "source": "Rugia sync",
+    "variants": [
+      "R",
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "EX17BT/REZ-2-029",
@@ -23777,14 +24000,32 @@
   {
     "id": "EX17BT/REZ-2-030",
     "name": "艾姬多娜\n特徵：魔女",
-    "rarity": "SR★★",
+    "rarity": "SR",
     "effect": "登場時  選擇自己場上最多１張擁有特徵的角色，移動到別的戰線，並且本回合中，給予「此角色不能攻擊。」。\n 主起動   只有在此角色登場的回合才可以發動。將自己前線１張激活狀態的角色休息。如這樣做，從以下選擇１項。\n．選擇對手前線最多１張BP2000或以上的角色，本回合中，BP-1500。\n．選擇自己場上最多１張其他角色，本回合中，BP+2000。\n 抽１張卡。",
     "effectHtml": "登場時  選擇自己場上最多１張擁有特徵的角色，移動到別的戰線，並且本回合中，給予「此角色不能攻擊。」。<br> 主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在此角色登場的回合才可以發動。將自己前線１張激活狀態的角色休息。如這樣做，從以下選擇１項。<br>．選擇對手前線最多１張BP2000或以上的角色，本回合中，BP-1500。<br>．選擇自己場上最多１張其他角色，本回合中，BP+2000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "艾姬多娜<br>特徵：魔女",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-030",
     "source": "Rugia sync",
     "variants": [
+      "SR",
+      "SR★",
       "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-031",
+    "name": "魔晶石",
+    "rarity": "C",
+    "effect": "抽１張卡。從自己場外選擇最多１張〈碧翠絲〉加入手牌。\n 抽１張卡。",
+    "effectHtml": "抽１張卡。從自己場外選擇最多１張〈碧翠絲〉加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "魔晶石",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-031",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -23809,14 +24050,31 @@
   {
     "id": "EX17BT/REZ-2-033",
     "name": "奧托．蘇文",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "此角色是激活狀態的情況下，此角色的生產能源+  。",
     "effectHtml": "此角色是激活狀態的情況下，此角色的生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_green.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "奧托．蘇文",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-033",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-034",
+    "name": "加菲爾．汀澤爾",
+    "rarity": "C",
+    "effect": "此角色進行攻擊並戰鬥勝利時，自己場上擁有４種或以上不同卡名的綠色角色的情況下，抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "此角色進行攻擊並戰鬥勝利時，自己場上擁有４種或以上不同卡名的綠色角色的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "加菲爾．汀澤爾",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-034",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -23825,14 +24083,63 @@
   {
     "id": "EX17BT/REZ-2-035",
     "name": "加菲爾．汀澤爾",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n 抽１張卡。",
     "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_green2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "加菲爾．汀澤爾",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-035",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-036",
+    "name": "奇利塔卡．謬茲",
+    "rarity": "C",
+    "effect": "主起動  在前線的情況  選擇自己場上１張〈莉莉安娜．瑪斯柯瑞德〉被激活。\n 抽１張卡。",
+    "effectHtml": "主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張〈莉莉安娜．瑪斯柯瑞德〉被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "奇利塔卡．謬茲",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-036",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-037",
+    "name": "舒爾特",
+    "rarity": "C",
+    "effect": "登場時  選擇自己場上最多『１張』其他角色，本回合中，BP+500。自己場上擁有〈普莉希拉．跋利耶爾〉的情況下，可尹為『２張』。",
+    "effectHtml": "登場時  選擇自己場上最多『１張』其他角色，本回合中，BP+500。自己場上擁有〈普莉希拉．跋利耶爾〉的情況下，可尹為『２張』。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "舒爾特",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-037",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-038",
+    "name": "菜月昴",
+    "rarity": "R",
+    "effect": "登場時  從自己手牌選擇最多１張能源需求３或以下及AP消耗１的綠色角色卡，以休息狀態在自己場上登場。與自己場上卡名相同的卡，不能用此效果登場。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  從自己手牌選擇最多１張能源需求３或以下及AP消耗１的綠色角色卡，以休息狀態在自己場上登場。與自己場上卡名相同的卡，不能用此效果登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "菜月昴",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-038",
+    "source": "Rugia sync",
+    "variants": [
+      "R"
     ],
     "traits": [
       "▼"
@@ -23841,14 +24148,80 @@
   {
     "id": "EX17BT/REZ-2-039",
     "name": "菜月昴 發動此卡的 效果的情況下，可將記載的效果，由「能源需求２或以下」改為「原BP2500」。",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n登場時  從自己場外選擇最多１張〈菜月昴〉以外，原BP2500的綠色角色卡，以休息狀態在自己場上登場，然後該角色或此角色被激活。\n 從自己手牌選擇１張能源需求２或以下及AP消耗１的綠色角色卡，以激活狀態在自己場上登場。",
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>登場時  從自己場外選擇最多１張〈菜月昴〉以外，原BP2500的綠色角色卡，以休息狀態在自己場上登場，然後該角色或此角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 從自己手牌選擇１張能源需求２或以下及AP消耗１的綠色角色卡，以激活狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "菜月昴 發動此卡的 效果的情況下，可將記載的效果，由「能源需求２或以下」改為「原BP2500」。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-039",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-040",
+    "name": "海因格．阿斯特雷亞",
+    "rarity": "C",
+    "effect": "退場時  選擇對手前線最多１張BP4500或以上的角色休息。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "退場時  選擇對手前線最多１張BP4500或以上的角色休息。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "海因格．阿斯特雷亞",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-040",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-041",
+    "name": "184號",
+    "rarity": "C",
+    "effect": "此卡也被視為〈希爾菲〉。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "此卡也被視為〈希爾菲〉。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "184號",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-041",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-042",
+    "name": "碧翠絲",
+    "rarity": "U",
+    "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)",
+    "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_green2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "碧翠絲",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-042",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-043",
+    "name": "蜜蜜．帕爾巴頓",
+    "rarity": "U",
+    "effect": "自己回合中  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下，此角色的BP+1500。\n 抽１張卡。",
+    "effectHtml": "自己回合中  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下，此角色的BP+1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "蜜蜜．帕爾巴頓",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-043",
+    "source": "Rugia sync",
+    "variants": [
+      "U",
+      "U★"
     ],
     "traits": [
       "▼"
@@ -23857,14 +24230,47 @@
   {
     "id": "EX17BT/REZ-2-044",
     "name": "朱利斯．尤克歷烏斯",
-    "rarity": "R★",
-    "effect": "主起動   只有在自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠角色的情況下才可以發動。此角色在本回合中，獲得以下其中１項。\n． 攻擊時  抽１張卡。\n．BP+500。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
-    "effectHtml": "主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠角色的情況下才可以發動。此角色在本回合中，獲得以下其中１項。<br>． 攻擊時  抽１張卡。<br>．BP+500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "rarity": "R",
+    "effect": "主起動   只有在自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下才可以發動。此角色在本回合中，獲得以下其中１項。\n． 攻擊時  抽１張卡。\n．BP+500。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下才可以發動。此角色在本回合中，獲得以下其中１項。<br>． 攻擊時  抽１張卡。<br>．BP+500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "朱利斯．尤克歷烏斯",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-044",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-045",
+    "name": "喬舒亞．尤克歷烏斯",
+    "rarity": "U",
+    "effect": "退場時  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的其他綠色角色的情況下，抽１張卡。\n 抽１張卡。",
+    "effectHtml": "退場時  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的其他綠色角色的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "喬舒亞．尤克歷烏斯",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-045",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-046",
+    "name": "萊因哈魯特．范．阿斯特雷亞",
+    "rarity": "U",
+    "effect": "登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "萊因哈魯特．范．阿斯特雷亞",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-046",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
     ],
     "traits": [
       "▼"
@@ -23873,14 +24279,63 @@
   {
     "id": "EX17BT/REZ-2-047",
     "name": "萊因哈魯特．范．阿斯特雷亞",
-    "rarity": "SR★",
+    "rarity": "SR",
     "effect": "(進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)\n主起動  在前線的情況  抽１張卡。\n 主起動  在前線的情況 將自己手牌１張綠色卡放置到場外，並且可發動該卡的  效果。〈萊因哈魯特．范．阿斯特雷亞〉的此效果１回合只能發動１次。\n 將此卡加入手牌。",
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)<br>主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br> 主起動  在前線的情況 將自己手牌１張綠色卡放置到場外，並且可發動該卡的 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger.png?v=20260529_02\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 效果。〈萊因哈魯特．范．阿斯特雷亞〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "萊因哈魯特．范．阿斯特雷亞",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-047",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-048",
+    "name": "莉亞拉．湯普森",
+    "rarity": "U",
+    "effect": "登場時  將自己場上１張能源需求１或以下的其他角色返回手牌。沒有返回的情況下，將此角色返回手牌。",
+    "effectHtml": "登場時  將自己場上１張能源需求１或以下的其他角色返回手牌。沒有返回的情況下，將此角色返回手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "莉亞拉．湯普森",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-048",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-049",
+    "name": "里卡多．威爾金",
+    "rarity": "U",
+    "effect": "自己回合中  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下，此角色的BP+1000。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "自己回合中  自己場上擁有〈安娜塔西亞．合辛〉或４種或以上不同卡名的綠色角色的情況下，此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "里卡多．威爾金",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-049",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-050",
+    "name": "莉莉安娜．瑪斯柯瑞德",
+    "rarity": "C",
+    "effect": "登場時  選擇自己場上最多１張其他角色，本回合中，BP+1000。",
+    "effectHtml": "登場時  選擇自己場上最多１張其他角色，本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "莉莉安娜．瑪斯柯瑞德",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-050",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -23903,15 +24358,48 @@
     ]
   },
   {
+    "id": "EX17BT/REZ-2-052",
+    "name": "魯斯貝爾＆提娜",
+    "rarity": "C",
+    "effect": "主起動  休息  此角色在本回合中，生產能源+  並獲得「主階段結束時，將此角色退場。」。",
+    "effectHtml": "主起動  休息 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色在本回合中，生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_green.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 並獲得「主階段結束時，將此角色退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "魯斯貝爾＆提娜",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-052",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-053",
+    "name": "雷姆",
+    "rarity": "U",
+    "effect": "此卡不能在前線登場，並且不能移動到前線。\n 主起動   只有在本回合中，自己場上有〈菜月昴〉登場的情況下才可以發動。將自己１張手牌放置到場外。如這樣做，抽１張卡。\n 抽１張卡。",
+    "effectHtml": "此卡不能在前線登場，並且不能移動到前線。<br> 主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在本回合中，自己場上有〈菜月昴〉登場的情況下才可以發動。將自己１張手牌放置到場外。如這樣做，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "雷姆",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-053",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-054",
     "name": "安娜塔西亞．合辛\n特徵：王選候補者",
-    "rarity": "R★★",
+    "rarity": "R",
     "effect": "登場時  從以下選擇１項。\n．從自己牌庫上面查看，與自己場上不同卡名的綠色角色的種類數量相同的卡，將最多１張能源需求５或以下的角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。\n．選擇自己場上最多２張其他角色，本回合中，BP+500。\n 抽１張卡。",
     "effectHtml": "登場時  從以下選擇１項。<br>．從自己牌庫上面查看，與自己場上不同卡名的綠色角色的種類數量相同的卡，將最多１張能源需求５或以下的角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。<br>．選擇自己場上最多２張其他角色，本回合中，BP+500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "安娜塔西亞．合辛<br>特徵：王選候補者",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-054",
     "source": "Rugia sync",
     "variants": [
+      "R",
       "R★★"
     ],
     "traits": [
@@ -23935,13 +24423,47 @@
     ]
   },
   {
+    "id": "EX17BT/REZ-2-056",
+    "name": "愛蜜莉雅\n特徵：王選候補者",
+    "rarity": "U",
+    "effect": "登場時  抽１張卡，然後將自己１張手牌放置到場外。",
+    "effectHtml": "登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-056",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-057",
+    "name": "愛蜜莉雅\n特徵：王選候補者",
+    "rarity": "R",
+    "effect": "登場時  從自己牌庫上面查看３張卡，將最多１張〈愛蜜莉雅〉或〈水門都市 樸利斯提拉〉或原BP2500的角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  從自己牌庫上面查看３張卡，將最多１張〈愛蜜莉雅〉或〈水門都市 樸利斯提拉〉或原BP2500的角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-057",
+    "source": "Rugia sync",
+    "variants": [
+      "R"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-058",
     "name": "愛蜜莉雅\n特徵：王選候補者 〈愛蜜莉雅〉",
-    "rarity": "SR★★",
+    "rarity": "SR",
     "effect": "此角色攻擊結束時，可將自己前線１張原BP2500，並且是激活狀態的角色休息。如這樣做，此角色被激活。\n 登場時  此角色在本回合中，獲得  及「此角色不會被對手的效果選擇。」。\n 攻擊時   此角色在本回合中，BP+1000。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-058",
     "source": "Rugia sync",
     "variants": [
+      "SR",
+      "SR★",
       "SR★★"
     ],
     "traits": [
@@ -23949,6 +24471,38 @@
     ],
     "effectHtml": "此角色攻擊結束時，可將自己前線１張原BP2500，並且是激活狀態的角色休息。如這樣做，此角色被激活。<br> 登場時  此角色在本回合中，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_2timesattack.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 及「此角色不會被對手的效果選擇。」。<br> 攻擊時  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色在本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "愛蜜莉雅<br>特徵：王選候補者 〈愛蜜莉雅〉"
+  },
+  {
+    "id": "EX17BT/REZ-2-059",
+    "name": "庫珥修．卡爾斯騰\n特徵：王選候補者",
+    "rarity": "C",
+    "effect": "登場時  從自己牌庫上面查看２張卡，將最多１張放置到場外，將餘下的卡以任意順序放置到牌庫上面。\n 抽１張卡。",
+    "effectHtml": "登場時  從自己牌庫上面查看２張卡，將最多１張放置到場外，將餘下的卡以任意順序放置到牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "庫珥修．卡爾斯騰<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-059",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-060",
+    "name": "菲魯特\n特徵：王選候補者",
+    "rarity": "C",
+    "effect": "對手回合中  此角色BP-1500。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "對手回合中  此角色BP-1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "菲魯特<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-060",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "EX17BT/REZ-2-061",
@@ -23969,14 +24523,31 @@
   {
     "id": "EX17BT/REZ-2-062",
     "name": "菲魯特\n特徵：王選候補者 〈菲魯特〉",
-    "rarity": "SR★★",
+    "rarity": "SR",
     "effect": "登場時  抽１張卡，或選擇自己場上最多１張其他角色被激活。\n 主起動  在前線的情況  從以下選擇１項。\n．此角色在自己下回合開始為止，BP+1000並獲得「此角色不會被BP4000或以上的角色阻擋。」。\n．選擇自己場上１張其他角色，本回合中，給予「此角色即使在前線也會生產能源。」。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "effectHtml": "登場時  抽１張卡，或選擇自己場上最多１張其他角色被激活。<br> 主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 從以下選擇１項。<br>．此角色在自己下回合開始為止，BP+1000並獲得「此角色不會被BP4000或以上的角色阻擋。」。<br>．選擇自己場上１張其他角色，本回合中，給予「此角色即使在前線也會生產能源。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "菲魯特<br>特徵：王選候補者 〈菲魯特〉",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-062",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-063",
+    "name": "普莉希拉．跋利耶爾\n特徵：王選候補者",
+    "rarity": "C",
+    "effect": "將此卡加入手牌。",
+    "effectHtml": "將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "普莉希拉．跋利耶爾<br>特徵：王選候補者",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-063",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -24001,11 +24572,12 @@
   {
     "id": "EX17BT/REZ-2-065",
     "name": "普莉希拉．跋利耶爾\n特徵：王選候補者 〈普莉希拉．跋利耶爾〉",
-    "rarity": "SR★★",
+    "rarity": "SR",
     "effect": "自己回合中  此角色的BP+1000。\n 主起動   根據自己場上BP比原BP高的角色張數，此角色在本回合中，獲得以下全部效果。\n．３張或以上： \n．５張或以上： \n 攻擊時  抽１張卡。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-065",
     "source": "Rugia sync",
     "variants": [
+      "SR",
       "SR★★"
     ],
     "traits": [
@@ -24015,16 +24587,81 @@
     "nameHtml": "普莉希拉．跋利耶爾<br>特徵：王選候補者 〈普莉希拉．跋利耶爾〉"
   },
   {
+    "id": "EX17BT/REZ-2-066",
+    "name": "水門都市 樸利斯提拉",
+    "rarity": "C",
+    "effect": "登場時  抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "水門都市 樸利斯提拉",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-066",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX17BT/REZ-2-067",
     "name": "「I Trust You」",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
     "effectHtml": "選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "「I Trust You」",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-067",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-068",
+    "name": "嘿呀！嘿呀！嘿呀啊！",
+    "rarity": "C",
+    "effect": "選擇自己場上１張〈愛蜜莉雅〉，本回合中，給予  (此角色在本回合初次進行攻擊時會被激活)。",
+    "effectHtml": "選擇自己場上１張〈愛蜜莉雅〉，本回合中，給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_2timesattack.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (此角色在本回合初次進行攻擊時會被激活)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "嘿呀！嘿呀！嘿呀啊！",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-068",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-069",
+    "name": "我的名字是菜月昴――",
+    "rarity": "U",
+    "effect": "從以下選擇１項。\n．從自己場外選擇最多１張原BP2500及AP消耗２的綠色角色卡，以休息狀態在自己場上登場。\n．從自己場外選擇最多２張原BP2500及AP消耗１的綠色角色卡，以休息狀態在自己場上登場。\n 選擇對手前線１張角色退場。",
+    "effectHtml": "從以下選擇１項。<br>．從自己場外選擇最多１張原BP2500及AP消耗２的綠色角色卡，以休息狀態在自己場上登場。<br>．從自己場外選擇最多２張原BP2500及AP消耗１的綠色角色卡，以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "我的名字是菜月昴――",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-069",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-070",
+    "name": "華麗．猛虎",
+    "rarity": "C",
+    "effect": "選擇自己場上１張〈加菲爾．汀澤爾〉，本回合中，BP+3000並給予  (可指定對手前線的角色進行攻擊，該情況下不能被阻擋)。\n 抽１張卡。",
+    "effectHtml": "選擇自己場上１張〈加菲爾．汀澤爾〉，本回合中，BP+3000並給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_snipe.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (可指定對手前線的角色進行攻擊，該情況下不能被阻擋)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "華麗．猛虎",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-070",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -24033,13 +24670,14 @@
   {
     "id": "EX17BT/REZ-2-071",
     "name": "靈感來了!!",
-    "rarity": "U★",
+    "rarity": "U",
     "effect": "選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
     "effectHtml": "選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "靈感來了!!",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-071",
     "source": "Rugia sync",
     "variants": [
+      "U",
       "U★"
     ],
     "traits": [
@@ -24063,6 +24701,102 @@
     ]
   },
   {
+    "id": "EX17BT/REZ-2-073",
+    "name": "『龍劍』雷伊德",
+    "rarity": "C",
+    "effect": "選擇對手前線１張角色退場。\n此卡因自己場上的綠色〈萊因哈魯特．范．阿斯特雷亞〉的效果而從自己手牌放置到場外時，選擇自己場上最多１張〈萊因哈魯特．范．阿斯特雷亞〉被激活。\n 選擇對手前線１張角色退場。",
+    "effectHtml": "選擇對手前線１張角色退場。<br>此卡因自己場上的綠色〈萊因哈魯特．范．阿斯特雷亞〉的效果而從自己手牌放置到場外時，選擇自己場上最多１張〈萊因哈魯特．范．阿斯特雷亞〉被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "『龍劍』雷伊德",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-073",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP01",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP01",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP02",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP02",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP03",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP03",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP04",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP04",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP05",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP05",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP06",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP06",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP07",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP07",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX17BT/REZ-2-AP08",
+    "name": "入手方法：\nRe:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP08",
+    "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX18BT/MGS-2-005",
     "name": "千石 撫子 〈千石 撫子〉",
     "rarity": "SR★★",
@@ -24077,6 +24811,86 @@
     ],
     "effectHtml": "此角色離開場上時，從自己場外選擇最多１張能源需求２或以下的黃色〈千石 撫子〉，以休息狀態在自己場上登場。<br> 登場時  抽１張卡。從自己場外選擇最多１張黃色場域卡，以休息狀態在自己能源線登場。<br> 主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將自己場上１張場域退場。如這樣做，此角色在本回合中，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "千石 撫子 〈千石 撫子〉"
+  },
+  {
+    "id": "EX18BT/MGS-2-013",
+    "name": "阿良良木 曆",
+    "rarity": "U",
+    "effect": "退場時  抽１張卡，然後將自己１張手牌放置到場外。自己回合中的情況下，從自己手牌選擇最多１張能源需求０的紫色〈阿良良木 曆〉，以休息狀態在自己前線登場。\n 抽１張卡。",
+    "effectHtml": "退場時  抽１張卡，然後將自己１張手牌放置到場外。自己回合中的情況下，從自己手牌選擇最多１張能源需求０的紫色〈阿良良木 曆〉，以休息狀態在自己前線登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿良良木 曆",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-013",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-014",
+    "name": "阿良良木 曆",
+    "rarity": "R",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n登場時  自己場上擁有〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉的情況下，抽１張卡。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>登場時  自己場上擁有〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿良良木 曆",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-014",
+    "source": "Rugia sync",
+    "variants": [
+      "R"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-015",
+    "name": "忍野忍",
+    "rarity": "SR★",
+    "effect": "主起動   只有在自己前線沒有［〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉、〈忍野 忍〉、〈阿良良木 曆〉］以外的角色，並且在此角色登場的回合才可以發動。從以下選擇最多『１項』。可將自己１張手牌放置到場外，如這樣做，改為『２項』。\n．從自己場外選擇１張〈阿良良木 曆〉加入手牌，然後將自己２張手牌放置到場外。\n．選擇自己場上１張〈阿良良木 曆〉，本回合中，給予「此角色不會被BP3000或以下的角色阻擋。」。\n．選擇對手前線１張BP1500或以上的角色，本回合中，BP-1000。\n 抽１張卡。",
+    "effectHtml": "主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己前線沒有［〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉、〈忍野 忍〉、〈阿良良木 曆〉］以外的角色，並且在此角色登場的回合才可以發動。從以下選擇最多『１項』。可將自己１張手牌放置到場外，如這樣做，改為『２項』。<br>．從自己場外選擇１張〈阿良良木 曆〉加入手牌，然後將自己２張手牌放置到場外。<br>．選擇自己場上１張〈阿良良木 曆〉，本回合中，給予「此角色不會被BP3000或以下的角色阻擋。」。<br>．選擇對手前線１張BP1500或以上的角色，本回合中，BP-1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "忍野忍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-015",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-020",
+    "name": "戰場原 黑儀",
+    "rarity": "U",
+    "effect": "主起動  在能源線的情況 休息 將此角色放置到自己牌庫上面，並且從自己場外選擇最多１張能源需求０的紫色〈羽川 翼〉，以休息狀態在自己場上登場。\n 抽１張卡。",
+    "effectHtml": "主起動  在能源線的情況 休息 將此角色放置到自己牌庫上面，並且從自己場外選擇最多１張能源需求０的紫色〈羽川 翼〉，以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "戰場原 黑儀",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-020",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-022",
+    "name": "羽川 翼",
+    "rarity": "SR★★",
+    "effect": "此角色被突襲時，指定１個能源需求數目。從自己牌庫上面公開１張卡。被公開的卡的能源需求數目，與此效果指定的數目相同的情況下，將該卡加入手牌。沒有加入手牌的情況下，將被公開的卡放置到牌庫上面。(以任意順序處理突襲角色的 登場時  效果及此效果)\n 抽１張卡。",
+    "effectHtml": "此角色被突襲時，指定１個能源需求數目。從自己牌庫上面公開１張卡。被公開的卡的能源需求數目，與此效果指定的數目相同的情況下，將該卡加入手牌。沒有加入手牌的情況下，將被公開的卡放置到牌庫上面。(以任意順序處理突襲角色的 登場時  效果及此效果)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "羽川 翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-022",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "EX18BT/MGS-2-041",
@@ -57762,7 +58576,7 @@
     "id": "UA15BT/SAO-1-083",
     "name": "莉茲貝特\n特徵：ALO",
     "rarity": "R",
-    "effect": "登場時  從自己場外選擇最多１張綠色［特徵：ALO］加入手牌。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "登場時  從自己場外選擇最多１張綠色的［特徵：ALO］加入手牌。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=SAO-1-083",
     "source": "Rugia sync",
     "variants": [
@@ -57772,7 +58586,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己場外選擇最多１張綠色［特徵：ALO］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己場外選擇最多１張綠色的［特徵：ALO］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "莉茲貝特<br>特徵：ALO"
   },
   {
@@ -62324,7 +63138,7 @@
     "id": "UA17ST/TRK-1-104",
     "name": "鐵平\n特徵：再生屋",
     "rarity": "R",
-    "effect": "登場時  從自己場外選擇最多１張藍色［特徵：食材］加入手牌。",
+    "effect": "登場時  從自己場外選擇最多１張藍色的［特徵：食材］加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TRK-1-104",
     "source": "Rugia sync",
     "variants": [
@@ -62333,7 +63147,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己場外選擇最多１張藍色［特徵：食材］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己場外選擇最多１張藍色的［特徵：食材］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "鐵平<br>特徵：再生屋"
   },
   {
@@ -74137,7 +74951,7 @@
     "id": "UA24BT/SHY-1-002",
     "name": "LADY．BLACK\n特徵：英雄",
     "rarity": "C",
-    "effect": "登場時  從自己場外選擇最多１張藍色［特徵：英雄］放置自己牌庫上面。",
+    "effect": "登場時  從自己場外選擇最多１張藍色的［特徵：英雄］放置自己牌庫上面。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=SHY-1-002",
     "source": "Rugia sync",
     "variants": [
@@ -74146,7 +74960,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己場外選擇最多１張藍色［特徵：英雄］放置自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己場外選擇最多１張藍色的［特徵：英雄］放置自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "LADY．BLACK<br>特徵：英雄"
   },
   {
@@ -75197,7 +76011,7 @@
     "id": "UA24BT/SHY-1-067",
     "name": "天帝\n特徵：英雄",
     "rarity": "C",
-    "effect": "登場時  從自己牌庫上面查看４張卡，從中選擇最多１張紅色［特徵：英雄］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。\n 抽１張卡。",
+    "effect": "登場時  從自己牌庫上面查看４張卡，從中選擇最多１張紅色的［特徵：英雄］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=SHY-1-067",
     "source": "Rugia sync",
     "variants": [
@@ -75206,7 +76020,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己牌庫上面查看４張卡，從中選擇最多１張紅色［特徵：英雄］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己牌庫上面查看４張卡，從中選擇最多１張紅色的［特徵：英雄］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "天帝<br>特徵：英雄"
   },
   {
@@ -84274,7 +85088,7 @@
     "id": "UA30BT/ARK-1-055",
     "name": "紅\n特徵：羅德島製藥",
     "rarity": "R",
-    "effect": "自己回合中  此角色從自己場上返回手牌時，本回合中，下次從手牌使用藍色〈紅〉的AP消耗-1，並且以激活狀態在場上登場。〈紅〉的此效果１回合只能發動１次。\n 對手回合中  此角色的BP-2500。\n 抽１張卡。",
+    "effect": "自己回合中  此角色從自己場上返回手牌時，本回合中，下次從手牌使用藍色的〈紅〉的AP消耗-1，並且以激活狀態在場上登場。〈紅〉的此效果１回合只能發動１次。\n 對手回合中  此角色的BP-2500。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=ARK-1-055",
     "source": "Rugia sync",
     "variants": [
@@ -84284,7 +85098,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "自己回合中  此角色從自己場上返回手牌時，本回合中，下次從手牌使用藍色〈紅〉的AP消耗-1，並且以激活狀態在場上登場。〈紅〉的此效果１回合只能發動１次。<br> 對手回合中  此角色的BP-2500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "自己回合中  此角色從自己場上返回手牌時，本回合中，下次從手牌使用藍色的〈紅〉的AP消耗-1，並且以激活狀態在場上登場。〈紅〉的此效果１回合只能發動１次。<br> 對手回合中  此角色的BP-2500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "紅<br>特徵：羅德島製藥"
   },
   {
@@ -86409,7 +87223,7 @@
     "id": "UA31BT/MMM-1-060",
     "name": "美樹 沙耶香\n特徵：魔法少女／魔法少女神聖五重奏",
     "rarity": "R",
-    "effect": "登場時  從自己場外選擇最多１張紫色［特徵：魔法少女］加入手牌。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "登場時  從自己場外選擇最多１張紫色的［特徵：魔法少女］加入手牌。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MMM-1-060",
     "source": "Rugia sync",
     "variants": [
@@ -86419,7 +87233,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己場外選擇最多１張紫色［特徵：魔法少女］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己場外選擇最多１張紫色的［特徵：魔法少女］加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "美樹 沙耶香<br>特徵：魔法少女／魔法少女神聖五重奏"
   },
   {
@@ -89701,7 +90515,7 @@
     "id": "UA33BT/NGR-1-049",
     "name": "弗洛索（花魁衣装）/牧野\n特徵：Cosplay",
     "rarity": "C",
-    "effect": "登場時  從以下選擇１項。\n．從自己手牌或自己場外選擇最多１張藍色〈荻野〉，以休息狀態在自己能源線登場。\n．選擇自己能源線最多１張〈荻野〉，本回合中，給予「此角色不會退場。」。\n 抽１張卡。",
+    "effect": "登場時  從以下選擇１項。\n．從自己手牌或自己場外選擇最多１張藍色的〈荻野〉，以休息狀態在自己能源線登場。\n．選擇自己能源線最多１張〈荻野〉，本回合中，給予「此角色不會退場。」。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=NGR-1-049",
     "source": "Rugia sync",
     "variants": [
@@ -89710,7 +90524,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從以下選擇１項。<br>．從自己手牌或自己場外選擇最多１張藍色〈荻野〉，以休息狀態在自己能源線登場。<br>．選擇自己能源線最多１張〈荻野〉，本回合中，給予「此角色不會退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從以下選擇１項。<br>．從自己手牌或自己場外選擇最多１張藍色的〈荻野〉，以休息狀態在自己能源線登場。<br>．選擇自己能源線最多１張〈荻野〉，本回合中，給予「此角色不會退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "弗洛索（花魁衣装）/牧野<br>特徵：Cosplay"
   },
   {
@@ -90918,7 +91732,7 @@
     "id": "UA34BT/CGD-1-036",
     "name": "我們是＂無名傭兵＂！",
     "rarity": "C",
-    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張黃色［特徵：無名傭兵］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張黃色的［特徵：無名傭兵］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=CGD-1-036",
     "source": "Rugia sync",
     "variants": [
@@ -90927,7 +91741,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張黃色［特徵：無名傭兵］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張黃色的［特徵：無名傭兵］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "我們是＂無名傭兵＂！"
   },
   {
@@ -94163,7 +94977,7 @@
     "id": "UA36BT/MCR-1-022",
     "name": "蘭花．李 〈蘭花．李〉",
     "rarity": "SR",
-    "effect": "(在自己的移動階段可從前線移動到能源線)\n自己回合中  此角色的BP+500。\n 主起動  在前線的情況 本回合中，下次從手牌使用黃色［特徵：歌（蘭花）］的AP消耗-1。〈蘭花．李〉的此效果１回合只能發動１次。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effect": "(在自己的移動階段可從前線移動到能源線)\n自己回合中  此角色的BP+500。\n 主起動  在前線的情況 本回合中，下次從手牌使用黃色的［特徵：歌（蘭花）］的AP消耗-1。〈蘭花．李〉的此效果１回合只能發動１次。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MCR-1-022",
     "source": "Rugia sync",
     "variants": [
@@ -94173,7 +94987,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_step.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (在自己的移動階段可從前線移動到能源線)<br>自己回合中  此角色的BP+500。<br> 主起動  在前線的情況 本回合中，下次從手牌使用黃色［特徵：歌（蘭花）］的AP消耗-1。〈蘭花．李〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_step.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (在自己的移動階段可從前線移動到能源線)<br>自己回合中  此角色的BP+500。<br> 主起動  在前線的情況 本回合中，下次從手牌使用黃色的［特徵：歌（蘭花）］的AP消耗-1。〈蘭花．李〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "蘭花．李 〈蘭花．李〉"
   },
   {
@@ -98903,7 +99717,7 @@
     "id": "UA38BT/WBK-1-025",
     "name": "蘇枋 隼飛\n特徵：防風鈴／多聞眾",
     "rarity": "C",
-    "effect": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張黃色［特徵：防風鈴］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。\n 抽１張卡。",
+    "effect": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張黃色的［特徵：防風鈴］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=WBK-1-025",
     "source": "Rugia sync",
     "variants": [
@@ -98916,7 +99730,7 @@
       "Bofurin / The Tamon Team"
     ],
     "trigger": "[Draw] Draw a card.",
-    "effectHtml": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張黃色［特徵：防風鈴］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己牌庫上面查看２張卡，從中選擇最多１張黃色的［特徵：防風鈴］放置到場外，將餘下的卡以任意順序放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "蘇枋 隼飛<br>特徵：防風鈴／多聞眾"
   },
   {
@@ -100031,7 +100845,7 @@
     "id": "UA38BT/WBK-1-079",
     "name": "街道巡邏",
     "rarity": "C",
-    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張綠色［特徵：防風鈴］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。\n 抽１張卡。",
+    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張綠色的［特徵：防風鈴］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=WBK-1-079",
     "source": "Rugia sync",
     "variants": [
@@ -100040,7 +100854,7 @@
     "ap": 1,
     "type": "事件",
     "trigger": "[Draw] Draw a card.",
-    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張綠色［特徵：防風鈴］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張綠色的［特徵：防風鈴］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "街道巡邏"
   },
   {
@@ -101714,7 +102528,7 @@
     "id": "UA39BT/KIN-1-074",
     "name": "牛丼",
     "rarity": "C",
-    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張紅色〈筋肉人〉公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "從自己牌庫上面查看６張卡，從中選擇最多１張紅色的〈筋肉人〉公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。抽１張卡。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=KIN-1-074",
     "source": "Rugia sync",
     "variants": [
@@ -101723,7 +102537,7 @@
     "ap": 1,
     "type": "事件",
     "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
-    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張紅色〈筋肉人〉公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "從自己牌庫上面查看６張卡，從中選擇最多１張紅色的〈筋肉人〉公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "牛丼"
   },
   {
@@ -101802,7 +102616,7 @@
     "id": "UA39BT/KIN-1-079",
     "name": "柏林紅雨",
     "rarity": "U",
-    "effect": "抽１張卡。自己前線擁有紅色〈布羅肯Jr.〉的情況下，選擇對手前線最多１張BP2500或以上的角色，本回合中，BP-2000。\n 主起動  在場外的情況 將１張手牌放置到場外 只有在自己前線擁有紅色〈布羅肯Jr.〉的情況下才可以發動。將場外的此卡加入手牌。〈柏林紅雨〉的此效果１回合只能發動１次。\n 抽１張卡。",
+    "effect": "抽１張卡。自己前線擁有紅色〈布羅肯Jr.〉的情況下，選擇對手前線最多１張BP2500或以上的角色，本回合中，BP-2000。\n 主起動  在場外的情況 將１張手牌放置到場外 只有在自己前線擁有紅色的〈布羅肯Jr.〉的情況下才可以發動。將場外的此卡加入手牌。〈柏林紅雨〉的此效果１回合只能發動１次。\n 抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=KIN-1-079",
     "source": "Rugia sync",
     "variants": [
@@ -101811,7 +102625,7 @@
     "ap": 1,
     "type": "事件",
     "trigger": "[Draw] Draw a card.",
-    "effectHtml": "抽１張卡。自己前線擁有紅色〈布羅肯Jr.〉的情況下，選擇對手前線最多１張BP2500或以上的角色，本回合中，BP-2000。<br> 主起動  在場外的情況 將１張手牌放置到場外 只有在自己前線擁有紅色〈布羅肯Jr.〉的情況下才可以發動。將場外的此卡加入手牌。〈柏林紅雨〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "抽１張卡。自己前線擁有紅色〈布羅肯Jr.〉的情況下，選擇對手前線最多１張BP2500或以上的角色，本回合中，BP-2000。<br> 主起動  在場外的情況 將１張手牌放置到場外 只有在自己前線擁有紅色的〈布羅肯Jr.〉的情況下才可以發動。將場外的此卡加入手牌。〈柏林紅雨〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "柏林紅雨"
   },
   {
@@ -112137,7 +112951,7 @@
     "id": "UA44BT/EVA-1-062",
     "name": "歡迎回來，碇真嗣君。我一直在等你",
     "rarity": "C",
-    "effect": "從自己場外選擇１張紫色〈碇 真嗣〉，以休息狀態在自己場上登場。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effect": "從自己場外選擇１張紫色的〈碇 真嗣〉，以休息狀態在自己場上登場。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=EVA-1-062",
     "source": "Rugia sync",
     "variants": [
@@ -112148,7 +112962,7 @@
     "ap": 1,
     "type": "事件",
     "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
-    "effectHtml": "從自己場外選擇１張紫色〈碇 真嗣〉，以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/warn_limited1.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "從自己場外選擇１張紫色的〈碇 真嗣〉，以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/warn_limited1.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "歡迎回來，碇真嗣君。我一直在等你"
   },
   {
@@ -132862,7 +133676,7 @@
     "id": "UA55BT/IMC-1-043",
     "name": "澀谷 凛\n特徵：Girls in the Frontier 〈澀谷 凛〉",
     "rarity": "SR",
-    "effect": "退場時  將此角色最多１張突襲源返回手牌。\n 攻擊時  可將自己場上１張角色放置到自己牌庫下面。如這樣做，從自己牌庫上面查看３張卡，將最多１張藍色［特徵：Girls in the Frontier］，以休息狀態在自己場上登場，將餘下的卡以任意順序放置到牌庫下面。然後可將自己１張手牌放置到場外。如這樣做，剛登場的角色被激活。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effect": "退場時  將此角色最多１張突襲源返回手牌。\n 攻擊時  可將自己場上１張角色放置到自己牌庫下面。如這樣做，從自己牌庫上面查看３張卡，將最多１張藍色的［特徵：Girls in the Frontier］，以休息狀態在自己場上登場，將餘下的卡以任意順序放置到牌庫下面。然後可將自己１張手牌放置到場外。如這樣做，剛登場的角色被激活。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=IMC-1-043",
     "source": "Rugia sync",
     "variants": [
@@ -132879,7 +133693,7 @@
       "Girls in the Frontier"
     ],
     "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
-    "effectHtml": "退場時  將此角色最多１張突襲源返回手牌。<br> 攻擊時  可將自己場上１張角色放置到自己牌庫下面。如這樣做，從自己牌庫上面查看３張卡，將最多１張藍色［特徵：Girls in the Frontier］，以休息狀態在自己場上登場，將餘下的卡以任意順序放置到牌庫下面。然後可將自己１張手牌放置到場外。如這樣做，剛登場的角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "退場時  將此角色最多１張突襲源返回手牌。<br> 攻擊時  可將自己場上１張角色放置到自己牌庫下面。如這樣做，從自己牌庫上面查看３張卡，將最多１張藍色的［特徵：Girls in the Frontier］，以休息狀態在自己場上登場，將餘下的卡以任意順序放置到牌庫下面。然後可將自己１張手牌放置到場外。如這樣做，剛登場的角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "澀谷 凛<br>特徵：Girls in the Frontier 〈澀谷 凛〉"
   },
   {
@@ -135860,7 +136674,7 @@
     "id": "UA56BT/TTG-1-056",
     "name": "施蒙\n特徵：大紅蓮團\n只有在自己場上擁有〈妮亞〉，並且自己牌庫是20張卡或以下的情況下，此角色才可以攻擊。",
     "rarity": "SR",
-    "effect": "此角色攻擊結束時，可從自己手牌選擇１張紅色［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。\n 登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 將此卡加入手牌。",
+    "effect": "此角色攻擊結束時，可從自己手牌選擇１張紅色的［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。\n 登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 將此卡加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-056",
     "source": "Rugia sync",
     "variants": [
@@ -135877,7 +136691,7 @@
       "Team Dai-Gurren"
     ],
     "trigger": "[Get] Add this card to your hand.",
-    "effectHtml": "此角色攻擊結束時，可從自己手牌選擇１張紅色［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。<br> 登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "此角色攻擊結束時，可從自己手牌選擇１張紅色的［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。<br> 登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "施蒙<br>特徵：大紅蓮團<br>只有在自己場上擁有〈妮亞〉，並且自己牌庫是20張卡或以下的情況下，此角色才可以攻擊。"
   },
   {
@@ -136842,7 +137656,7 @@
     "id": "UA57BT/STG-1-016",
     "name": "椎名 真由理",
     "rarity": "R",
-    "effect": "登場時  從自己牌庫上面查看『２』張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。此角色是用效果登場的情況下，改為『３』張。",
+    "effect": "登場時  從自己牌庫上面查看『２』張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。此角色是用角色效果登場的情況下，改為『３』張。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-016",
     "source": "Rugia sync",
     "variants": [
@@ -136852,7 +137666,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己牌庫上面查看『２』張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。此角色是用效果登場的情況下，改為『３』張。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己牌庫上面查看『２』張卡，然後將任意張數以任意順序放置到牌庫上面，將餘下的卡放置到場外。此角色是用角色效果登場的情況下，改為『３』張。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "椎名 真由理",
     "energyColor": "Blue",
     "energy": 2,
@@ -137490,7 +138304,7 @@
     "id": "UA57BT/STG-1-046",
     "name": "阿萬音 鈴羽",
     "rarity": "SR",
-    "effect": "此角色的攻擊結束時，自己前線有空位的情況下，可將自己１張手牌放置到場外。如這樣做，此角色被激活，並且選擇自己場上最多１張角色，本回合中，BP+1000。\n在能源線的情況 自己角色的攻擊結束時，自己前線有空位的情況下，可將此角色移動到前線。\n 登場時  抽１張卡。此角色被激活。\n 將此卡加入手牌。",
+    "effect": "此角色攻擊結束時，自己前線有空位的情況下，可將自己１張手牌放置到場外。如這樣做，此角色被激活，並且選擇自己場上最多１張角色，本回合中，BP+1000。\n在能源線的情況 自己角色的攻擊結束時，自己前線有空位的情況下，可將此角色移動到前線。\n 登場時  抽１張卡。此角色被激活。\n 將此卡加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-046",
     "source": "Rugia sync",
     "variants": [
@@ -137500,7 +138314,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "此角色的攻擊結束時，自己前線有空位的情況下，可將自己１張手牌放置到場外。如這樣做，此角色被激活，並且選擇自己場上最多１張角色，本回合中，BP+1000。<br>在能源線的情況 自己角色的攻擊結束時，自己前線有空位的情況下，可將此角色移動到前線。<br> 登場時  抽１張卡。此角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "此角色攻擊結束時，自己前線有空位的情況下，可將自己１張手牌放置到場外。如這樣做，此角色被激活，並且選擇自己場上最多１張角色，本回合中，BP+1000。<br>在能源線的情況 自己角色的攻擊結束時，自己前線有空位的情況下，可將此角色移動到前線。<br> 登場時  抽１張卡。此角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "阿萬音 鈴羽",
     "energyColor": "Green",
     "energy": 4,
@@ -138376,6 +139190,22 @@
     "nameHtml": "亞連．沃克<br>特徵：黑色教團"
   },
   {
+    "id": "UA58BT/DGM-1-008",
+    "name": "亞連．沃克\n特徵：黑色教團",
+    "rarity": "R★",
+    "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n此角色被突襲時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP4000或以上的角色，本回合中，BP-500。(以任意順序處理突襲角色的 登場時  效果及此效果)\n 選擇對手前線１張BP3500或以下的角色返回手牌。",
+    "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_blue2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br>此角色被突襲時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP4000或以上的角色，本回合中，BP-500。(以任意順序處理突襲角色的 登場時  效果及此效果)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP3500或以下的角色返回手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "亞連．沃克<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-008",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "UA58BT/DGM-1-009",
     "name": "亞連．沃克\n特徵：黑色教團 〈亞連．沃克〉\n在前線的情況 〈亞連．沃克〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。",
     "rarity": "SR",
@@ -138438,6 +139268,70 @@
     ],
     "effectHtml": "登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "拉比<br>特徵：黑色教團"
+  },
+  {
+    "id": "UA58BT/DGM-1-027",
+    "name": "拉比\n特徵：黑色教團",
+    "rarity": "SR",
+    "effect": "登場時  從自己手牌選擇最多１張能源需求２或以下及AP消耗１的藍色［特徵：黑色教團］，以激活狀態在自己場上登場。沒有登場的情況下，此角色被激活。\n 攻擊時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，此角色在本回合中，BP+500，並且從自己牌庫上面公開１張卡。該卡是［特徵：黑色教團］的情況下，可加入手牌。沒有加入手牌的情況下，放置到牌庫上面或下面。\n 將此卡加入手牌。",
+    "effectHtml": "登場時  從自己手牌選擇最多１張能源需求２或以下及AP消耗１的藍色［特徵：黑色教團］，以激活狀態在自己場上登場。沒有登場的情況下，此角色被激活。<br> 攻擊時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，此角色在本回合中，BP+500，並且從自己牌庫上面公開１張卡。該卡是［特徵：黑色教團］的情況下，可加入手牌。沒有加入手牌的情況下，放置到牌庫上面或下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "拉比<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-027",
+    "source": "Rugia sync",
+    "variants": [
+      "SR"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-029",
+    "name": "利娜莉．李\n特徵：黑色教團",
+    "rarity": "C★",
+    "effect": "選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "利娜莉．李<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-029",
+    "source": "Rugia sync",
+    "variants": [
+      "C★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-032",
+    "name": "利娜莉．李\n特徵：黑色教團 〈利娜莉．李〉",
+    "rarity": "SR",
+    "effect": "自己回合中  此角色的BP+1000。\n 此角色的攻擊沒有被阻擋時，抽１張卡。\n 此角色攻擊結束時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，可將自己前線１張激活狀態的角色休息。如這樣做，此角色被激活，並且此角色在本回合中，獲得「此角色不會被BP4000或以上的角色阻擋。」。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "自己回合中  此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色的攻擊沒有被阻擋時，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色攻擊結束時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，可將自己前線１張激活狀態的角色休息。如這樣做，此角色被激活，並且此角色在本回合中，獲得「此角色不會被BP4000或以上的角色阻擋。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "利娜莉．李<br>特徵：黑色教團 〈利娜莉．李〉",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-032",
+    "source": "Rugia sync",
+    "variants": [
+      "SR"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-037",
+    "name": "神之道化",
+    "rarity": "U",
+    "effect": "從以下選擇１項。\n．自己場上擁有〈亞連．沃克〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。\n．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。\n 選擇對手前線１張角色退場。",
+    "effectHtml": "從以下選擇１項。<br>．自己場上擁有〈亞連．沃克〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。<br>．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "神之道化",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-037",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "UA58BT/DGM-1-AP02",
@@ -143029,7 +143923,7 @@
     "id": "UAPR/SHY-1-002",
     "name": "LADY．BLACK\n特徵：英雄",
     "rarity": "C",
-    "effect": "登場時  從自己場外選擇最多１張藍色［特徵：英雄］放置自己牌庫上面。",
+    "effect": "登場時  從自己場外選擇最多１張藍色的［特徵：英雄］放置自己牌庫上面。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=SHY-1-002",
     "source": "Rugia sync",
     "variants": [
@@ -143038,7 +143932,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己場外選擇最多１張藍色［特徵：英雄］放置自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "登場時  從自己場外選擇最多１張藍色的［特徵：英雄］放置自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "LADY．BLACK<br>特徵：英雄"
   },
   {
@@ -143851,7 +144745,7 @@
     "id": "UAPR/TTG-1-056",
     "name": "施蒙\n特徵：大紅蓮團\n只有在自己場上擁有〈妮亞〉，並且自己牌庫是20張卡或以下的情況下，此角色才可以攻擊。",
     "rarity": "UR",
-    "effect": "此角色攻擊結束時，可從自己手牌選擇１張紅色［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。\n 登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 將此卡加入手牌。",
+    "effect": "此角色攻擊結束時，可從自己手牌選擇１張紅色的［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。\n 登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 將此卡加入手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=TTG-1-056",
     "source": "Rugia sync",
     "variants": [
@@ -143860,7 +144754,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "此角色攻擊結束時，可從自己手牌選擇１張紅色［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。<br> 登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effectHtml": "此角色攻擊結束時，可從自己手牌選擇１張紅色的［〈螺巖〉或〈紅蓮螺巖〉］疊在此角色上面進行突襲。如這樣做，突襲後的角色在本回合中，BP+1000。不能用此效果突襲與「已經在本回合中突襲過的角色」相同卡名的卡。<br> 登場時  抽１張卡，然後將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "施蒙<br>特徵：大紅蓮團<br>只有在自己場上擁有〈妮亞〉，並且自己牌庫是20張卡或以下的情況下，此角色才可以攻擊。"
   },
   {
