@@ -23530,7 +23530,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-002",
@@ -23546,7 +23550,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
   },
   {
     "id": "EX17BT/REZ-2-003",
@@ -23562,7 +23571,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-004",
@@ -23578,7 +23593,10 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-005",
@@ -23595,7 +23613,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-006",
@@ -23613,7 +23636,11 @@
       "▼"
     ],
     "effectHtml": "登場時  選擇對手前線最多１張BP1500或以上的角色，本回合中，BP-1000。<br> 攻擊時  對手前線擁有BP比原BP低的角色的情況下，從以下選擇１項。<br>．抽１張卡。<br>．此角色在本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "拉姆"
+    "nameHtml": "拉姆",
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色"
   },
   {
     "id": "EX17BT/REZ-2-007",
@@ -23629,7 +23656,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
   },
   {
     "id": "EX17BT/REZ-2-008",
@@ -23646,7 +23678,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000
   },
   {
     "id": "EX17BT/REZ-2-009",
@@ -23663,7 +23700,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-010",
@@ -23680,7 +23723,13 @@
       "▼"
     ],
     "effectHtml": "登場時  自己場上全部角色都是〈雷姆〉的情況下，可將自己場上１張能源需求３或以下的角色返回手牌。如這樣做，本回合中，下次從手牌使用沒有 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_raid.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 的〈雷姆〉的AP消耗-1。〈雷姆〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "雷姆"
+    "nameHtml": "雷姆",
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-011",
@@ -23697,8 +23746,14 @@
       "SR★★★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Yellow",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-012",
@@ -23714,7 +23769,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Yellow",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-013",
@@ -23730,7 +23790,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-014",
@@ -23746,7 +23812,11 @@
       "▼"
     ],
     "effectHtml": "選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "菜月昴"
+    "nameHtml": "菜月昴",
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-015",
@@ -23762,7 +23832,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-016",
@@ -23779,7 +23855,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Blue",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-017",
@@ -23795,7 +23877,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-018",
@@ -23813,7 +23899,12 @@
       "▼"
     ],
     "effectHtml": "登場時  從以下選擇１項。不能選擇已經在本回合中被〈雷姆〉選擇過的效果。<br>．從自己場外選擇最多１張能源需求０的藍色〈菜月昴〉，以休息狀態在自己場上登場。該角色在本回合中，給予「主階段結束時，將此角色退場。」。<br>．選擇自己場上最多１張能源需求０的藍色〈菜月昴〉，本回合中，給予「 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色進行攻擊並戰敗時，此角色被激活。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "雷姆"
+    "nameHtml": "雷姆",
+    "energyColor": "Blue",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000
   },
   {
     "id": "EX17BT/REZ-2-019",
@@ -23828,8 +23919,14 @@
       "U"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-020",
@@ -23845,8 +23942,12 @@
       "R★★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-021",
@@ -23863,7 +23964,12 @@
       "▼"
     ],
     "effectHtml": "此卡只有在自己場上擁有〈菜月昴〉及〈雷姆〉的情況下才可以使用。<br>選擇對手前線１張BP5000或以下的角色退場。自己前線擁有突襲狀態的〈雷姆〉的情況下，選擇自己場上最多１張能源需求０的〈菜月昴〉，本回合中，BP+1500。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "菜月昴的陪伴者，雷姆"
+    "nameHtml": "菜月昴的陪伴者，雷姆",
+    "energyColor": "Blue",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[SPECIAL] Choose one character on your opponent's front line and sideline it."
   },
   {
     "id": "EX17BT/REZ-2-022",
@@ -23879,7 +23985,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-023",
@@ -23895,7 +24005,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Purple",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-024",
@@ -23912,7 +24028,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Purple",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-025",
@@ -23930,7 +24051,12 @@
       "▼"
     ],
     "effectHtml": "登場時  自己在本回合中，獲得「對手用效果選擇自己場上的〈菜月昴〉的時候，若不追加將他自己１張手牌放置到場外，便不能選擇。」。從以下選擇１項。<br>．自己場上擁有〈菜月昴〉的情況下，抽１張卡。<br>．本回合的攻擊階段開始時，自己１張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "碧翠絲"
+    "nameHtml": "碧翠絲",
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
   },
   {
     "id": "EX17BT/REZ-2-026",
@@ -23946,7 +24072,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-027",
@@ -23961,8 +24091,11 @@
       "U"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
   },
   {
     "id": "EX17BT/REZ-2-028",
@@ -23978,8 +24111,13 @@
       "R★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Purple",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
   },
   {
     "id": "EX17BT/REZ-2-029",
@@ -23994,8 +24132,12 @@
       "C"
     ],
     "traits": [
-      "▼"
-    ]
+      "Witch"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-030",
@@ -24012,8 +24154,14 @@
       "SR★★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Witch"
+    ],
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-031",
@@ -24029,7 +24177,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Purple",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-032",
@@ -24045,7 +24198,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-033",
@@ -24062,7 +24220,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
   },
   {
     "id": "EX17BT/REZ-2-034",
@@ -24078,7 +24241,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-035",
@@ -24095,7 +24264,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-036",
@@ -24111,7 +24286,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-037",
@@ -24127,7 +24308,10 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 500
   },
   {
     "id": "EX17BT/REZ-2-038",
@@ -24143,7 +24327,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3500,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-039",
@@ -24160,7 +24350,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 2,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[COLOR] Play one green character card with 2 or less required energy and 1 AP cost from your hand set to active onto your field."
   },
   {
     "id": "EX17BT/REZ-2-040",
@@ -24176,7 +24372,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 3500,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-041",
@@ -24192,7 +24394,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-042",
@@ -24208,7 +24416,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
   },
   {
     "id": "EX17BT/REZ-2-043",
@@ -24225,7 +24438,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-044",
@@ -24242,7 +24460,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-045",
@@ -24258,7 +24481,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-046",
@@ -24274,7 +24501,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "bp": 4000,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-047",
@@ -24291,7 +24524,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 8,
+    "ap": 1,
+    "type": "角色",
+    "bp": 5000,
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-048",
@@ -24307,7 +24546,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500
   },
   {
     "id": "EX17BT/REZ-2-049",
@@ -24323,7 +24567,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-050",
@@ -24339,7 +24588,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000
   },
   {
     "id": "EX17BT/REZ-2-051",
@@ -24355,7 +24609,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 2,
+    "ap": 1,
+    "type": "角色",
+    "bp": 500
   },
   {
     "id": "EX17BT/REZ-2-052",
@@ -24371,7 +24630,10 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000
   },
   {
     "id": "EX17BT/REZ-2-053",
@@ -24387,7 +24649,13 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-054",
@@ -24403,8 +24671,14 @@
       "R★★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-055",
@@ -24419,8 +24693,12 @@
       "C"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-056",
@@ -24435,8 +24713,13 @@
       "U"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500
   },
   {
     "id": "EX17BT/REZ-2-057",
@@ -24451,8 +24734,14 @@
       "R"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "bp": 2500,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-058",
@@ -24467,10 +24756,15 @@
       "SR★★"
     ],
     "traits": [
-      "▼"
+      "Royal Candidate"
     ],
     "effectHtml": "此角色攻擊結束時，可將自己前線１張原BP2500，並且是激活狀態的角色休息。如這樣做，此角色被激活。<br> 登場時  此角色在本回合中，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_2timesattack.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 及「此角色不會被對手的效果選擇。」。<br> 攻擊時  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色在本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者 〈愛蜜莉雅〉"
+    "nameHtml": "愛蜜莉雅<br>特徵：王選候補者 〈愛蜜莉雅〉",
+    "energyColor": "Green",
+    "energy": 6,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it."
   },
   {
     "id": "EX17BT/REZ-2-059",
@@ -24485,8 +24779,12 @@
       "C"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1000,
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-060",
@@ -24501,8 +24799,11 @@
       "C"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-061",
@@ -24517,8 +24818,13 @@
       "U"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-062",
@@ -24534,8 +24840,13 @@
       "SR★★"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it."
   },
   {
     "id": "EX17BT/REZ-2-063",
@@ -24550,8 +24861,12 @@
       "C"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[Get] Add this card to your hand."
   },
   {
     "id": "EX17BT/REZ-2-064",
@@ -24566,8 +24881,14 @@
       "U"
     ],
     "traits": [
-      "▼"
-    ]
+      "Royal Candidate"
+    ],
+    "energyColor": "Green",
+    "energy": 1,
+    "ap": 1,
+    "type": "角色",
+    "bp": 1500,
+    "trigger": "[COLOR] Play one green character card with 2 or less required energy and 1 AP cost from your hand set to active onto your field."
   },
   {
     "id": "EX17BT/REZ-2-065",
@@ -24581,10 +24902,15 @@
       "SR★★"
     ],
     "traits": [
-      "▼"
+      "Royal Candidate"
     ],
     "effectHtml": "自己回合中  此角色的BP+1000。<br> 主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 根據自己場上BP比原BP高的角色張數，此角色在本回合中，獲得以下全部效果。<br>．３張或以上： <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_damage2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>．５張或以上： <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br> 攻擊時  抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "普莉希拉．跋利耶爾<br>特徵：王選候補者 〈普莉希拉．跋利耶爾〉"
+    "nameHtml": "普莉希拉．跋利耶爾<br>特徵：王選候補者 〈普莉希拉．跋利耶爾〉",
+    "energyColor": "Green",
+    "energy": 5,
+    "ap": 1,
+    "type": "角色",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it."
   },
   {
     "id": "EX17BT/REZ-2-066",
@@ -24600,7 +24926,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "場域",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn."
   },
   {
     "id": "EX17BT/REZ-2-067",
@@ -24617,7 +24948,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[FINAL] If you have 0 life, place the top card of your deck into your life area."
   },
   {
     "id": "EX17BT/REZ-2-068",
@@ -24633,7 +24969,11 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件"
   },
   {
     "id": "EX17BT/REZ-2-069",
@@ -24649,7 +24989,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[SPECIAL] Choose one character on your opponent's front line and sideline it."
   },
   {
     "id": "EX17BT/REZ-2-070",
@@ -24665,7 +25010,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[Draw] Draw a card."
   },
   {
     "id": "EX17BT/REZ-2-071",
@@ -24682,7 +25032,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 3,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[FINAL] If you have 0 life, place the top card of your deck into your life area."
   },
   {
     "id": "EX17BT/REZ-2-072",
@@ -24698,7 +25053,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 4,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[SPECIAL] Choose one character on your opponent's front line and sideline it."
   },
   {
     "id": "EX17BT/REZ-2-073",
@@ -24714,7 +25074,12 @@
     ],
     "traits": [
       "▼"
-    ]
+    ],
+    "energyColor": "Green",
+    "energy": 6,
+    "ap": 1,
+    "type": "事件",
+    "trigger": "[SPECIAL] Choose one character on your opponent's front line and sideline it."
   },
   {
     "id": "EX17BT/REZ-2-AP01",
@@ -24724,7 +25089,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP02",
@@ -24734,7 +25100,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP03",
@@ -24744,7 +25111,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP04",
@@ -24754,7 +25122,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP05",
@@ -24764,7 +25133,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP06",
@@ -24774,7 +25144,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP07",
@@ -24784,7 +25155,8 @@
     "source": "Rugia sync",
     "traits": [
       "▼"
-    ]
+    ],
+    "type": "AP"
   },
   {
     "id": "EX17BT/REZ-2-AP08",
@@ -24792,6 +25164,39 @@
     "nameHtml": "入手方法：<br>Re:ゼロから始める異世界生活 Vol.2【EX17BT】",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=REZ-2-AP08",
     "source": "Rugia sync",
+    "traits": [
+      "▼"
+    ],
+    "type": "AP"
+  },
+  {
+    "id": "EX18BT/MGS-2-003",
+    "name": "千石 撫子",
+    "rarity": "C",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n自己回合中  自己場上或場外擁有〈御神體〉的情況下，此角色的BP+1000。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>自己回合中  自己場上或場外擁有〈御神體〉的情況下，此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "千石 撫子",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-003",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-004",
+    "name": "千石 撫子",
+    "rarity": "R★",
+    "effect": "(在自己的移動階段可從前線移動到能源線)\n自己回合中  本回合中，自己有〈蛇切繩〉退場的情況下，此角色的BP+1000。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_step.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (在自己的移動階段可從前線移動到能源線)<br>自己回合中  本回合中，自己有〈蛇切繩〉退場的情況下，此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "千石 撫子",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-004",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
     "traits": [
       "▼"
     ]
@@ -24811,6 +25216,86 @@
     ],
     "effectHtml": "此角色離開場上時，從自己場外選擇最多１張能源需求２或以下的黃色〈千石 撫子〉，以休息狀態在自己場上登場。<br> 登場時  抽１張卡。從自己場外選擇最多１張黃色場域卡，以休息狀態在自己能源線登場。<br> 主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將自己場上１張場域退場。如這樣做，此角色在本回合中，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "千石 撫子 〈千石 撫子〉"
+  },
+  {
+    "id": "EX18BT/MGS-2-007",
+    "name": "阿良良木 火憐\n特徵：火焰姐妹",
+    "rarity": "U★",
+    "effect": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。\n 抽１張卡。",
+    "effectHtml": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿良良木 火憐<br>特徵：火焰姐妹",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-007",
+    "source": "Rugia sync",
+    "variants": [
+      "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-008",
+    "name": "阿良良木 火憐\n特徵：火焰姐妹",
+    "rarity": "SR★★",
+    "effect": "攻擊時  選擇自己場上最多１張其他［特徵：火焰姐妹］，本回合中，BP+1000。本回合中，自己場上有其他角色戰敗的情況下，此角色在本回合中，BP+1000。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "攻擊時  選擇自己場上最多１張其他［特徵：火焰姐妹］，本回合中，BP+1000。本回合中，自己場上有其他角色戰敗的情況下，此角色在本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿良良木 火憐<br>特徵：火焰姐妹",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-008",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-010",
+    "name": "阿良良木 月火\n特徵：火焰姐妹 在能源線的情況下 自己攻擊階段結束時，可將此角色移動到前線。",
+    "rarity": "U★",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)",
+    "nameHtml": "阿良良木 月火<br>特徵：火焰姐妹 在能源線的情況下 自己攻擊階段結束時，可將此角色移動到前線。",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-010",
+    "source": "Rugia sync",
+    "variants": [
+      "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-011",
+    "name": "阿良良木 月火\n特徵：火焰姐妹",
+    "rarity": "SR★★",
+    "effect": "此角色進行攻擊而被阻擋時，抽１張卡。  〈阿良良木 月火〉\n此角色進行攻擊而沒有被阻擋時，選擇對手前線最多１張角色休息。\n 退場時  將此卡以休息狀態在自己場上登場。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "此角色進行攻擊而被阻擋時，抽１張卡。 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_raid.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 〈阿良良木 月火〉<br>此角色進行攻擊而沒有被阻擋時，選擇對手前線最多１張角色休息。<br> 退場時  將此卡以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿良良木 月火<br>特徵：火焰姐妹",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-011",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-012",
+    "name": "御神體",
+    "rarity": "C",
+    "effect": "登場時  抽１張卡，然後將自己１張手牌放置到場外。\n 退場時  自己回合中的情況下，從以下選擇１項。\n．本回合中，下次從手牌使用原能源需求８或以上的〈千石 撫子〉的能源需求滅少  。\n．選擇最多１張能源需求８或以上的〈千石 撫子〉，本回合中，給予  (可指定對手前線的角色進行攻擊，該情況下不能被阻擋)。\n 將此卡加入手牌。",
+    "effectHtml": "登場時  抽１張卡，然後將自己１張手牌放置到場外。<br> 退場時  自己回合中的情況下，從以下選擇１項。<br>．本回合中，下次從手牌使用原能源需求８或以上的〈千石 撫子〉的能源需求滅少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_yellow3.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br>．選擇最多１張能源需求８或以上的〈千石 撫子〉，本回合中，給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_snipe.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (可指定對手前線的角色進行攻擊，該情況下不能被阻擋)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "御神體",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-012",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "EX18BT/MGS-2-013",
@@ -24861,6 +25346,22 @@
     ]
   },
   {
+    "id": "EX18BT/MGS-2-019",
+    "name": "戰場原 黑儀",
+    "rarity": "U",
+    "effect": "登場時  『抽１張卡，然後將自己１張手牌放置到場外』。本回合中，自己有用〈羽川 翼〉的效果將自己牌庫的卡加入手牌的情況下，改為『抽１張卡』。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  『抽１張卡，然後將自己１張手牌放置到場外』。本回合中，自己有用〈羽川 翼〉的效果將自己牌庫的卡加入手牌的情況下，改為『抽１張卡』。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "戰場原 黑儀",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-019",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX18BT/MGS-2-020",
     "name": "戰場原 黑儀",
     "rarity": "U",
@@ -24877,6 +25378,22 @@
     ]
   },
   {
+    "id": "EX18BT/MGS-2-021",
+    "name": "羽川 翼",
+    "rarity": "U★",
+    "effect": "登場時  從自己牌庫上面查看『１張』卡，將最多１張卡放置到牌庫上面，將餘下的卡以任意順序放置到下面。自己場上每有２張〈羽川 翼〉，此效果查看牌庫的張數+1。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  從自己牌庫上面查看『１張』卡，將最多１張卡放置到牌庫上面，將餘下的卡以任意順序放置到下面。自己場上每有２張〈羽川 翼〉，此效果查看牌庫的張數+1。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "羽川 翼",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-021",
+    "source": "Rugia sync",
+    "variants": [
+      "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX18BT/MGS-2-022",
     "name": "羽川 翼",
     "rarity": "SR★★",
@@ -24887,6 +25404,38 @@
     "source": "Rugia sync",
     "variants": [
       "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-023",
+    "name": "黑羽川（羽川 翼）",
+    "rarity": "R★",
+    "effect": "此卡也被視為〈羽川 翼〉。\n 〈羽川 翼〉\n此角色攻擊結束時，可將自己１張手牌放置到場外。如這樣做，可將此角色最上面的卡，疊在自己前線１張在本回合中沒有攻擊過，並且沒有  的〈羽川 翼〉上面進行突襲。〈黑羽川〉的此效果１回合只能發動１次。\n 登場時  選擇對手前線最多１張角色，本回合中，BP-1000。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "此卡也被視為〈羽川 翼〉。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_raid.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 〈羽川 翼〉<br>此角色攻擊結束時，可將自己１張手牌放置到場外。如這樣做，可將此角色最上面的卡，疊在自己前線１張在本回合中沒有攻擊過，並且沒有 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_raid.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 的〈羽川 翼〉上面進行突襲。〈黑羽川〉的此效果１回合只能發動１次。<br> 登場時  選擇對手前線最多１張角色，本回合中，BP-1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "黑羽川（羽川 翼）",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-023",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-024",
+    "name": "給主人的最後一次服侍喵",
+    "rarity": "C",
+    "effect": "抽３張卡。本回合中，自己的AP卡不會因效果而被激活。\n 主起動  在場外的情況 只有在自己前線沒有〈羽川 翼〉以外的角色，並且自己移除區沒有〈黑羽川〉的情況下才可以發動。將自己場外１張〈黑羽川〉放置到移除區。如這樣做，將此卡加入手牌。\n 抽１張卡。",
+    "effectHtml": "抽３張卡。本回合中，自己的AP卡不會因效果而被激活。<br> 主起動  在場外的情況 只有在自己前線沒有〈羽川 翼〉以外的角色，並且自己移除區沒有〈黑羽川〉的情況下才可以發動。將自己場外１張〈黑羽川〉放置到移除區。如這樣做，將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "給主人的最後一次服侍喵",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-024",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
     ],
     "traits": [
       "▼"
@@ -24925,6 +25474,22 @@
     "nameHtml": "忍野忍"
   },
   {
+    "id": "EX18BT/MGS-2-043",
+    "name": "斧乃木 余接",
+    "rarity": "C",
+    "effect": "登場時  選擇自己場上最多３張能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求３的角色的情況下，選擇自己場上最多１張能源需求３或以下的角色，本回合中，給予  (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。\n 抽１張卡。",
+    "effectHtml": "登場時  選擇自己場上最多３張能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求３的角色的情況下，選擇自己場上最多１張能源需求３或以下的角色，本回合中，給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "斧乃木 余接",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-043",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX18BT/MGS-2-046",
     "name": "斧乃木 余接",
     "rarity": "R★",
@@ -24939,6 +25504,22 @@
     ],
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_step.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (在自己的移動階段可從前線移動到能源線)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>主起動  在能源線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己前線擁有能源需求１的角色及能源需求３的角色的情況下才可以發動。將此角色移動到前線，並且此角色在本回合中，BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "斧乃木 余接"
+  },
+  {
+    "id": "EX18BT/MGS-2-047",
+    "name": "斧乃木 余接",
+    "rarity": "SR★★",
+    "effect": "自己回合中  自己前線擁有能源需求１的角色及能源需求３的角色的情況下，此角色的BP+1000。\n 登場時  此角色是用自己的效果登場的情況下，抽１張卡。\n 從自己手牌選擇１張能源需求２或以下及AP消耗１的綠色角色卡，以激活狀態在自己場上登場。",
+    "effectHtml": "自己回合中  自己前線擁有能源需求１的角色及能源需求３的角色的情況下，此角色的BP+1000。<br> 登場時  此角色是用自己的效果登場的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 從自己手牌選擇１張能源需求２或以下及AP消耗１的綠色角色卡，以激活狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "斧乃木 余接",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-047",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "EX18BT/MGS-2-053",
@@ -24957,6 +25538,22 @@
     "nameHtml": "八九寺 真宵 〈八九寺 真宵〉"
   },
   {
+    "id": "EX18BT/MGS-2-054",
+    "name": "八九寺 真宵",
+    "rarity": "SR★★",
+    "effect": "登場時  自己前線擁有能源需求１的角色及能源需求２的角色的情況下，此角色被激活。〈八九寺 真宵〉的此效果１回合只能發動１次。\n 攻擊時  選擇自己場上最多『１張』能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求２的角色的情況下，可將自己１張手牌放置到場外。如這樣做，改為『３張』。\n 將此卡加入手牌。",
+    "effectHtml": "登場時  自己前線擁有能源需求１的角色及能源需求２的角色的情況下，此角色被激活。〈八九寺 真宵〉的此效果１回合只能發動１次。<br> 攻擊時  選擇自己場上最多『１張』能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求２的角色的情況下，可將自己１張手牌放置到場外。如這樣做，改為『３張』。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "八九寺 真宵",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-054",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "EX18BT/MGS-2-067",
     "name": "戰場原 黑儀",
     "rarity": "SR★★",
@@ -24969,8 +25566,56 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "自己場外擁有９張卡或以下的情況下，自己場上及突襲源的此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_red3.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 登場時  從自己牌庫上面查看３張卡，將最多１張角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。此卡的能源需求是１或以上的情況下，從以下選擇最多１項。<br>．選擇自己場上１張角色，本回合中，BP+1000。<br>．選擇自己場上１張〈戰場原 黑儀〉以外的角色，自己下回合開始為止，給予「此角色不會被對手的效果選擇。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。",
+    "effectHtml": "自己場外擁有９張卡或以下的情況下，自己場上及突襲源的此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_red3.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 登場時  從自己牌庫上面查看３張卡，將最多１張角色卡公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有加入手牌的情況下，將自己１張手牌放置到場外。此卡的能源需求是１或以上的情況下，從以下選擇最多１項。<br>．選擇自己場上１張角色，本回合中，BP+1000。<br>．選擇自己場上１張〈戰場原 黑儀〉以外的角色，自己下回合開始為止，給予「此角色不會被對手的效果選擇。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "戰場原 黑儀"
+  },
+  {
+    "id": "EX18BT/MGS-2-069",
+    "name": "八九寺 真宵",
+    "rarity": "C",
+    "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或移除區。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_red2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或移除區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "八九寺 真宵",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-069",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-071",
+    "name": "八九寺 真宵",
+    "rarity": "R★",
+    "effect": "主起動  在前線的情況  只有在此角色是激活狀態的情況下才可以發動。將自己１張手牌放置到移除區。如這樣做，從以下選擇１項。\n．抽１張卡。\n．此角色在本回合中，BP+1000。\n．本回合中，下次自己以「指定BP範圍的效果」選擇對手場上角色的時候，可指定的BP範圍+1000。",
+    "effectHtml": "主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在此角色是激活狀態的情況下才可以發動。將自己１張手牌放置到移除區。如這樣做，從以下選擇１項。<br>．抽１張卡。<br>．此角色在本回合中，BP+1000。<br>．本回合中，下次自己以「指定BP範圍的效果」選擇對手場上角色的時候，可指定的BP範圍+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "八九寺 真宵",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-071",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "EX18BT/MGS-2-073",
+    "name": "我們去約會",
+    "rarity": "U★",
+    "effect": "選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "effectHtml": "選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "nameHtml": "我們去約會",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-073",
+    "source": "Rugia sync",
+    "variants": [
+      "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "PC01BT/IMS-3-001",
@@ -139174,8 +139819,40 @@
     "type": "AP"
   },
   {
+    "id": "UA58BT/DGM-1-003",
+    "name": "阿爾瑪．卡瑪",
+    "rarity": "R★",
+    "effect": "BP500或以上的此角色退場的情況下，可改為將自己前線１張BP4000或以上的〈神田 由〉退場。\n 主起動  只有在自己場上擁有〈神田 由〉，並且自己牌庫是20張或以下的情況下才可以發動。此角色被激活。〈阿爾瑪．卡瑪〉的此效果１回合只能發動１次。\n 將此卡加入手牌。",
+    "effectHtml": "BP500或以上的此角色退場的情況下，可改為將自己前線１張BP4000或以上的〈神田 由〉退場。<br> 主起動  只有在自己場上擁有〈神田 由〉，並且自己牌庫是20張或以下的情況下才可以發動。此角色被激活。〈阿爾瑪．卡瑪〉的此效果１回合只能發動１次。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿爾瑪．卡瑪",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-003",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-005",
+    "name": "阿雷斯塔．克勞利三世\n特徵：黑色教團",
+    "rarity": "SR★",
+    "effect": "主起動  在前線的情況  只有在自己場上的［特徵：黑色教團］的卡名有４種或以上，並且對手前線擁有BP4000或以上的角色的情況下才可以發動。選擇對手前線１張BP4000或以上的角色，本回合中，BP-500。此角色在本回合中，BP+500。自己其他〈阿雷斯塔．克勞利三世〉的此效果沒有在本回合中發動過的情況下，此角色被激活。\n 將此卡加入手牌。",
+    "effectHtml": "主起動  在前線的情況 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己場上的［特徵：黑色教團］的卡名有４種或以上，並且對手前線擁有BP4000或以上的角色的情況下才可以發動。選擇對手前線１張BP4000或以上的角色，本回合中，BP-500。此角色在本回合中，BP+500。自己其他〈阿雷斯塔．克勞利三世〉的此效果沒有在本回合中發動過的情況下，此角色被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_get.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "阿雷斯塔．克勞利三世<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-005",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "UA58BT/DGM-1-007",
-    "name": "亞連．沃克\n特徵：黑色教團",
+    "name": "艾倫．獲加\n特徵：黑色教團",
     "rarity": "U",
     "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n抽１張卡。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-007",
@@ -139187,15 +139864,15 @@
       "▼"
     ],
     "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "亞連．沃克<br>特徵：黑色教團"
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團"
   },
   {
     "id": "UA58BT/DGM-1-008",
-    "name": "亞連．沃克\n特徵：黑色教團",
+    "name": "艾倫．獲加\n特徵：黑色教團",
     "rarity": "R★",
     "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n此角色被突襲時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP4000或以上的角色，本回合中，BP-500。(以任意順序處理突襲角色的 登場時  效果及此效果)\n 選擇對手前線１張BP3500或以下的角色返回手牌。",
     "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_blue2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br>此角色被突襲時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP4000或以上的角色，本回合中，BP-500。(以任意順序處理突襲角色的 登場時  效果及此效果)<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP3500或以下的角色返回手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "亞連．沃克<br>特徵：黑色教團",
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-008",
     "source": "Rugia sync",
     "variants": [
@@ -139207,23 +139884,25 @@
   },
   {
     "id": "UA58BT/DGM-1-009",
-    "name": "亞連．沃克\n特徵：黑色教團 〈亞連．沃克〉\n在前線的情況 〈亞連．沃克〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。",
+    "name": "艾倫．獲加\n特徵：黑色教團 〈艾倫．獲加〉\n在前線的情況 〈艾倫．獲加〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。",
     "rarity": "SR",
     "effect": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP3500或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-009",
     "source": "Rugia sync",
     "variants": [
-      "SR"
+      "SR",
+      "SR★★",
+      "SR★★★"
     ],
     "traits": [
       "▼"
     ],
     "effectHtml": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP3500或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "亞連．沃克<br>特徵：黑色教團 〈亞連．沃克〉<br>在前線的情況 〈亞連．沃克〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。"
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團 〈艾倫．獲加〉<br>在前線的情況 〈艾倫．獲加〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。"
   },
   {
     "id": "UA58BT/DGM-1-010",
-    "name": "神田 優\n特徵：黑色教團",
+    "name": "神田 由\n特徵：黑色教團",
     "rarity": "C",
     "effect": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。\n 選擇對手前線１張BP3500或以下的角色返回手牌。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-010",
@@ -139235,23 +139914,72 @@
       "▼"
     ],
     "effectHtml": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP3500或以下的角色返回手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "神田 優<br>特徵：黑色教團"
+    "nameHtml": "神田 由<br>特徵：黑色教團"
+  },
+  {
+    "id": "UA58BT/DGM-1-013",
+    "name": "神田 由\n特徵：黑色教團 〈神田 由〉",
+    "rarity": "R★",
+    "effect": "攻擊時  自己場上擁有〈阿爾瑪．卡瑪〉的情況下，可抽１張卡。如這樣做，將自己１張手牌放置到場外。\n 退場時  自己前線沒有〈神田 由〉以外的［特徵：黑色教團］的情況下，可將自己牌庫上面２張卡放置到場外。如這樣做，從自己場外選擇最多１張能源需求２或以下的藍色〈神田 由〉，以休息狀態在自己場上登場。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "攻擊時  自己場上擁有〈阿爾瑪．卡瑪〉的情況下，可抽１張卡。如這樣做，將自己１張手牌放置到場外。<br> 退場時  自己前線沒有〈神田 由〉以外的［特徵：黑色教團］的情況下，可將自己牌庫上面２張卡放置到場外。如這樣做，從自己場外選擇最多１張能源需求２或以下的藍色〈神田 由〉，以休息狀態在自己場上登場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "神田 由<br>特徵：黑色教團 〈神田 由〉",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-013",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-014",
+    "name": "神田 由\n特徵：黑色教團",
+    "rarity": "SR★",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n登場時  抽１張卡。\n 攻擊時  將自己『２張手牌及牌庫上面２張卡』放置到場外。此角色在本回合中，BP+1000。自己在本回合中有使用過［特徵：六幻］，或自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，改為『１張手牌及牌庫上面１張卡』。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>登場時  抽１張卡。<br> 攻擊時  將自己『２張手牌及牌庫上面２張卡』放置到場外。此角色在本回合中，BP+1000。自己在本回合中有使用過［特徵：六幻］，或自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，改為『１張手牌及牌庫上面１張卡』。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "神田 由<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-014",
+    "source": "Rugia sync",
+    "variants": [
+      "SR★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "UA58BT/DGM-1-015",
-    "name": "神田 優\n特徵：黑色教團 〈神田 優〉",
+    "name": "神田 由\n特徵：黑色教團 〈神田 由〉",
     "rarity": "SR",
-    "effect": "登場時  自己回合中，自己前線沒有〈神田 優〉以外的［特徵：黑色教團］的情況下，可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張［特徵：六幻］，將自己牌庫上面『與該卡的能源需求數目相同張數』的卡放置到場外，並且無視能源需求數目使用被選擇的卡而不需要支付AP。透過此效果使用完的卡，由放置到場外改為放置到移除區。\n 退場時  將自己牌庫上面５張卡放置到場外，然後將此卡放置到自己牌庫上面。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effect": "登場時  自己回合中，自己前線沒有〈神田 由〉以外的［特徵：黑色教團］的情況下，可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張［特徵：六幻］，將自己牌庫上面『與該卡的能源需求數目相同張數』的卡放置到場外，並且無視能源需求數目使用被選擇的卡而不需要支付AP。透過此效果使用完的卡，由放置到場外改為放置到移除區。\n 退場時  將自己牌庫上面５張卡放置到場外，然後將此卡放置到自己牌庫上面。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-015",
     "source": "Rugia sync",
     "variants": [
-      "SR"
+      "SR",
+      "SR★★★"
     ],
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  自己回合中，自己前線沒有〈神田 優〉以外的［特徵：黑色教團］的情況下，可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張［特徵：六幻］，將自己牌庫上面『與該卡的能源需求數目相同張數』的卡放置到場外，並且無視能源需求數目使用被選擇的卡而不需要支付AP。透過此效果使用完的卡，由放置到場外改為放置到移除區。<br> 退場時  將自己牌庫上面５張卡放置到場外，然後將此卡放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "神田 優<br>特徵：黑色教團 〈神田 優〉"
+    "effectHtml": "登場時  自己回合中，自己前線沒有〈神田 由〉以外的［特徵：黑色教團］的情況下，可將自己１張手牌放置到場外。如這樣做，從自己場外選擇最多１張［特徵：六幻］，將自己牌庫上面『與該卡的能源需求數目相同張數』的卡放置到場外，並且無視能源需求數目使用被選擇的卡而不需要支付AP。透過此效果使用完的卡，由放置到場外改為放置到移除區。<br> 退場時  將自己牌庫上面５張卡放置到場外，然後將此卡放置到自己牌庫上面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "神田 由<br>特徵：黑色教團 〈神田 由〉"
+  },
+  {
+    "id": "UA58BT/DGM-1-024",
+    "name": "美蘭達．諾度\n特徵：黑色教團",
+    "rarity": "R★",
+    "effect": "自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，此角色的生產能源+  。\n 主起動   只有在此角色登場的回合才可以發動。選擇自己場上１張角色，本回合中，給予以下效果。\n．此角色不會因對手的效果而休息或返回手牌，並且因對手的效果而退場的情況下，改為此角色在本回合中，獲得「攻擊階段結束時，將此角色退場。」。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，此角色的生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_blue.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在此角色登場的回合才可以發動。選擇自己場上１張角色，本回合中，給予以下效果。<br>．此角色不會因對手的效果而休息或返回手牌，並且因對手的效果而退場的情況下，改為此角色在本回合中，獲得「攻擊階段結束時，將此角色退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "美蘭達．諾度<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-024",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "UA58BT/DGM-1-025",
@@ -139279,7 +140007,24 @@
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-027",
     "source": "Rugia sync",
     "variants": [
-      "SR"
+      "SR",
+      "SR★★★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-028",
+    "name": "拉比\n特徵：黑色教團",
+    "rarity": "R★",
+    "effect": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，從以下選擇最多１項。\n．選擇對手前線１張BP4000或以上的角色，本回合中，BP-500。\n．支付１AP。如這樣做，選擇對手前線最多１張BP2500或以下的角色退場。\n 攻擊時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，從以下選擇最多１項。<br>．選擇對手前線１張BP4000或以上的角色，本回合中，BP-500。<br>．支付１AP。如這樣做，選擇對手前線最多１張BP2500或以下的角色退場。<br> 攻擊時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "拉比<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-028",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
     ],
     "traits": [
       "▼"
@@ -139287,11 +140032,11 @@
   },
   {
     "id": "UA58BT/DGM-1-029",
-    "name": "利娜莉．李\n特徵：黑色教團",
+    "name": "李利鳴\n特徵：黑色教團",
     "rarity": "C★",
     "effect": "選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
     "effectHtml": "選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "利娜莉．李<br>特徵：黑色教團",
+    "nameHtml": "李利鳴<br>特徵：黑色教團",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-029",
     "source": "Rugia sync",
     "variants": [
@@ -139302,16 +140047,33 @@
     ]
   },
   {
+    "id": "UA58BT/DGM-1-030",
+    "name": "李利鳴\n特徵：黑色教團",
+    "rarity": "U★",
+    "effect": "登場時  從自己牌庫上面查看３張卡，將最多１張［特徵：黑色教團］公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有卡加入手牌的情況下，將自己１張手牌放置到場外。",
+    "effectHtml": "登場時  從自己牌庫上面查看３張卡，將最多１張［特徵：黑色教團］公開並加入手牌，將餘下的卡以任意順序放置到牌庫下面。有卡加入手牌的情況下，將自己１張手牌放置到場外。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "李利鳴<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-030",
+    "source": "Rugia sync",
+    "variants": [
+      "U★"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "UA58BT/DGM-1-032",
-    "name": "利娜莉．李\n特徵：黑色教團 〈利娜莉．李〉",
+    "name": "李利鳴\n特徵：黑色教團 〈李利鳴〉",
     "rarity": "SR",
     "effect": "自己回合中  此角色的BP+1000。\n 此角色的攻擊沒有被阻擋時，抽１張卡。\n 此角色攻擊結束時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，可將自己前線１張激活狀態的角色休息。如這樣做，此角色被激活，並且此角色在本回合中，獲得「此角色不會被BP4000或以上的角色阻擋。」。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
     "effectHtml": "自己回合中  此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色的攻擊沒有被阻擋時，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 此角色攻擊結束時，自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，可將自己前線１張激活狀態的角色休息。如這樣做，此角色被激活，並且此角色在本回合中，獲得「此角色不會被BP4000或以上的角色阻擋。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
-    "nameHtml": "利娜莉．李<br>特徵：黑色教團 〈利娜莉．李〉",
+    "nameHtml": "李利鳴<br>特徵：黑色教團 〈李利鳴〉",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-032",
     "source": "Rugia sync",
     "variants": [
-      "SR"
+      "SR",
+      "SR★★★"
     ],
     "traits": [
       "▼"
@@ -139321,13 +140083,77 @@
     "id": "UA58BT/DGM-1-037",
     "name": "神之道化",
     "rarity": "U",
-    "effect": "從以下選擇１項。\n．自己場上擁有〈亞連．沃克〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。\n．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。\n 選擇對手前線１張角色退場。",
-    "effectHtml": "從以下選擇１項。<br>．自己場上擁有〈亞連．沃克〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。<br>．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "effect": "從以下選擇１項。\n．自己場上擁有〈艾倫．獲加〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。\n．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。\n 選擇對手前線１張角色退場。",
+    "effectHtml": "從以下選擇１項。<br>．自己場上擁有〈艾倫．獲加〉的情況下，選擇對手前線１張BP5000或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。<br>．從自己場外選擇１張能源需求４或以下及AP消耗１的藍色〈亞連．沃克〉，以休息狀態在自己場上登場或進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "神之道化",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-037",
     "source": "Rugia sync",
     "variants": [
       "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-039",
+    "name": "禁忌三幻式\n特徵：六幻",
+    "rarity": "C",
+    "effect": "此卡只有在自己場上擁有〈神田 由〉的情況下才可以使用。選擇對手前線最多１張BP4000或以下的角色，移動到能源線。此卡是透過〈神田 由〉的效果來使用的情況下，本回合中，可給予該〈神田 由〉「此角色不會被對手的效果選擇。」。\n 抽１張卡。",
+    "effectHtml": "此卡只有在自己場上擁有〈神田 由〉的情況下才可以使用。選擇對手前線最多１張BP4000或以下的角色，移動到能源線。此卡是透過〈神田 由〉的效果來使用的情況下，本回合中，可給予該〈神田 由〉「此角色不會被對手的效果選擇。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "禁忌三幻式<br>特徵：六幻",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-039",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-040",
+    "name": "五幻式\n特徵：六幻",
+    "rarity": "U",
+    "effect": "此卡只有在自己場上擁有〈神田 由〉的情況下才可以使用。選擇對手前線最多１張『BP3000或以下』的角色退場。自己場上擁有〈阿爾瑪．卡瑪〉的情況下，改為『BP5000或以下』。此卡是透過〈神田 由〉的效果來使用的情況下，本回合中，可給予該〈神田 由〉  。\n 選擇對手前線１張角色退場。",
+    "effectHtml": "此卡只有在自己場上擁有〈神田 由〉的情況下才可以使用。選擇對手前線最多１張『BP3000或以下』的角色退場。自己場上擁有〈阿爾瑪．卡瑪〉的情況下，改為『BP5000或以下』。此卡是透過〈神田 由〉的效果來使用的情況下，本回合中，可給予該〈神田 由〉 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_special.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "五幻式<br>特徵：六幻",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-040",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-045",
+    "name": "艾倫．獲加\n特徵：黑色教團",
+    "rarity": "U",
+    "effect": "此角色是激活狀態的情況下，此角色的生產能源+  。",
+    "effectHtml": "此角色是激活狀態的情況下，此角色的生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_purple.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-045",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UA58BT/DGM-1-046",
+    "name": "艾倫．獲加\n特徵：黑色教團",
+    "rarity": "R★",
+    "effect": "(與此角色戰鬥的角色，在本次戰鬥中失去衝擊)\n自己回合中  自己場外擁有６張或以上〈艾倫．獲加〉的情況下，此角色的BP+1000。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "<img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact_nullify.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (與此角色戰鬥的角色，在本次戰鬥中失去衝擊)<br>自己回合中  自己場外擁有６張或以上〈艾倫．獲加〉的情況下，此角色的BP+1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-046",
+    "source": "Rugia sync",
+    "variants": [
+      "R★"
     ],
     "traits": [
       "▼"
@@ -140562,7 +141388,7 @@
     "id": "UAPR/CGH-1-091",
     "name": "魯路修．蘭佩洛基\n特徵：阿什弗德學園",
     "rarity": "U",
-    "effect": "登場時  從自己牌庫上面查看７張卡，從中選擇最多１張［特徵：Pizza］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。\n 選擇對手前線１張BP2500或以下的角色退場。\n UAPR/2023-AP01  \n\n入手方法：\nバンダイカードフェス2023 来場記念品等  UAPR/2023-AP02  \n\n入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品\n UAPR/2023-AP06  \n\n入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品\n UAPR/2024-AP01  \n\n入手方法：3on3 -ユニアリフェスティバル2024 in 兵庫- BEST16記念品 等\n UAPR/2024-AP02  \n\n入手方法：ガンスリンガーバトル -ユニアリフェスティバル2024 in 兵庫- A賞記念品 等\n UAPR/2024-AP03  \n\n入手方法：伊織もえ祭 -ユニアリアップ！3on3の陣- 参加記念品\n UAPR/2024-AP04  \n\n入手方法：伊織もえ祭 -ユニアリアップ！ 3on3 in Autumn-\n UAPR/2025-AP01  \n\n入手方法：ユニチケゲットバトル 2nd Anniversary特別版 參加記念品\n UAPR/2025-AP02  \n\n入手方法：「ユニフェス2025 in東京」上位記念品\n UAPR/2025-AP03  \n\n入手方法：「ユニフェス2025 in福岡」A賞記念品\n UAPR/2025-AP04  \n\n入手方法：Grand Asia Open 決賽 優勝記念品\n UAPR/2025-AP05  \n\n入手方法：Grand Asia Open 決賽 第二名記念品\n UAPR/2025-AP06  \n\n入手方法：Grand Asia Open 決賽 第三名記念品\n UAPR/2025-AP07  \n\n入手方法：Grand Asia Open 決賽 第四～八名記念品\n UAPR/2025-AP08  \n\n入手方法：「塩島弾杯 -3on3-」参加記念品\n UAPR/2025-AP09  \n\n入手方法：2.5周年記念 伊織もえ祭 参加記念品\n UAPR/2026-AP01  \n\n入手方法：「ユニチケゲットバトル 3rd Anniversary特別版」參加記念品\n UAPR/2026-AP02  \n\n入手方法：「3on3 -ユニアリフェスティバル26-27 in 幕張-」BEST16記念品\n UAPR/2026-AP03  \n\n入手方法：\nCHAMPIONSHIP2026 店舖予選 參加記念品  UAPR/2026-AP04  \n\n入手方法：「マッチングバトル -ユニアリフェスティバル26-27 in 幕張-」12戰記念品\n UAPR/2026-AP06  \n\n入手方法：\n塩島弾杯 -3on3- 參加記念品 等  UAPR/2026-AP07  \n\n入手方法：3.5周年記念 伊織もえ祭 參加記念品\n UAPR/AND-AP01  \n\n入手方法：最強ジャンプ2024年9月特大號 付錄\n UAPR/AOT-P-001 (PR)  \n進擊的巨人\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/ARK-P-001 (PR)  \n明日方舟\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/ARK-P-002 (PR)  \n明日方舟\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/BLC-AP01  \n\n入手方法：アクションポイントカードパック VOL.3\n UAPR/BLC-AP02  \n\n入手方法：最強ジャンプ2023年11月特大號 付錄\n UAPR/BLC-AP03  \n\n入手方法：ジャンプビクトリーカーニバル 2024 来場記念品\n UAPR/BLC-AP04  \n\n入手方法：ジャンプフェスタ2025 来場記念品\n UAPR/BLC-AP05  \n\n入手方法：「ジャンプビクトリーカーニバル 2026」来場記念品\n UAPR/BLK-AP01  \n\n入手方法：アクションポイントカードパック VOL.4\n UAPR/BLK-AP02  \n\n入手方法：「ブルーロック エゴイストフェスタ2023」来場者配布\n UAPR/BTR-AP01  \n\n入手方法：アクションポイントカードパック VOL.2\n UAPR/BTR-AP02  \n\n入手方法：アクションポイントカードパック VOL.3\n UAPR/BTR-AP03  \n\n入手方法：劇場版「僕とロボコ」 第2弾入場者プレゼント特別パック\n UAPR/BTR-P-001 (PR)  \n機器子（正統SF動作的世界線）\n\n此卡也被視為〈機器子〉。\n 登場時   攻擊時  選擇對手前線最多１張角色，本回合中，給予「攻擊階段結束時，將此角色退場。」。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。\n UAPR/BTR-P-002 (PR)  \n機器子（王道戰鬥的世界線）\n\n此卡也被視為〈機器子〉。\n 登場時  可將自己２張手牌放置到場外。如這樣做，對手將他自己前線１張角色放置到他自己牌庫下面。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。\n UAPR/BTR-P-003 (PR)  \n機器子（昭和搞笑漫畫的世界線）\n\n此卡也被視為〈機器子〉。\n 登場時  自己場外擁有４張或以上事件卡的情況下，抽１張卡。\n 抽１張卡。\n UAPR/BTR-P-004 (PR)  \n機器子（愛情喜劇的世界線）\n\n此卡也被視為〈機器子〉。\n 主起動   只有在此角色登場的回合才可以發動。選擇自己場上１張其他角色，本回合中，給予  (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。\n 抽１張卡。\n UAPR/CGD-AP01  \n\n入手方法：Vジャンプ2025年3月號 付錄\n UAPR/CGD-AP02  \n\n入手方法：第二回皇帝杯 参加特典\n UAPR/CGH-AP01  \n\n入手方法：アクションポイントカードパック VOL.1\n UAPR/CGH-AP02  \n\n入手方法：アクションポイントカードパック VOL.4\n UAPR/CGH-AP03  \n\n入手方法：コードギアス 反逆のルルーシュ Vol.2【EX02BT】\n UAPR/CGH-AP03  \n\n入手方法：香港／台灣 限定行動值卡賽 優勝記念品\n UAPR/CGH-AP04  \n\n入手方法：コードギアス 反逆のルルーシュ Vol.2【EX02BT】\n UAPR/CGH-AP04  \n\n入手方法：香港／台灣 限定行動值卡賽 優勝記念品\n UAPR/CGH-AP05  \n\n入手方法：皇帝杯 参加特典\n搜尋結果超過上限500個\n建議縮小搜尋範團",
+    "effect": "登場時  從自己牌庫上面查看７張卡，從中選擇最多１張［特徵：Pizza］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。\n 選擇對手前線１張BP2500或以下的角色退場。\n UAPR/2023-AP01  \n\n入手方法：\nバンダイカードフェス2023 来場記念品等  UAPR/2023-AP02  \n\n入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品\n UAPR/2023-AP06  \n\n入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品\n UAPR/2024-AP01  \n\n入手方法：3on3 -ユニアリフェスティバル2024 in 兵庫- BEST16記念品 等\n UAPR/2024-AP02  \n\n入手方法：ガンスリンガーバトル -ユニアリフェスティバル2024 in 兵庫- A賞記念品 等\n UAPR/2024-AP03  \n\n入手方法：伊織もえ祭 -ユニアリアップ！3on3の陣- 参加記念品\n UAPR/2024-AP04  \n\n入手方法：伊織もえ祭 -ユニアリアップ！ 3on3 in Autumn-\n UAPR/2025-AP01  \n\n入手方法：ユニチケゲットバトル 2nd Anniversary特別版 參加記念品\n UAPR/2025-AP02  \n\n入手方法：「ユニフェス2025 in東京」上位記念品\n UAPR/2025-AP03  \n\n入手方法：「ユニフェス2025 in福岡」A賞記念品\n UAPR/2025-AP04  \n\n入手方法：Grand Asia Open 決賽 優勝記念品\n UAPR/2025-AP05  \n\n入手方法：Grand Asia Open 決賽 第二名記念品\n UAPR/2025-AP06  \n\n入手方法：Grand Asia Open 決賽 第三名記念品\n UAPR/2025-AP07  \n\n入手方法：Grand Asia Open 決賽 第四～八名記念品\n UAPR/2025-AP08  \n\n入手方法：「塩島弾杯 -3on3-」参加記念品\n UAPR/2025-AP09  \n\n入手方法：2.5周年記念 伊織もえ祭 参加記念品\n UAPR/2026-AP01  \n\n入手方法：「ユニチケゲットバトル 3rd Anniversary特別版」參加記念品\n UAPR/2026-AP02  \n\n入手方法：「3on3 -ユニアリフェスティバル26-27 in 幕張-」BEST16記念品\n UAPR/2026-AP03  \n\n入手方法：\nCHAMPIONSHIP2026 店舖予選 參加記念品  UAPR/2026-AP04  \n\n入手方法：「マッチングバトル -ユニアリフェスティバル26-27 in 幕張-」12戰記念品\n UAPR/2026-AP06  \n\n入手方法：\n塩島弾杯 -3on3- 參加記念品 等  UAPR/2026-AP07  \n\n入手方法：3.5周年記念 伊織もえ祭 參加記念品\n UAPR/AND-AP01  \n\n入手方法：最強ジャンプ2024年9月特大號 付錄\n UAPR/AOT-P-001 (PR)  \n進擊的巨人\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/ARK-P-001 (PR)  \n明日方舟\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/ARK-P-002 (PR)  \n明日方舟\n\n此卡的顏色及能源需求也被視為全部顏色。\n選擇自己最多２張AP卡被激活。\n 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。\n UAPR/BLC-AP01  \n\n入手方法：アクションポイントカードパック VOL.3\n UAPR/BLC-AP02  \n\n入手方法：最強ジャンプ2023年11月特大號 付錄\n UAPR/BLC-AP03  \n\n入手方法：ジャンプビクトリーカーニバル 2024 来場記念品\n UAPR/BLC-AP04  \n\n入手方法：ジャンプフェスタ2025 来場記念品\n UAPR/BLC-AP05  \n\n入手方法：「ジャンプビクトリーカーニバル 2026」来場記念品\n UAPR/BLK-AP01  \n\n入手方法：アクションポイントカードパック VOL.4\n UAPR/BLK-AP02  \n\n入手方法：「ブルーロック エゴイストフェスタ2023」来場者配布\n UAPR/BTR-AP01  \n\n入手方法：アクションポイントカードパック VOL.2\n UAPR/BTR-AP02  \n\n入手方法：アクションポイントカードパック VOL.3\n UAPR/BTR-AP03  \n\n入手方法：劇場版「僕とロボコ」 第2弾入場者プレゼント特別パック\n UAPR/BTR-P-001 (PR)  \n機器子（正統SF動作的世界線）\n\n此卡也被視為〈機器子〉。\n 登場時   攻擊時  選擇對手前線最多１張角色，本回合中，給予「攻擊階段結束時，將此角色退場。」。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。\n UAPR/BTR-P-002 (PR)  \n機器子（王道戰鬥的世界線）\n\n此卡也被視為〈機器子〉。\n 登場時  可將自己２張手牌放置到場外。如這樣做，對手將他自己前線１張角色放置到他自己牌庫下面。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。\n搜尋結果超過上限500個\n建議縮小搜尋範團",
     "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=CGH-1-091",
     "source": "Rugia sync",
     "variants": [
@@ -140571,7 +141397,7 @@
     "traits": [
       "▼"
     ],
-    "effectHtml": "登場時  從自己牌庫上面查看７張卡，從中選擇最多１張［特徵：Pizza］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP2500或以下的角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>バンダイカードフェス2023 来場記念品等 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：3on3 -ユニアリフェスティバル2024 in 兵庫- BEST16記念品 等<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ガンスリンガーバトル -ユニアリフェスティバル2024 in 兵庫- A賞記念品 等<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：伊織もえ祭 -ユニアリアップ！3on3の陣- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：伊織もえ祭 -ユニアリアップ！ 3on3 in Autumn-<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ユニチケゲットバトル 2nd Anniversary特別版 參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニフェス2025 in東京」上位記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニフェス2025 in福岡」A賞記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 優勝記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP05 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第二名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第三名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP07 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第四～八名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP08 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「塩島弾杯 -3on3-」参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP09 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：2.5周年記念 伊織もえ祭 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニチケゲットバトル 3rd Anniversary特別版」參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「3on3 -ユニアリフェスティバル26-27 in 幕張-」BEST16記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>CHAMPIONSHIP2026 店舖予選 參加記念品 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「マッチングバトル -ユニアリフェスティバル26-27 in 幕張-」12戰記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>塩島弾杯 -3on3- 參加記念品 等 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP07 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：3.5周年記念 伊織もえ祭 參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/AND-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：最強ジャンプ2024年9月特大號 付錄<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/AOT-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>進擊的巨人<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/ARK-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>明日方舟<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/ARK-P-002 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>明日方舟<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.3<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：最強ジャンプ2023年11月特大號 付錄<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ジャンプビクトリーカーニバル 2024 来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ジャンプフェスタ2025 来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP05 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ジャンプビクトリーカーニバル 2026」来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLK-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.4<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLK-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ブルーロック エゴイストフェスタ2023」来場者配布<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.2<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.3<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：劇場版「僕とロボコ」 第2弾入場者プレゼント特別パック<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（正統SF動作的世界線）<br><br>此卡也被視為〈機器子〉。<br> 登場時   攻擊時  選擇對手前線最多１張角色，本回合中，給予「攻擊階段結束時，將此角色退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-002 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（王道戰鬥的世界線）<br><br>此卡也被視為〈機器子〉。<br> 登場時  可將自己２張手牌放置到場外。如這樣做，對手將他自己前線１張角色放置到他自己牌庫下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-003 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（昭和搞笑漫畫的世界線）<br><br>此卡也被視為〈機器子〉。<br> 登場時  自己場外擁有４張或以上事件卡的情況下，抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-004 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（愛情喜劇的世界線）<br><br>此卡也被視為〈機器子〉。<br> 主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在此角色登場的回合才可以發動。選擇自己場上１張其他角色，本回合中，給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGD-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Vジャンプ2025年3月號 付錄<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGD-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：第二回皇帝杯 参加特典<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.1<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.4<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：コードギアス 反逆のルルーシュ Vol.2【EX02BT】<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：香港／台灣 限定行動值卡賽 優勝記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：コードギアス 反逆のルルーシュ Vol.2【EX02BT】<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：香港／台灣 限定行動值卡賽 優勝記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/CGH-AP05 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：皇帝杯 参加特典<br>搜尋結果超過上限500個<br>建議縮小搜尋範團",
+    "effectHtml": "登場時  從自己牌庫上面查看７張卡，從中選擇最多１張［特徵：Pizza］公開並加入手牌，將餘下的卡以任意順序放置到自己牌庫下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP2500或以下的角色退場。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>バンダイカードフェス2023 来場記念品等 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2023-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：UNION ARENA -ユニオンレア争奪バトル- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：3on3 -ユニアリフェスティバル2024 in 兵庫- BEST16記念品 等<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ガンスリンガーバトル -ユニアリフェスティバル2024 in 兵庫- A賞記念品 等<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：伊織もえ祭 -ユニアリアップ！3on3の陣- 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2024-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：伊織もえ祭 -ユニアリアップ！ 3on3 in Autumn-<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ユニチケゲットバトル 2nd Anniversary特別版 參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニフェス2025 in東京」上位記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニフェス2025 in福岡」A賞記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 優勝記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP05 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第二名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第三名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP07 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：Grand Asia Open 決賽 第四～八名記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP08 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「塩島弾杯 -3on3-」参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2025-AP09 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：2.5周年記念 伊織もえ祭 参加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ユニチケゲットバトル 3rd Anniversary特別版」參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「3on3 -ユニアリフェスティバル26-27 in 幕張-」BEST16記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>CHAMPIONSHIP2026 店舖予選 參加記念品 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「マッチングバトル -ユニアリフェスティバル26-27 in 幕張-」12戰記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP06 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：<br>塩島弾杯 -3on3- 參加記念品 等 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/2026-AP07 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：3.5周年記念 伊織もえ祭 參加記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/AND-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：最強ジャンプ2024年9月特大號 付錄<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/AOT-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>進擊的巨人<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/ARK-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>明日方舟<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/ARK-P-002 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>明日方舟<br><br>此卡的顏色及能源需求也被視為全部顏色。<br>選擇自己最多２張AP卡被激活。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_final.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.3<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：最強ジャンプ2023年11月特大號 付錄<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ジャンプビクトリーカーニバル 2024 来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP04 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：ジャンプフェスタ2025 来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLC-AP05 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ジャンプビクトリーカーニバル 2026」来場記念品<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLK-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.4<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BLK-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：「ブルーロック エゴイストフェスタ2023」来場者配布<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP01 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.2<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP02 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：アクションポイントカードパック VOL.3<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-AP03 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br><br>入手方法：劇場版「僕とロボコ」 第2弾入場者プレゼント特別パック<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-001 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（正統SF動作的世界線）<br><br>此卡也被視為〈機器子〉。<br> 登場時   攻擊時  選擇對手前線最多１張角色，本回合中，給予「攻擊階段結束時，將此角色退場。」。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> UAPR/BTR-P-002 (PR) <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/magnifier.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/download.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"><br>機器子（王道戰鬥的世界線）<br><br>此卡也被視為〈機器子〉。<br> 登場時  可將自己２張手牌放置到場外。如這樣做，對手將他自己前線１張角色放置到他自己牌庫下面。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br>搜尋結果超過上限500個<br>建議縮小搜尋範團",
     "nameHtml": "魯路修．蘭佩洛基<br>特徵：阿什弗德學園"
   },
   {
@@ -140701,6 +141527,54 @@
     ],
     "effectHtml": "自己回合中  本回合中，自己場上有〈淀治〉退場的情況下，此角色的BP+1000<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
     "nameHtml": "蕾潔"
+  },
+  {
+    "id": "UAPR/DGM-1-009",
+    "name": "艾倫．獲加\n特徵：黑色教團 〈艾倫．獲加〉\n在前線的情況 〈艾倫．獲加〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。",
+    "rarity": "UR",
+    "effect": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP3500或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "登場時  自己場上的［特徵：黑色教團］的卡名有４種或以上的情況下，選擇對手前線最多１張BP3500或以下的角色，放置到對手牌庫下面。有放置到牌庫下面的情況下，對手抽最多１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團 〈艾倫．獲加〉<br>在前線的情況 〈艾倫．獲加〉以外，自己前線原BP3500或以下的角色不會被對手的［角色．事件卡］效果選擇。",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-009",
+    "source": "Rugia sync",
+    "variants": [
+      "UR"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/DGM-1-010",
+    "name": "神田 由\n特徵：黑色教團",
+    "rarity": "C",
+    "effect": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。\n 選擇對手前線１張BP3500或以下的角色返回手牌。",
+    "effectHtml": "登場時  可將自己１張手牌放置到場外。如這樣做，從自己牌庫上面查看１張卡，然後放置到牌庫上面或下面，然後抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_color.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇對手前線１張BP3500或以下的角色返回手牌。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "神田 由<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-010",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/DGM-1-045",
+    "name": "艾倫．獲加\n特徵：黑色教團",
+    "rarity": "U",
+    "effect": "此角色是激活狀態的情況下，此角色的生產能源+  。",
+    "effectHtml": "此角色是激活狀態的情況下，此角色的生產能源+ <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_circle_purple.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "艾倫．獲加<br>特徵：黑色教團",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=DGM-1-045",
+    "source": "Rugia sync",
+    "variants": [
+      "U"
+    ],
+    "traits": [
+      "▼"
+    ]
   },
   {
     "id": "UAPR/DST-1-002",
@@ -143042,6 +143916,54 @@
     "nameHtml": "戰場原 黑儀 〈戰場原 黑儀〉"
   },
   {
+    "id": "UAPR/MGS-2-015",
+    "name": "忍野忍",
+    "rarity": "UR",
+    "effect": "主起動   只有在自己前線沒有［〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉、〈忍野 忍〉、〈阿良良木 曆〉］以外的角色，並且在此角色登場的回合才可以發動。從以下選擇最多『１項』。可將自己１張手牌放置到場外，如這樣做，改為『２項』。\n．從自己場外選擇１張〈阿良良木 曆〉加入手牌，然後將自己２張手牌放置到場外。\n．選擇自己場上１張〈阿良良木 曆〉，本回合中，給予「此角色不會被BP3000或以下的角色阻擋。」。\n．選擇對手前線１張BP1500或以上的角色，本回合中，BP-1000。\n 抽１張卡。",
+    "effectHtml": "主起動  <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_turn1.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 只有在自己前線沒有［〈姬絲秀忒．雅賽蘿拉莉昂．刃下心〉、〈忍野 忍〉、〈阿良良木 曆〉］以外的角色，並且在此角色登場的回合才可以發動。從以下選擇最多『１項』。可將自己１張手牌放置到場外，如這樣做，改為『２項』。<br>．從自己場外選擇１張〈阿良良木 曆〉加入手牌，然後將自己２張手牌放置到場外。<br>．選擇自己場上１張〈阿良良木 曆〉，本回合中，給予「此角色不會被BP3000或以下的角色阻擋。」。<br>．選擇對手前線１張BP1500或以上的角色，本回合中，BP-1000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "忍野忍",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-015",
+    "source": "Rugia sync",
+    "variants": [
+      "UR"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/MGS-2-043",
+    "name": "斧乃木 余接",
+    "rarity": "C",
+    "effect": "登場時  選擇自己場上最多３張能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求３的角色的情況下，選擇自己場上最多１張能源需求３或以下的角色，本回合中，給予  (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。\n 抽１張卡。",
+    "effectHtml": "登場時  選擇自己場上最多３張能源需求３或以下的角色，本回合中，BP+500。自己前線擁有能源需求１的角色及能源需求３的角色的情況下，選擇自己場上最多１張能源需求３或以下的角色，本回合中，給予 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> (進行攻擊並戰鬥勝利時，對手玩家受到１點傷害)。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_draw.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 抽１張卡。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "斧乃木 余接",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-043",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/MGS-2-069",
+    "name": "八九寺 真宵",
+    "rarity": "C",
+    "effect": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少  。\n 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或移除區。\n 選擇自己場上１張角色被激活，並且本回合中，BP+3000。",
+    "effectHtml": "自己場上１張卡也沒有的情況下，手牌上此卡的能源需求減少 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_hexa_red2.png\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br> 登場時  從自己牌庫上面查看１張卡，然後放置到牌庫上面或移除區。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_active.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 選擇自己場上１張角色被激活，並且本回合中，BP+3000。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "八九寺 真宵",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=MGS-2-069",
+    "source": "Rugia sync",
+    "variants": [
+      "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
     "id": "UAPR/MHA-1-018",
     "name": "渡我被身子",
     "rarity": "C",
@@ -144138,6 +145060,22 @@
     "source": "Rugia sync",
     "variants": [
       "C"
+    ],
+    "traits": [
+      "▼"
+    ]
+  },
+  {
+    "id": "UAPR/STG-1-029",
+    "name": "牧瀨 紅莉栖 〈牧瀨 紅莉栖〉",
+    "rarity": "UR",
+    "effect": "登場時  選擇對手前線最多１張BP少於或等於『自己場外能源需求３或以下的藍色事件卡的  效果種類數量x1000』的角色退場。自己場外擁有５種或以上，能源需求３或以下的藍色事件卡的  效果的情況下，此角色在本回合中，獲得  。\n 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "effectHtml": "登場時  選擇對手前線最多１張BP少於或等於『自己場外能源需求３或以下的藍色事件卡的 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger.png?v=20260529_02\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 效果種類數量x1000』的角色退場。自己場外擁有５種或以上，能源需求３或以下的藍色事件卡的 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger.png?v=20260529_02\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 效果的情況下，此角色在本回合中，獲得 <img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/keyword_impact1.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/ico_trigger_raid.png?v=20260529\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"> 將此卡加入手牌，或在滿足能源需求的情況下進行突襲。<br><img class=\"ua-keyword-icon\" src=\"https://rugiacreation.com/ua/images/backward.jpg\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "nameHtml": "牧瀨 紅莉栖 〈牧瀨 紅莉栖〉",
+    "url": "https://rugiacreation.com/ua/search?Name=HK&Find1=STG-1-029",
+    "source": "Rugia sync",
+    "variants": [
+      "UR"
     ],
     "traits": [
       "▼"
