@@ -355,6 +355,8 @@ function raidBadge(){
   return '<span class="raid-badge" aria-label="RAID">RAID</span>';
 }
 
+const OWN_TEXT={yes:'已擁有',no:'未擁有'};
+
 function render(){
   if(!deck)return;
   $('deck').classList.remove('hidden');
@@ -365,13 +367,15 @@ function render(){
   $('cards').innerHTML=deck.cards.map((c,i)=>{
     const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
     const id=cardId(c),name=d?.name||`未收錄：${id}`;
-    return `<div class="card ${selected===i?"on":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
+    const notOwned=c.owned===false;
+    return `<div class="card ${selected===i?"on":""}${notOwned?" not-owned":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
       ${imageTag(id,name)}
       ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
       <div class="cardbody"><div class="id">${esc(id)}</div></div>
       ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
+      <span class="own-label ${notOwned?"no":"yes"}">${notOwned?OWN_TEXT.no:OWN_TEXT.yes}</span>
       <div class="qty">×${c.qty}</div>
-      <div class="reorder-controls" aria-hidden="true"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div>
+      <div class="reorder-controls" aria-hidden="true"><div class="move-btns"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div><button type="button" class="own-toggle ${notOwned?"no":"yes"}" title="切換是否已擁有">${notOwned?OWN_TEXT.no:OWN_TEXT.yes}</button></div>
     </div>`;
   }).join('');
 
@@ -425,8 +429,33 @@ function bindReorderHandlers(){
     });
     card.querySelector('.move-card-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveCard(Number(card.dataset.i),Number(card.dataset.i)-1)});
     card.querySelector('.move-card-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveCard(Number(card.dataset.i),Number(card.dataset.i)+1)});
+    card.querySelector('.own-toggle')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggleOwned(Number(card.dataset.i))});
   });
   renderReorderState();
+}
+async function toggleOwned(i){
+  if(!deck||!reorderMode||!deck.cards[i])return;
+  const c=deck.cards[i];
+  // Default = owned. Only "not owned" is stored (owned:false), so old decks keep working.
+  if(c.owned===false)delete c.owned;else c.owned=false;
+  const notOwned=c.owned===false;
+  const card=$('cards').querySelector(`.card[data-i="${i}"]`);
+  if(card){
+    card.classList.toggle('not-owned',notOwned);
+    const text=notOwned?OWN_TEXT.no:OWN_TEXT.yes;
+    const lab=card.querySelector('.own-label'),btn=card.querySelector('.own-toggle');
+    if(lab){lab.textContent=text;lab.classList.toggle('no',notOwned);lab.classList.toggle('yes',!notOwned)}
+    if(btn){btn.textContent=text;btn.classList.toggle('no',notOwned);btn.classList.toggle('yes',!notOwned)}
+  }
+  if(deck.firestoreId && currentUser){
+    try{
+      await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards});
+    }catch(e){
+      console.error(e);
+      $('msg').textContent='擁有狀態已變更，但儲存失敗，請按儲存圖示再試。';
+      $('msg').style.color='#b34b35';
+    }
+  }
 }
 async function moveCard(from,to){
   if(!deck||!reorderMode||to<0||to>=deck.cards.length||from===to)return;
