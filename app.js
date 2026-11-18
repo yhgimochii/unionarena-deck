@@ -355,6 +355,29 @@ function raidBadge(){
   return '<span class="raid-badge" aria-label="RAID">RAID</span>';
 }
 
+let sortMode='default',ownedFirst=true;
+const RARITY_ORDER=['SR','R','U','C'];
+function displayOrder(){
+  const idx=deck.cards.map((_,i)=>i);
+  if(sortMode==='default')return idx;
+  const rank=i=>{
+    const c=deck.cards[i],d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
+    const r=String(d?.rarity||'').toUpperCase().replace(/★+/g,'').replace(/^PC/,'');
+    const k=RARITY_ORDER.indexOf(r);
+    return k<0?RARITY_ORDER.length:k;
+  };
+  const own=i=>deck.cards[i].owned===false?1:0;
+  return idx.sort((a,b)=>{
+    let diff=sortMode==='owned'?(ownedFirst?own(a)-own(b):own(b)-own(a)):rank(a)-rank(b);
+    return diff||a-b;
+  });
+}
+function renderSortButtons(){
+  const set=(id,on,text)=>{const b=$(id);if(!b)return;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));if(text)b.textContent=text};
+  set('sortDefault',sortMode==='default');
+  set('sortOwned',sortMode==='owned',ownedFirst?'擁有':'未擁有');
+  set('sortRarity',sortMode==='rarity');
+}
 const OWN_TEXT={yes:'已擁有',no:'未擁有'};
 
 function render(){
@@ -364,7 +387,8 @@ function render(){
   $('editDeck').onclick=()=>openEditDeck();
   $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
 
-  $('cards').innerHTML=deck.cards.map((c,i)=>{
+  $('cards').innerHTML=displayOrder().map(i=>{
+    const c=deck.cards[i];
     const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
     const id=cardId(c),name=d?.name||`未收錄：${id}`;
     const notOwned=c.owned===false;
@@ -406,10 +430,11 @@ function renderReorderState(){
   if(!cardsBox)return;
   cardsBox.classList.toggle('reorder-mode',reorderMode);
   cardsBox.querySelectorAll('.card').forEach((card,i)=>{
-    card.draggable=reorderMode;
+    const manual=sortMode==='default';
+    card.draggable=reorderMode&&manual;
     const up=card.querySelector('.move-card-up'),down=card.querySelector('.move-card-down');
-    if(up)up.disabled=i===0;
-    if(down)down.disabled=i===deck.cards.length-1;
+    if(up)up.disabled=!manual||i===0;
+    if(down)down.disabled=!manual||i===deck.cards.length-1;
   });
   const btn=$('reorderToggle');
   if(btn){btn.textContent=reorderMode?'完成排序':'排序';btn.setAttribute('aria-pressed',String(reorderMode));}
@@ -418,12 +443,12 @@ function bindReorderHandlers(){
   const cardsBox=$('cards');
   if(!cardsBox)return;
   cardsBox.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('dragstart',e=>{if(!reorderMode){e.preventDefault();return} card.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',card.dataset.i)});
+    card.addEventListener('dragstart',e=>{if(!reorderMode||sortMode!=='default'){e.preventDefault();return} card.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',card.dataset.i)});
     card.addEventListener('dragend',()=>card.classList.remove('dragging'));
-    card.addEventListener('dragover',e=>{if(reorderMode){e.preventDefault();card.classList.add('drag-over')}});
+    card.addEventListener('dragover',e=>{if(reorderMode&&sortMode==='default'){e.preventDefault();card.classList.add('drag-over')}});
     card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));
     card.addEventListener('drop',e=>{
-      if(!reorderMode)return; e.preventDefault(); card.classList.remove('drag-over');
+      if(!reorderMode||sortMode!=='default')return; e.preventDefault(); card.classList.remove('drag-over');
       const from=Number(e.dataTransfer.getData('text/plain')),to=Number(card.dataset.i);
       if(Number.isInteger(from)&&Number.isInteger(to)&&from!==to)moveCard(from,to);
     });
@@ -963,6 +988,10 @@ async function loadSaved(){
 }
 $('saveDeck').innerHTML=iconSvg('save');
 $('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
+$('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=true;renderSortButtons();render()});
+$('sortOwned')?.addEventListener('click',()=>{if(sortMode==='owned')ownedFirst=!ownedFirst;else{sortMode='owned';ownedFirst=true}renderSortButtons();render()});
+$('sortRarity')?.addEventListener('click',()=>{sortMode='rarity';renderSortButtons();render()});
+renderSortButtons();
 $('shareDeck').innerHTML=iconSvg('share');
 $('clear').innerHTML=iconSvg('trash');
 
