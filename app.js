@@ -375,14 +375,19 @@ function displayOrder(){
 }
 function renderSortButtons(){
   const set=(id,on,text)=>{const b=$(id);if(!b)return;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));if(text)b.textContent=text};
+  const cards=deck?.cards||[];
+  const total=cards.length;
+  const notOwned=cards.filter(c=>c.owned===false).length;
+  const owned=total-notOwned;
   set('sortDefault',sortMode==='default');
-  set('sortOwned',sortMode==='owned',ownedFirst?'擁有':'未擁有');
+  set('sortOwned',sortMode==='owned',sortMode==='owned'?(ownedFirst?`擁有 ${owned}/${total}`:`未擁有 ${notOwned}/${total}`):`擁有 ${owned}/${total}`);
   set('sortRarity',sortMode==='rarity');
 }
 const OWN_TEXT={yes:'已擁有',no:'未擁有'};
 
 function render(){
   if(!deck)return;
+  renderSortButtons();
   $('deck').classList.remove('hidden');
   const saveButton=$('saveDeck');
   if(saveButton)saveButton.classList.toggle('hidden',!!deck.justSavedFromImport);
@@ -475,6 +480,7 @@ async function toggleOwned(i){
     if(lab){lab.textContent=text;lab.classList.toggle('no',notOwned);lab.classList.toggle('yes',!notOwned)}
     if(btn){btn.textContent=text;btn.classList.toggle('no',notOwned);btn.classList.toggle('yes',!notOwned)}
   }
+  renderSortButtons();
   if(deck.firestoreId && currentUser){
     try{
       await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards});
@@ -497,6 +503,7 @@ async function moveCard(from,to){
   render();detail();
 
   // Persist the new order + thumbnail immediately for already-saved decks.
+  renderSortButtons();
   if(deck.firestoreId && currentUser){
     try{
       await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards,thumbnailId:deck.thumbnailId});
@@ -999,7 +1006,7 @@ async function loadSaved(){
 $('saveDeck').innerHTML=iconSvg('save');
 $('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
 $('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=true;renderSortButtons();render()});
-$('sortOwned')?.addEventListener('click',()=>{if(sortMode==='owned')ownedFirst=!ownedFirst;else{sortMode='owned';ownedFirst=true}renderSortButtons();render()});
+$('sortOwned')?.addEventListener('click',()=>{if(sortMode==='owned'){ownedFirst=!ownedFirst}else{sortMode='owned';ownedFirst=true}renderSortButtons();render()});
 $('sortRarity')?.addEventListener('click',()=>{sortMode='rarity';renderSortButtons();render()});
 renderSortButtons();
 $('shareDeck').innerHTML=iconSvg('share')+'<span class="share-deck-label">分享牌組碼</span>'; 

@@ -951,12 +951,14 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
 /* Sort buttons (default / owned / rarity) */
 .sort-group{display:flex;gap:6px;margin-left:auto;flex:none}
 .sort-group button{min-width:56px;white-space:nowrap}
+.sort-group button.sort-count-btn{min-width:92px}
 .sort-group button.on{background:#6255d9;color:#fff;border-color:#6255d9}
 @media(max-width:700px){
   .card-toolbar{flex-wrap:wrap}
   #reorderHint{flex:1 1 100%;order:3;text-align:left}
-  .sort-group{margin-left:auto}
+  .sort-group{margin-left:auto;flex-wrap:wrap;justify-content:flex-end;max-width:100%}
   .sort-group button{min-width:0;padding:7px 9px}
+  .sort-group button.sort-count-btn{min-width:0;padding:7px 8px;font-size:11px}
 }
 
 
