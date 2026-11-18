@@ -958,3 +958,15 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
   .sort-group{margin-left:auto}
   .sort-group button{min-width:0;padding:7px 9px}
 }
+
+
+/* Shared deck popup */
+.shared-deck-box{text-align:center}
+.shared-deck-box .edit-deck-head{margin-bottom:14px}
+.shared-thumb-wrap{display:flex;justify-content:center;margin-bottom:12px}
+.shared-thumb-wrap .shared-thumb,.shared-thumb-wrap .img-fallback{width:150px;aspect-ratio:5/7;height:auto;object-fit:contain;border-radius:10px;border:1px solid #343b48;background:#11151c}
+.shared-name{display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;font-weight:800;word-break:break-word}
+.shared-meta{margin-top:6px;font-size:13px;color:#9da5b3}
+.shared-note{margin:12px 0 0;font-size:12px;line-height:1.6;color:#9da5b3}
+.shared-deck-box .edit-deck-actions{justify-content:center}
+.shared-deck-box .edit-deck-actions button{flex:1}

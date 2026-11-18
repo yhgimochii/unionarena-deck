@@ -5,6 +5,7 @@ import { firebaseConfig } from "./firebase-config.js";
 
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
 let DB={},deck=null,selected=null,currentUser=null;
+let sharedDeck=null,authReady=false,cardsReady=false;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -1090,7 +1091,10 @@ async function copyShareLink(text){
 
 $('shareDeck').onclick=async()=>{
   if(!deck)return;
-  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:deck.cards,thumbnailId:deck.thumbnailId||''}))));
+  // Share only what the receiver needs: name, set/version, colour, and card id + quantity.
+  // "owned" is personal, so it is never included.
+  const cleanCards=deck.cards.map(c=>({qty:c.qty,set:c.set,num:c.num,alt:c.alt||''}));
+  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:cleanCards}))));
   const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);
   try{
     const copied=await copyShareLink(url);
@@ -1139,8 +1143,66 @@ $('clear').onclick=async()=>{
     $('msg').textContent='刪除失敗：'+err.message;$('msg').style.color='#b34b35';
   }
 };
-onAuthStateChanged(auth,async user=>{currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved();if(window.matchMedia('(max-width: 700px)').matches)openMyDecks()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden');closeMyDecks()}});
-function loadShared(){const e=new URLSearchParams(location.search).get('deck');if(!e)return;try{deck={...JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(e))))) };render();detail()}catch{}}
+onAuthStateChanged(auth,async user=>{try{await handleAuth(user)}finally{authReady=true;maybeShowShared()}});
+async function handleAuth(user){currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved();if(window.matchMedia('(max-width: 700px)').matches)openMyDecks()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden');closeMyDecks()}}
+function sanitizeShared(o){
+  const cards=(Array.isArray(o?.cards)?o.cards:[]).filter(c=>c&&c.set&&c.num).map(c=>({qty:Math.max(1,parseInt(c.qty)||1),set:String(c.set),num:String(c.num),alt:String(c.alt||'')}));
+  if(!cards.length)return null;
+  const d={name:String(o.name||'').slice(0,80)||'分享的牌組',version:String(o.version||''),color:deckColorClass(o.color||'red'),cards,source:''};
+  d.thumbnailId=deckThumbnailId(d);
+  return d;
+}
+function clearShareParam(){try{history.replaceState(null,'',location.pathname+location.hash)}catch{}}
+function loadShared(){
+  const e=new URLSearchParams(location.search).get('deck');
+  cardsReady=true;
+  if(!e)return;
+  try{sharedDeck=sanitizeShared(JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(e))))))}catch{sharedDeck=null}
+  if(!sharedDeck){clearShareParam();return}
+  maybeShowShared();
+}
+function closeSharedModal(){$('sharedDeckModal').classList.add('hidden');$('sharedDeckModal').setAttribute('aria-hidden','true')}
+function maybeShowShared(){
+  if(!sharedDeck||!cardsReady||!authReady)return;
+  const d=sharedDeck,thumbId=d.thumbnailId,thumbName=DB[thumbId]?.name||d.name;
+  const total=d.cards.reduce((n,c)=>n+c.qty,0);
+  $('sharedDeckBody').innerHTML=`<div class="shared-thumb-wrap">${thumbId?imageTag(thumbId,thumbName,'shared-thumb'):''}</div>
+    <div class="shared-name"><span class="deck-color-dot ${deckColorClass(d.color)}"></span><span>${esc(d.name)}</span></div>
+    <div class="shared-meta">${esc(d.version||'未知作品')} · ${total} 張 · ${d.cards.length} 種</div>
+    <p class="shared-note">${currentUser?'儲存後會加入你的牌組庫，只會複製卡片與數量，不包含對方的「擁有」狀態。':'請先登入，才能把這副牌組儲存到你的牌組庫。'}</p>`;
+  const save=$('sharedDeckSave');
+  save.disabled=false;
+  save.textContent=currentUser?'儲存到我的牌組庫':'登入以儲存';
+  $('sharedDeckMsg').textContent='';
+  $('sharedDeckModal').classList.remove('hidden');
+  $('sharedDeckModal').setAttribute('aria-hidden','false');
+}
+function viewSharedDeck(){
+  if(!sharedDeck)return;
+  deck={...sharedDeck};selected=null;render();detail();
+}
+$('sharedDeckSave').onclick=async()=>{
+  if(!sharedDeck)return;
+  if(!currentUser){closeSharedModal();showAuth();return}
+  const btn=$('sharedDeckSave');btn.disabled=true;btn.textContent='儲存中…';
+  try{
+    const d=sharedDeck;
+    const payload={name:d.name,version:d.version,color:d.color,cards:d.cards,thumbnailId:d.thumbnailId||'',source:'',createdAt:serverTimestamp()};
+    const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),payload);
+    deck={...d,firestoreId:ref.id};selected=null;
+    sharedDeck=null;clearShareParam();closeSharedModal();
+    await loadSaved();render();detail();
+    showShareToast('已儲存到你的牌組庫！');
+  }catch(e){
+    console.error(e);
+    btn.disabled=false;btn.textContent='儲存到我的牌組庫';
+    $('sharedDeckMsg').textContent='儲存失敗：'+e.message;
+  }
+};
+function dismissSharedModal(){closeSharedModal();viewSharedDeck();sharedDeck=null;clearShareParam()}
+$('sharedDeckClose').onclick=dismissSharedModal;
+$('sharedDeckCancel').onclick=dismissSharedModal;
+$('sharedDeckModal').addEventListener('click',e=>{if(e.target===e.currentTarget)dismissSharedModal()});
 try{const n=await initCards();$('dbStatus').textContent=`本地卡片資料：${n} 張；支援任意 Rugia IP 牌組匯入。先執行 GitHub Actions 同步即可載入完整卡表。`;$('dbStatus').classList.remove('error');loadShared()}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}
 
 document.addEventListener('click',e=>{
