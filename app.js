@@ -1154,7 +1154,7 @@ async function previewDeckCode(){
     sharedDeck=sanitizeShared(snap.data());
     if(!sharedDeck)throw new Error('這組牌組碼的資料不完整。');
     closeCodeModal();maybeShowShared();
-  }catch(e){$('deckCodeMsg').textContent='讀取失敗：'+e.message}
+  }catch(e){console.error('Deck-code lookup failed:',e);$('deckCodeMsg').textContent='讀取失敗：'+(e?.message||String(e))}
   finally{btn.disabled=false;btn.textContent='預覽牌組'}
 }
 $('deckCodeLookup').onclick=previewDeckCode;
@@ -1200,7 +1200,10 @@ function loadShared(){
 }
 function closeSharedModal(){$('sharedDeckModal').classList.add('hidden');$('sharedDeckModal').setAttribute('aria-hidden','true')}
 function maybeShowShared(){
-  if(!sharedDeck||!cardsReady||!authReady)return;
+  // The preview does not depend on the local card database or auth callback.
+  // Waiting for either flag could silently prevent the popup from appearing
+  // after a successful Firestore lookup (for example on a slow first load).
+  if(!sharedDeck)return;
   const d=sharedDeck,thumbId=d.thumbnailId,thumbName=DB[thumbId]?.name||d.name;
   const total=d.cards.reduce((n,c)=>n+c.qty,0);
   $('sharedDeckBody').innerHTML=`<div class="shared-thumb-wrap">${thumbId?imageTag(thumbId,thumbName,'shared-thumb'):''}</div>
