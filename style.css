@@ -1004,3 +1004,21 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
 .shared-edit-panel .edit-deck-input{margin-bottom:12px;background:#1b202a;color:#f4f5f7;border:1px solid #343b48;border-radius:8px;padding:10px}
 .shared-edit-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:2px}
 .shared-edit-actions button{min-width:76px}
+
+
+/* Desktop My Decks collapse control. Mobile bottom-sheet styles above are unchanged. */
+@media(min-width:701px){
+  #account.account.my-decks-collapsed .saved{display:none!important}
+  #account.account.my-decks-collapsed .my-decks-chevron{transform:rotate(180deg)}
+  #account.account:not(.my-decks-collapsed) .saved{display:grid}
+  #account.account.my-decks-collapsed{justify-content:flex-start}
+}
+
+/* Share action uses an icon with a clear text label. */
+#shareDeck{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+#shareDeck .share-deck-label{font-size:13px;font-weight:800;white-space:nowrap}
+@media(max-width:550px){#shareDeck .share-deck-label{font-size:12px}}
+
+/* Rugia link import now has no name/colour controls. */
+.deck-import-row{justify-content:flex-end;margin-top:10px}
+.deck-import-row #go{min-width:140px}

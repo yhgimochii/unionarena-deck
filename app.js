@@ -384,6 +384,8 @@ const OWN_TEXT={yes:'已擁有',no:'未擁有'};
 function render(){
   if(!deck)return;
   $('deck').classList.remove('hidden');
+  const saveButton=$('saveDeck');
+  if(saveButton)saveButton.classList.toggle('hidden',!!deck.justSavedFromImport);
   $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span><span class="deck-title-name">${esc(deck.name||'新牌組')}</span><button id="editDeck" class="icon-btn deck-edit-icon" type="button" title="編輯牌組" aria-label="編輯牌組">${iconSvg('edit')}</button>`;
   $('editDeck').onclick=()=>openEditDeck();
   $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
@@ -960,8 +962,15 @@ function openMyDecks(){
   if(toggle)toggle.setAttribute('aria-expanded','true');
 }
 function toggleMyDecks(){
-  const account=$('account');
-  if(account?.classList.contains('my-decks-open')) closeMyDecks(); else openMyDecks();
+  const account=$('account'),toggle=$('myDecksToggle');
+  if(!account)return;
+  // Desktop uses an inline collapsible library. Mobile keeps its existing bottom-sheet behavior.
+  if(!window.matchMedia('(max-width: 700px)').matches){
+    const collapsed=account.classList.toggle('my-decks-collapsed');
+    if(toggle)toggle.setAttribute('aria-expanded',String(!collapsed));
+    return;
+  }
+  if(account.classList.contains('my-decks-open')) closeMyDecks(); else openMyDecks();
 }
 $('myDecksToggle')?.addEventListener('click',toggleMyDecks);
 $('myDecksBackdrop')?.addEventListener('click',closeMyDecks);
@@ -993,7 +1002,7 @@ $('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=tr
 $('sortOwned')?.addEventListener('click',()=>{if(sortMode==='owned')ownedFirst=!ownedFirst;else{sortMode='owned';ownedFirst=true}renderSortButtons();render()});
 $('sortRarity')?.addEventListener('click',()=>{sortMode='rarity';renderSortButtons();render()});
 renderSortButtons();
-$('shareDeck').innerHTML=iconSvg('share');
+$('shareDeck').innerHTML=iconSvg('share')+'<span class="share-deck-label">分享牌組碼</span>'; 
 $('clear').innerHTML=iconSvg('trash');
 
 $('saveDeck').onclick=async()=>{
@@ -1011,6 +1020,7 @@ $('saveDeck').onclick=async()=>{
     }else{
       const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),payload);
       deck.firestoreId=ref.id;
+      deck.justSavedFromImport=true;
       $('msg').textContent='牌組已儲存到你的帳號。';
     }
     $('msg').style.color='#25805b';await loadSaved();render();detail();
@@ -1160,7 +1170,7 @@ async function previewDeckCode(){
 $('deckCodeLookup').onclick=previewDeckCode;
 $('deckCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter')previewDeckCode()});
 
-$('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;deck.thumbnailId=deck.cards[0]?cardId(deck.cards[0]):'';selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
+$('go').onclick=()=>{try{deck=parse($('url').value);deck.name='New Deck';deck.color='red';deck.thumbnailId=deck.cards[0]?cardId(deck.cards[0]):'';selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
 $('clear').onclick=async()=>{
   if(!deck)return;
   if(!deck.firestoreId){
