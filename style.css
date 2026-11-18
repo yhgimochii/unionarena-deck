@@ -980,3 +980,27 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
 .code-entry-box .shared-note{margin:0 0 14px}
 .deck-code-input{text-align:center;text-transform:uppercase;letter-spacing:.22em;font-size:22px;font-weight:800}
 @media(max-width:550px){.hero-actions{gap:8px}.hero-actions .submit-link-btn{flex:1;min-width:0}}
+
+/* Shared-deck preview refinements */
+.shared-deck-box .edit-deck-head{align-items:center}
+.shared-deck-box .edit-deck-x{
+  width:36px;height:36px;min-width:36px;padding:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid #343b48;border-radius:50%;
+  background:#1b202a;color:#aab1bd;font-size:23px;line-height:1;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.shared-deck-box .edit-deck-x:hover{background:#292f3b;border-color:#6255d9;color:#fff}
+.shared-edit-icon{
+  width:30px;height:30px;min-width:30px;padding:6px;margin-left:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid #343b48;border-radius:9px;
+  background:#1b202a;color:#8b7cff;cursor:pointer;
+}
+.shared-edit-icon:hover{background:#292f3b;border-color:#6255d9;color:#fff}
+.shared-edit-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.shared-edit-panel{margin:14px auto 4px;padding:14px;text-align:left;border:1px solid #343b48;border-radius:12px;background:#131720}
+.shared-edit-panel label{display:block;margin:0 0 6px;font-size:12px;font-weight:700;color:#aab1bd}
+.shared-edit-panel .edit-deck-input{margin-bottom:12px;background:#1b202a;color:#f4f5f7;border:1px solid #343b48;border-radius:8px;padding:10px}
+.shared-edit-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:2px}
+.shared-edit-actions button{min-width:76px}

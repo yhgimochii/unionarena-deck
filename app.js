@@ -1207,9 +1207,33 @@ function maybeShowShared(){
   const d=sharedDeck,thumbId=d.thumbnailId,thumbName=DB[thumbId]?.name||d.name;
   const total=d.cards.reduce((n,c)=>n+c.qty,0);
   $('sharedDeckBody').innerHTML=`<div class="shared-thumb-wrap">${thumbId?imageTag(thumbId,thumbName,'shared-thumb'):''}</div>
-    <div class="shared-name"><span class="deck-color-dot ${deckColorClass(d.color)}"></span><span>${esc(d.name)}</span></div>
-    <div class="shared-meta">${esc(d.version||'未知作品')} · ${total} 張 · ${d.cards.length} 種</div>
-    <p class="shared-note">${currentUser?'儲存後會加入你的牌組庫，只會複製卡片與數量，不包含對方的「擁有」狀態。':'請先登入，才能把這副牌組儲存到你的牌組庫。'}</p>`;
+    <div class="shared-name"><span class="deck-color-dot ${deckColorClass(d.color)}"></span><span>${esc(d.name)}</span>
+      <button id="sharedDeckEditToggle" class="shared-edit-icon" type="button" aria-label="編輯牌組名稱與顏色" title="編輯牌組名稱與顏色">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>
+      </button>
+    </div>
+    <div id="sharedDeckEditPanel" class="shared-edit-panel hidden">
+      <label for="sharedDeckEditName">牌組名稱</label>
+      <input id="sharedDeckEditName" class="edit-deck-input" type="text" maxlength="80" value="${esc(d.name)}">
+      <label for="sharedDeckEditColor">牌組顏色</label>
+      <select id="sharedDeckEditColor" class="edit-deck-input">
+        <option value="red" ${deckColorClass(d.color)==='red'?'selected':''}>紅色</option>
+        <option value="blue" ${deckColorClass(d.color)==='blue'?'selected':''}>藍色</option>
+        <option value="yellow" ${deckColorClass(d.color)==='yellow'?'selected':''}>黃色</option>
+        <option value="green" ${deckColorClass(d.color)==='green'?'selected':''}>綠色</option>
+        <option value="purple" ${deckColorClass(d.color)==='purple'?'selected':''}>紫色</option>
+      </select>
+      <div class="shared-edit-actions"><button id="sharedDeckEditCancel" class="light" type="button">取消</button><button id="sharedDeckEditApply" type="button">套用</button></div>
+    </div>
+    <div class="shared-meta">${esc(d.version||'未知作品')} · ${total} 張 · ${d.cards.length} 種</div>`;
+  $('sharedDeckEditToggle').onclick=()=>{$('sharedDeckEditPanel').classList.toggle('hidden')};
+  $('sharedDeckEditCancel').onclick=()=>{$('sharedDeckEditPanel').classList.add('hidden')};
+  $('sharedDeckEditApply').onclick=()=>{
+    const name=$('sharedDeckEditName').value.trim();
+    if(!name){$('sharedDeckEditName').focus();return}
+    sharedDeck={...sharedDeck,name,color:deckColorClass($('sharedDeckEditColor').value)};
+    maybeShowShared();
+  };
   const save=$('sharedDeckSave');
   save.disabled=false;
   save.textContent=currentUser?'儲存到我的牌組庫':'登入以儲存';
