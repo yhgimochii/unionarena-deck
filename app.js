@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, getDoc, serverTimestamp, query, orderBy, deleteDoc, doc, updateDoc, runTransaction } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
@@ -1089,30 +1089,41 @@ async function copyShareLink(text){
   return ok;
 }
 
+// Share a compact, memorable code backed by a public Firestore deck record.
+const SHARE_CODE_CHARS='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function makeShareCode(length=6){
+  const bytes=new Uint8Array(length);crypto.getRandomValues(bytes);
+  return Array.from(bytes,b=>SHARE_CODE_CHARS[b%SHARE_CODE_CHARS.length]).join('');
+}
 $('shareDeck').onclick=async()=>{
   if(!deck)return;
-  // Share only what the receiver needs: name, set/version, colour, and card id + quantity.
-  // "owned" is personal, so it is never included.
-  const cleanCards=deck.cards.map(c=>({qty:c.qty,set:c.set,num:c.num,alt:c.alt||''}));
-  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify({name:deck.name,version:deck.version,color:deckColorClass(deck.color),cards:cleanCards}))));
-  const url=location.origin+location.pathname+'?deck='+encodeURIComponent(encoded);
+  if(!currentUser){showAuth();showShareToast('請先登入，再產生分享碼。');return}
+  const btn=$('shareDeck');btn.disabled=true;
   try{
-    const copied=await copyShareLink(url);
-    if(copied){
-      showShareToast('分享連結已複製！');
-      $('msg').textContent='分享連結已複製。';
-      $('msg').style.color='#25805b';
-    }else{
-      showShareToast('無法自動複製，請手動複製連結。');
-      $('msg').textContent=url;
-      $('msg').style.color='#68707d';
+    const cleanCards=deck.cards.map(c=>({qty:c.qty,set:c.set,num:c.num,alt:c.alt||''}));
+    const payload={name:String(deck.name||'未命名牌組').slice(0,80),version:String(deck.version||''),color:deckColorClass(deck.color),cards:cleanCards,thumbnailId:deckThumbnailId(deck)||'',createdAt:serverTimestamp(),ownerUid:currentUser.uid};
+    let code='',created=false;
+    for(let attempt=0;attempt<8&&!created;attempt++){
+      code=makeShareCode();
+      const ref=doc(db,'sharedDecks',code);
+      created=await runTransaction(db,async tx=>{
+        const existing=await tx.get(ref);
+        if(existing.exists())return false;
+        tx.set(ref,payload);
+        return true;
+      });
     }
-  }catch{
-    showShareToast('無法自動複製，請手動複製連結。');
-    $('msg').textContent=url;
-    $('msg').style.color='#68707d';
-  }
+    if(!created)throw new Error('暫時無法產生唯一代碼，請再試一次。');
+    const copied=await copyShareLink(code);
+    showShareToast(copied?`牌組碼 ${code} 已複製！`:`牌組碼：${code}`);
+    $('msg').textContent=`分享碼：${code}${copied?'（已複製到剪貼簿）':'（請手動複製）'}`;
+    $('msg').style.color='#25805b';
+  }catch(e){
+    console.error(e);showShareToast('產生分享碼失敗，請稍後再試。');
+    $('msg').textContent='分享碼產生失敗：'+e.message;$('msg').style.color='#b34b35';
+  }finally{btn.disabled=false}
 };
+
 function setImportPanel(open){
   const panel=$('importPanel'),btn=$('toggleImport');
   if(!panel||!btn)return;
@@ -1122,6 +1133,32 @@ function setImportPanel(open){
 }
 $('toggleImport').onclick=()=>setImportPanel(true);
 $('collapseImport').onclick=()=>setImportPanel(false);
+
+function openCodeModal(){
+  $('deckCodeInput').value='';$('deckCodeMsg').textContent='';
+  $('deckCodeModal').classList.remove('hidden');$('deckCodeModal').setAttribute('aria-hidden','false');
+  setTimeout(()=>$('deckCodeInput').focus(),0);
+}
+function closeCodeModal(){$('deckCodeModal').classList.add('hidden');$('deckCodeModal').setAttribute('aria-hidden','true')}
+$('toggleCodeImport').onclick=openCodeModal;
+$('deckCodeClose').onclick=closeCodeModal;
+$('deckCodeCancel').onclick=closeCodeModal;
+$('deckCodeModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeCodeModal()});
+async function previewDeckCode(){
+  const code=$('deckCodeInput').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(!code){$('deckCodeMsg').textContent='請輸入牌組碼。';return}
+  const btn=$('deckCodeLookup');btn.disabled=true;btn.textContent='查詢中…';$('deckCodeMsg').textContent='';
+  try{
+    const snap=await getDoc(doc(db,'sharedDecks',code));
+    if(!snap.exists()){$('deckCodeMsg').textContent='找不到這組牌組碼，請確認後再試。';return}
+    sharedDeck=sanitizeShared(snap.data());
+    if(!sharedDeck)throw new Error('這組牌組碼的資料不完整。');
+    closeCodeModal();maybeShowShared();
+  }catch(e){$('deckCodeMsg').textContent='讀取失敗：'+e.message}
+  finally{btn.disabled=false;btn.textContent='預覽牌組'}
+}
+$('deckCodeLookup').onclick=previewDeckCode;
+$('deckCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter')previewDeckCode()});
 
 $('go').onclick=()=>{try{deck=parse($('url').value);deck.name=$('name').value.trim()||deck.name;deck.thumbnailId=deck.cards[0]?cardId(deck.cards[0]):'';selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
 $('clear').onclick=async()=>{
@@ -1199,7 +1236,7 @@ $('sharedDeckSave').onclick=async()=>{
     $('sharedDeckMsg').textContent='儲存失敗：'+e.message;
   }
 };
-function dismissSharedModal(){closeSharedModal();viewSharedDeck();sharedDeck=null;clearShareParam()}
+function dismissSharedModal(){closeSharedModal();sharedDeck=null;clearShareParam()}
 $('sharedDeckClose').onclick=dismissSharedModal;
 $('sharedDeckCancel').onclick=dismissSharedModal;
 $('sharedDeckModal').addEventListener('click',e=>{if(e.target===e.currentTarget)dismissSharedModal()});

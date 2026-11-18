@@ -5,7 +5,7 @@
   <img class="hero-logo" src="union-arena-logo.png" alt="UNION ARENA" />
   <div class="hero-content">
     <h1>Rugia 牌組分析</h1>
-    <button id="toggleImport" class="submit-link-btn" type="button" aria-expanded="false">提交連結</button>
+    <div class="hero-actions"><button id="toggleImport" class="submit-link-btn" type="button" aria-expanded="false">提交連結</button><button id="toggleCodeImport" class="submit-link-btn secondary" type="button">輸入牌組碼</button></div>
   </div>
 </section>
 <section id="importPanel" class="import hidden" aria-hidden="true">
@@ -19,7 +19,7 @@
 </div>
 <button id="go">匯入牌組</button></div><p id="msg"></p></section>
 <section id="account" class="account hidden"><button id="myDecksToggle" class="my-decks-toggle" type="button" aria-expanded="false"><span><small>MY DECKS</small><strong>我的牌組</strong></span><span class="my-decks-chevron" aria-hidden="true">⌃</span></button><div id="savedDecks" class="saved"></div></section><div id="myDecksBackdrop" class="my-decks-backdrop hidden" aria-hidden="true"></div>
-<section id="deck" class="hidden"><div class="deckhead"><div class="deckhead-main"><div><small>DECK</small><h2 id="title"></h2><p id="meta"></p></div><button id="clear" class="icon-action light delete-deck-action" type="button" title="刪除牌組" aria-label="刪除牌組"></button></div><div class="deck-actions"><button id="saveDeck" class="icon-action" type="button" title="儲存牌組" aria-label="儲存牌組"></button><button id="shareDeck" class="icon-action light" type="button" title="分享牌組" aria-label="分享牌組"></button></div></div><div class="card-toolbar"><button id="reorderToggle" class="light small" type="button" aria-pressed="false">排序</button><span id="reorderHint">拖曳卡片調整順序；手機可用 ↑ ↓</span><div class="sort-group" role="group" aria-label="排列方式"><button id="sortDefault" class="light small on" type="button" aria-pressed="true">預設</button><button id="sortOwned" class="light small" type="button" aria-pressed="false">擁有</button><button id="sortRarity" class="light small" type="button" aria-pressed="false">稀有度</button></div></div><div class="grid"><div id="cards" class="cards"></div><button id="mobileDetailBtn" class="mobile-detail-btn" type="button">查看卡片資料</button>
+<section id="deck" class="hidden"><div class="deckhead"><div class="deckhead-main"><div><small>DECK</small><h2 id="title"></h2><p id="meta"></p></div><button id="clear" class="icon-action light delete-deck-action" type="button" title="刪除牌組" aria-label="刪除牌組"></button></div><div class="deck-actions"><button id="saveDeck" class="icon-action" type="button" title="儲存牌組" aria-label="儲存牌組"></button><button id="shareDeck" class="icon-action light" type="button" title="產生分享碼" aria-label="產生分享碼"></button></div></div><div class="card-toolbar"><button id="reorderToggle" class="light small" type="button" aria-pressed="false">排序</button><span id="reorderHint">拖曳卡片調整順序；手機可用 ↑ ↓</span><div class="sort-group" role="group" aria-label="排列方式"><button id="sortDefault" class="light small on" type="button" aria-pressed="true">預設</button><button id="sortOwned" class="light small" type="button" aria-pressed="false">擁有</button><button id="sortRarity" class="light small" type="button" aria-pressed="false">稀有度</button></div></div><div class="grid"><div id="cards" class="cards"></div><button id="mobileDetailBtn" class="mobile-detail-btn" type="button">查看卡片資料</button>
   <aside id="detail" class="detail"><div class="empty">點擊左側卡片查看資料。</div></aside></div></section></main>
 <div id="modal" class="modal hidden"><div class="modalbox"><button id="closeModal" class="close">×</button><h2>登入 / 註冊</h2><p class="muted">使用 Email 和密碼儲存你的牌組。</p><input id="email" type="email" placeholder="Email"><input id="password" type="password" placeholder="密碼（至少6位）"><div class="row"><button id="signup">註冊</button><button id="signin" class="light">登入</button></div><p id="authMsg"></p></div></div>
 <script type="module" src="app.js"></script><div id="mobileDetailModal" class="mobile-detail-modal hidden" aria-hidden="true">
@@ -74,6 +74,17 @@
       <button id="sharedDeckCancel" class="light" type="button">先看看</button>
       <button id="sharedDeckSave" type="button">儲存到我的牌組庫</button>
     </div>
+  </div>
+</div>
+
+
+<div id="deckCodeModal" class="edit-deck-modal hidden" aria-hidden="true">
+  <div class="edit-deck-box code-entry-box" role="dialog" aria-modal="true" aria-labelledby="deckCodeTitle">
+    <div class="edit-deck-head"><strong id="deckCodeTitle">輸入牌組碼</strong><button id="deckCodeClose" class="edit-deck-x" type="button" aria-label="關閉">×</button></div>
+    <p class="shared-note">輸入朋友分享的 6 位牌組碼，即可預覽牌組。</p>
+    <input id="deckCodeInput" class="edit-deck-input deck-code-input" type="text" maxlength="6" autocomplete="off" autocapitalize="characters" placeholder="例如 EV7K9P">
+    <div id="deckCodeMsg" class="edit-deck-msg" aria-live="polite"></div>
+    <div class="edit-deck-actions"><button id="deckCodeCancel" class="light" type="button">取消</button><button id="deckCodeLookup" type="button">預覽牌組</button></div>
   </div>
 </div>
 
