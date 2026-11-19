@@ -1024,3 +1024,21 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
 /* Rugia link import now has no name/colour controls. */
 .deck-import-row{justify-content:flex-end;margin-top:10px}
 .deck-import-row #go{min-width:140px}
+
+
+/* Saved deck library ordering */
+.saved-decks-reorder-toggle{flex:0 0 auto;white-space:nowrap;align-self:center}
+.saved-decks-reorder-toggle.on{background:#6255d9!important;border-color:#6255d9!important;color:#fff!important}
+.saved.reorder-mode .deck-slot{cursor:grab;user-select:none}
+.saved.reorder-mode .deck-slot:active{cursor:grabbing}
+.saved .deck-slot.dragging{opacity:.4}
+.saved .deck-slot.drag-over{border-color:#8b7cff;box-shadow:0 0 0 2px rgba(98,85,217,.2)}
+.slot-reorder-controls{display:none;gap:6px;margin-top:7px;justify-content:center}
+.saved.reorder-mode .slot-reorder-controls{display:flex}
+.slot-reorder-controls button{width:28px;height:25px;padding:0;border-radius:7px;background:#202633;color:#f4f5f7;border:1px solid #3a4352;font-size:13px;line-height:1}
+.slot-reorder-controls button:disabled{opacity:.3;cursor:not-allowed}
+@media(max-width:700px){
+  #account.account .saved-decks-reorder-toggle{align-self:flex-end;margin-top:8px;min-height:32px}
+  #account.account .saved.reorder-mode .deck-slot{cursor:default}
+  #account.account .slot-reorder-controls button{width:32px;height:28px}
+}

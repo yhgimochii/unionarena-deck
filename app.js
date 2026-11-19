@@ -390,7 +390,7 @@ function render(){
   renderSortButtons();
   $('deck').classList.remove('hidden');
   const saveButton=$('saveDeck');
-  if(saveButton)saveButton.classList.toggle('hidden',!!deck.justSavedFromImport);
+  if(saveButton)saveButton.classList.toggle('hidden',!!deck.firestoreId || !!deck.justSavedFromImport);
   $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span><span class="deck-title-name">${esc(deck.name||'新牌組')}</span><button id="editDeck" class="icon-btn deck-edit-icon" type="button" title="編輯牌組" aria-label="編輯牌組">${iconSvg('edit')}</button>`;
   $('editDeck').onclick=()=>openEditDeck();
   $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
@@ -986,27 +986,96 @@ function toggleMyDecks(){
 $('myDecksToggle')?.addEventListener('click',toggleMyDecks);
 $('myDecksBackdrop')?.addEventListener('click',closeMyDecks);
 
-async function loadSaved(){
-  if(!currentUser)return;
-  const q=query(collection(db,'users',currentUser.uid,'decks'),orderBy('createdAt','desc'));
-  const snap=await getDocs(q),box=$('savedDecks');
-  const prevScroll=box.scrollTop; // keep the reader's place in a long list across refreshes
+let savedDeckDocs=[];
+let savedDeckReorderMode=false;
+function renderSavedDecks(){
+  const box=$('savedDecks');
+  if(!box)return;
+  const prevScroll=box.scrollTop;
   box.innerHTML='';
-  const docs=[];snap.forEach(item=>docs.push({id:item.id,...item.data()}));
-  // No deck limit: draw every saved deck. Always show at least 10 slots so a
-  // small collection still looks the same (empty placeholders), but never cap.
-  const SLOT_COUNT=Math.max(10,docs.length);
+  box.classList.toggle('reorder-mode',savedDeckReorderMode);
+  const SLOT_COUNT=Math.max(10,savedDeckDocs.length);
   for(let i=0;i<SLOT_COUNT;i++){
-    const d=docs[i],slot=document.createElement('div');
+    const d=savedDeckDocs[i],slot=document.createElement('div');
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
-    if(!d){slot.classList.add('empty');slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;box.appendChild(slot);continue}
-    const thumbId=deckThumbnailId(d), thumbName=(DB[thumbId]?.name)||d.name||"牌組縮圖";
-    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):""}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div>`;
-    slot.onclick=()=>{deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};selected=null;render();detail();closeMyDecks();box.querySelectorAll('.deck-slot').forEach(x=>x.classList.toggle('on',x===slot))};
+    if(!d){
+      slot.classList.add('empty');
+      slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;
+      box.appendChild(slot);
+      continue;
+    }
+    const thumbId=deckThumbnailId(d),thumbName=(DB[thumbId]?.name)||d.name||'牌組縮圖';
+    slot.dataset.savedIndex=String(i);
+    slot.draggable=savedDeckReorderMode;
+    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):''}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-reorder-controls"><button type="button" class="saved-deck-up" title="向前移動" aria-label="將牌組向前移動" ${i===0?'disabled':''}>↑</button><button type="button" class="saved-deck-down" title="向後移動" aria-label="將牌組向後移動" ${i===savedDeckDocs.length-1?'disabled':''}>↓</button></div>`;
+    slot.querySelectorAll('img').forEach(img=>img.draggable=false);
+    slot.onclick=()=>{
+      if(savedDeckReorderMode)return;
+      deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};
+      selected=null;render();detail();closeMyDecks();
+      box.querySelectorAll('.deck-slot').forEach(x=>x.classList.toggle('on',x===slot));
+    };
+    slot.querySelector('.saved-deck-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(i,i-1)});
+    slot.querySelector('.saved-deck-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(i,i+1)});
+    slot.addEventListener('dragstart',e=>{
+      if(!savedDeckReorderMode){e.preventDefault();return}
+      slot.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));
+    });
+    slot.addEventListener('dragend',()=>slot.classList.remove('dragging'));
+    slot.addEventListener('dragover',e=>{if(savedDeckReorderMode){e.preventDefault();slot.classList.add('drag-over')}});
+    slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
+    slot.addEventListener('drop',e=>{
+      if(!savedDeckReorderMode)return;
+      e.preventDefault();slot.classList.remove('drag-over');
+      const from=Number(e.dataTransfer.getData('text/plain'));
+      if(Number.isInteger(from))moveSavedDeck(from,i);
+    });
     box.appendChild(slot);
   }
   box.scrollTop=prevScroll;
+  const toggle=$('savedDecksReorderToggle');
+  if(toggle){
+    toggle.textContent=savedDeckReorderMode?'完成整理':'整理牌組';
+    toggle.setAttribute('aria-pressed',String(savedDeckReorderMode));
+    toggle.classList.toggle('on',savedDeckReorderMode);
+    toggle.classList.toggle('hidden',savedDeckDocs.length<2);
+  }
 }
+async function persistSavedDeckOrder(){
+  if(!currentUser)return;
+  try{
+    await Promise.all(savedDeckDocs.map((d,index)=>updateDoc(doc(db,'users',currentUser.uid,'decks',d.id),{orderIndex:index})));
+    savedDeckDocs.forEach((d,index)=>d.orderIndex=index);
+  }catch(e){
+    console.error('Failed to save deck library order:',e);
+    const msg=$('msg');if(msg){msg.textContent='牌組順序已調整，但同步失敗，請確認網路後再試。';msg.style.color='#b34b35'}
+  }
+}
+async function moveSavedDeck(from,to){
+  if(!savedDeckReorderMode||from<0||to<0||from>=savedDeckDocs.length||to>=savedDeckDocs.length||from===to)return;
+  const [item]=savedDeckDocs.splice(from,1);savedDeckDocs.splice(to,0,item);
+  renderSavedDecks();
+  await persistSavedDeckOrder();
+}
+async function loadSaved(){
+  if(!currentUser)return;
+  const q=query(collection(db,'users',currentUser.uid,'decks'),orderBy('createdAt','desc'));
+  const snap=await getDocs(q);
+  const docs=[];snap.forEach((item,index)=>docs.push({id:item.id,...item.data(),_fallbackOrder:index}));
+  // Existing decks without orderIndex retain their previous newest-first order.
+  docs.sort((a,b)=>{
+    const ai=Number.isFinite(Number(a.orderIndex))?Number(a.orderIndex):a._fallbackOrder;
+    const bi=Number.isFinite(Number(b.orderIndex))?Number(b.orderIndex):b._fallbackOrder;
+    return ai-bi||a._fallbackOrder-b._fallbackOrder;
+  });
+  savedDeckDocs=docs;
+  renderSavedDecks();
+}
+$('savedDecksReorderToggle')?.addEventListener('click',async()=>{
+  savedDeckReorderMode=!savedDeckReorderMode;
+  renderSavedDecks();
+  if(!savedDeckReorderMode)await persistSavedDeckOrder();
+});
 $('saveDeck').innerHTML=iconSvg('save');
 $('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
 $('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=true;renderSortButtons();render()});
@@ -1024,7 +1093,7 @@ $('saveDeck').onclick=async()=>{
     deck.color=color;
     // Always derive the thumbnail from the first card in the current order.
     deck.thumbnailId=deckThumbnailId(deck);
-    const payload={name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,thumbnailId:deck.thumbnailId||'',source:deck.source||'',createdAt:serverTimestamp()};
+    const payload={name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,thumbnailId:deck.thumbnailId||'',source:deck.source||'',createdAt:serverTimestamp(),orderIndex:savedDeckDocs.reduce((max,d,i)=>Math.max(max,Number.isFinite(Number(d.orderIndex))?Number(d.orderIndex):i),savedDeckDocs.length-1)+1};
     if(deck.firestoreId){
       await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{name:payload.name,version:payload.version,color:payload.color,cards:payload.cards,thumbnailId:payload.thumbnailId,source:payload.source});
       $('msg').textContent='牌組已更新。';
