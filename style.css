@@ -520,7 +520,7 @@
 .my-decks-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;background:transparent!important;color:#171a1f!important;border:0!important;padding:0!important;text-align:left;cursor:pointer;flex:0 0 auto}
 .my-decks-toggle span:first-child{display:flex;flex-direction:column;gap:2px}
 .my-decks-toggle small{font-size:10px;letter-spacing:.08em;color:#6255d9}
-.my-decks-toggle strong{font-size:18px;line-height:1.2}
+.my-decks-toggle strong{font-size:18px;line-height:1.2;color:#f4f5f7!important}
 .my-decks-chevron{font-size:20px;color:#68707d;transition:transform .2s ease}
 .my-decks-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:38}
 .my-decks-backdrop.hidden{display:none!important}
