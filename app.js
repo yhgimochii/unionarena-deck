@@ -405,7 +405,7 @@ function render(){
       ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
       <div class="cardbody"><div class="id">${esc(id)}</div></div>
       ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
-      <span class="own-label ${notOwned?"no":"yes"}">${notOwned?OWN_TEXT.no:OWN_TEXT.yes}</span>
+      ${notOwned?`<span class="own-label no">${OWN_TEXT.no}</span>`:""}
       <div class="qty">×${c.qty}</div>
       <div class="reorder-controls" aria-hidden="true"><div class="move-btns"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div><button type="button" class="own-toggle ${notOwned?"no":"yes"}" title="切換是否已擁有">${notOwned?OWN_TEXT.no:OWN_TEXT.yes}</button></div>
     </div>`;
@@ -445,7 +445,7 @@ function renderReorderState(){
     if(down)down.disabled=!manual||i===deck.cards.length-1;
   });
   const btn=$('reorderToggle');
-  if(btn){btn.textContent=reorderMode?'完成排序':'排序';btn.setAttribute('aria-pressed',String(reorderMode));}
+  if(btn){btn.textContent=reorderMode?'完成編輯':'編輯';btn.setAttribute('aria-pressed',String(reorderMode));}
 }
 function bindReorderHandlers(){
   const cardsBox=$('cards');
@@ -476,8 +476,12 @@ async function toggleOwned(i){
   if(card){
     card.classList.toggle('not-owned',notOwned);
     const text=notOwned?OWN_TEXT.no:OWN_TEXT.yes;
-    const lab=card.querySelector('.own-label'),btn=card.querySelector('.own-toggle');
-    if(lab){lab.textContent=text;lab.classList.toggle('no',notOwned);lab.classList.toggle('yes',!notOwned)}
+    let lab=card.querySelector('.own-label');
+    const btn=card.querySelector('.own-toggle');
+    if(notOwned){
+      if(!lab){const qty=card.querySelector('.qty');if(qty){qty.insertAdjacentHTML('beforebegin',`<span class="own-label no">${OWN_TEXT.no}</span>`);lab=card.querySelector('.own-label')}}
+      if(lab){lab.textContent=OWN_TEXT.no;lab.classList.add('no');lab.classList.remove('yes')}
+    }else if(lab){lab.remove()}
     if(btn){btn.textContent=text;btn.classList.toggle('no',notOwned);btn.classList.toggle('yes',!notOwned)}
   }
   renderSortButtons();
