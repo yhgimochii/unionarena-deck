@@ -1010,6 +1010,7 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
 
 /* Desktop My Decks collapse control. Mobile bottom-sheet styles above are unchanged. */
 @media(min-width:701px){
+  #account.account.my-decks-collapsed .saved-decks-main{display:none!important}
   #account.account.my-decks-collapsed .saved{display:none!important}
   #account.account.my-decks-collapsed .my-decks-chevron{transform:rotate(180deg)}
   #account.account:not(.my-decks-collapsed) .saved{display:grid}
@@ -1041,4 +1042,21 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
   #account.account .saved-decks-reorder-toggle{align-self:flex-end;margin-top:8px;min-height:32px}
   #account.account .saved.reorder-mode .deck-slot{cursor:default}
   #account.account .slot-reorder-controls button{width:32px;height:28px}
+}
+
+
+/* My Decks toolbar: align library editing above the first deck, with sort modes on the far right. */
+.saved-decks-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.saved-decks-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-width:0}
+.saved-decks-reorder-toggle{align-self:auto!important;margin:0!important;white-space:nowrap;flex:0 0 auto}
+.saved-decks-sort{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-left:auto;flex:0 0 auto}
+.saved-decks-sort button{white-space:nowrap;min-width:64px}
+.saved-decks-sort button.on{background:#6255d9!important;border-color:#6255d9!important;color:#fff!important}
+@media(max-width:700px){
+  #account.account .saved-decks-main{display:flex;flex:1;min-height:0;gap:8px}
+  #account.account .saved-decks-toolbar{flex-wrap:wrap;justify-content:space-between;padding-top:7px}
+  #account.account .saved-decks-sort{margin-left:auto;gap:5px}
+  #account.account .saved-decks-sort button{min-width:0;padding:6px 9px;font-size:11px}
+  #account.account .saved-decks-reorder-toggle{align-self:auto!important;margin:0!important;min-height:30px}
+  #account.account .saved{flex:1;min-height:0;overflow-y:auto}
 }

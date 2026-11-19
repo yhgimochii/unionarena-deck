@@ -988,15 +988,50 @@ $('myDecksBackdrop')?.addEventListener('click',closeMyDecks);
 
 let savedDeckDocs=[];
 let savedDeckReorderMode=false;
+let savedDeckSortMode='default';
+function savedDeckIp(d){
+  const counts=new Map();
+  (Array.isArray(d?.cards)?d.cards:[]).forEach(c=>{
+    const code=String(c?.set||'').trim().toUpperCase();
+    if(code)counts.set(code,(counts.get(code)||0)+Math.max(1,Number(c?.qty)||1));
+  });
+  if(!counts.size)return 'ZZZ';
+  return [...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))[0][0];
+}
+function getVisibleSavedDecks(){
+  const docs=savedDeckDocs.map((d,index)=>({...d,_libraryIndex:index}));
+  if(savedDeckSortMode==='color'){
+    const order={red:0,blue:1,yellow:2,green:3,purple:4};
+    docs.sort((a,b)=>(order[deckColorClass(a.color)]??9)-(order[deckColorClass(b.color)]??9)||a._libraryIndex-b._libraryIndex);
+  }else if(savedDeckSortMode==='ip'){
+    docs.sort((a,b)=>savedDeckIp(a).localeCompare(savedDeckIp(b),undefined,{numeric:true})||a._libraryIndex-b._libraryIndex);
+  }
+  return docs;
+}
+function renderSavedDecksToolbar(){
+  const reorder=$('savedDecksReorderToggle');
+  if(reorder){
+    reorder.textContent=savedDeckReorderMode?'完成整理':'整理牌組';
+    reorder.setAttribute('aria-pressed',String(savedDeckReorderMode));
+    reorder.classList.toggle('on',savedDeckReorderMode);
+    reorder.classList.toggle('hidden',savedDeckDocs.length<2);
+  }
+  [['savedSortDefault','default'],['savedSortColor','color'],['savedSortIp','ip']].forEach(([id,mode])=>{
+    const button=$(id);if(!button)return;
+    const active=savedDeckSortMode===mode;
+    button.classList.toggle('on',active);button.setAttribute('aria-pressed',String(active));
+  });
+}
 function renderSavedDecks(){
   const box=$('savedDecks');
   if(!box)return;
   const prevScroll=box.scrollTop;
   box.innerHTML='';
   box.classList.toggle('reorder-mode',savedDeckReorderMode);
-  const SLOT_COUNT=Math.max(10,savedDeckDocs.length);
+  const visibleDecks=getVisibleSavedDecks();
+  const SLOT_COUNT=Math.max(10,visibleDecks.length);
   for(let i=0;i<SLOT_COUNT;i++){
-    const d=savedDeckDocs[i],slot=document.createElement('div');
+    const d=visibleDecks[i],slot=document.createElement('div');
     slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
     if(!d){
       slot.classList.add('empty');
@@ -1005,8 +1040,8 @@ function renderSavedDecks(){
       continue;
     }
     const thumbId=deckThumbnailId(d),thumbName=(DB[thumbId]?.name)||d.name||'牌組縮圖';
-    slot.dataset.savedIndex=String(i);
-    slot.draggable=savedDeckReorderMode;
+    slot.dataset.savedIndex=String(d._libraryIndex);
+    slot.draggable=savedDeckReorderMode&&savedDeckSortMode==='default';
     slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):''}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-reorder-controls"><button type="button" class="saved-deck-up" title="向前移動" aria-label="將牌組向前移動" ${i===0?'disabled':''}>↑</button><button type="button" class="saved-deck-down" title="向後移動" aria-label="將牌組向後移動" ${i===savedDeckDocs.length-1?'disabled':''}>↓</button></div>`;
     slot.querySelectorAll('img').forEach(img=>img.draggable=false);
     slot.onclick=()=>{
@@ -1015,31 +1050,25 @@ function renderSavedDecks(){
       selected=null;render();detail();closeMyDecks();
       box.querySelectorAll('.deck-slot').forEach(x=>x.classList.toggle('on',x===slot));
     };
-    slot.querySelector('.saved-deck-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(i,i-1)});
-    slot.querySelector('.saved-deck-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(i,i+1)});
+    slot.querySelector('.saved-deck-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(d._libraryIndex,d._libraryIndex-1)});
+    slot.querySelector('.saved-deck-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(d._libraryIndex,d._libraryIndex+1)});
     slot.addEventListener('dragstart',e=>{
-      if(!savedDeckReorderMode){e.preventDefault();return}
-      slot.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));
+      if(!savedDeckReorderMode||savedDeckSortMode!=='default'){e.preventDefault();return}
+      slot.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(d._libraryIndex));
     });
     slot.addEventListener('dragend',()=>slot.classList.remove('dragging'));
-    slot.addEventListener('dragover',e=>{if(savedDeckReorderMode){e.preventDefault();slot.classList.add('drag-over')}});
+    slot.addEventListener('dragover',e=>{if(savedDeckReorderMode&&savedDeckSortMode==='default'){e.preventDefault();slot.classList.add('drag-over')}});
     slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
     slot.addEventListener('drop',e=>{
-      if(!savedDeckReorderMode)return;
+      if(!savedDeckReorderMode||savedDeckSortMode!=='default')return;
       e.preventDefault();slot.classList.remove('drag-over');
       const from=Number(e.dataTransfer.getData('text/plain'));
-      if(Number.isInteger(from))moveSavedDeck(from,i);
+      if(Number.isInteger(from))moveSavedDeck(from,d._libraryIndex);
     });
     box.appendChild(slot);
   }
   box.scrollTop=prevScroll;
-  const toggle=$('savedDecksReorderToggle');
-  if(toggle){
-    toggle.textContent=savedDeckReorderMode?'完成整理':'整理牌組';
-    toggle.setAttribute('aria-pressed',String(savedDeckReorderMode));
-    toggle.classList.toggle('on',savedDeckReorderMode);
-    toggle.classList.toggle('hidden',savedDeckDocs.length<2);
-  }
+  renderSavedDecksToolbar();
 }
 async function persistSavedDeckOrder(){
   if(!currentUser)return;
@@ -1072,10 +1101,14 @@ async function loadSaved(){
   renderSavedDecks();
 }
 $('savedDecksReorderToggle')?.addEventListener('click',async()=>{
+  if(!savedDeckReorderMode&&savedDeckSortMode!=='default')savedDeckSortMode='default';
   savedDeckReorderMode=!savedDeckReorderMode;
   renderSavedDecks();
   if(!savedDeckReorderMode)await persistSavedDeckOrder();
 });
+$('savedSortDefault')?.addEventListener('click',()=>{savedDeckSortMode='default';savedDeckReorderMode=false;renderSavedDecks()});
+$('savedSortColor')?.addEventListener('click',()=>{savedDeckSortMode='color';savedDeckReorderMode=false;renderSavedDecks()});
+$('savedSortIp')?.addEventListener('click',()=>{savedDeckSortMode='ip';savedDeckReorderMode=false;renderSavedDecks()});
 $('saveDeck').innerHTML=iconSvg('save');
 $('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
 $('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=true;renderSortButtons();render()});
