@@ -951,3 +951,97 @@
   .table-center .player-board .playmat{min-height:300px!important}
   .table-rail{display:grid;grid-template-columns:1fr 1fr;overflow:visible}
 }
+
+
+/* Rebalance wide desktop board: keep side rails useful, central board readable,
+   and card art at a realistic tabletop size instead of filling whole slots. */
+@media(min-width:1000px){
+  .tabletop-layout{
+    grid-template-columns:minmax(210px,18vw) minmax(0,1fr) minmax(210px,18vw)!important;
+    gap:12px!important;
+  }
+  .table-center{
+    grid-template-rows:minmax(0,1fr) 16px minmax(0,1fr)!important;
+  }
+  .table-center .player-board{
+    padding:8px!important;
+  }
+  .table-center .player-board .playmat{
+    grid-template-columns:minmax(82px,.8fr) repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr)!important;
+    gap:7px!important;
+    padding:9px!important;
+  }
+  .table-center .player-board .front-position .zone-cards,
+  .table-center .player-board .energy-position .zone-cards{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    justify-items:center!important;
+    align-items:stretch!important;
+    gap:6px!important;
+  }
+  .table-center .player-board .front-position .play-card,
+  .table-center .player-board .energy-position .play-card,
+  .table-center .player-board .front-position .empty-slot,
+  .table-center .player-board .energy-position .empty-slot{
+    width:100%!important;
+    max-width:clamp(76px,6.2vw,118px)!important;
+    min-width:0!important;
+    aspect-ratio:5/7!important;
+    justify-self:center!important;
+  }
+  .table-center .player-board .front-position .play-card img,
+  .table-center .player-board .energy-position .play-card img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+  }
+  .table-center .player-board .life-position .zone-cards{
+    grid-template-rows:repeat(7,minmax(0,1fr))!important;
+  }
+  .table-center .player-board .deck-position .zone{min-height:0!important}
+  .table-center .player-board .deck-stack{width:38px;height:51px}
+  .table-center .player-board .board-footer{gap:4px!important}
+  .table-center .player-board .board-tools button{font-size:10px;padding:5px 7px}
+  .table-center .player-board .stat-pill{font-size:9px;padding:4px 5px}
+  .table-rail .rail-panel .hand-zone .play-card{
+    width:clamp(48px,4.2vw,72px)!important;
+    flex-basis:clamp(48px,4.2vw,72px)!important;
+  }
+}
+/* Ensure drag previews and in-zone cards cannot balloon beyond card slots. */
+.table-center .player-board .play-card,
+.table-center .player-board .play-card img{
+  max-width:100%!important;
+}
+.table-center .player-board .front-position .play-card,
+.table-center .player-board .energy-position .play-card{
+  width:100%!important;
+}
+.table-center .player-board .front-position .play-card img,
+.table-center .player-board .energy-position .play-card img{
+  display:block;
+  object-fit:contain!important;
+}
+/* Prevent A's top control row from overlapping its playmat. */
+.player-one-board .board-footer{
+  position:relative;
+  z-index:2;
+  flex:0 0 auto!important;
+  margin-bottom:2px;
+}
+.player-one-board .board-main{
+  min-height:0;
+  flex:1 1 auto!important;
+}
+.player-one-board .board-main .playmat{
+  min-height:0!important;
+}
+@media(max-width:999px){
+  .table-center .player-board .front-position .play-card,
+  .table-center .player-board .energy-position .play-card,
+  .table-center .player-board .front-position .empty-slot,
+  .table-center .player-board .energy-position .empty-slot{
+    max-width:100%!important;
+  }
+}
