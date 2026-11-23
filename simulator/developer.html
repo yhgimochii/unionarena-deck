@@ -52,9 +52,21 @@
         <div class="game-top-actions"><button id="backToSetup" class="secondary-button" type="button">更換牌組</button><button id="resetBoth" class="danger-button" type="button">重設雙方</button></div>
       </div>
       <div class="table-note">開發者模式：雙方手牌均可見。拖曳卡片到不同區域，或使用各區域的操作按鈕。</div>
-      <section id="playerTwoBoard" class="player-board player-two-board" data-player="2"></section>
-      <div class="versus-divider"><span>VS</span></div>
-      <section id="playerOneBoard" class="player-board player-one-board" data-player="1"></section>
+      <div class="tabletop-layout">
+        <aside class="table-rail left-rail">
+          <section class="rail-panel player-a-hand-panel"><h3>PLAYER A · HAND</h3><div id="playerOneHand"></div></section>
+          <section class="card-description" id="playerOneDescription"><h3>Card description</h3><p>Select a card to view its details.</p></section>
+        </aside>
+        <div class="table-center">
+          <section id="playerOneBoard" class="player-board player-one-board" data-player="1"></section>
+          <div class="versus-divider"><span>VS</span></div>
+          <section id="playerTwoBoard" class="player-board player-two-board" data-player="2"></section>
+        </div>
+        <aside class="table-rail right-rail">
+          <section class="card-description" id="playerTwoDescription"><h3>Card description</h3><p>Select a card to view its details.</p></section>
+          <section class="rail-panel player-b-hand-panel"><h3>PLAYER B · HAND</h3><div id="playerTwoHand"></div></section>
+        </aside>
+      </div>
     </section>
     <p class="footnote">Developer Test Mode · 本階段只處理牌組載入、洗牌、抽牌與手動場地操作，不會自動執行卡片效果或回合規則。</p>
   </main>
