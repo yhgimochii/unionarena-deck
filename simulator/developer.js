@@ -66,9 +66,9 @@ function cardMarkup(card,playerNo){
   return '<div class="play-card" draggable="true" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'" title="'+esc(card.id)+'"><img src="'+esc(urls[0])+'" data-fallbacks="'+esc(JSON.stringify(urls.slice(1)))+'" alt="'+esc(card.id)+'"><small>'+esc(card.id)+'</small><button class="card-action" type="button" data-action="discard" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'">棄牌</button></div>';
 }
 function zoneMarkup(player,key,label,capacity=0){
-  const cards=isDeck?player.cards:(player[key]||[]);
   const isHand=key==="hand";
   const isDeck=key==="deck";
+  const cards=isDeck?player.cards:(player[key]||[]);
   const controls=isHand?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="mulligan" data-player="'+player.number+'">重抽 7 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
   const cardNodes=cards.map(c=>cardMarkup(c,player.number)).join("");
   const emptySlots=capacity?Array.from({length:Math.max(0,capacity-cards.length)},()=>'<div class="empty-slot" aria-hidden="true"></div>').join(""):"";
