@@ -76,22 +76,64 @@ function boardMarkup(player){
   return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+n+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span><span class="stat-pill">除外 <strong>'+player.removed.length+'</strong></span></div><div class="zones-grid">'+zoneMarkup(player,"front","前線 FRONT LINE")+zoneMarkup(player,"back","後線 REAR LINE")+zoneMarkup(player,"energy","能源線 ENERGY LINE")+zoneMarkup(player,"life","生命 LIFE")+zoneMarkup(player,"discard","棄牌區 DISCARD")+zoneMarkup(player,"removed","除外區 REMOVED")+'</div>'+zoneMarkup(player,"hand","手牌 HAND")+'<div class="deck-pile" data-zone="deck" data-player="'+n+'">牌組堆 · '+player.cards.length+' 張 <button type="button" data-action="draw" data-player="'+n+'">從牌組抽牌</button></div>';
 }
 function renderGame(){
+  // Keep existing card DOM nodes keyed by UID so their already-loaded images
+  // survive board updates, card moves, draws and shuffles.
+  const existingCards=new Map(
+    [...document.querySelectorAll(".play-card")].map(el=>[el.dataset.card,el])
+  );
+
   $("playerOneBoard").innerHTML=boardMarkup(game.players[1]);
   $("playerTwoBoard").innerHTML=boardMarkup(game.players[2]);
+
+  document.querySelectorAll(".play-card").forEach(fresh=>{
+    const previous=existingCards.get(fresh.dataset.card);
+    let cardEl=fresh;
+    if(previous){
+      previous.dataset.player=fresh.dataset.player;
+      previous.dataset.card=fresh.dataset.card;
+      previous.title=fresh.title;
+      fresh.replaceWith(previous);
+      cardEl=previous;
+    }
+    cardEl.ondragstart=e=>{
+      e.dataTransfer.setData("text/plain",JSON.stringify({
+        uid:cardEl.dataset.card,
+        player:Number(cardEl.dataset.player)
+      }));
+      e.dataTransfer.effectAllowed="move";
+    };
+  });
+
   document.querySelectorAll(".play-card img").forEach(img=>{
-    img.onerror=()=>{let list=[];try{list=JSON.parse(img.dataset.fallbacks||"[]")}catch{}const next=list.shift();img.dataset.fallbacks=JSON.stringify(list);if(next)img.src=next;else{const box=document.createElement("div");box.className="card-placeholder";box.textContent=img.alt;img.replaceWith(box)}};
+    img.onerror=()=>{
+      let list=[];
+      try{list=JSON.parse(img.dataset.fallbacks||"[]")}catch{}
+      const next=list.shift();
+      img.dataset.fallbacks=JSON.stringify(list);
+      if(next)img.src=next;
+      else{
+        const box=document.createElement("div");
+        box.className="card-placeholder";
+        box.textContent=img.alt;
+        img.replaceWith(box);
+      }
+    };
     img.draggable=false;
   });
-  document.querySelectorAll(".play-card").forEach(el=>el.addEventListener("dragstart",e=>{
-    e.dataTransfer.setData("text/plain",JSON.stringify({uid:el.dataset.card,player:Number(el.dataset.player)}));
-    e.dataTransfer.effectAllowed="move";
-  }));
+
   document.querySelectorAll("[data-zone]").forEach(zone=>{
-    zone.addEventListener("dragover",e=>{e.preventDefault();zone.classList.add("drop-target")});
+    zone.addEventListener("dragover",e=>{
+      e.preventDefault();
+      zone.classList.add("drop-target");
+    });
     zone.addEventListener("dragleave",()=>zone.classList.remove("drop-target"));
     zone.addEventListener("drop",e=>{
-      e.preventDefault();zone.classList.remove("drop-target");
-      try{const payload=JSON.parse(e.dataTransfer.getData("text/plain"));moveCard(payload.uid,payload.player,Number(zone.dataset.player),zone.dataset.zone)}catch(err){console.warn("Card drop failed",err)}
+      e.preventDefault();
+      zone.classList.remove("drop-target");
+      try{
+        const payload=JSON.parse(e.dataTransfer.getData("text/plain"));
+        moveCard(payload.uid,payload.player,Number(zone.dataset.player),zone.dataset.zone);
+      }catch(err){console.warn("Card drop failed",err)}
     });
   });
 }
