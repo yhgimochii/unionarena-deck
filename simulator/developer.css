@@ -511,3 +511,115 @@
   .player-board .life-position .empty-slot{height:30px!important;flex-basis:30px!important;margin-bottom:-13px!important}
   .player-board .life-position .card-back{height:30px!important}
 }
+
+
+/* Match front-line width and slot dimensions to the energy line. */
+.player-two-board .playmat{
+  grid-template-areas:
+    "life front front front"
+    "life energy energy energy"
+    "banish ap deck sideline"!important;
+}
+.player-one-board .playmat{
+  grid-template-areas:
+    "front front front life"
+    "energy energy energy life"
+    "sideline deck ap banish"!important;
+}
+.player-board .front-position,
+.player-board .energy-position{min-width:0}
+.player-board .front-position .zone,
+.player-board .energy-position .zone{
+  height:100%;
+  min-height:0;
+}
+.player-board .front-position .zone-cards,
+.player-board .energy-position .zone-cards{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  align-items:stretch;
+  gap:7px!important;
+}
+.player-board .front-position .play-card,
+.player-board .energy-position .play-card,
+.player-board .front-position .empty-slot,
+.player-board .energy-position .empty-slot{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  aspect-ratio:5/7;
+}
+.player-board .front-position .play-card img,
+.player-board .energy-position .play-card img,
+.player-board .front-position .card-placeholder,
+.player-board .energy-position .card-placeholder{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:5/7!important;
+  object-fit:contain;
+}
+/* Life cards are landscape, face-down, and stacked vertically upward.
+   Each successive card sits above the previous card, spilling beyond the zone. */
+.player-board .life-position .zone{
+  overflow:visible!important;
+  position:relative;
+}
+.player-board .life-position .zone-cards{
+  display:flex!important;
+  flex-direction:column-reverse!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow:visible!important;
+  padding:6px 2px 8px!important;
+  gap:0!important;
+}
+.player-board .life-position .play-card,
+.player-board .life-position .empty-slot{
+  width:68px!important;
+  height:43px!important;
+  max-width:68px!important;
+  flex:0 0 43px!important;
+  margin:-19px 0 0 0!important;
+  position:relative;
+  transform:none!important;
+}
+.player-board .life-position .play-card:first-child,
+.player-board .life-position .empty-slot:first-child{margin-top:0!important}
+.player-board .life-position .play-card img{display:none!important}
+.player-board .life-position .card-back{
+  display:block!important;
+  width:68px!important;
+  height:43px!important;
+  aspect-ratio:auto!important;
+  border:2px solid #b9c5d9!important;
+  border-radius:5px!important;
+  background:
+    linear-gradient(135deg,transparent 42%,rgba(255,255,255,.13) 43%,rgba(255,255,255,.13) 47%,transparent 48%),
+    linear-gradient(45deg,transparent 42%,rgba(255,255,255,.12) 43%,rgba(255,255,255,.12) 47%,transparent 48%),
+    repeating-linear-gradient(135deg,#243c60 0 5px,#172944 5px 10px)!important;
+  box-shadow:0 2px 6px #0008;
+}
+.player-board .life-position .face-down-card small,
+.player-board .life-position .face-down-card .card-action{display:none!important}
+@media(max-width:1050px){
+  .player-board .life-position .play-card,
+  .player-board .life-position .empty-slot,
+  .player-board .life-position .card-back{width:56px!important}
+  .player-board .life-position .play-card,
+  .player-board .life-position .empty-slot{height:36px!important;flex-basis:36px!important;margin-top:-16px!important}
+  .player-board .life-position .play-card:first-child,
+  .player-board .life-position .empty-slot:first-child{margin-top:0!important}
+  .player-board .life-position .card-back{height:36px!important}
+}
+@media(max-width:520px){
+  .player-board .life-position .play-card,
+  .player-board .life-position .empty-slot,
+  .player-board .life-position .card-back{width:44px!important}
+  .player-board .life-position .play-card,
+  .player-board .life-position .empty-slot{height:30px!important;flex-basis:30px!important;margin-top:-13px!important}
+  .player-board .life-position .play-card:first-child,
+  .player-board .life-position .empty-slot:first-child{margin-top:0!important}
+  .player-board .life-position .card-back{height:30px!important}
+}
