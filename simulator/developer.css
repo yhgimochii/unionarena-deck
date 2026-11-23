@@ -782,3 +782,13 @@
 @media(max-width:520px){
   .player-board .life-position .zone-cards{gap:2px!important;padding:3px 2px!important}
 }
+
+
+/* Player A sits opposite Player B: rotate only A's playfield, not hand or footer. */
+.player-one-board .board-main .playmat{
+  transform:rotate(180deg);
+  transform-origin:center center;
+}
+.player-one-board .board-main .playmat .mat-zone{
+  transform:rotate(180deg);
+}
