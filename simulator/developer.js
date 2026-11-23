@@ -79,7 +79,7 @@ function zoneMarkup(player,key,label,capacity=0){
 }
 function boardMarkup(player){
   const n=player.number;
-  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+n+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">場上 <strong>'+(player.front.length+player.energy.length+player.actionPoint.length)+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span></div><div class="playmat"><div class="mat-zone life-position">'+zoneMarkup(player,"life","生命區 LIFE",7)+'</div><div class="mat-zone front-position">'+zoneMarkup(player,"front","前線 FRONT LINE",3)+'</div><div class="mat-zone deck-position">'+zoneMarkup(player,"deck","牌組 DECK")+'<button class="mat-draw-button" type="button" data-action="draw" data-player="'+n+'">從牌組抽牌</button></div><div class="mat-zone energy-position">'+zoneMarkup(player,"energy","能源線 ENERGY LINE",4)+'</div><div class="mat-zone ap-position">'+zoneMarkup(player,"actionPoint","行動點 ACTION POINT",3)+'</div><div class="mat-zone banish-position">'+zoneMarkup(player,"removed","移除區 BANISH")+'</div><div class="mat-zone sideline-position">'+zoneMarkup(player,"discard","場外區 SIDELINE")+'</div></div>'+zoneMarkup(player,"hand","手牌 HAND");
+  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+(n===1?"A":"B")+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">場上 <strong>'+(player.front.length+player.energy.length+player.actionPoint.length)+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span></div><div class="playmat '+(n===1?"mat-player-a":"mat-player-b")+'"><div class="mat-zone life-position">'+zoneMarkup(player,"life","生命 LIFE",7)+'</div><div class="mat-zone front-position">'+zoneMarkup(player,"front","前線 FRONT LINE",3)+'</div><div class="mat-zone deck-position">'+zoneMarkup(player,"deck","牌組 DECK")+'<button class="mat-draw-button" type="button" data-action="draw" data-player="'+n+'">抽牌</button></div><div class="mat-zone energy-position">'+zoneMarkup(player,"energy","能源線 ENERGY LINE",4)+'</div><div class="mat-zone ap-position">'+zoneMarkup(player,"actionPoint","行動點 ACTION POINT",3)+'</div><div class="mat-zone banish-position">'+zoneMarkup(player,"removed","移除區 BANISH")+'</div><div class="mat-zone sideline-position">'+zoneMarkup(player,"discard","場外區 SIDELINE")+'</div></div>';
 }
 function renderGame(){
   // Keep existing card DOM nodes keyed by UID so their already-loaded images
@@ -90,6 +90,8 @@ function renderGame(){
 
   $("playerOneBoard").innerHTML=boardMarkup(game.players[1]);
   $("playerTwoBoard").innerHTML=boardMarkup(game.players[2]);
+  $("playerOneHand").innerHTML=zoneMarkup(game.players[1],"hand","手牌 HAND");
+  $("playerTwoHand").innerHTML=zoneMarkup(game.players[2],"hand","手牌 HAND");
 
   document.querySelectorAll(".play-card").forEach(fresh=>{
     const previous=existingCards.get(fresh.dataset.card);
@@ -238,6 +240,12 @@ onAuthStateChanged(auth,async user=>{
   else{$("authPanel").classList.remove("hidden");$("deckSetup").classList.add("hidden")}
 });
 document.addEventListener("click",e=>{
-  const img=e.target.closest(".play-card img");if(!img)return;
-  // Card image clicks are intentionally inert in this manual tabletop prototype.
+  const cardEl=e.target.closest(".play-card");
+  if(!cardEl)return;
+  const playerNo=Number(cardEl.dataset.player);
+  const player=game?.players[playerNo];
+  const found=player&&findCard(player,cardEl.dataset.card);
+  if(!found)return;
+  const target=$(playerNo===1?"playerOneDescription":"playerTwoDescription");
+  target.innerHTML='<h3>Card description</h3><p class="selected-card-code">'+esc(found.card.id)+'</p><p>'+esc(found.card.name||found.card.id)+'</p><small>Player '+(playerNo===1?"A":"B")+'</small>';
 });
