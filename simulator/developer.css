@@ -792,3 +792,14 @@
 .player-one-board .board-main .playmat .mat-zone{
   transform:rotate(180deg);
 }
+
+
+/* Player A sits at the bottom facing Player B, so move only A's
+   identity/deck controls row to the top edge of A's board. */
+.player-one-board .board-footer{
+  order:-1!important;
+  padding:2px 3px 9px!important;
+}
+.player-two-board .board-footer{
+  order:1!important;
+}
