@@ -623,3 +623,96 @@
   .player-board .life-position .empty-slot:first-child{margin-top:0!important}
   .player-board .life-position .card-back{height:30px!important}
 }
+
+
+/* Keep the actual Life zone usable: full-height vertical stack of landscape
+   card backs, anchored at the bottom and growing upward as cards are added. */
+.player-board .life-position .zone{
+  display:flex!important;
+  flex-direction:column!important;
+  height:100%!important;
+  min-height:0!important;
+  overflow:visible!important;
+}
+.player-board .life-position .zone-cards{
+  display:flex!important;
+  flex:1 1 auto!important;
+  min-height:0!important;
+  width:100%!important;
+  flex-direction:column-reverse!important;
+  flex-wrap:nowrap!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+  overflow:visible!important;
+  padding:0 3px 7px!important;
+  gap:0!important;
+}
+.player-board .life-position .play-card,
+.player-board .life-position .empty-slot{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:112px!important;
+  height:48px!important;
+  min-height:48px!important;
+  flex:0 0 48px!important;
+  margin:0 0 -19px 0!important;
+  position:relative!important;
+}
+.player-board .life-position .play-card:first-child,
+.player-board .life-position .empty-slot:first-child{margin-bottom:0!important}
+.player-board .life-position .card-back{
+  display:block!important;
+  width:100%!important;
+  height:48px!important;
+  aspect-ratio:auto!important;
+  box-sizing:border-box!important;
+}
+.player-board .life-position .play-card img,
+.player-board .life-position .face-down-card small,
+.player-board .life-position .face-down-card .card-action{display:none!important}
+/* Banish and sideline show only the top/most recently placed card. */
+.player-board .pile-zone .zone-cards{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  min-height:0!important;
+}
+.player-board .pile-zone .play-card{
+  display:none!important;
+  margin:0!important;
+}
+.player-board .pile-zone .play-card:last-of-type{display:block!important}
+.player-board .pile-zone .empty-zone{display:none!important}
+/* Move the player title, deck name, counters and controls below the playmat,
+   giving both players' front and energy lines the first visual priority. */
+.player-board{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.player-board .board-main{order:0;min-width:0}
+.player-board .board-footer{
+  order:1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:7px;
+  padding:9px 3px 2px;
+}
+.player-board .board-footer .board-head{
+  order:0;
+  flex:1 1 220px;
+  margin:0!important;
+}
+.player-board .board-footer .board-stats{
+  order:1;
+  margin:0!important;
+}
+.player-board .board-footer .board-head h3{margin:0}
+.player-board .board-footer .board-tools{display:flex;flex-wrap:wrap;gap:6px}
+@media(max-width:760px){
+  .player-board .board-footer{align-items:flex-start}
+  .player-board .board-footer .board-head{flex-basis:100%}
+  .player-board .board-footer .board-stats{order:0}
+}
