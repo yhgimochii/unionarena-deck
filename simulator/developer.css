@@ -1045,3 +1045,61 @@
     max-width:100%!important;
   }
 }
+
+
+/* Hard-cap in-play cards to a real card size and clip all zone contents.
+   Cards must never grow to fill the whole 4-slot grid column. */
+@media(min-width:1000px){
+  .table-center .player-board .front-position .zone,
+  .table-center .player-board .energy-position .zone{overflow:hidden!important}
+  .table-center .player-board .front-position .zone-cards,
+  .table-center .player-board .energy-position .zone-cards{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    align-items:center!important;
+    justify-items:center!important;
+    align-content:center!important;
+    overflow:hidden!important;
+    min-height:0!important;
+  }
+  .table-center .player-board .front-position .play-card,
+  .table-center .player-board .energy-position .play-card{
+    box-sizing:border-box!important;
+    width:clamp(46px,4vw,62px)!important;
+    max-width:62px!important;
+    min-width:0!important;
+    flex:none!important;
+    justify-self:center!important;
+    overflow:hidden!important;
+  }
+  .table-center .player-board .front-position .play-card img,
+  .table-center .player-board .energy-position .play-card img{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:88px!important;
+    aspect-ratio:5/7!important;
+    object-fit:contain!important;
+  }
+  .table-center .player-board .front-position .empty-slot,
+  .table-center .player-board .energy-position .empty-slot{
+    width:clamp(46px,4vw,62px)!important;
+    max-width:62px!important;
+    aspect-ratio:5/7!important;
+    justify-self:center!important;
+  }
+  .table-center .player-board .front-position .play-card small,
+  .table-center .player-board .energy-position .play-card small{font-size:7px!important;line-height:1.05!important}
+  .table-center .player-board .front-position .card-action,
+  .table-center .player-board .energy-position .card-action{font-size:7px!important;padding:2px 1px!important;margin-top:2px!important}
+}
+/* Use the uploaded Union Arena card-back art for real cards in Life. */
+.player-board .life-position .face-down-card .card-back{
+  background-image:url("data:image/webp;base64,UklGRj4JAABXRUJQVlA4IDIJAAAQMACdASp6AKsAPwlyr1IrpqmjrBVdOXAhCWwIkCVSKXgDN3pGbmCLAL9kH0ybgHzW+cP6df+DfSc/3cqFqkEtwFBhLWPD5DvuZCMc2BlBq4EFVsMieC5MEmqcqXLT60N1OfWywz0mIV0Wj+VX/dz0TmlEKe0/Tiv83p3fiH+xYM3eh38WPtPqvmR1N4xZMvvEKw51DE3cnKmj/3z2kTIxjcIT/DyLnGCtwvXBWPj0e8gWRxRjGSoVXp6pv6BhU9YMnYzg3Pu/sRqlmNnFX83I3QEqjivgCGUqvHk42bt/wwlMwDJx/L3CVShIGSBzRCPMm9NsaUckILT2Eh1oZRhcCIMY9Kz0TnOwFpD7HJx7QbGdtw4mXhyPMErxagWLFikQysTeOD9COLKOz/jz0POIoyPRDTYO5DYnj7tVlOB6eFUXa3kthPXq+tP9MthYA1CDlygt5hV2ugtu42+qtWwFHshMgpRqBt9es17GmUcZk62o83Vxehs8Zw2ALaEFXTCZIvhO28N+uLAA/uvtp0557/FD2u0XD5ld7gOxme8BIW9Uxz79EX3mz/t/voZ2iFLMjn/VTclGyh96T1k+GAQfHxT1lyh8BR7/PluwLG1rJtdXB+8gS6Knf2llUyONvhps1y7UvP56qj86qK1uXUCmFWnUP5nnLa04exYkHA9VdcPzU7z8JErutOv97h2PLar1kJvz8sBV1mUBE3VXaBi6o+Ckk98/pw5+ExESB9y9du41quswnzTjcG1QuKj+mayrXo5tsc6Otii8h0c48vA+OwcQNCnszvuLcP9Q+i2xNRqyeZnVRH5hY+HTrCNl/jWPvB/Z9aaZXlSd8zcF6HtExBM/fwjOSg9rUTvhV+scA47Qlk26W8fedHNgz91pzvuKMI18Dbu33BthmYgoqpU893k1ISFBL/z1yrTTPSRrn97FUYY3g/PBMxJSg15bGz2U8WbnZrxi7OCHUOkp9C1E34ztZpHNa1Tg1xD4qqQiDxK9goPFibxhGx2MkpEdM+44zCZn7Bb3XQrml5NtacU/ZUeF25KesDpcMNHIA/gnmBL/tHsYMsqvWySXlqjsEkzoGWycWGOorgJMWZlOAzDImmgCewfkTae+4NYYapc77YIUigBkQZTr1vgKuGf0EKR/RNMNAI9WTaLdinLehknuZ2xc3C7LdiMBS+cdy81l5hYYFaQFdpOPtXXDAGapmh1y0s8XDM0hXDYOiGsTawNgw5vhdMt9gR7BI/Vn+85du9B53BaFVt9EPMLBKnhdLlIv9mobC+biBwfdOSUXi6afXr4+YkCEItCxlqwN5hBUpsadyNkykPFqwhwY2lV1saP+Iwa2taVDsuDwpZMAik0vHfM5h13e7x379CIth8Ph3+Bv01Jcr1KAxyL4B0+5U5JUsd/PKN6/81xga4LqIyKyT7/xS+mv5IiQovW7bngrwlLgKlR/e/T4rmOm+/C0AyFjB/zb8hSanLLosrZmjdwQlgGzaU5/90St1iUiQdSPpPAZQP7Q2tcn4C40Ethm694hXS+3xr/s9XxV2c1fwikl/k0oxCYnIfD6XnFgpsoHg7NLJytHf/bRajR9p1EE3fFvqNGPQ/mxM4pXwnhXs1BhQvUcBP71FdUigohNGI2EIQqy7Je6OLz1HRXeo7dsp54ktY4/Wp3+i3jFx+XEAMimlVAhpOFP31dWvcnaobut9ql2DhIqCZBiIX/f9EdWzLCxKirctMboZivnPZmPq5L2007ZbCSvygq+J59lyagvxNnBGml/liyd4jYfAacuS0recdAnNbMGvyARX43ei+r6VwITyPKxsF9kJNt4k+ofE0BST86DGQYnZX0dvZ05i3OPC1e3IVNayBS79SvLekez/0TLQDrnTVmA/2s+OcMm8Xe1zSwn14o0Q4mf2fbgZcWHkc+MF1XFJGh5vSndSB/6fY9L7ewuZczkwzaBv6cX/7TuF72RWK7Wv+8MA6sA+lWaVUxgNFTbEA7FfuhzyUAsyuSs8cqJm4rEfTBQtMbyxFTedvgytwBtmhA795SxjiT2oQwkOGpwrT+AS9vEH7qTDiOTdx7JRShW1Jwj9/fpjYItlDhrVnli/CgGuXok1ta/QFxiAvnJcpEMsRdSRCdSdrDNRGRwfAOC70aSvvOpT30en+pJPTUJewwmqOVztu1/C979+OOPrmbGEg7VS3/krhJomSL3H3wCzOwv/CgNCcsLNTrkTQIfJXVIxI2GzofiqiS/8PkrWHK0tIa1SmDvjLHKBIHQbFEguvsv+uDPDtgAjV0kKyjxpqFcOA3WaaEYmW3BXZtDrRA4byXPauICsyBgO5Vxl24kjgB9VPLZxGvhTEbQML8RNedf2wUIcmAomwvvF7vxuoXP5Lr6NseTIFPPSqWrR5yTl5g8QxrfwyC98meueFK/Y9oTINghclZpw5ob/iPLwf7f9YeQhf95symlw8LnCC5EUwoIQHZR8cU7WoQmfbkKxTvCIXR0j9bKwT5rKIVYrilNVznZvs5djwzz3TRnBQzb3pq4QGLYUXnXuJLQh3/Ajkm6xfr8yhNRPVBJTBIcUtVPimwAfWT/0oVev+2eAmimjqe8/k1bFrwTI60wFTbV3Z9hcJPZAkt6V7/B5xPXoLiYweEvnWz4bADW4YNzJhhXiGZd5NS4KuULc+TwVlD4ej1b3t3oAkKPFMfaIW+W4kTVDSi4iZh3Sc5fq5JH8AaFFNrGhBd58FYn+gTnmBEp4XzJNgjPPxPVy6iCopLUvPN4xHWyM4cNj+4lHUXXulrkcrjyDx/+K/1Gv72UHrNr1SYGhR0UoHuehvYv/88tbmpJLmYWAu5cH71+6zMOfmhpULME6hywxzfR50gagz/HasVIB5SkDBkewWbWTXzdunOWAALQSVCoFyp8I4KgD49vtsLvprJ/viaWYlyxIL0tLDEN8Sbx8FV+aGqF6ckSoPW2odss/dCr/ZZlk5s9RVNY7bIM7jKUOYMfY0sjc2I2AmHFb2khPT5zVO5fZjMpXDml6gSWymJ977Qjt0TtiQ2/GqSvVXVUZniHNLDcS91tgyol07w6g6A6ka5jDYd+2bmI2yaOpYs8R1J+HSiFi85afDnudSOTzudywgMpJZiI5q/c/engemAAAA==")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:1px solid #b9c5d9!important;
+  border-radius:4px!important;
+}
+.player-board .life-position .face-down-card{overflow:hidden!important;border-radius:4px!important}
