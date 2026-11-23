@@ -80,7 +80,7 @@ function zoneMarkup(player,key,label,capacity=0){
   const contents=isDeck
     ? '<div class="deck-stack" aria-hidden="true"><span></span><span></span><span></span></div><strong class="deck-count">'+player.cards.length+'</strong>'
     : key==="life"
-      ? (cardNodes||"")+(emptySlots||"")
+      ? (emptySlots||"")+(cardNodes||"")
       : (cardNodes||"")+(emptySlots||(!cards.length?'<div class="empty-zone">拖曳卡片到這裡</div>':""));
   return '<section class="zone '+(isHand?"hand-zone ":"")+(isDeck?"deck-zone ":"")+(key==="life"?"life-zone ":"")+((key==="removed"||key==="discard")?"pile-zone ":"")+'" data-zone="'+key+'" data-player="'+player.number+'" '+(capacity?'data-capacity="'+capacity+'"':"")+'><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+contents+'</div></section>';
 }
