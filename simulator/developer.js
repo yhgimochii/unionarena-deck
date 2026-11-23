@@ -44,7 +44,7 @@ function expandDeck(deck){
 }
 function makePlayer(deck,number){
   const cards=expandDeck(deck);
-  return {number,deckId:deck.id,deckName:deck.name||"未命名牌組",version:deck.version||"",cards,hand:[],front:[],back:[],energy:[],life:[],discard:[],removed:[]};
+  return {number,deckId:deck.id,deckName:deck.name||"未命名牌組",version:deck.version||"",cards,hand:[],front:[],energy:[],actionPoint:[],life:[],discard:[],removed:[]};
 }
 function draw(player,count=1){
   const amount=Math.max(0,Math.min(20,Number(count)||1));
@@ -65,15 +65,21 @@ function cardMarkup(card,playerNo){
   const urls=imageCandidates(card.id);
   return '<div class="play-card" draggable="true" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'" title="'+esc(card.id)+'"><img src="'+esc(urls[0])+'" data-fallbacks="'+esc(JSON.stringify(urls.slice(1)))+'" alt="'+esc(card.id)+'"><small>'+esc(card.id)+'</small><button class="card-action" type="button" data-action="discard" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'">棄牌</button></div>';
 }
-function zoneMarkup(player,key,label){
+function zoneMarkup(player,key,label,capacity=0){
   const cards=player[key]||[];
   const isHand=key==="hand";
-  const controls=key==="hand"?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="mulligan" data-player="'+player.number+'">重抽 7 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
-  return '<section class="zone '+(isHand?"hand-zone":"")+'" data-zone="'+key+'" data-player="'+player.number+'"><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+(cards.length?cards.map(c=>cardMarkup(c,player.number)).join(""):'<div class="empty-zone">拖曳卡片到這裡</div>')+'</div></section>';
+  const isDeck=key==="deck";
+  const controls=isHand?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="mulligan" data-player="'+player.number+'">重抽 7 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
+  const cardNodes=cards.map(c=>cardMarkup(c,player.number)).join("");
+  const emptySlots=capacity?Array.from({length:Math.max(0,capacity-cards.length)},()=>'<div class="empty-slot" aria-hidden="true"></div>').join(""):"";
+  const contents=isDeck
+    ? '<div class="deck-stack" aria-hidden="true"><span></span><span></span><span></span></div><strong class="deck-count">'+player.cards.length+'</strong>'
+    : (cardNodes||"")+(emptySlots||(!cards.length?'<div class="empty-zone">拖曳卡片到這裡</div>':""));
+  return '<section class="zone '+(isHand?"hand-zone ":"")+(isDeck?"deck-zone ":"")+'" data-zone="'+key+'" data-player="'+player.number+'" '+(capacity?'data-capacity="'+capacity+'"':"")+'><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+contents+'</div></section>';
 }
 function boardMarkup(player){
   const n=player.number;
-  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+n+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span><span class="stat-pill">除外 <strong>'+player.removed.length+'</strong></span></div><div class="zones-grid">'+zoneMarkup(player,"front","前線 FRONT LINE")+zoneMarkup(player,"back","後線 REAR LINE")+zoneMarkup(player,"energy","能源線 ENERGY LINE")+zoneMarkup(player,"life","生命 LIFE")+zoneMarkup(player,"discard","棄牌區 DISCARD")+zoneMarkup(player,"removed","除外區 REMOVED")+'</div>'+zoneMarkup(player,"hand","手牌 HAND")+'<div class="deck-pile" data-zone="deck" data-player="'+n+'">牌組堆 · '+player.cards.length+' 張 <button type="button" data-action="draw" data-player="'+n+'">從牌組抽牌</button></div>';
+  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+n+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">場上 <strong>'+(player.front.length+player.energy.length+player.actionPoint.length)+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span></div><div class="playmat"><div class="mat-zone life-position">'+zoneMarkup(player,"life","生命區 LIFE")+'</div><div class="mat-zone front-position">'+zoneMarkup(player,"front","前線 FRONT LINE",3)+'</div><div class="mat-zone deck-position">'+zoneMarkup(player,"deck","牌組 DECK")+'<button class="mat-draw-button" type="button" data-action="draw" data-player="'+n+'">從牌組抽牌</button></div><div class="mat-zone energy-position">'+zoneMarkup(player,"energy","能源線 ENERGY LINE",4)+'</div><div class="mat-zone ap-position">'+zoneMarkup(player,"actionPoint","行動點 ACTION POINT",3)+'</div><div class="mat-zone banish-position">'+zoneMarkup(player,"removed","移除區 BANISH")+'</div><div class="mat-zone sideline-position">'+zoneMarkup(player,"discard","場外區 SIDELINE")+'</div></div>'+zoneMarkup(player,"hand","手牌 HAND");
 }
 function renderGame(){
   // Keep existing card DOM nodes keyed by UID so their already-loaded images
@@ -138,7 +144,7 @@ function renderGame(){
   });
 }
 function findCard(player,uid){
-  for(const zone of ["hand","front","back","energy","life","discard","removed"]){
+  for(const zone of ["hand","front","energy","actionPoint","life","discard","removed"]){
     const index=player[zone].findIndex(c=>c.uid===uid);
     if(index>=0)return {zone,index,card:player[zone][index]};
   }
@@ -149,7 +155,7 @@ function findCard(player,uid){
 function moveCard(uid,fromNo,toNo,toZone){
   if(!game||!game.players[fromNo]||!game.players[toNo])return;
   const source=findCard(game.players[fromNo],uid);
-  if(!source||!["hand","front","back","energy","life","discard","removed","deck"].includes(toZone))return;
+  if(!source||!["hand","front","energy","actionPoint","life","discard","removed","deck"].includes(toZone))return;
   const card=source.card;
   if(source.zone==="deck")game.players[fromNo].cards.splice(source.index,1);
   else game.players[fromNo][source.zone].splice(source.index,1);
