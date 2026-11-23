@@ -1079,3 +1079,27 @@ select.edit-deck-input option{background:#171b24;color:#f4f5f7}
   #account.account .saved-decks-toolbar-left .saved-decks-reorder-toggle{flex:0 0 auto;min-height:32px;}
   #account.account .saved-decks-sort{margin-left:auto;}
 }
+
+
+/* Simulator entry button */
+.hero-actions{width:100%;align-items:center;justify-content:space-between;gap:14px}
+.hero-actions-primary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.simulator-entry-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:60px;padding:0 25px;border-radius:12px;
+  background:linear-gradient(135deg,#287db8,#2465a5);
+  border:1px solid #4694ce;color:#fff;text-decoration:none;
+  font-size:17px;font-weight:900;letter-spacing:.02em;
+  box-shadow:0 7px 22px rgba(35,105,169,.22);
+  transition:transform .16s ease,filter .16s ease,box-shadow .16s ease;
+  white-space:nowrap;
+}
+.simulator-entry-btn:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 10px 26px rgba(35,105,169,.3)}
+.simulator-entry-icon{font-size:22px;line-height:1}
+.simulator-entry-arrow{font-size:20px;opacity:.85}
+@media(max-width:700px){
+  .hero-actions{align-items:stretch;flex-direction:column}
+  .hero-actions-primary{width:100%}
+  .hero-actions-primary .submit-link-btn{flex:1;min-width:0}
+  .simulator-entry-btn{width:100%;min-height:54px}
+}
