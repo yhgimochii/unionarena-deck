@@ -125,10 +125,10 @@ function handleAction(action,number,uid){
   const player=game?.players[number];if(!player)return;
   if(action==="draw"){draw(player,1)}
   if(action==="shuffle"){player.cards=shuffle(player.cards)}
-  if(action==="return-hand"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[]}\n  if(action==="mulligan"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[];draw(player,7)}
+  if(action==="return-hand"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[]}
+  if(action==="mulligan"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[];draw(player,7)}
   if(action==="reset-player")resetPlayer(number);
   if(action==="discard"){
-    const uid=event.target.dataset.card;
     const found=findCard(player,uid);
     if(found){if(found.zone==="deck")player.cards.splice(found.index,1);else player[found.zone].splice(found.index,1);found.card.zone="discard";player.discard.push(found.card)}
   }
