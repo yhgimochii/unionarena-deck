@@ -61,25 +61,28 @@ function startGame(){
   $("gamePanel").classList.remove("hidden");
   renderGame();
 }
-function cardMarkup(card,playerNo){
+function cardMarkup(card,playerNo,zone=""){
   const urls=imageCandidates(card.id);
-  return '<div class="play-card" draggable="true" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'" title="'+esc(card.id)+'"><img src="'+esc(urls[0])+'" data-fallbacks="'+esc(JSON.stringify(urls.slice(1)))+'" alt="'+esc(card.id)+'"><small>'+esc(card.id)+'</small><button class="card-action" type="button" data-action="discard" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'">棄牌</button></div>';
+  const face=zone==="life"
+    ? '<div class="card-back" aria-label="裏面朝上"></div>'
+    : '<img src="'+esc(urls[0])+'" data-fallbacks="'+esc(JSON.stringify(urls.slice(1)))+'" alt="'+esc(card.id)+'">';
+  return '<div class="play-card '+(zone==="life"?"face-down-card":"")+'" draggable="true" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'" title="'+esc(card.id)+'">'+face+'<small>'+esc(card.id)+'</small><button class="card-action" type="button" data-action="discard" data-card="'+esc(card.uid)+'" data-player="'+playerNo+'">棄牌</button></div>';
 }
 function zoneMarkup(player,key,label,capacity=0){
   const isHand=key==="hand";
   const isDeck=key==="deck";
   const cards=isDeck?player.cards:(player[key]||[]);
   const controls=isHand?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="mulligan" data-player="'+player.number+'">重抽 7 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
-  const cardNodes=cards.map(c=>cardMarkup(c,player.number)).join("");
+  const cardNodes=cards.map(c=>cardMarkup(c,player.number,key)).join("");
   const emptySlots=capacity?Array.from({length:Math.max(0,capacity-cards.length)},()=>'<div class="empty-slot" aria-hidden="true"></div>').join(""):"";
   const contents=isDeck
     ? '<div class="deck-stack" aria-hidden="true"><span></span><span></span><span></span></div><strong class="deck-count">'+player.cards.length+'</strong>'
     : (cardNodes||"")+(emptySlots||(!cards.length?'<div class="empty-zone">拖曳卡片到這裡</div>':""));
-  return '<section class="zone '+(isHand?"hand-zone ":"")+(isDeck?"deck-zone ":"")+'" data-zone="'+key+'" data-player="'+player.number+'" '+(capacity?'data-capacity="'+capacity+'"':"")+'><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+contents+'</div></section>';
+  return '<section class="zone '+(isHand?"hand-zone ":"")+(isDeck?"deck-zone ":"")+(key==="life"?"life-zone ":"")+((key==="removed"||key==="discard")?"pile-zone ":"")+'" data-zone="'+key+'" data-player="'+player.number+'" '+(capacity?'data-capacity="'+capacity+'"':"")+'><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+contents+'</div></section>';
 }
 function boardMarkup(player){
   const n=player.number;
-  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+(n===1?"A":"B")+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">場上 <strong>'+(player.front.length+player.energy.length+player.actionPoint.length)+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span></div><div class="playmat '+(n===1?"mat-player-a":"mat-player-b")+'"><div class="mat-zone life-position">'+zoneMarkup(player,"life","生命 LIFE",7)+'</div><div class="mat-zone front-position">'+zoneMarkup(player,"front","前線 FRONT LINE",3)+'</div><div class="mat-zone deck-position">'+zoneMarkup(player,"deck","牌組 DECK")+'<button class="mat-draw-button" type="button" data-action="draw" data-player="'+n+'">抽牌</button></div><div class="mat-zone energy-position">'+zoneMarkup(player,"energy","能源線 ENERGY LINE",4)+'</div><div class="mat-zone ap-position">'+zoneMarkup(player,"actionPoint","行動點 ACTION POINT",3)+'</div><div class="mat-zone banish-position">'+zoneMarkup(player,"removed","移除區 BANISH")+'</div><div class="mat-zone sideline-position">'+zoneMarkup(player,"discard","場外區 SIDELINE")+'</div></div>';
+  return '<div class="board-head"><div class="board-title"><span class="player-marker"></span><div><h3>PLAYER '+(n===1?"A":"B")+'</h3><div class="board-deck-name">'+esc(player.deckName)+'</div></div></div><div class="board-tools"><button type="button" data-action="shuffle" data-player="'+n+'">洗牌</button><button type="button" data-action="draw" data-player="'+n+'">抽 1 張</button><button type="button" data-action="reset-player" data-player="'+n+'">重設此玩家</button></div></div><div class="board-stats"><span class="stat-pill">牌組 <strong>'+player.cards.length+'</strong></span><span class="stat-pill">手牌 <strong>'+player.hand.length+'</strong></span><span class="stat-pill">場上 <strong>'+(player.front.length+player.energy.length+player.actionPoint.length)+'</strong></span><span class="stat-pill">棄牌 <strong>'+player.discard.length+'</strong></span></div><div class="playmat '+(n===1?"mat-player-a":"mat-player-b")+'"><div class="mat-zone life-position">'+zoneMarkup(player,"life","生命 LIFE",7)+'</div><div class="mat-zone front-position">'+zoneMarkup(player,"front","前線 FRONT LINE",4)+'</div><div class="mat-zone deck-position">'+zoneMarkup(player,"deck","牌組 DECK")+'<button class="mat-draw-button" type="button" data-action="draw" data-player="'+n+'">抽牌</button></div><div class="mat-zone energy-position">'+zoneMarkup(player,"energy","能源線 ENERGY LINE",4)+'</div><div class="mat-zone ap-position">'+zoneMarkup(player,"actionPoint","行動點 ACTION POINT",3)+'</div><div class="mat-zone banish-position">'+zoneMarkup(player,"removed","移除區 BANISH")+'</div><div class="mat-zone sideline-position">'+zoneMarkup(player,"discard","場外區 SIDELINE")+'</div></div>';
 }
 function renderGame(){
   // Keep existing card DOM nodes keyed by UID so their already-loaded images
