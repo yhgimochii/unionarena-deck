@@ -716,3 +716,69 @@
   .player-board .board-footer .board-head{flex-basis:100%}
   .player-board .board-footer .board-stats{order:0}
 }
+
+
+/* Final Life lane: use all available height with seven landscape positions.
+   Empty positions stay above the real cards so the stack grows upward from
+   the bottom of the lane as Life cards are added. */
+.player-board .life-position,
+.player-board .life-position .zone{
+  min-height:0!important;
+  height:100%!important;
+}
+.player-board .life-position .zone{
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:visible!important;
+}
+.player-board .life-position .zone-cards{
+  display:grid!important;
+  flex:1 1 0!important;
+  width:100%!important;
+  min-height:0!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:repeat(7,minmax(0,1fr))!important;
+  grid-auto-flow:row!important;
+  align-content:stretch!important;
+  align-items:stretch!important;
+  justify-items:stretch!important;
+  gap:4px!important;
+  overflow:visible!important;
+  padding:5px 3px 5px!important;
+}
+.player-board .life-position .play-card,
+.player-board .life-position .empty-slot{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  position:relative!important;
+}
+.player-board .life-position .card-back{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  box-sizing:border-box!important;
+  border:2px solid #b9c5d9!important;
+  border-radius:5px!important;
+  background:
+    linear-gradient(135deg,transparent 42%,rgba(255,255,255,.13) 43%,rgba(255,255,255,.13) 47%,transparent 48%),
+    linear-gradient(45deg,transparent 42%,rgba(255,255,255,.12) 43%,rgba(255,255,255,.12) 47%,transparent 48%),
+    repeating-linear-gradient(135deg,#243c60 0 5px,#172944 5px 10px)!important;
+  box-shadow:0 2px 6px #0008;
+}
+.player-board .life-position .play-card img,
+.player-board .life-position .face-down-card small,
+.player-board .life-position .face-down-card .card-action{display:none!important}
+/* Keep the seven landscape slots visible at narrower widths too. */
+@media(max-width:1050px){
+  .player-board .life-position .zone-cards{gap:3px!important}
+}
+@media(max-width:520px){
+  .player-board .life-position .zone-cards{gap:2px!important;padding:3px 2px!important}
+}
