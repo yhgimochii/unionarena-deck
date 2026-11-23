@@ -803,3 +803,151 @@
 .player-two-board .board-footer{
   order:1!important;
 }
+
+
+/* Wide-screen tabletop mode: use the available monitor width and fit both
+   playfields, hand rails and description panels into one viewport. */
+.dev-home{
+  width:calc(100vw - 32px)!important;
+  max-width:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.dev-home:has(#gamePanel:not(.hidden))>.back-link,
+.dev-home:has(#gamePanel:not(.hidden))>.dev-header,
+.dev-home:has(#gamePanel:not(.hidden))>.footnote{
+  display:none!important;
+}
+#gamePanel:not(.hidden){
+  display:flex!important;
+  flex-direction:column;
+  height:calc(100vh - 24px);
+  min-height:0;
+  overflow:hidden;
+}
+#gamePanel .game-topbar{
+  flex:0 0 auto;
+  margin:0 0 6px!important;
+  align-items:center;
+}
+#gamePanel .game-topbar h2{font-size:19px;margin:2px 0}
+#gamePanel .table-note{
+  flex:0 0 auto;
+  margin:0 0 7px!important;
+  padding:6px 10px;
+  font-size:11px;
+}
+.tabletop-layout{
+  flex:1 1 0!important;
+  min-height:0!important;
+  height:0;
+  width:100%;
+  grid-template-columns:minmax(190px,15vw) minmax(0,1fr) minmax(190px,15vw)!important;
+  gap:10px!important;
+  align-items:stretch;
+}
+.table-center{
+  min-width:0;
+  min-height:0;
+  display:grid!important;
+  grid-template-rows:minmax(0,1fr) 18px minmax(0,1fr);
+  gap:3px!important;
+}
+.table-center .player-board{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  padding:7px!important;
+  overflow:hidden;
+}
+.table-center .player-board .board-main{
+  flex:1 1 auto;
+  min-height:0;
+  display:flex;
+}
+.table-center .player-board .playmat{
+  flex:1 1 auto;
+  width:100%;
+  min-height:0!important;
+  height:100%;
+  box-sizing:border-box;
+  padding:7px!important;
+  gap:6px!important;
+  grid-template-rows:minmax(0,1fr) minmax(0,1fr) minmax(0,.78fr)!important;
+}
+.table-center .player-board .board-footer{
+  flex:0 0 auto;
+  padding:5px 2px 0!important;
+  gap:5px!important;
+}
+.table-center .player-board .board-footer .board-head{
+  flex:1 1 auto;
+  min-width:0;
+}
+.table-center .player-board .board-title h3{font-size:13px}
+.table-center .player-board .board-deck-name{font-size:10px}
+.table-center .player-board .board-tools button{padding:5px 8px;font-size:10px}
+.table-center .player-board .board-stats{gap:4px}
+.table-center .player-board .stat-pill{padding:4px 6px;font-size:10px}
+.table-center .player-board .zone{padding:6px!important}
+.table-center .player-board .zone-head{margin-bottom:4px}
+.table-center .player-board .zone-head strong{font-size:10px}
+.table-center .player-board .zone-head span{font-size:9px}
+.table-center .player-board .front-position .zone-cards,
+.table-center .player-board .energy-position .zone-cards{gap:5px!important}
+.table-center .player-board .ap-position .zone-cards{min-height:0!important}
+.table-center .player-board .life-position .zone-cards{
+  grid-template-rows:repeat(7,minmax(0,1fr))!important;
+  gap:2px!important;
+}
+.table-center .player-board .mat-draw-button{margin-top:3px!important;padding:4px!important;font-size:10px}
+.table-center .versus-divider{margin:0!important;min-height:18px}
+.table-rail{
+  min-height:0;
+  height:100%;
+  overflow:hidden;
+  gap:8px!important;
+}
+.table-rail .rail-panel,
+.table-rail .card-description{
+  min-height:0;
+  padding:9px!important;
+  overflow:hidden;
+}
+.table-rail .rail-panel{flex:1 1 55%;display:flex;flex-direction:column}
+.table-rail .card-description{flex:1 1 45%;justify-content:center}
+.table-rail .rail-panel .hand-zone{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
+}
+.table-rail .rail-panel .hand-zone .zone-cards{
+  min-height:0;
+  max-height:100%;
+  overflow:auto;
+  align-content:start;
+}
+.table-rail .rail-panel .hand-zone .play-card{
+  width:clamp(42px,4vw,66px);
+  flex-basis:clamp(42px,4vw,66px);
+}
+.table-rail .rail-panel .hand-zone .play-card img,
+.table-rail .rail-panel .hand-zone .card-placeholder{width:100%}
+.table-rail .card-description h3{font-size:14px;margin-bottom:7px}
+.table-rail .card-description p{font-size:11px;margin:4px 0}
+@media(max-height:760px) and (min-width:1000px){
+  #gamePanel{height:calc(100vh - 12px)}
+  #gamePanel .game-topbar{margin-bottom:3px!important}
+  #gamePanel .table-note{padding:4px 8px;margin-bottom:4px!important}
+  .table-center .player-board .board-footer{padding-top:3px!important}
+  .table-center .player-board .zone{padding:4px!important}
+}
+@media(max-width:999px){
+  .dev-home{width:calc(100vw - 20px)!important}
+  #gamePanel:not(.hidden){height:auto;overflow:visible}
+  .tabletop-layout{height:auto;grid-template-columns:1fr!important}
+  .table-center{display:flex!important;flex-direction:column}
+  .table-center .player-board{height:auto}
+  .table-center .player-board .playmat{min-height:300px!important}
+  .table-rail{display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+}
