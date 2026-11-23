@@ -62,3 +62,7 @@
 .versus-divider:before,.versus-divider:after{content:"";height:1px;flex:1;background:#303744}
 @media(max-width:800px){.login-form{grid-template-columns:1fr}.login-form button{width:100%}.zones-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.board-head{align-items:flex-start;flex-direction:column}.board-tools{width:100%}.board-tools button{flex:1}}
 @media(max-width:520px){.dev-panel{padding:18px}.deck-pickers{grid-template-columns:1fr}.setup-actions{flex-direction:column}.game-topbar{align-items:flex-start;flex-direction:column}.game-top-actions{width:100%}.game-top-actions button{flex:1}.player-board{padding:11px}.zones-grid{grid-template-columns:1fr 1fr}.play-card{width:49px;flex-basis:49px}.play-card img,.card-placeholder{width:49px}.hand-zone .play-card{width:62px;flex-basis:62px}.hand-zone .play-card img,.hand-zone .card-placeholder{width:62px}}
+
+.deck-pile{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding:12px 14px;border:1px solid #3a4658;border-radius:10px;background:#111720;color:#cbd2dd;font-size:12px}
+.deck-pile.drop-target{border-color:#9c8aff;background:#211f35}
+.deck-pile button{padding:7px 10px;font-size:11px;border-radius:7px}
