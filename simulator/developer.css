@@ -140,3 +140,8 @@
   .player-board{padding:10px}
   .playmat{gap:8px;padding:10px}
 }
+
+.playmat .life-position .zone-cards{display:flex;flex-direction:column;align-items:center;gap:0;padding-top:3px}
+.playmat .life-position .play-card,.playmat .life-position .empty-slot{width:66px;max-width:66px;flex:none}
+.playmat .life-position .play-card img,.playmat .life-position .card-placeholder,.playmat .life-position .empty-slot{height:78px;aspect-ratio:auto}
+.playmat .life-position .play-card+.play-card,.playmat .life-position .empty-slot+.play-card,.playmat .life-position .play-card+.empty-slot,.playmat .life-position .empty-slot+.empty-slot{margin-top:-43px}
