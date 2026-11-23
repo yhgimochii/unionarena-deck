@@ -68,7 +68,7 @@ function cardMarkup(card,playerNo){
 function zoneMarkup(player,key,label){
   const cards=player[key]||[];
   const isHand=key==="hand";
-  const controls=key==="hand"?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
+  const controls=key==="hand"?'<div class="zone-tools"><button type="button" data-action="draw" data-player="'+player.number+'">抽 1 張</button><button type="button" data-action="mulligan" data-player="'+player.number+'">重抽 7 張</button><button type="button" data-action="return-hand" data-player="'+player.number+'">手牌洗回牌組</button></div>':"";
   return '<section class="zone '+(isHand?"hand-zone":"")+'" data-zone="'+key+'" data-player="'+player.number+'"><div class="zone-head"><strong>'+label+'</strong><span>'+cards.length+' 張</span></div>'+controls+'<div class="zone-cards">'+(cards.length?cards.map(c=>cardMarkup(c,player.number)).join(""):'<div class="empty-zone">拖曳卡片到這裡</div>')+'</div></section>';
 }
 function boardMarkup(player){
@@ -121,11 +121,11 @@ function resetPlayer(number){
   const deck=savedDecks.find(d=>d.id===old.deckId);
   if(deck){game.players[number]=makePlayer(deck,number);draw(game.players[number],7)}
 }
-function handleAction(action,number){
+function handleAction(action,number,uid){
   const player=game?.players[number];if(!player)return;
   if(action==="draw"){draw(player,1)}
   if(action==="shuffle"){player.cards=shuffle(player.cards)}
-  if(action==="return-hand"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[]}
+  if(action==="return-hand"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[]}\n  if(action==="mulligan"){player.cards=shuffle([...player.cards,...player.hand.map(c=>({...c,zone:"deck"}))]);player.hand=[];draw(player,7)}
   if(action==="reset-player")resetPlayer(number);
   if(action==="discard"){
     const uid=event.target.dataset.card;
@@ -136,7 +136,7 @@ function handleAction(action,number){
 }
 document.addEventListener("click",e=>{
   const btn=e.target.closest("[data-action]");if(!btn)return;
-  handleAction(btn.dataset.action,Number(btn.dataset.player));
+  handleAction(btn.dataset.action,Number(btn.dataset.player),btn.dataset.card);
 });
 $("startGame").addEventListener("click",startGame);
 $("backToSetup").addEventListener("click",()=>{$("gamePanel").classList.add("hidden");$("deckSetup").classList.remove("hidden")});
@@ -159,7 +159,7 @@ $("deckTwo").addEventListener("change",updateDeckMeta);
 async function loadDeckLibrary(user){
   $("authMessage").textContent="正在讀取你的牌組庫…";
   try{
-    const snap=await getDocs(collection(db,"users",user.uid,"decks"));
+    const snap=await getDocs(query(collection(db,"users",user.uid,"decks"),orderBy("createdAt","desc")));
     savedDecks=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>{
       const ai=Number.isFinite(Number(a.orderIndex))?Number(a.orderIndex):0;
       const bi=Number.isFinite(Number(b.orderIndex))?Number(b.orderIndex):0;
