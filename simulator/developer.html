@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1016">
+  <title>Developer Test Mode · Union Arena</title>
+  <link rel="stylesheet" href="simulator.css">
+  <link rel="stylesheet" href="developer.css">
+</head>
+<body>
+  <main class="simulator-home dev-home">
+    <a class="back-link" href="./">← 返回模擬器</a>
+    <header class="simulator-header dev-header">
+      <p class="eyebrow">UNION ARENA · DEVELOPER</p>
+      <h1>開發者測試模式</h1>
+      <p class="intro">選擇兩副牌組，建立測試桌面。此模式由你控制雙方的牌組、手牌與場地。</p>
+    </header>
+
+    <section id="authPanel" class="dev-panel">
+      <h2>登入你的牌組帳號</h2>
+      <p class="panel-copy">使用你在 Rugia 牌組分析網站的帳號。登入狀態會與主網站共用。</p>
+      <form id="loginForm" class="login-form">
+        <label>Email<input id="email" type="email" autocomplete="username" required placeholder="你的 Email"></label>
+        <label>密碼<input id="password" type="password" autocomplete="current-password" required placeholder="帳號密碼"></label>
+        <button id="loginButton" type="submit">登入並載入牌組</button>
+      </form>
+      <p id="authMessage" class="message" role="status"></p>
+      <a class="subtle-link" href="../">返回主網站</a>
+    </section>
+
+    <section id="deckSetup" class="dev-panel hidden">
+      <div class="panel-heading">
+        <div><p class="eyebrow">STEP 01</p><h2>選擇測試牌組</h2></div>
+        <span id="accountLabel" class="account-label"></span>
+      </div>
+      <p class="panel-copy">Player 1 和 Player 2 可以選擇同一副牌，也可以選擇不同牌組。</p>
+      <div class="deck-pickers">
+        <label class="player-picker player-one"><span>PLAYER 1</span><select id="deckOne"><option value="">載入牌組中…</option></select><small id="deckOneMeta"></small></label>
+        <label class="player-picker player-two"><span>PLAYER 2</span><select id="deckTwo"><option value="">載入牌組中…</option></select><small id="deckTwoMeta"></small></label>
+      </div>
+      <div class="setup-actions">
+        <button id="startGame" type="button" disabled>建立測試桌面</button>
+        <button id="signOut" class="secondary-button" type="button">登出</button>
+      </div>
+      <p id="setupMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="gamePanel" class="hidden">
+      <div class="game-topbar">
+        <div><p class="eyebrow">DEVELOPER PLAYTEST</p><h2>測試桌面</h2></div>
+        <div class="game-top-actions"><button id="backToSetup" class="secondary-button" type="button">更換牌組</button><button id="resetBoth" class="danger-button" type="button">重設雙方</button></div>
+      </div>
+      <div class="table-note">開發者模式：雙方手牌均可見。拖曳卡片到不同區域，或使用各區域的操作按鈕。</div>
+      <section id="playerTwoBoard" class="player-board player-two-board" data-player="2"></section>
+      <div class="versus-divider"><span>VS</span></div>
+      <section id="playerOneBoard" class="player-board player-one-board" data-player="1"></section>
+    </section>
+    <p class="footnote">Developer Test Mode · 本階段只處理牌組載入、洗牌、抽牌與手動場地操作，不會自動執行卡片效果或回合規則。</p>
+  </main>
+  <script type="module" src="developer.js"></script>
+</body>
+</html>
