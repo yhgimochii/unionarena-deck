@@ -313,3 +313,85 @@
   .player-board .life-position .play-card,.player-board .life-position .empty-slot{max-width:42px!important}
   .player-board .life-position .play-card+.play-card,.player-board .life-position .empty-slot+.play-card,.player-board .life-position .play-card+.empty-slot,.player-board .life-position .empty-slot+.empty-slot{margin-top:-25px!important}
 }
+
+
+/* Gameplay refinements requested from the latest tabletop screenshot */
+.player-board .front-position .zone-cards{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+.player-board .front-position .empty-slot{display:block}
+.player-board .ap-position .zone{min-height:0!important}
+.player-board .ap-position .zone-cards{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  min-height:42px;
+}
+.player-board .life-position .zone-cards{
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  padding:7px 3px 8px!important;
+  gap:0!important;
+}
+.player-board .life-position .play-card,
+.player-board .life-position .empty-slot{
+  width:54px!important;
+  max-width:54px!important;
+  flex:0 0 54px!important;
+  margin:0 -24px 0 0!important;
+  position:relative;
+}
+.player-board .life-position .play-card:last-child,
+.player-board .life-position .empty-slot:last-child{margin-right:0!important}
+.player-board .life-position .play-card:nth-child(2){z-index:2}
+.player-board .life-position .play-card:nth-child(3){z-index:3}
+.player-board .life-position .play-card:nth-child(4){z-index:4}
+.player-board .life-position .play-card:nth-child(5){z-index:5}
+.player-board .life-position .play-card:nth-child(6){z-index:6}
+.player-board .life-position .play-card:nth-child(7){z-index:7}
+.player-board .life-position .card-back{
+  width:100%;
+  aspect-ratio:5/7;
+  display:block;
+  border:2px solid #b9c5d9;
+  border-radius:5px;
+  background:
+    linear-gradient(135deg,transparent 42%,rgba(255,255,255,.13) 43%,rgba(255,255,255,.13) 47%,transparent 48%),
+    linear-gradient(45deg,transparent 42%,rgba(255,255,255,.12) 43%,rgba(255,255,255,.12) 47%,transparent 48%),
+    repeating-linear-gradient(135deg,#243c60 0 5px,#172944 5px 10px);
+  box-shadow:0 2px 6px #0008;
+}
+.player-board .life-position .face-down-card small,
+.player-board .life-position .face-down-card .card-action{display:none!important}
+
+/* Banish and sideline are compact overlapping piles, not a card grid. */
+.player-board .pile-zone .zone-cards{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:flex-start;
+  justify-content:flex-start;
+  overflow-x:auto;
+  overflow-y:hidden;
+  min-height:88px!important;
+  padding:5px 3px 9px;
+  gap:0!important;
+}
+.player-board .pile-zone .play-card{
+  width:48px!important;
+  flex:0 0 48px!important;
+  margin-right:-25px;
+  position:relative;
+}
+.player-board .pile-zone .play-card:nth-child(2){z-index:2}
+.player-board .pile-zone .play-card:nth-child(3){z-index:3}
+.player-board .pile-zone .play-card:nth-child(4){z-index:4}
+.player-board .pile-zone .play-card:nth-child(5){z-index:5}
+.player-board .pile-zone .play-card:nth-child(6){z-index:6}
+.player-board .pile-zone .play-card:last-child{margin-right:0}
+.player-board .pile-zone .play-card img,
+.player-board .pile-zone .card-placeholder{width:48px!important}
+.player-board .pile-zone .play-card small{display:none}
+.player-board .pile-zone .card-action{font-size:7px!important;padding:2px 0!important}
