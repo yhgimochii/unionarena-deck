@@ -1,0 +1,19 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark}
+body{margin:0;min-height:100vh;background:#0d1016;color:#f5f6fa;font-family:Inter,system-ui,"Noto Sans TC",sans-serif}
+.simulator-home{width:min(1100px,100%);margin:0 auto;padding:38px 24px 60px}
+.back-link{display:inline-block;color:#aaa3ff;text-decoration:none;font-size:14px;font-weight:800}
+.back-link:hover{color:#fff}
+.simulator-header{margin:70px 0 34px}
+.eyebrow,.mode-label{font-size:11px;font-weight:900;letter-spacing:.16em;color:#8b7cff}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.1;margin:10px 0}
+.intro{max-width:620px;color:#aab1bd;font-size:16px;line-height:1.7}
+.mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.mode-card{min-height:270px;padding:28px;border:1px solid #303744;border-radius:18px;background:linear-gradient(145deg,#191e29,#141821);display:flex;flex-direction:column;align-items:flex-start}
+.mode-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:13px;background:#292443;color:#b5aaff;font-size:25px}
+.mode-label{margin:22px 0 0}
+.mode-card h2{font-size:25px;margin:8px 0}
+.mode-card p:not(.mode-label){max-width:430px;color:#aab1bd;line-height:1.7;margin:0 0 22px}
+.status{margin-top:auto;padding:7px 11px;border:1px solid #554b91;border-radius:999px;color:#b9afff;background:#211d36;font-size:12px;font-weight:800}
+.footnote{margin-top:24px;color:#7f8795;font-size:12px;line-height:1.6}
+@media(max-width:700px){.simulator-home{padding:24px 16px 40px}.simulator-header{margin:52px 0 26px}.mode-grid{grid-template-columns:1fr}.mode-card{min-height:230px;padding:22px}}
