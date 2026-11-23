@@ -145,3 +145,47 @@
 .playmat .life-position .play-card,.playmat .life-position .empty-slot{width:66px;max-width:66px;flex:none}
 .playmat .life-position .play-card img,.playmat .life-position .card-placeholder,.playmat .life-position .empty-slot{height:78px;aspect-ratio:auto}
 .playmat .life-position .play-card+.play-card,.playmat .life-position .empty-slot+.play-card,.playmat .life-position .play-card+.empty-slot,.playmat .life-position .empty-slot+.empty-slot{margin-top:-43px}
+
+
+/* Two-player shared playmat composition: Player A red / Player B blue */
+.tabletop-layout{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(150px,220px);gap:14px;align-items:stretch}
+.table-center{min-width:0;display:flex;flex-direction:column;gap:8px}
+.table-rail{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rail-panel,.card-description{border:2px solid;border-radius:9px;padding:12px;min-width:0;background:#171c26}
+.player-a-hand-panel{border-color:#ef5350}
+.player-b-hand-panel{border-color:#536dfe}
+.rail-panel h3,.card-description h3{margin:0 0 10px;font-size:13px;letter-spacing:.04em}
+.player-a-hand-panel h3{color:#ff7772}
+.player-b-hand-panel h3{color:#8da0ff}
+.rail-panel .hand-zone{margin:0;min-height:0;padding:7px;border:0;background:transparent}
+.rail-panel .hand-zone .zone-head{display:none}
+.rail-panel .hand-zone .zone-tools{flex-wrap:wrap;margin-bottom:8px}
+.rail-panel .hand-zone .zone-cards{flex-wrap:wrap;overflow:visible;min-height:0}
+.rail-panel .hand-zone .play-card{width:calc(25% - 5px);flex:0 0 calc(25% - 5px)}
+.rail-panel .hand-zone .play-card img,.rail-panel .hand-zone .card-placeholder{width:100%}
+.card-description{flex:1;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end}
+.left-rail .card-description{border-color:#ef5350;background:linear-gradient(180deg,#2a171b,#171c26)}
+.right-rail .card-description{border-color:#536dfe;background:linear-gradient(180deg,#1b1a35,#171c26)}
+.card-description h3{font-size:16px}
+.card-description p,.card-description small{color:#b8c0ce;font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+.selected-card-code{font-weight:900;color:#fff!important;font-size:15px!important}
+.player-board{padding:12px;border-radius:10px;overflow:visible}
+.player-one-board{border:2px solid #ef5350;border-top:4px solid #ef5350;background:rgba(120,35,42,.12)}
+.player-two-board{border:2px solid #536dfe;border-top:4px solid #536dfe;background:rgba(50,54,130,.13)}
+.player-one-board .player-marker{background:#ef5350}
+.player-two-board .player-marker{background:#536dfe}
+.player-one-board .playmat{border-color:#a34b50;background:linear-gradient(145deg,rgba(108,32,39,.26),rgba(24,20,27,.92))}
+.player-two-board .playmat{border-color:#5664c5;background:linear-gradient(145deg,rgba(45,48,116,.28),rgba(20,21,38,.92))}
+.player-one-board .playmat{grid-template-areas:"sideline ap banish" "energy energy energy" "life front deck";grid-template-columns:1fr 2fr 1fr;grid-template-rows:minmax(105px,auto) minmax(120px,auto) minmax(125px,auto)}
+.player-two-board .playmat{grid-template-areas:"life front deck" "energy energy energy" "banish ap sideline";grid-template-columns:1fr 2fr 1fr;grid-template-rows:minmax(125px,auto) minmax(120px,auto) minmax(105px,auto)}
+.player-one-board .front-position .zone-cards,.player-two-board .front-position .zone-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.player-one-board .energy-position .zone-cards,.player-two-board .energy-position .zone-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.player-one-board .ap-position .zone-cards,.player-two-board .ap-position .zone-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.player-one-board .life-position .zone-cards,.player-two-board .life-position .zone-cards{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:3px}
+.player-one-board .life-position .play-card,.player-one-board .life-position .empty-slot,.player-two-board .life-position .play-card,.player-two-board .life-position .empty-slot{width:calc(25% - 3px);max-width:none;flex:0 0 calc(25% - 3px);margin:0!important}
+.player-one-board .life-position .play-card img,.player-one-board .life-position .card-placeholder,.player-two-board .life-position .play-card img,.player-two-board .life-position .card-placeholder{height:auto;aspect-ratio:5/7}
+.player-one-board .life-position .empty-slot,.player-two-board .life-position .empty-slot{height:auto;aspect-ratio:5/7}
+.versus-divider{margin:0;flex:none}
+@media(max-width:1050px){.tabletop-layout{grid-template-columns:minmax(120px,160px) minmax(0,1fr) minmax(120px,160px);gap:8px}.rail-panel{padding:7px}.rail-panel .hand-zone .play-card{width:calc(33.333% - 4px);flex-basis:calc(33.333% - 4px)}}
+@media(max-width:760px){.tabletop-layout{grid-template-columns:1fr}.table-center{order:1}.left-rail{order:2}.right-rail{order:3}.table-rail{display:grid;grid-template-columns:1fr 1fr}.card-description{min-height:130px}.player-board .playmat{min-width:0}.player-board{overflow:hidden}.rail-panel .hand-zone .play-card{width:calc(20% - 5px);flex-basis:calc(20% - 5px)}}
+@media(max-width:520px){.table-rail{grid-template-columns:1fr}.player-board .playmat{padding:7px;gap:6px;grid-template-rows:minmax(90px,auto) minmax(100px,auto) minmax(100px,auto)}.player-board .playmat .zone{padding:5px}.player-board .playmat .zone-head strong{font-size:9px}.player-board .playmat .play-card small{display:none}}
