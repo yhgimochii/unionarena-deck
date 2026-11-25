@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4.168.0/config-schema.json",
+  "name": "unionarena-deck",
+  "compatibility_date": "2026-11-25",
+  "assets": {
+    "directory": "."
+  },
+  "previews": {}
+}
