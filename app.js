@@ -44,10 +44,12 @@ function cardImageUrls(id){
  const urls=[];
  for(const locale of locales){
    for(const file of variants){
-     urls.push(`https://www.unionarena-tcg.com/${locale}/images/cardlist/card/${encodeURIComponent(file)}.png`);
+     const original=`https://www.unionarena-tcg.com/${locale}/images/cardlist/card/${encodeURIComponent(file)}.png`;
+     // Route image requests through the same wsrv.nl optimisation proxy observed
+     // in UPTCG: server-side fetch, resize to 400px, WebP output, quality 80.
+     urls.push(`https://wsrv.nl/?url=${encodeURIComponent(original)}&w=400&output=webp&q=80`);
    }
  }
- // Keep the original Asia/Traditional-Chinese path first because it is the source used by the site.
  return [...new Set(urls)];
 }
 function cardImage(id){return cardImageUrls(id)[0]||""}
