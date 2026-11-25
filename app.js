@@ -47,8 +47,7 @@ function cardImageUrls(id){
      urls.push(`https://www.unionarena-tcg.com/${locale}/images/cardlist/card/${encodeURIComponent(file)}.png`);
    }
  }
- // Try the site's regional paths first, then English and Japanese.
- // Keep the remaining candidates as onerror fallbacks.
+ // Keep the original Asia/Traditional-Chinese path first because it is the source used by the site.
  return [...new Set(urls)];
 }
 function cardImage(id){return cardImageUrls(id)[0]||""}
@@ -68,8 +67,1347 @@ window.uaImageFallback=function uaImageFallback(img){
 function imageTag(id,name,cls="thumb"){
  const urls=cardImageUrls(id);
  const first=urls.shift()||"";
- // Do not suppress the HTTP Referer: the official card-image host may use
- // it for hotlink checks. Let the browser send its normal cross-origin
- // referrer (origin only) and keep the existing locale/path fallbacks.
+ // Keep the browser's normal cross-origin referrer; the official image host may use it for hotlink checks.
  return `<img class="${cls}" src="${esc(first)}" alt="${esc(name||id)}" loading="lazy" data-fallbacks='${esc(JSON.stringify(urls))}' onerror="window.uaImageFallback(this)">`;
+}
+const COMBAT_KEYWORDS=["衝擊無效","無效化衝擊","雙重攻擊","雙重阻擋","突襲","衝擊","狙擊","Step","Damage","Raid","Impact","Double Attack","Double Block","Snipe","Nullify Impact"];
+const EFFECT_KEYWORDS=["攻擊結束時","主階段結束時","起動・主要","登場時","退場時","攻擊時","阻擋時","被攻擊時","主起動","自己回合中","對手回合中","激活時","休息時","在前線的情況","在能源線的情況","When Played","When Sidelined","When Attacking","When Blocking","When Attacked","On Your Turn","On Opponent's Turn","On Opponent’s Turn","Activate: Main","Once Per Turn","每回合1次","回合1次"];
+// "Once per turn" markers get their own badge style (a small bordered box,
+// matching Rugia's "回合1次" marker) instead of the regular blue timing pill.
+const TURN_LIMIT_KEYWORDS=["每回合1次","回合1次"];
+function escapeRegex(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+function keywordClass(k){
+  const value=String(k||"").toLowerCase();
+  if(TURN_LIMIT_KEYWORDS.some(x=>x.toLowerCase()===value))return"turnlimit";
+  return COMBAT_KEYWORDS.some(x=>x.toLowerCase()===value)||/^(?:impact|damage|衝擊|傷害)/i.test(value)?"combat":"effect";
+}
+function buildKeywordEntries(traitKeywords=[]){
+  const traits=[...new Set((traitKeywords||[]).filter(Boolean).map(String))];
+  return [
+    ...COMBAT_KEYWORDS.map(text=>({text,className:"combat"})),
+    ...EFFECT_KEYWORDS.filter(t=>!TURN_LIMIT_KEYWORDS.includes(t)).map(text=>({text,className:"effect"})),
+    ...TURN_LIMIT_KEYWORDS.map(text=>({text,className:"turnlimit"})),
+    ...traits.map(text=>({text,className:"trait"}))
+  ].sort((a,b)=>b.text.length-a.text.length);
+}
+function buildKeywordRegex(entries){
+  const pattern=entries.map(x=>escapeRegex(x.text)).join("|");
+  // String.raw keeps the backslashes intact when building the RegExp.
+  // This supports 【】, 〖〗 and [] wrappers and removes them from the chip.
+  return new RegExp(
+    String.raw`(?:【|〖|\[)?\s*(${pattern})(\s*[（(]?[+＋]?[0-9０-９]+[）)]?)?\s*(?:】|〗|\])?`,
+    "giu"
+  );
+}
+// Wrap known timing/effect/combat keywords (登場時, 退場時, 主起動, 回合1次,
+// etc.) inside already-built HTML, without touching existing tags or text
+// already inside a keyword-chip span. This is what lets the rich/Rugia-HTML
+// render path get the same chip treatment as the plain-text fallback path
+// (highlightEffect), since that path can't run esc()-based matching on text
+// that already contains real HTML.
+function highlightRichEffectKeywords(html,traitKeywords=[]){
+  const entries=buildKeywordEntries(traitKeywords);
+  if(!entries.length)return html;
+  const re=buildKeywordRegex(entries);
+  const segments=String(html||'').split(/(<[^>]+>)/g);
+  let insideChip=0;
+  for(let i=0;i<segments.length;i++){
+    const seg=segments[i];
+    if(/^<[^>]+>$/.test(seg)){
+      if(/^<span\b[^>]*class=["'][^"']*\bkeyword-chip\b[^"']*["'][^>]*>/i.test(seg))insideChip++;
+      else if(/^<\/span>/i.test(seg)&&insideChip>0)insideChip--;
+      continue;
+    }
+    if(insideChip>0)continue;
+    // Leave combat-keyword explanations such as "(…在本次戰鬥中失去衝擊)"
+    // as plain text, the way Rugia does, instead of chip-wrapping "衝擊".
+    segments[i]=mapOutsideExplanations(seg,part=>part.replace(re,(match,keyword,suffix)=>{
+      const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
+      const cls=entry?.className||keywordClass(keyword);
+      return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
+    }));
+  }
+  return segments.join('');
+}
+function highlightTrigger(text){
+  const raw=String(text||'').trim();
+  if(!raw)return '';
+  const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色)(?:】|〗|\])\s*/i);
+  if(!m)return highlightEffect(raw,[]);
+  let label=m[1];
+  if(/^(?:最終|final)$/i.test(label))label='FINAL';
+  if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
+  const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':'common';
+  const rest=raw.slice(m[0].length);
+  return `<span class="keyword-chip trigger-chip trigger-${type}">${esc(label)}</span>${rest?` ${highlightEffect(rest,[])}`:''}`;
+}
+
+// ---------------------------------------------------------------------------
+// Combat-keyword explanations (e.g. "衝擊❶ (進行攻擊並戰鬥勝利時，…)").
+// Rugia prints an icon followed by this explanation at the top of the effect.
+// The sync's name/effect splitter files them under the card NAME (the text
+// comes before the first effect keyword) and then deletes the icon, so the
+// line is missing from the description. We recover it here from `name`, and
+// map each explanation back to its icon.
+// ---------------------------------------------------------------------------
+const RUGIA_IMG_BASE='https://rugiacreation.com/ua/images/';
+const toHalfDigit=v=>String(v).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+const KEYWORD_EXPLANATIONS=[
+  {src:'進行攻擊並戰鬥勝利時，對手玩家受到([１-９1-9])點傷害',icon:m=>`keyword_impact${toHalfDigit(m[1])}.png`},
+  {src:'與此角色戰鬥的角色，在本次戰鬥中失去衝擊',icon:()=>'keyword_impact_nullify.png'},
+  {src:'在自己的移動階段可從前線移動到能源線',icon:()=>'keyword_step.png'},
+  {src:'此角色在本回合初次進行阻擋時會被激活',icon:()=>'keyword_2timesblock.png'},
+  {src:'此角色在本回合初次進行攻擊時會被激活',icon:()=>'keyword_2timesattack.png'},
+  {src:'此角色的攻擊給予的直接傷害為([１-９1-9])點傷害',icon:m=>`keyword_damage${toHalfDigit(m[1])}.png`},
+];
+const EXPLANATION_PAREN_RE=new RegExp('[（(]\\s*(?:'+KEYWORD_EXPLANATIONS.map(x=>x.src).join('|')+')\\s*[)）]','g');
+function stripKeywordExplanations(text){
+  return String(text||'').replace(EXPLANATION_PAREN_RE,' ').replace(/[ \t]{2,}/g,' ').replace(/[ \t]+\n/g,'\n').trim();
+}
+function mapOutsideExplanations(text,fn){
+  let out='',last=0;
+  for(const m of String(text||'').matchAll(EXPLANATION_PAREN_RE)){
+    out+=fn(text.slice(last,m.index))+m[0];
+    last=m.index+m[0].length;
+  }
+  return out+fn(String(text||'').slice(last));
+}
+function leakedKeywordHtml(d){
+  const name=String(d?.name||'');
+  const rich=String(d?.effectHtml||'');
+  const parts=[];
+  for(const m of name.matchAll(EXPLANATION_PAREN_RE)){
+    const text=m[0].replace(/^[（(]\s*/,'').replace(/\s*[)）]$/,'');
+    if(rich.includes(text))continue; // sync already kept it in the effect
+    const def=KEYWORD_EXPLANATIONS.find(x=>new RegExp(x.src).test(text));
+    if(!def)continue;
+    const icon=def.icon(text.match(new RegExp(def.src)));
+    parts.push(`<img class="ua-keyword-icon" src="${RUGIA_IMG_BASE}${icon}" alt="" loading="lazy" referrerpolicy="no-referrer"> (${esc(text)})`);
+  }
+  return parts.length?parts.join('<br>')+'<br>':'';
+}
+
+// ---------------------------------------------------------------------------
+// Trigger lines. Rugia prints the card's trigger as its own line that starts
+// with an ico_trigger_<type>.png icon. Only ~25% of cards have a `trigger`
+// field from the official-site lookup, so recover it from effectHtml instead.
+// ---------------------------------------------------------------------------
+const TRIGGER_TYPE_LABEL={raid:'突襲',get:'加入手牌',draw:'抽牌',active:'激活',final:'FINAL',special:'SPECIAL',color:'彩色'};
+function htmlToPlain(html){
+  return String(html||'').replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim();
+}
+function extractTriggerLines(html){
+  const triggers=[],keep=[];
+  for(const line of String(html||'').split(/<br\s*\/?>/i)){
+    const m=line.match(/^(?:\s|&nbsp;)*<img\b[^>]*\/ico_trigger_(raid|get|draw|active|final|special|color)\.png[^>]*>([\s\S]*)$/i);
+    if(m)triggers.push({type:m[1].toLowerCase(),html:m[2].trim(),text:htmlToPlain(m[2])});
+    else keep.push(line);
+  }
+  return {main:keep.join('<br>'),triggers};
+}
+
+function rugiaIconReplacement(url){
+  const u=String(url||'').toLowerCase();
+  const file=(u.split('/').pop()||'').split('?')[0];
+  // These filenames are verified against the actual icon URLs Rugia serves
+  // (ico_trigger_<type>.png — trigger_ as a PREFIX, not a suffix). The old
+  // *_trigger.png suffix entries never matched any real icon, so inline
+  // trigger-type icons inside the main effect text (not just the bottom
+  // reminder box, which is matched separately via plain trigger text) were
+  // silently falling through to an unlabeled raw icon image instead of a
+  // text chip.
+  const labels={
+    'ico_raid.png':['RAID','raid'],
+    'ico_trigger_raid.png':['RAID','raid'],
+    'ico_trigger_get.png':['加入手牌','common'],
+    'ico_trigger_draw.png':['抽牌','common'],
+    'ico_trigger_active.png':['激活','common'],
+    'ico_trigger_final.png':['FINAL','final'],
+    'ico_trigger_special.png':['SPECIAL','special'],
+    'ico_trigger_color.png':['彩色','color'],
+  };
+  if(labels[file]){
+    const [label,type]=labels[file];
+    const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
+    return `<span class="keyword-chip trigger-chip ${cls}">${esc(label)}</span>`;
+  }
+  // The "once per turn" marker is icon-only on many cards — there is no
+  // literal 回合1次 text for highlightRichEffectKeywords to match in those
+  // cases — so it needs its own direct icon->chip mapping here, styled the
+  // same as the text-based turnlimit chip used elsewhere.
+  if(file==='ico_turn1.png'){
+    return '<span class="keyword-chip turnlimit">回合1次</span>';
+  }
+  return '';
+}
+
+function restoreRugiaImageTokensHtml(value){
+  let out=String(value||'');
+  const tokenRe=/\[\[UAIMG:(https?:\/\/[^\]<>"]+)\]\]/gi;
+  out=out.replace(tokenRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    if(semantic)return semantic;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
+  // The sync script (_token_to_html) already converts [[UAIMG:...]] tokens
+  // into real <img> tags before writing cards.json, so effectHtml normally
+  // never reaches this function still carrying raw tokens — the tokenRe
+  // pass above is a no-op for most stored cards. Match the already-baked
+  // <img> tags directly so semantic icons (RAID, once-per-turn, etc.) still
+  // get the text-chip treatment without requiring a re-sync.
+  const imgTagRe=/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi;
+  out=out.replace(imgTagRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    return semantic||m;
+  });
+  // Defensive fallback for stale cards.json entries where the raw Rugia URL
+  // was stored without the [[UAIMG:...]] wrapper. Known trigger icons are
+  // rendered as text chips so a missing Rugia icon can never become a broken image.
+  const rawUrlRe=/(?<!["'=])(https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?)/gi;
+  out=out.replace(rawUrlRe,(m,url)=>{
+    const semantic=rugiaIconReplacement(url);
+    if(semantic)return semantic;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
+  return out;
+}
+
+function stripRugiaImageTokensText(value){
+  return String(value||'')
+    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
+    .replace(/https?:\/\/rugiacreation\.com\/ua\/images\/[A-Za-z0-9_./?=&%-]+\.(?:png|jpg|jpeg|webp)(?:\?[^\s<]*)?/gi,'')
+    .replace(/\s{2,}/g,' ')
+    .trim();
+}
+
+function restoreCombatImageKeywords(text){
+  let out=String(text||'');
+  const imageUrls=[];
+  const tokenRe=/\[\[UAIMG:(https?:\/\/rugiacreation\.com\/[^\]<>"']+)\]\]/gi;
+
+  // Keep the actual Rugia image instead of converting the keyword into text.
+  out=out.replace(tokenRe,(m,url)=>{
+    const i=imageUrls.push(url)-1;
+    return `__UA_IMAGE_${i}__`;
+  });
+
+  // Backwards-compatible fallback for cards synced by an older parser.
+  const circled={"0":"⓪","1":"➊","2":"➋","3":"➌","4":"➍","5":"➎","6":"➏","7":"➐","8":"➑","9":"➒"};
+  const sym=n=>String(n||'').replace(/[０-９]/g,d=>String.fromCharCode(d.charCodeAt(0)-0xfee0)).split('').map(d=>circled[d]||d).join('');
+  out=out.replace(/Image(?=\s*[（(]\s*進行攻擊並戰鬥勝利時，對手玩家受到\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`衝擊${sym(n)}`);
+  out=out.replace(/Image(?=\s*[（(]\s*此角色的攻擊給予的直接傷害為\s*([0-9０-９]+)\s*點傷害)/g,(m,n)=>`傷害${sym(n)}`);
+
+  return {text:out,imageUrls};
+}
+
+function highlightEffect(text, traitKeywords=[]){
+  const restored=restoreCombatImageKeywords(text);
+  let out=esc(restored.text||"");
+  const entries=buildKeywordEntries(traitKeywords);
+
+  if(!entries.length)return out.replace(/\n/g,"<br>");
+
+  const re=buildKeywordRegex(entries);
+
+  out=out.replace(re,(match,keyword,suffix)=>{
+    const entry=entries.find(x=>x.text.toLowerCase()===String(keyword).toLowerCase());
+    const cls=entry?.className||keywordClass(keyword);
+    return `<span class="keyword-chip ${cls}">${keyword}${suffix||""}</span>`;
+  });
+
+  out=out.replace(/__UA_IMAGE_(\d+)__/g,(m,i)=>{
+    const url=restored.imageUrls[Number(i)];
+    if(!url)return m;
+    return `<img class="ua-keyword-icon" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  });
+  return out.replace(/\n/g,"<br>");
+}
+
+function iconSvg(type){
+  const paths={
+    edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/>',
+    save:'<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/>',
+    share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/>',
+    trash:'<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 15H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/>'
+  };
+  return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[type]||''}</svg>`;
+}
+
+function openEditDeck(){
+  if(!currentUser){showAuth();return}
+  if(!deck?.firestoreId){
+    $('msg').textContent='請先儲存牌組後再編輯。';
+    $('msg').style.color='#b34b35';
+    return;
+  }
+  $('editDeckName').value=deck.name||'';
+  $('editDeckColor').value=deckColorClass(deck.color||'red');
+  updateEditColorPreview();
+  $('editDeckModal').classList.remove('hidden');
+}
+
+function isRaidCard(d){
+  if(!d)return false;
+  const trigger=String(d.trigger||'');
+  const effect=String(d.effect||'');
+  return /\[\s*Raid\s*\]/i.test(trigger) || /〖\s*突襲\s*〗/i.test(trigger) || /(?:將此卡加入手牌.{0,40}進行突襲|在滿足能源需求的情況下進行突襲)/.test(effect);
+}
+
+function raidBadge(){
+  return '<span class="raid-badge" aria-label="RAID">RAID</span>';
+}
+
+let sortMode='default',ownedFirst=true;
+const RARITY_ORDER=['SR','R','U','C'];
+function displayOrder(){
+  const idx=deck.cards.map((_,i)=>i);
+  if(sortMode==='default')return idx;
+  const rank=i=>{
+    const c=deck.cards[i],d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
+    const r=String(d?.rarity||'').toUpperCase().replace(/★+/g,'').replace(/^PC/,'');
+    const k=RARITY_ORDER.indexOf(r);
+    return k<0?RARITY_ORDER.length:k;
+  };
+  const own=i=>deck.cards[i].owned===false?1:0;
+  return idx.sort((a,b)=>{
+    let diff=sortMode==='owned'?(ownedFirst?own(a)-own(b):own(b)-own(a)):rank(a)-rank(b);
+    return diff||a-b;
+  });
+}
+function renderSortButtons(){
+  const set=(id,on,text)=>{const b=$(id);if(!b)return;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));if(text)b.textContent=text};
+  const cards=deck?.cards||[];
+  const total=cards.length;
+  const notOwned=cards.filter(c=>c.owned===false).length;
+  const owned=total-notOwned;
+  set('sortDefault',sortMode==='default');
+  set('sortOwned',sortMode==='owned',sortMode==='owned'?(ownedFirst?`擁有 ${owned}/${total}`:`未擁有 ${notOwned}/${total}`):`擁有 ${owned}/${total}`);
+  set('sortRarity',sortMode==='rarity');
+}
+const OWN_TEXT={yes:'已擁有',no:'未擁有'};
+
+function render(){
+  if(!deck)return;
+  renderSortButtons();
+  $('deck').classList.remove('hidden');
+  const saveButton=$('saveDeck');
+  if(saveButton)saveButton.classList.toggle('hidden',!!deck.firestoreId || !!deck.justSavedFromImport);
+  $('title').innerHTML=`<span class="deck-title-dot ${deckColorClass(deck.color||'red')}"></span><span class="deck-title-name">${esc(deck.name||'新牌組')}</span><button id="editDeck" class="icon-btn deck-edit-icon" type="button" title="編輯牌組" aria-label="編輯牌組">${iconSvg('edit')}</button>`;
+  $('editDeck').onclick=()=>openEditDeck();
+  $('meta').textContent=`${deck.version||"未知作品"} · ${deck.cards.reduce((n,c)=>n+c.qty,0)} 張 · ${deck.cards.length} 種`;
+
+  $('cards').innerHTML=displayOrder().map(i=>{
+    const c=deck.cards[i];
+    const d=DB[cardId(c)]||DB[cardIdNoDeck(c)];
+    const id=cardId(c),name=d?.name||`未收錄：${id}`;
+    const notOwned=c.owned===false;
+    return `<div class="card ${selected===i?"on":""}${notOwned?" not-owned":""}" data-i="${i}" role="button" tabindex="0" aria-label="查看 ${esc(name)}">
+      ${imageTag(id,name)}
+      ${deck?.thumbnailId===id?`<span class="deck-thumb-badge">縮圖</span>`:""}
+      <div class="cardbody"><div class="id">${esc(id)}</div></div>
+      ${d?.rarity?`<span class="rar">${esc(d.rarity)}</span>`:""}
+      ${notOwned?`<span class="own-label no">${OWN_TEXT.no}</span>`:""}
+      <div class="qty">×${c.qty}</div>
+      <div class="reorder-controls" aria-hidden="true"><div class="move-btns"><button type="button" class="move-card-up" title="向前移動">↑</button><button type="button" class="move-card-down" title="向後移動">↓</button></div><button type="button" class="own-toggle ${notOwned?"no":"yes"}" title="切換是否已擁有">${notOwned?OWN_TEXT.no:OWN_TEXT.yes}</button></div>
+    </div>`;
+  }).join('');
+
+  // Bind directly to each card. Selection does NOT re-render the card grid.
+  $('cards').querySelectorAll('.card').forEach(card=>{
+    const selectCard=()=>{
+      selected=Number(card.dataset.i);
+      $('cards').querySelectorAll('.card').forEach(x=>x.classList.toggle('on',x===card));
+      detail();
+      if(window.matchMedia('(max-width: 700px), (pointer: coarse)').matches){
+        openMobileDetail();
+      }
+    };
+    card.onclick=selectCard;
+    card.onkeydown=e=>{
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        selectCard();
+      }
+    };
+  });
+  bindReorderHandlers();
+}
+
+let reorderMode=false;
+function renderReorderState(){
+  const cardsBox=$('cards');
+  if(!cardsBox)return;
+  cardsBox.classList.toggle('reorder-mode',reorderMode);
+  cardsBox.querySelectorAll('.card').forEach((card,i)=>{
+    const manual=sortMode==='default';
+    card.draggable=reorderMode&&manual;
+    const up=card.querySelector('.move-card-up'),down=card.querySelector('.move-card-down');
+    if(up)up.disabled=!manual||i===0;
+    if(down)down.disabled=!manual||i===deck.cards.length-1;
+  });
+  const btn=$('reorderToggle');
+  if(btn){btn.textContent=reorderMode?'完成編輯':'編輯';btn.setAttribute('aria-pressed',String(reorderMode));}
+}
+function bindReorderHandlers(){
+  const cardsBox=$('cards');
+  if(!cardsBox)return;
+  cardsBox.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('dragstart',e=>{if(!reorderMode||sortMode!=='default'){e.preventDefault();return} card.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',card.dataset.i)});
+    card.addEventListener('dragend',()=>card.classList.remove('dragging'));
+    card.addEventListener('dragover',e=>{if(reorderMode&&sortMode==='default'){e.preventDefault();card.classList.add('drag-over')}});
+    card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));
+    card.addEventListener('drop',e=>{
+      if(!reorderMode||sortMode!=='default')return; e.preventDefault(); card.classList.remove('drag-over');
+      const from=Number(e.dataTransfer.getData('text/plain')),to=Number(card.dataset.i);
+      if(Number.isInteger(from)&&Number.isInteger(to)&&from!==to)moveCard(from,to);
+    });
+    card.querySelector('.move-card-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveCard(Number(card.dataset.i),Number(card.dataset.i)-1)});
+    card.querySelector('.move-card-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveCard(Number(card.dataset.i),Number(card.dataset.i)+1)});
+    card.querySelector('.own-toggle')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggleOwned(Number(card.dataset.i))});
+  });
+  renderReorderState();
+}
+async function toggleOwned(i){
+  if(!deck||!reorderMode||!deck.cards[i])return;
+  const c=deck.cards[i];
+  // Default = owned. Only "not owned" is stored (owned:false), so old decks keep working.
+  if(c.owned===false)delete c.owned;else c.owned=false;
+  const notOwned=c.owned===false;
+  const card=$('cards').querySelector(`.card[data-i="${i}"]`);
+  if(card){
+    card.classList.toggle('not-owned',notOwned);
+    const text=notOwned?OWN_TEXT.no:OWN_TEXT.yes;
+    let lab=card.querySelector('.own-label');
+    const btn=card.querySelector('.own-toggle');
+    if(notOwned){
+      if(!lab){const qty=card.querySelector('.qty');if(qty){qty.insertAdjacentHTML('beforebegin',`<span class="own-label no">${OWN_TEXT.no}</span>`);lab=card.querySelector('.own-label')}}
+      if(lab){lab.textContent=OWN_TEXT.no;lab.classList.add('no');lab.classList.remove('yes')}
+    }else if(lab){lab.remove()}
+    if(btn){btn.textContent=text;btn.classList.toggle('no',notOwned);btn.classList.toggle('yes',!notOwned)}
+  }
+  renderSortButtons();
+  if(deck.firestoreId && currentUser){
+    try{
+      await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards});
+    }catch(e){
+      console.error(e);
+      $('msg').textContent='擁有狀態已變更，但儲存失敗，請按儲存圖示再試。';
+      $('msg').style.color='#b34b35';
+    }
+  }
+}
+async function moveCard(from,to){
+  if(!deck||!reorderMode||to<0||to>=deck.cards.length||from===to)return;
+  const [item]=deck.cards.splice(from,1);deck.cards.splice(to,0,item);
+  if(selected===from)selected=to;
+  else if(selected!==null && from<selected && selected<=to)selected--;
+  else if(selected!==null && to<=selected && selected<from)selected++;
+
+  // The first card in the new order becomes the deck thumbnail automatically.
+  deck.thumbnailId=deckThumbnailId(deck);
+  render();detail();
+
+  // Persist the new order + thumbnail immediately for already-saved decks.
+  renderSortButtons();
+  if(deck.firestoreId && currentUser){
+    try{
+      await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{cards:deck.cards,thumbnailId:deck.thumbnailId});
+      await loadSaved();
+    }catch(e){
+      console.error(e);
+      $('msg').textContent='排序已變更，但儲存失敗，請按儲存圖示再試。';
+      $('msg').style.color='#b34b35';
+    }
+  }
+}
+
+window.selectCardFromUI=(index)=>{
+  if(!deck || !Number.isInteger(Number(index)))return;
+  selected=Number(index);
+  $('cards').querySelectorAll('.card').forEach((x,i)=>x.classList.toggle('on',i===selected));
+  detail();
+};
+
+
+function translateTrigger(text){
+  let t=String(text||"").trim();
+  if(!t)return "";
+
+  const exact={
+    "[Draw] Draw 1 card.":"〖抽牌〗抽１張卡。",
+    "[Draw] Draw a card.":"〖抽牌〗抽１張卡。",
+    "[Get] Add this card to your hand.":"〖加入手牌〗將此卡加入手牌。",
+    "[Active] Choose 1 Character card on your field, switch it to Active Mode, and it gets +3000 BP for the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "[FINAL] If you have 0 life, place the top card of your deck into your life area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[FINAL] If your life is at 0, place the top card of your deck in your Life Area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[Final] If you have 0 life, place the top card of your deck into your life area.":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "[Raid] Add this card to your hand, or if the Required Energy is met, Raid it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "[SPECIAL] Choose 1 Character card on your opponent's Front Line and remove it from the field.":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "[SPECIAL] Choose one character on your opponent's front line and sideline it.":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "[Special] Choose one character on your opponent's front line and sideline it.":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "〖抽牌〗抽１張卡。":"〖抽牌〗抽１張卡。",
+    "〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。":"〖激活〗選擇自己場上１張角色被激活，並且本回合中，BP＋3000。",
+    "〖特別〗選擇對手前線１張角色退場。":"〖SPECIAL〗選擇對手前線１張角色退場。",
+    "〖最終〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。":"〖FINAL〗自己沒有生命值的情況下，將自己牌庫上面１張卡放置到自己的生命值區。",
+    "〖突襲〗將此卡加入手牌，或若滿足能源需求時可發動突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。",
+    "〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。":"〖突襲〗將此卡加入手牌，或在滿足能源需求的情況下進行突襲。"
+  };
+  if(exact[t])return exact[t];
+
+  // Normalize SPECIAL / FINAL labels regardless of whether Rugia stored them
+  // in English or Traditional Chinese. Their descriptions remain Traditional Chinese.
+  t=t
+    .replace(/^(?:\[|〖|【)\s*(?:SPECIAL|Special|特別)\s*(?:\]|〗|】)\s*/i,"〖SPECIAL〗")
+    .replace(/^(?:\[|〖|【)\s*(?:FINAL|Final|最終)\s*(?:\]|〗|】)\s*/i,"〖FINAL〗");
+
+  if(/^(?:〖SPECIAL〗|〖FINAL〗)/.test(t))return t;
+
+  // Translate COLOR triggers while preserving the numeric conditions.
+  // Rugia contains several English variants of the same COLOR trigger, so
+  // normalize all of them into Traditional Chinese before highlighting.
+  if(/^(?:\[|〖|【)\s*COLOR\s*(?:\]|〗|】)/i.test(t)){
+    let body=t.replace(/^(?:\[|〖|【)\s*COLOR\s*(?:\]|〗|】)\s*/i,"");
+
+    const colorRules=[
+      [/^Choose (?:1|one) Character card on your opponent's Front Line and switch it to Rest Mode\. Then, it can't be switched back to Active Mode one time\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次不能被激活。"],
+      [/^Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return it to their hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and return it to their hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and return it to the hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and return it to the hand\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色返回手牌。"],
+      [/^Choose (?:1|one) Character card with (\d+) BP or less on your opponent's Front Line and (?:remove it from the field|sideline it)\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色退場。"],
+      [/^Choose (?:1|one) character with (\d+) or less BP on your opponent's front line and sideline it\.?$/i,
+        "選擇對手前線１張BP$1或以下的角色退場。"],
+      [/^Choose (?:1|one) character on your opponent's front line and switch it to resting\. It will remain set to resting the next time it would be switched to active\.?$/i,
+        "選擇對手前線１張角色休息。該角色下一次被激活時仍會維持休息狀態。"],
+      [/^Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 from your hand(?: set to active)? onto your field(?: in Active Mode)?\.?$/i,
+        (m,color)=>`從手牌選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己場上登場。`],
+      [/^Play (?:1|one) (green|purple) character card with 2 or less required energy and 1 AP cost from your hand set to active onto your field\.?$/i,
+        (m,color)=>`從手牌選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己場上登場。`],
+      [/^Play (?:1|one) (green|purple) character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line\.?$/i,
+        (m,color)=>`從場外選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己前線登場。`],
+      [/^Play (?:1|one) (green|purple) Character card with (?:a )?Required Energy of 2 or less and (?:a )?consumed AP of 1 from your Outside Area on your Front Line in Active Mode\.?$/i,
+        (m,color)=>`從場外選擇１張${color.toLowerCase()==="green"?"綠色":"紫色"}能源需求２或以下及AP消耗１的角色卡，以激活狀態在自己前線登場。`]
+    ];
+
+    for(const [re,replacement] of colorRules){
+      const match=body.match(re);
+      if(match){
+        body=typeof replacement==='function'?replacement(...match):body.replace(re,replacement);
+        break;
+      }
+    }
+
+    return `〖彩色〗${body}`;
+  }
+
+  // Defensive fallback for any remaining English trigger.
+  if(/^[\[]/.test(t)){
+    return t
+      .replace(/^\[Draw\]/i,"〖抽牌〗")
+      .replace(/^\[Active\]/i,"〖激活〗")
+      .replace(/^\[Get\]/i,"〖加入手牌〗")
+      .replace(/^\[Raid\]/i,"〖突襲〗")
+      .replace(/^\[Special\]/i,"〖SPECIAL〗")
+      .replace(/^\[SPECIAL\]/i,"〖SPECIAL〗")
+      .replace(/^\[Final\]/i,"〖FINAL〗")
+      .replace(/^\[FINAL\]/i,"〖FINAL〗");
+  }
+  return t;
+}
+
+function normalizeForCompare(text){
+  return String(text||"")
+    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,"")
+    .replace(/<img\b[^>]*>/gi,"")
+    .replace(/<[^>]+>/g,"")
+    .replace(/[【】〖〗\[\]]/g,"")
+    .replace(/[＋﹢]/g,"+")
+    .replace(/[\s　]+/g," ")
+    .replace(/[。．]+$/g,"")
+    .trim()
+    .toLowerCase();
+}
+
+function stripTriggerFromEffect(effect,trigger){
+  let source=String(effect||"").trim();
+  if(!source || !trigger)return source;
+
+  const triggerText=String(trigger||"").trim();
+  if(!triggerText)return source;
+
+  // Compare both the complete trigger and its body without the trigger label.
+  const normalizedTrigger=normalizeForCompare(triggerText);
+  const triggerBody=triggerText
+    .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|特別|最終|彩色|COLOR)\s*(?:】|〗|\])\s*/i,"")
+    .trim();
+  const normalizedBody=normalizeForCompare(triggerBody);
+  if(!normalizedTrigger && !normalizedBody)return source;
+
+  const lines=source.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  const kept=[];
+  let removed=false;
+
+  for(const line of lines){
+    const n=normalizeForCompare(line);
+    // Only remove standalone lines that exactly match the trigger. This avoids
+    // deleting legitimate effect text that merely contains similar wording.
+    if(n===normalizedTrigger || (normalizedBody && n===normalizedBody)){
+      removed=true;
+      continue;
+    }
+    kept.push(line);
+  }
+
+  if(removed)return kept.join("\n").trim();
+
+  // Handle scrapers that append/prepend the trigger without a newline.
+  const candidates=[triggerText,triggerBody].filter(Boolean).sort((a,b)=>b.length-a.length);
+  let result=source;
+  for(const candidate of candidates){
+    const cn=normalizeForCompare(candidate);
+    if(!cn)continue;
+    const current=normalizeForCompare(result);
+    if(current===cn)return "";
+
+    const leading=new RegExp("^\\s*"+escapeRegex(candidate)+"(?:\\s*\\n?|\\s+)","i");
+    const trailing=new RegExp("(?:\\s*\\n?|\\s+)"+escapeRegex(candidate)+"\\s*$","i");
+    if(leading.test(result)){
+      result=result.replace(leading,"").trim();
+      continue;
+    }
+    if(trailing.test(result)){
+      result=result.replace(trailing,"").trim();
+      continue;
+    }
+  }
+  return result;
+}
+
+function formatEnergy(value){
+  const n=Number(value);
+  return Number.isFinite(n) ? String(n) : "0";
+}
+
+function formatBP(value){
+  if(value===null || value===undefined || value==="")return "—";
+  const n=Number(value);
+  return Number.isFinite(n) ? `${n}+` : String(value);
+}
+
+
+function syncMobileDetail(){
+  const src=$('detail'), dst=$('mobileDetailContent');
+  if(!src||!dst)return;
+  dst.innerHTML=src.innerHTML;
+}
+function openMobileDetail(){
+  if(selected===null || !deck)return;
+  syncMobileDetail();
+  const modal=$('mobileDetailModal');
+  if(!modal)return;
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('mobile-detail-open');
+}
+function closeMobileDetail(){
+  const modal=$('mobileDetailModal');
+  if(!modal)return;
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('mobile-detail-open');
+}
+
+
+function cardDisplayParts(d){
+  const raw=String(d?.name||"").trim();
+  let name=raw;
+  let feature="";
+
+  const m=raw.match(/^([\s\S]*?)\s+特徵\s*[:：]\s*([\s\S]*)$/);
+  if(m){
+    name=m[1].trim();
+    feature=m[2].trim();
+
+    // The parser can leave the combat explanation that Rugia puts after
+    // the feature text inside the card name. It belongs to the effect context,
+    // not the displayed feature line.
+    feature=feature.replace(
+      /\s*[（(]\s*(?:進行攻擊|此角色的攻擊|對手玩家受到|直接傷害)[\s\S]*?[）)]\s*$/u,
+      ""
+    ).trim();
+
+    // The image token in this particular field is the combat keyword image,
+    // not part of the card's trait/name.
+    feature=feature.replace(/\s*Image\s*/gi," ");
+    feature=stripRugiaImageTokensText(feature);
+  }
+
+  name=stripKeywordExplanations(stripRugiaImageTokensText(name));
+  feature=stripKeywordExplanations(feature);
+  return {name:name||stripKeywordExplanations(stripRugiaImageTokensText(raw)),feature};
+}
+
+function displayFeature(text){
+  return esc(String(text||""))
+    .replace(/\n/g,"<br>");
+}
+
+
+function stripKnownRaidFromRichHtml(html){
+  let s=String(html||'');
+  // The parser normally removes this before saving effectHtml. This second guard
+  // keeps older/stale cards.json entries from displaying the Raid trigger twice.
+  const raid='將此卡加入手牌，或在滿足能源需求的情況下進行突襲。';
+  const escaped=escapeRegex(raid);
+  s=s.replace(new RegExp('(?:<br>\s*)?(?:突襲\s*)?'+escaped+'\s*$','u'),'');
+  return s.trim();
+}
+
+function cleanRichEffect(rawHtml, triggerText=''){
+  let s=String(rawHtml||'');
+
+  // Remove Rugia's trigger-reminder icon and the duplicate inline RAID
+  // marker from the main effect — the trigger sentence they introduce is
+  // deleted by the candidate-matching below, and RAID is already shown via
+  // the separate header badge, so leaving these in would be redundant.
+  // Scoped to these specific filenames ONLY — this used to be a blanket
+  // "any ico_*" strip, which also silently deleted meaningful inline icons
+  // that are NOT trigger-related, such as the once-per-turn marker
+  // (ico_turn1.png) and every energy-cost icon (ico_hexa_*, ico_circle_*,
+  // ico_square_*, ico_rhombus_*), breaking their display across the site.
+  // Trigger lines (icon + sentence) are shown in their own box by
+  // triggerReminderBox(), so remove them here by position instead of by
+  // guessing the sentence. Typed trigger icons that sit mid-sentence
+  // (e.g. "沒有 [SPECIAL]") are left alone so they render as chips.
+  s=extractTriggerLines(s).main;
+  const TRIGGER_ICON_NAMES='ico_raid';
+  s=s.replace(new RegExp(`<img\\b[^>]*\\bsrc=["'][^"']*/(?:${TRIGGER_ICON_NAMES})\\.png[^"']*["'][^>]*>`,'gi'),'');
+  s=s.replace(new RegExp(`\\[\\[UAIMG:(https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png[^\\]<>"']*)\\]\\]`,'gi'),'');
+  s=s.replace(new RegExp(`https?://rugiacreation\\.com/ua/images/(?:${TRIGGER_ICON_NAMES})\\.png(?:\\?[^\\s<]*)?`,'gi'),'');
+  s=s.replace(/<span\b[^>]*class=["'][^"']*\btrigger-chip\b[^"']*["'][^>]*>.*?<\/span>/gis,'');
+
+  // Old parser versions sometimes emitted the literal word "Image" when an
+  // HTML image had no usable source/alt. It is never meaningful card text.
+  s=s.replace(/\bImage\b/gi,'');
+
+  // Remove the trigger description from the effect. This works for the
+  // translated trigger stored by the app as well as the original trigger text.
+  const candidates=[];
+  const addCandidate=(v)=>{v=String(v||'').trim(); if(v && !candidates.includes(v)) candidates.push(v)};
+  addCandidate(triggerText);
+  addCandidate(translateTrigger(triggerText||''));
+  addCandidate('將此卡加入手牌，或在滿足能源需求的情況下進行突襲。');
+  addCandidate('將此卡加入手牌，或若滿足能源需求時可發動突襲。');
+  addCandidate('將此卡加入手牌。');
+
+  for(const candidate of candidates){
+    const body=candidate
+      .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/i,'')
+      .trim();
+    for(const text of [candidate,body]){
+      if(!text)continue;
+      // Short phrases like "抽１張卡。" are also legitimate main-effect text
+      // (e.g. "登場時 抽１張卡。"), so only remove them globally when they are
+      // long enough to be unambiguous. Short trigger lines are still removed
+      // by the whole-line normalized dedupe below.
+      if(normalizeForCompare(text).length<12)continue;
+      s=s.split(text).join('');
+    }
+  }
+
+  // Remove any leftover trigger label characters that were stored as plain text.
+  s=s.replace(/(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/gi,'');
+
+  // Normalized line-level dedupe: the exact-string removal above can miss a
+  // duplicate when the scraped trigger text differs slightly from the copy
+  // embedded in the main effect (full-width "＋" vs "+", a leading icon
+  // token, stray whitespace). This catches those cases by comparing each
+  // line with icons/tags stripped and the plus sign normalized, the same
+  // way stripTriggerFromEffect already does for the plain-text path.
+  {
+    const translated=translateTrigger(triggerText||'')||triggerText||'';
+    const triggerBodyForCompare=translated
+      .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/i,'');
+    const normTrigger=normalizeForCompare(translated);
+    const normBody=normalizeForCompare(triggerBodyForCompare);
+    if(normTrigger || normBody){
+      s=s.split(/<br\s*\/?>/i).filter(line=>{
+        const n=normalizeForCompare(line);
+        if(!n)return true;
+        return n!==normTrigger && n!==normBody;
+      }).join('<br>');
+    }
+  }
+
+  // Drop any line left over that is only a bare icon/image token with no
+  // surrounding text. Once a duplicate trigger line is removed above, its
+  // leading icon (e.g. the small red "card placed" glyph) can be left
+  // stranded on its own line, rendering as an orphaned icon beneath the
+  // paragraph. An icon with no text around it carries no information once
+  // isolated from its original inline position, so it's safe to drop.
+  s=s.split(/<br\s*\/?>/i).filter(line=>{
+    const hasIcon=/\[\[UAIMG:[^\]]+\]\]|<img\b[^>]*>/i.test(line);
+    if(!hasIcon)return true;
+    const textOnly=line
+      .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
+      .replace(/<img\b[^>]*>/gi,'')
+      .replace(/&nbsp;/gi,'')
+      .replace(/<[^>]+>/g,'')
+      .trim();
+    return textOnly.length>0;
+  }).join('<br>');
+
+  s=s.replace(/(?:<br\s*\/?>(?:\s|&nbsp;)*){2,}/gi,'<br>');
+  s=s.replace(/^[\s<]*<br\s*\/?>(?:\s|&nbsp;)*/i,'');
+  s=s.replace(/(?:\s|&nbsp;|<br\s*\/?>)+$/i,'');
+  return s.trim();
+}
+
+function renderStoredEffect(d,triggerText=''){
+  let rawRich=String(d?.effectHtml||'');
+  if(rawRich){
+    rawRich=leakedKeywordHtml(d)+rawRich;
+    const rich=cleanRichEffect(rawRich,triggerText||d?.trigger||'');
+    if(rich){
+      const restored=restoreRugiaImageTokensHtml(rich);
+      return highlightRichEffectKeywords(restored,d?.traits||[]);
+    }
+  }
+  const cleaned=stripTriggerFromEffect(String(d?.effect||''),triggerText||d?.trigger||'')
+    .replace(/\bImage\b/gi,'')
+    .replace(/\[\[UAIMG:[^\]]+\]\]/gi,'')
+    .trim();
+  return highlightEffect(cleaned,d?.traits||[]);
+}
+
+function triggerKeywordBadge(text){
+ const raw=String(text||'').trim();
+ if(!raw)return '';
+ const m=raw.match(/^(?:【|〖|\[)\s*(抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])?/i);
+ if(!m)return '';
+ let label=m[1];
+ if(/^(?:最終|final)$/i.test(label))label='FINAL';
+ else if(/^(?:特別|special)$/i.test(label))label='SPECIAL';
+ else if(/^(?:color|彩色)$/i.test(label))label='彩色';
+ else if(label==='突襲')label='突襲';
+ else if(label==='加入手牌')label='加入手牌';
+ else if(label==='抽牌')label='抽牌';
+ else if(label==='激活')label='激活';
+ const type=label==='FINAL'?'final':label==='SPECIAL'?'special':label==='彩色'?'color':label==='突襲'?'raid':'common';
+ const cls=type==='raid'?'trigger-raid':`trigger-${type}`;
+ return `<span class="keyword-chip trigger-chip ${cls}" aria-label="${esc(label)}">${esc(label)}</span>`;
+}
+
+function triggerReminderBox(d){
+  // Prefer Rugia's own trigger line from effectHtml — it exists for far more
+  // cards than the separate `trigger` field and matches Rugia's wording.
+  const lines=extractTriggerLines(d?.effectHtml||'').triggers.filter(t=>t.text);
+  if(lines.length){
+    return lines.map(t=>{
+      const badge=triggerKeywordBadge(`〖${TRIGGER_TYPE_LABEL[t.type]||''}〗`);
+      // Restore inline icons only; no keyword chips, so words like 突襲 inside
+      // the sentence stay plain text.
+      return `<div class="trigger">${badge} ${restoreRugiaImageTokensHtml(t.html)}</div>`;
+    }).join('');
+  }
+  const raw=String(d?.trigger||'').trim();
+  if(!raw)return '';
+  const translated=translateTrigger(raw)||raw;
+  const badge=triggerKeywordBadge(translated)||triggerKeywordBadge(raw);
+  const body=translated
+    .replace(/^(?:【|〖|\[)\s*(?:抽牌|加入手牌|激活|突襲|SPECIAL|FINAL|最終|特別|彩色|COLOR)\s*(?:】|〗|\])\s*/i,'')
+    .trim();
+  if(!badge && !body)return '';
+  return `<div class="trigger">${badge} ${esc(body)}</div>`;
+}
+
+function detail(){
+ if(selected===null){$('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';return}
+ const c=deck.cards[selected],id=cardId(c),d=DB[id]||DB[cardIdNoDeck(c)];
+ if(!d){$('detail').innerHTML=`${imageTag(id,id,'detailimg')}<div class="id">${esc(id)}</div><h2>尚未收錄本地資料</h2><p class="muted">這張卡可以正常加入牌組，但目前你的本地資料庫尚未同步到它。</p><div class="missing\"><b>你可以直接查看：</b><a class="link" href="${esc(rugia(c))}" target="_blank">Rugia 中文卡頁 ↗</a><a class="link" href="${esc(officialSearch(c))}" target="_blank">UNION ARENA 官方卡表 ↗</a></div><p class="muted smallnote">完成 GitHub Actions 的資料同步後，所有已公開的 IP 卡片會逐步加入 cards.json。</p>`;return}
+
+ const parts=cardDisplayParts(d);
+ const feature=parts.feature?`<div class="card-features"><b>特徵：</b>${displayFeature(parts.feature)}</div>`:'';
+ const raid=isRaidCard(d)?raidBadge():'';
+ const source=d.source||'Rugia / 本地資料庫';
+ const descUrl=String(d.descriptionImage||'').trim();
+ const raidClass=isRaidCard(d)?' raid-ability-box':'';
+ const description=descUrl
+   ? `<div class="rugia-description-preview"><img src="${esc(descUrl)}" alt="Rugia 卡片說明" loading="lazy" referrerpolicy="no-referrer"></div>`
+   : `<div class="rugia-description-fallback${raidClass}">${renderStoredEffect(d,translateTrigger(d.trigger||'')||d.trigger||'')}</div>`;
+
+ // Use Rugia's own description image as the popup content. This avoids
+ // reconstructing keyword/trigger icons from flattened HTML.
+ $('detail').innerHTML=`${imageTag(d.id||id,d.name||id,'detailimg')}<div class="id">${esc(d.id||id)} (${esc(d.rarity||'—')})</div>${feature}<div class="card-effect-flow">${raid}<strong class="inline-card-name">${esc(parts.name)}</strong></div>${description}${triggerReminderBox(d)}<div class="source">資料來源：Rugia sync</div><a class="link" href="${esc(d.url||rugia(c))}" target="_blank">開啟 Rugia 卡片頁 ↗</a>`;
+ $('detail').scrollTop=0; // new card -> start reading from the top of the panel
+ syncMobileDetail();
+}
+function showAuth(){$('modal').classList.remove('hidden')}function hideAuth(){$('modal').classList.add('hidden');$('authMsg').textContent=''}
+function authError(e){return({'auth/invalid-email':'Email 格式不正確。','auth/email-already-in-use':'這個 Email 已經註冊。','auth/weak-password':'密碼太短。','auth/invalid-credential':'Email 或密碼不正確。'}[e.code]||e.message)}
+$('loginBtn').onclick=showAuth;$('closeModal').onclick=hideAuth;
+$('signup').onclick=async()=>{try{await createUserWithEmailAndPassword(auth,$('email').value.trim(),$('password').value);hideAuth()}catch(e){$('authMsg').textContent=authError(e)}};
+$('signin').onclick=async()=>{try{await signInWithEmailAndPassword(auth,$('email').value.trim(),$('password').value);hideAuth()}catch(e){$('authMsg').textContent=authError(e)}};
+$('logoutBtn').onclick=()=>signOut(auth);
+function closeMyDecks(){
+  const account=$('account'),backdrop=$('myDecksBackdrop'),toggle=$('myDecksToggle');
+  if(!account)return;
+  account.classList.remove('my-decks-open');
+  if(backdrop)backdrop.classList.add('hidden');
+  if(toggle)toggle.setAttribute('aria-expanded','false');
+}
+function openMyDecks(){
+  const account=$('account'),backdrop=$('myDecksBackdrop'),toggle=$('myDecksToggle');
+  if(!account)return;
+  account.classList.add('my-decks-open');
+  if(backdrop)backdrop.classList.remove('hidden');
+  if(toggle)toggle.setAttribute('aria-expanded','true');
+}
+function toggleMyDecks(){
+  const account=$('account'),toggle=$('myDecksToggle');
+  if(!account)return;
+  // Desktop uses an inline collapsible library. Mobile keeps its existing bottom-sheet behavior.
+  if(!window.matchMedia('(max-width: 700px)').matches){
+    const collapsed=account.classList.toggle('my-decks-collapsed');
+    if(toggle)toggle.setAttribute('aria-expanded',String(!collapsed));
+    return;
+  }
+  if(account.classList.contains('my-decks-open')) closeMyDecks(); else openMyDecks();
+}
+$('myDecksToggle')?.addEventListener('click',toggleMyDecks);
+$('myDecksBackdrop')?.addEventListener('click',closeMyDecks);
+
+let savedDeckDocs=[];
+let savedDeckReorderMode=false;
+let savedDeckSortMode='default';
+function savedDeckIp(d){
+  const counts=new Map();
+  (Array.isArray(d?.cards)?d.cards:[]).forEach(c=>{
+    const code=String(c?.set||'').trim().toUpperCase();
+    if(code)counts.set(code,(counts.get(code)||0)+Math.max(1,Number(c?.qty)||1));
+  });
+  if(!counts.size)return 'ZZZ';
+  return [...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))[0][0];
+}
+function getVisibleSavedDecks(){
+  const docs=savedDeckDocs.map((d,index)=>({...d,_libraryIndex:index}));
+  if(savedDeckSortMode==='color'){
+    const order={red:0,blue:1,yellow:2,green:3,purple:4};
+    docs.sort((a,b)=>(order[deckColorClass(a.color)]??9)-(order[deckColorClass(b.color)]??9)||a._libraryIndex-b._libraryIndex);
+  }else if(savedDeckSortMode==='ip'){
+    docs.sort((a,b)=>savedDeckIp(a).localeCompare(savedDeckIp(b),undefined,{numeric:true})||a._libraryIndex-b._libraryIndex);
+  }
+  return docs;
+}
+function renderSavedDecksToolbar(){
+  const reorder=$('savedDecksReorderToggle');
+  if(reorder){
+    reorder.textContent=savedDeckReorderMode?'完成整理':'整理牌組';
+    reorder.setAttribute('aria-pressed',String(savedDeckReorderMode));
+    reorder.classList.toggle('on',savedDeckReorderMode);
+    reorder.classList.toggle('hidden',savedDeckDocs.length<2);
+  }
+  [['savedSortDefault','default'],['savedSortColor','color'],['savedSortIp','ip']].forEach(([id,mode])=>{
+    const button=$(id);if(!button)return;
+    const active=savedDeckSortMode===mode;
+    button.classList.toggle('on',active);button.setAttribute('aria-pressed',String(active));
+  });
+}
+function renderSavedDecks(){
+  const box=$('savedDecks');
+  if(!box)return;
+  const prevScroll=box.scrollTop;
+  box.innerHTML='';
+  box.classList.toggle('reorder-mode',savedDeckReorderMode);
+  const visibleDecks=getVisibleSavedDecks();
+  const SLOT_COUNT=Math.max(10,visibleDecks.length);
+  for(let i=0;i<SLOT_COUNT;i++){
+    const d=visibleDecks[i],slot=document.createElement('div');
+    slot.className='deck-slot'+(d?.id===deck?.firestoreId?' on':'');
+    if(!d){
+      slot.classList.add('empty');
+      slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-name">空白</div>`;
+      box.appendChild(slot);
+      continue;
+    }
+    const thumbId=deckThumbnailId(d),thumbName=(DB[thumbId]?.name)||d.name||'牌組縮圖';
+    slot.dataset.savedIndex=String(d._libraryIndex);
+    slot.draggable=savedDeckReorderMode&&savedDeckSortMode==='default';
+    slot.innerHTML=`<div class="slot-number">${i+1}</div><div class="slot-thumb">${thumbId?imageTag(thumbId,thumbName):''}</div><div class="slot-name"><span class="deck-color-dot ${deckColorClass(d.color)}" title="${deckColorName(d.color)}"></span><span>${esc(d.name||'未命名牌組')}</span></div><div class="slot-reorder-controls"><button type="button" class="saved-deck-up" title="向前移動" aria-label="將牌組向前移動" ${i===0?'disabled':''}>↑</button><button type="button" class="saved-deck-down" title="向後移動" aria-label="將牌組向後移動" ${i===savedDeckDocs.length-1?'disabled':''}>↓</button></div>`;
+    slot.querySelectorAll('img').forEach(img=>img.draggable=false);
+    slot.onclick=()=>{
+      if(savedDeckReorderMode)return;
+      deck={name:d.name,version:d.version,color:deckColorClass(d.color),cards:d.cards,source:d.source,thumbnailId:deckThumbnailId(d),firestoreId:d.id};
+      selected=null;render();detail();closeMyDecks();
+      box.querySelectorAll('.deck-slot').forEach(x=>x.classList.toggle('on',x===slot));
+    };
+    slot.querySelector('.saved-deck-up')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(d._libraryIndex,d._libraryIndex-1)});
+    slot.querySelector('.saved-deck-down')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();moveSavedDeck(d._libraryIndex,d._libraryIndex+1)});
+    slot.addEventListener('dragstart',e=>{
+      if(!savedDeckReorderMode||savedDeckSortMode!=='default'){e.preventDefault();return}
+      slot.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(d._libraryIndex));
+    });
+    slot.addEventListener('dragend',()=>slot.classList.remove('dragging'));
+    slot.addEventListener('dragover',e=>{if(savedDeckReorderMode&&savedDeckSortMode==='default'){e.preventDefault();slot.classList.add('drag-over')}});
+    slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
+    slot.addEventListener('drop',e=>{
+      if(!savedDeckReorderMode||savedDeckSortMode!=='default')return;
+      e.preventDefault();slot.classList.remove('drag-over');
+      const from=Number(e.dataTransfer.getData('text/plain'));
+      if(Number.isInteger(from))moveSavedDeck(from,d._libraryIndex);
+    });
+    box.appendChild(slot);
+  }
+  box.scrollTop=prevScroll;
+  renderSavedDecksToolbar();
+}
+async function persistSavedDeckOrder(){
+  if(!currentUser)return;
+  try{
+    await Promise.all(savedDeckDocs.map((d,index)=>updateDoc(doc(db,'users',currentUser.uid,'decks',d.id),{orderIndex:index})));
+    savedDeckDocs.forEach((d,index)=>d.orderIndex=index);
+  }catch(e){
+    console.error('Failed to save deck library order:',e);
+    const msg=$('msg');if(msg){msg.textContent='牌組順序已調整，但同步失敗，請確認網路後再試。';msg.style.color='#b34b35'}
+  }
+}
+async function moveSavedDeck(from,to){
+  if(!savedDeckReorderMode||from<0||to<0||from>=savedDeckDocs.length||to>=savedDeckDocs.length||from===to)return;
+  const [item]=savedDeckDocs.splice(from,1);savedDeckDocs.splice(to,0,item);
+  renderSavedDecks();
+  await persistSavedDeckOrder();
+}
+async function loadSaved(){
+  if(!currentUser)return;
+  const q=query(collection(db,'users',currentUser.uid,'decks'),orderBy('createdAt','desc'));
+  const snap=await getDocs(q);
+  const docs=[];snap.forEach((item,index)=>docs.push({id:item.id,...item.data(),_fallbackOrder:index}));
+  // Existing decks without orderIndex retain their previous newest-first order.
+  docs.sort((a,b)=>{
+    const ai=Number.isFinite(Number(a.orderIndex))?Number(a.orderIndex):a._fallbackOrder;
+    const bi=Number.isFinite(Number(b.orderIndex))?Number(b.orderIndex):b._fallbackOrder;
+    return ai-bi||a._fallbackOrder-b._fallbackOrder;
+  });
+  savedDeckDocs=docs;
+  renderSavedDecks();
+}
+$('savedDecksReorderToggle')?.addEventListener('click',async()=>{
+  if(!savedDeckReorderMode&&savedDeckSortMode!=='default')savedDeckSortMode='default';
+  savedDeckReorderMode=!savedDeckReorderMode;
+  renderSavedDecks();
+  if(!savedDeckReorderMode)await persistSavedDeckOrder();
+});
+$('savedSortDefault')?.addEventListener('click',()=>{savedDeckSortMode='default';savedDeckReorderMode=false;renderSavedDecks()});
+$('savedSortColor')?.addEventListener('click',()=>{savedDeckSortMode='color';savedDeckReorderMode=false;renderSavedDecks()});
+$('savedSortIp')?.addEventListener('click',()=>{savedDeckSortMode='ip';savedDeckReorderMode=false;renderSavedDecks()});
+$('saveDeck').innerHTML=iconSvg('save');
+$('reorderToggle')?.addEventListener('click',()=>{reorderMode=!reorderMode;renderReorderState()});
+$('sortDefault')?.addEventListener('click',()=>{sortMode='default';ownedFirst=true;renderSortButtons();render()});
+$('sortOwned')?.addEventListener('click',()=>{if(sortMode==='owned'){ownedFirst=!ownedFirst}else{sortMode='owned';ownedFirst=true}renderSortButtons();render()});
+$('sortRarity')?.addEventListener('click',()=>{sortMode='rarity';renderSortButtons();render()});
+renderSortButtons();
+$('shareDeck').innerHTML=iconSvg('share')+'<span class="share-deck-label">分享牌組碼</span>'; 
+$('clear').innerHTML=iconSvg('trash');
+
+$('saveDeck').onclick=async()=>{
+  if(!currentUser){showAuth();return}
+  if(!deck)return;
+  try{
+    const color=deckColorClass(deck.color||$('deckColor')?.value);
+    deck.color=color;
+    // Always derive the thumbnail from the first card in the current order.
+    deck.thumbnailId=deckThumbnailId(deck);
+    const payload={name:deck.name||'新牌組',version:deck.version||'',color,cards:deck.cards,thumbnailId:deck.thumbnailId||'',source:deck.source||'',createdAt:serverTimestamp(),orderIndex:savedDeckDocs.reduce((max,d,i)=>Math.max(max,Number.isFinite(Number(d.orderIndex))?Number(d.orderIndex):i),savedDeckDocs.length-1)+1};
+    if(deck.firestoreId){
+      await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{name:payload.name,version:payload.version,color:payload.color,cards:payload.cards,thumbnailId:payload.thumbnailId,source:payload.source});
+      $('msg').textContent='牌組已更新。';
+    }else{
+      const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),payload);
+      deck.firestoreId=ref.id;
+      deck.justSavedFromImport=true;
+      $('msg').textContent='牌組已儲存到你的帳號。';
+    }
+    $('msg').style.color='#25805b';await loadSaved();render();detail();
+  }catch(e){$('msg').textContent='儲存失敗：'+e.message;$('msg').style.color='#b34b35'}
+};
+
+function closeEditDeckModal(){
+  $('editDeckModal').classList.add('hidden');
+}
+function updateEditColorPreview(){
+  const c=deckColorClass($('editDeckColor').value);
+  $('editDeckColorPreview').className=`color-dot ${c}`;
+}
+$('editDeckColor').addEventListener('change',updateEditColorPreview);
+$('closeEditDeck').onclick=closeEditDeckModal;
+$('cancelEditDeck').onclick=closeEditDeckModal;
+$('editDeckModal').addEventListener('click',e=>{
+  if(e.target===e.currentTarget)closeEditDeckModal();
+});
+$('confirmEditDeck').onclick=async()=>{
+  const name=$('editDeckName').value.trim();
+  const color=deckColorClass($('editDeckColor').value);
+  if(!name){
+    $('editDeckEditMsg').textContent='牌組名稱不能為空白。';
+    return;
+  }
+  try{
+    $('confirmEditDeck').disabled=true;
+    await updateDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId),{name,color});
+    deck.name=name;
+    deck.color=color;
+    closeEditDeckModal();
+    render();
+    await loadSaved();
+    $('msg').textContent='牌組名稱與顏色已更新。';
+    $('msg').style.color='#25805b';
+  }catch(e){
+    $('editDeckEditMsg').textContent='編輯失敗：'+e.message;
+  }finally{
+    $('confirmEditDeck').disabled=false;
+  }
+};function showShareToast(message='分享連結已複製！'){
+  let toast=$('shareToast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='shareToast';
+    toast.className='share-toast';
+    toast.setAttribute('role','status');
+    toast.setAttribute('aria-live','polite');
+    document.body.appendChild(toast);
+  }
+  toast.textContent=message;
+  toast.classList.remove('show');
+  void toast.offsetWidth;
+  toast.classList.add('show');
+  clearTimeout(window.__shareToastTimer);
+  window.__shareToastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+}
+
+async function copyShareLink(text){
+  if(navigator.clipboard && window.isSecureContext){
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const ta=document.createElement('textarea');
+  ta.value=text;
+  ta.setAttribute('readonly','');
+  ta.style.position='fixed';
+  ta.style.opacity='0';
+  document.body.appendChild(ta);
+  ta.select();
+  ta.setSelectionRange(0,ta.value.length);
+  let ok=false;
+  try{ok=document.execCommand('copy')}catch{}
+  ta.remove();
+  return ok;
+}
+
+// Share a compact, memorable code backed by a public Firestore deck record.
+const SHARE_CODE_CHARS='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function makeShareCode(length=6){
+  const bytes=new Uint8Array(length);crypto.getRandomValues(bytes);
+  return Array.from(bytes,b=>SHARE_CODE_CHARS[b%SHARE_CODE_CHARS.length]).join('');
+}
+$('shareDeck').onclick=async()=>{
+  if(!deck)return;
+  if(!currentUser){showAuth();showShareToast('請先登入，再產生分享碼。');return}
+  const btn=$('shareDeck');btn.disabled=true;
+  try{
+    const cleanCards=deck.cards.map(c=>({qty:c.qty,set:c.set,num:c.num,alt:c.alt||''}));
+    const payload={name:String(deck.name||'未命名牌組').slice(0,80),version:String(deck.version||''),color:deckColorClass(deck.color),cards:cleanCards,thumbnailId:deckThumbnailId(deck)||'',createdAt:serverTimestamp(),ownerUid:currentUser.uid};
+    let code='',created=false;
+    for(let attempt=0;attempt<8&&!created;attempt++){
+      code=makeShareCode();
+      const ref=doc(db,'sharedDecks',code);
+      created=await runTransaction(db,async tx=>{
+        const existing=await tx.get(ref);
+        if(existing.exists())return false;
+        tx.set(ref,payload);
+        return true;
+      });
+    }
+    if(!created)throw new Error('暫時無法產生唯一代碼，請再試一次。');
+    const copied=await copyShareLink(code);
+    showShareToast(copied?`牌組碼 ${code} 已複製！`:`牌組碼：${code}`);
+    $('msg').textContent=`分享碼：${code}${copied?'（已複製到剪貼簿）':'（請手動複製）'}`;
+    $('msg').style.color='#25805b';
+  }catch(e){
+    console.error(e);showShareToast('產生分享碼失敗，請稍後再試。');
+    $('msg').textContent='分享碼產生失敗：'+e.message;$('msg').style.color='#b34b35';
+  }finally{btn.disabled=false}
+};
+
+function setImportPanel(open){
+  const panel=$('importPanel'),btn=$('toggleImport');
+  if(!panel||!btn)return;
+  panel.classList.toggle('hidden',!open);
+  panel.setAttribute('aria-hidden',String(!open));
+  btn.setAttribute('aria-expanded',String(open));
+}
+$('toggleImport').onclick=()=>setImportPanel(true);
+$('collapseImport').onclick=()=>setImportPanel(false);
+
+function openCodeModal(){
+  $('deckCodeInput').value='';$('deckCodeMsg').textContent='';
+  $('deckCodeModal').classList.remove('hidden');$('deckCodeModal').setAttribute('aria-hidden','false');
+  setTimeout(()=>$('deckCodeInput').focus(),0);
+}
+function closeCodeModal(){$('deckCodeModal').classList.add('hidden');$('deckCodeModal').setAttribute('aria-hidden','true')}
+$('toggleCodeImport').onclick=openCodeModal;
+$('deckCodeClose').onclick=closeCodeModal;
+$('deckCodeCancel').onclick=closeCodeModal;
+$('deckCodeModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeCodeModal()});
+async function previewDeckCode(){
+  const code=$('deckCodeInput').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(!code){$('deckCodeMsg').textContent='請輸入牌組碼。';return}
+  const btn=$('deckCodeLookup');btn.disabled=true;btn.textContent='查詢中…';$('deckCodeMsg').textContent='';
+  try{
+    const snap=await getDoc(doc(db,'sharedDecks',code));
+    if(!snap.exists()){$('deckCodeMsg').textContent='找不到這組牌組碼，請確認後再試。';return}
+    sharedDeck=sanitizeShared(snap.data());
+    if(!sharedDeck)throw new Error('這組牌組碼的資料不完整。');
+    closeCodeModal();maybeShowShared();
+  }catch(e){console.error('Deck-code lookup failed:',e);$('deckCodeMsg').textContent='讀取失敗：'+(e?.message||String(e))}
+  finally{btn.disabled=false;btn.textContent='預覽牌組'}
+}
+$('deckCodeLookup').onclick=previewDeckCode;
+$('deckCodeInput').addEventListener('keydown',e=>{if(e.key==='Enter')previewDeckCode()});
+
+$('go').onclick=()=>{try{deck=parse($('url').value);deck.name='New Deck';deck.color='red';deck.thumbnailId=deck.cards[0]?cardId(deck.cards[0]):'';selected=null;render();detail();const missing=deck.cards.filter(c=>!DB[cardId(c)]&&!DB[cardIdNoDeck(c)]).length;$('msg').textContent=missing?`牌組匯入完成：${deck.cards.length} 種卡片。${missing} 種等待資料庫同步。`:`牌組匯入完成：${deck.cards.length} 種卡片。`;$('msg').style.color='#25805b'}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}};
+$('clear').onclick=async()=>{
+  if(!deck)return;
+  if(!deck.firestoreId){
+    $('deck').classList.add('hidden');
+    deck=null;selected=null;
+    return;
+  }
+  if(!window.confirm(`確定要刪除「${deck.name||'未命名牌組'}」嗎？\n\n刪除後將會從你的帳號牌組中永久移除。`))return;
+  try{
+    await deleteDoc(doc(db,'users',currentUser.uid,'decks',deck.firestoreId));
+    deck=null;selected=null;
+    $('deck').classList.add('hidden');
+    $('detail').innerHTML='<div class="empty">點擊左側卡片查看資料。</div>';
+    $('msg').textContent='牌組已刪除。';$('msg').style.color='#25805b';
+    await loadSaved();
+  }catch(err){
+    $('msg').textContent='刪除失敗：'+err.message;$('msg').style.color='#b34b35';
+  }
+};
+onAuthStateChanged(auth,async user=>{try{await handleAuth(user)}finally{authReady=true;maybeShowShared()}});
+async function handleAuth(user){currentUser=user;if(user){$('userLabel').textContent=user.email;$('loginBtn').classList.add('hidden');$('logoutBtn').classList.remove('hidden');$('account').classList.remove('hidden');await loadSaved();if(window.matchMedia('(max-width: 700px)').matches)openMyDecks()}else{$('userLabel').textContent='未登入';$('loginBtn').classList.remove('hidden');$('logoutBtn').classList.add('hidden');$('account').classList.add('hidden');closeMyDecks()}}
+function sanitizeShared(o){
+  const cards=(Array.isArray(o?.cards)?o.cards:[]).filter(c=>c&&c.set&&c.num).map(c=>({qty:Math.max(1,parseInt(c.qty)||1),set:String(c.set),num:String(c.num),alt:String(c.alt||'')}));
+  if(!cards.length)return null;
+  const d={name:String(o.name||'').slice(0,80)||'分享的牌組',version:String(o.version||''),color:deckColorClass(o.color||'red'),cards,source:''};
+  d.thumbnailId=deckThumbnailId(d);
+  return d;
+}
+function clearShareParam(){try{history.replaceState(null,'',location.pathname+location.hash)}catch{}}
+function loadShared(){
+  const e=new URLSearchParams(location.search).get('deck');
+  cardsReady=true;
+  if(!e)return;
+  try{sharedDeck=sanitizeShared(JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(e))))))}catch{sharedDeck=null}
+  if(!sharedDeck){clearShareParam();return}
+  maybeShowShared();
+}
+function closeSharedModal(){$('sharedDeckModal').classList.add('hidden');$('sharedDeckModal').setAttribute('aria-hidden','true')}
+function maybeShowShared(){
+  // The preview does not depend on the local card database or auth callback.
+  // Waiting for either flag could silently prevent the popup from appearing
+  // after a successful Firestore lookup (for example on a slow first load).
+  if(!sharedDeck)return;
+  const d=sharedDeck,thumbId=d.thumbnailId,thumbName=DB[thumbId]?.name||d.name;
+  const total=d.cards.reduce((n,c)=>n+c.qty,0);
+  $('sharedDeckBody').innerHTML=`<div class="shared-thumb-wrap">${thumbId?imageTag(thumbId,thumbName,'shared-thumb'):''}</div>
+    <div class="shared-name"><span class="deck-color-dot ${deckColorClass(d.color)}"></span><span>${esc(d.name)}</span>
+      <button id="sharedDeckEditToggle" class="shared-edit-icon" type="button" aria-label="編輯牌組名稱與顏色" title="編輯牌組名稱與顏色">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>
+      </button>
+    </div>
+    <div id="sharedDeckEditPanel" class="shared-edit-panel hidden">
+      <label for="sharedDeckEditName">牌組名稱</label>
+      <input id="sharedDeckEditName" class="edit-deck-input" type="text" maxlength="80" value="${esc(d.name)}">
+      <label for="sharedDeckEditColor">牌組顏色</label>
+      <select id="sharedDeckEditColor" class="edit-deck-input">
+        <option value="red" ${deckColorClass(d.color)==='red'?'selected':''}>紅色</option>
+        <option value="blue" ${deckColorClass(d.color)==='blue'?'selected':''}>藍色</option>
+        <option value="yellow" ${deckColorClass(d.color)==='yellow'?'selected':''}>黃色</option>
+        <option value="green" ${deckColorClass(d.color)==='green'?'selected':''}>綠色</option>
+        <option value="purple" ${deckColorClass(d.color)==='purple'?'selected':''}>紫色</option>
+      </select>
+      <div class="shared-edit-actions"><button id="sharedDeckEditCancel" class="light" type="button">取消</button><button id="sharedDeckEditApply" type="button">套用</button></div>
+    </div>
+    <div class="shared-meta">${esc(d.version||'未知作品')} · ${total} 張 · ${d.cards.length} 種</div>`;
+  $('sharedDeckEditToggle').onclick=()=>{$('sharedDeckEditPanel').classList.toggle('hidden')};
+  $('sharedDeckEditCancel').onclick=()=>{$('sharedDeckEditPanel').classList.add('hidden')};
+  $('sharedDeckEditApply').onclick=()=>{
+    const name=$('sharedDeckEditName').value.trim();
+    if(!name){$('sharedDeckEditName').focus();return}
+    sharedDeck={...sharedDeck,name,color:deckColorClass($('sharedDeckEditColor').value)};
+    maybeShowShared();
+  };
+  const save=$('sharedDeckSave');
+  save.disabled=false;
+  save.textContent=currentUser?'儲存到我的牌組庫':'登入以儲存';
+  $('sharedDeckMsg').textContent='';
+  $('sharedDeckModal').classList.remove('hidden');
+  $('sharedDeckModal').setAttribute('aria-hidden','false');
+}
+function viewSharedDeck(){
+  if(!sharedDeck)return;
+  deck={...sharedDeck};selected=null;render();detail();
+}
+$('sharedDeckSave').onclick=async()=>{
+  if(!sharedDeck)return;
+  if(!currentUser){closeSharedModal();showAuth();return}
+  const btn=$('sharedDeckSave');btn.disabled=true;btn.textContent='儲存中…';
+  try{
+    const d=sharedDeck;
+    const payload={name:d.name,version:d.version,color:d.color,cards:d.cards,thumbnailId:d.thumbnailId||'',source:'',createdAt:serverTimestamp()};
+    const ref=await addDoc(collection(db,'users',currentUser.uid,'decks'),payload);
+    deck={...d,firestoreId:ref.id};selected=null;
+    sharedDeck=null;clearShareParam();closeSharedModal();
+    await loadSaved();render();detail();
+    showShareToast('已儲存到你的牌組庫！');
+  }catch(e){
+    console.error(e);
+    btn.disabled=false;btn.textContent='儲存到我的牌組庫';
+    $('sharedDeckMsg').textContent='儲存失敗：'+e.message;
+  }
+};
+function dismissSharedModal(){closeSharedModal();sharedDeck=null;clearShareParam()}
+$('sharedDeckClose').onclick=dismissSharedModal;
+$('sharedDeckCancel').onclick=dismissSharedModal;
+$('sharedDeckModal').addEventListener('click',e=>{if(e.target===e.currentTarget)dismissSharedModal()});
+try{const n=await initCards();$('dbStatus').textContent=`本地卡片資料：${n} 張；支援任意 Rugia IP 牌組匯入。先執行 GitHub Actions 同步即可載入完整卡表。`;$('dbStatus').classList.remove('error');loadShared()}catch(e){$('msg').textContent=e.message;$('msg').style.color='#b34b35'}
+
+document.addEventListener('click',e=>{
+  if(e.target.closest('#mobileDetailBtn')) openMobileDetail();
+  if(e.target.closest('[data-close-mobile-detail]')) closeMobileDetail();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeMobileDetail();
+});
+
+const deckColorInput=$('deckColor'),deckColorPreview=$('deckColorPreview');
+if(deckColorInput){
+  const updateDeckColor=()=>{
+    const c=deckColorClass(deckColorInput.value);
+    if(deckColorPreview)deckColorPreview.className=`color-dot ${c}`;
+    if(deck)deck.color=c;
+  };
+  deckColorInput.addEventListener('change',updateDeckColor);
+  updateDeckColor();
 }
